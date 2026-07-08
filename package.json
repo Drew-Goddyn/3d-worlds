@@ -1,0 +1,14 @@
+{
+  "name": "threejs-demolition-playground",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "check": "node scripts/check-import-assets.mjs",
+    "verify": "node scripts/verify-playground.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}

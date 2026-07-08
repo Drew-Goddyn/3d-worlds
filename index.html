@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Demolition Playground</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.185.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="world" aria-label="Procedural demolition playground"></canvas>
+      <section class="hud" aria-label="Demolition controls">
+        <div class="hud-row tools" role="group" aria-label="tool selector">
+          <button class="tool active" type="button" data-tool="ball" title="Ball tool">BALL</button>
+          <button class="tool" type="button" data-tool="charge" title="Charge tool">CHARGE</button>
+          <button class="plunger" type="button" data-action="detonate" title="Detonate charges">FIRE</button>
+        </div>
+        <div class="hud-row trim" role="group" aria-label="crane controls">
+          <label for="craneYaw"><span>YAW</span><input id="craneYaw" type="range" min="-60" max="60" value="-18" aria-label="Crane yaw"></label>
+          <label for="cableLength"><span>LINE</span><input id="cableLength" type="range" min="10" max="24" value="17" aria-label="Cable length"></label>
+          <label for="swingPower"><span>PWR</span><input id="swingPower" type="range" min="0" max="100" value="72" aria-label="Swing power"></label>
+          <button type="button" data-action="swing" title="Swing wrecking ball">HIT</button>
+        </div>
+        <div class="hud-row transport" role="group" aria-label="timeline controls">
+          <button type="button" data-action="slow" title="Slow motion">SLOW</button>
+          <button type="button" data-action="rewind" title="Rewind">REW</button>
+          <input id="timeline" type="range" min="0" max="0" value="0" aria-label="timeline">
+          <button type="button" data-action="camera" title="Action camera">CAM</button>
+          <button type="button" data-action="reset" title="Reset city">RESET</button>
+          <select id="quality" aria-label="quality" title="Quality">
+            <option value="high">HIGH</option>
+            <option value="medium">MED</option>
+            <option value="low">LOW</option>
+          </select>
+        </div>
+        <div class="hud-row readout" aria-label="score">
+          <span id="tonnage">0 t</span>
+          <span id="chain">x1</span>
+          <span id="style">PRISTINE</span>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
