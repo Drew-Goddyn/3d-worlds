@@ -1,7 +1,7 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
-import { extname, join, relative } from "node:path";
+import { extname, join, relative, resolve } from "node:path";
 
-const root = process.cwd();
+const root = resolve(import.meta.dirname, "..");
 const denyExtensions = new Set([
   ".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".avif", ".ico",
   ".glb", ".gltf", ".obj", ".fbx", ".hdr", ".exr",

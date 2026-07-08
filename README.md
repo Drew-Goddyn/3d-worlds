@@ -1,6 +1,10 @@
-# Three.js Demolition Playground
+# 3D Worlds
 
-Procedural browser demolition toy built from code-only geometry and materials.
+Code-only browser worlds and interactive Three.js experiments.
+
+## Worlds
+
+- `worlds/demolition-site` - crane and demolition playground.
 
 ## Run
 
@@ -18,5 +22,4 @@ npm run check
 npm run verify
 ```
 
-The runtime is intentionally unbundled. `index.html` owns the browser import map for Three.js, and app modules import Three.js only as `three` and `three/addons/...`.
-
+The root package scripts currently target `worlds/demolition-site`.

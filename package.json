@@ -1,12 +1,12 @@
 {
-  "name": "threejs-demolition-playground",
+  "name": "3d-worlds",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node server.mjs",
-    "check": "node scripts/check-import-assets.mjs",
-    "verify": "node scripts/verify-playground.mjs"
+    "dev": "node worlds/demolition-site/server.mjs",
+    "check": "node worlds/demolition-site/scripts/check-import-assets.mjs",
+    "verify": "node worlds/demolition-site/scripts/verify-playground.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"

@@ -3,8 +3,8 @@ import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-const root = process.cwd();
-const evidenceRoot = "/Users/Drew/projects/.codex-plan-goals/3d-worlds/threejs-demolition-playground/evidence";
+const root = resolve(import.meta.dirname, "..");
+const evidenceRoot = "/Users/Drew/projects/.codex-plan-goals/3d-worlds/demolition-site/evidence";
 const stamp = new Date().toISOString().replace(/[:.]/g, "-");
 const runDir = join(evidenceRoot, `${stamp}-verify`);
 const port = Number(process.env.PORT || 4173);
