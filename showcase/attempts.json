@@ -20,7 +20,7 @@
       "id": "demolition-site",
       "name": "Demolition Site",
       "promptId": "demolition-playground",
-      "directory": "prompts/demolition-playground/builds/demolition-site",
+      "directory": "prompts/demolition-playground/builds/gpt-5.5-xhigh",
       "leadModel": "gpt-5.5",
       "leadModelLabel": "GPT-5.5",
       "reasoningEffort": "xhigh",
@@ -34,7 +34,7 @@
       "previewViewport": [1440, 900],
       "launch": {
         "workingDirectory": ".",
-        "commands": ["PORT=4174 node prompts/demolition-playground/builds/demolition-site/server.mjs"],
+        "commands": ["PORT=4174 node prompts/demolition-playground/builds/gpt-5.5-xhigh/server.mjs"],
         "url": "http://127.0.0.1:4174",
         "runtimeNetworkRequired": true
       }
@@ -43,7 +43,7 @@
       "id": "district-08",
       "name": "District 08",
       "promptId": "demolition-playground",
-      "directory": "prompts/demolition-playground/builds/district-08",
+      "directory": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra",
       "leadModel": "gpt-5.6-sol",
       "leadModelLabel": "GPT-5.6 Sol",
       "reasoningEffort": "ultra",
@@ -56,7 +56,7 @@
       "previewViewport": [1440, 900],
       "launch": {
         "workingDirectory": ".",
-        "commands": ["npm --prefix prompts/demolition-playground/builds/district-08 ci", "npm --prefix prompts/demolition-playground/builds/district-08 run dev -- --port 4175"],
+        "commands": ["npm --prefix prompts/demolition-playground/builds/gpt-5.6-sol-ultra ci", "npm --prefix prompts/demolition-playground/builds/gpt-5.6-sol-ultra run dev -- --port 4175"],
         "url": "http://localhost:4175",
         "node": ">=22.13.0",
         "dependencyInstallationRequired": true
@@ -66,7 +66,7 @@
       "id": "demolition-district",
       "name": "Demolition District",
       "promptId": "demolition-playground",
-      "directory": "prompts/demolition-playground/builds/demolition-district",
+      "directory": "prompts/demolition-playground/builds/gpt-6-astra-ultra",
       "leadModel": "gpt-6-astra",
       "leadModelLabel": "GPT-6 Astra",
       "reasoningEffort": "ultra",
@@ -79,12 +79,12 @@
       "previewViewport": [1440, 900],
       "launch": {
         "workingDirectory": ".",
-        "commands": ["node prompts/demolition-playground/builds/demolition-district/server.mjs"],
+        "commands": ["node prompts/demolition-playground/builds/gpt-6-astra-ultra/server.mjs"],
         "url": "http://127.0.0.1:4173",
         "runtimeNetworkRequired": false,
         "dependencyInstallationRequired": false
       },
-      "verification": "prompts/demolition-playground/builds/demolition-district/evidence/verification.json"
+      "verification": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verification.json"
     }
   ]
 }
