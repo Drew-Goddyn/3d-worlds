@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "title": "3D Worlds",
+  "description": "Independent browser-world builds grouped by the same creative prompt.",
+  "comparisonType": "iterative-artifact-showcase",
+  "prompts": [
+    {
+      "id": "demolition-playground",
+      "title": "Maximum-ambition interactive demolition playground",
+      "file": "prompts/demolition-playground.md",
+      "sha256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+      "bytes": 6308,
+      "originalAttachmentsCompared": 3,
+      "comparison": "byte-identical",
+      "verifiedOn": "2026-09-04"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "demolition-site",
+      "name": "Demolition Site",
+      "promptId": "demolition-playground",
+      "directory": "worlds/demolition-site",
+      "leadModel": "gpt-5.5",
+      "leadModelLabel": "GPT-5.5",
+      "reasoningEffort": "xhigh",
+      "createdOn": "2026-07-07",
+      "creationCommit": "be95634",
+      "relocationCommit": "aeeee89",
+      "provenanceStatus": "verified-from-creation-records",
+      "provenanceSource": "Local Codex turn_context metadata correlated with creation requests and commits; raw transcripts remain private.",
+      "workflowNote": "Planned implementation, followed by requested polish and adversarial review.",
+      "preview": "showcase/previews/demolition-site.png",
+      "previewViewport": [1440, 900],
+      "launch": {
+        "workingDirectory": ".",
+        "commands": ["PORT=4174 node worlds/demolition-site/server.mjs"],
+        "url": "http://127.0.0.1:4174",
+        "runtimeNetworkRequired": true
+      }
+    },
+    {
+      "id": "district-08",
+      "name": "District 08",
+      "promptId": "demolition-playground",
+      "directory": "worlds/demolition-playground",
+      "leadModel": "gpt-5.6-sol",
+      "leadModelLabel": "GPT-5.6 Sol",
+      "reasoningEffort": "ultra",
+      "createdOn": "2026-07-09",
+      "creationCommit": "67590c3",
+      "provenanceStatus": "verified-from-creation-records",
+      "provenanceSource": "Local Codex turn_context metadata correlated with creation requests and commits; raw transcripts remain private.",
+      "workflowNote": "Executive, systems, and experience roles; recorded helper contexts also identify GPT-5.6 Sol at ultra. A later xhigh turn packaged a ZIP and is excluded from the build label.",
+      "preview": "showcase/previews/district-08.png",
+      "previewViewport": [1440, 900],
+      "launch": {
+        "workingDirectory": ".",
+        "commands": ["npm --prefix worlds/demolition-playground ci", "npm --prefix worlds/demolition-playground run dev -- --port 4175"],
+        "url": "http://localhost:4175",
+        "node": ">=22.13.0",
+        "dependencyInstallationRequired": true
+      }
+    },
+    {
+      "id": "demolition-district",
+      "name": "Demolition District",
+      "promptId": "demolition-playground",
+      "directory": "demolition-district",
+      "leadModel": "gpt-6-astra",
+      "leadModelLabel": "GPT-6 Astra",
+      "reasoningEffort": "ultra",
+      "createdOn": "2026-09-04",
+      "creationCommit": "f06437f",
+      "provenanceStatus": "verified-from-creation-records",
+      "provenanceSource": "Local Codex turn_context metadata correlated with creation requests and commits; raw transcripts remain private.",
+      "workflowNote": "Independent city and simulation implementation with fresh-context verification and subsequent integration fixes. Later xhigh repository-administration turns are excluded from the build label.",
+      "preview": "showcase/previews/demolition-district.png",
+      "previewViewport": [1440, 900],
+      "launch": {
+        "workingDirectory": ".",
+        "commands": ["node demolition-district/server.mjs"],
+        "url": "http://127.0.0.1:4173",
+        "runtimeNetworkRequired": false,
+        "dependencyInstallationRequired": false
+      },
+      "verification": "demolition-district/evidence/verification.json"
+    }
+  ]
+}
