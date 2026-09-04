@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node worlds/demolition-site/server.mjs",
-    "check": "node worlds/demolition-site/scripts/check-import-assets.mjs",
-    "verify": "node worlds/demolition-site/scripts/verify-playground.mjs"
+    "dev": "node prompts/demolition-playground/builds/demolition-site/server.mjs",
+    "check": "node prompts/demolition-playground/builds/demolition-site/scripts/check-import-assets.mjs",
+    "verify": "node prompts/demolition-playground/builds/demolition-site/scripts/verify-playground.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"

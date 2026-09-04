@@ -8,7 +8,7 @@ All three original demolition prompt attachments were compared byte for byte on 
 
 - Length: **6,308 bytes**.
 - SHA-256: `934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7`.
-- Public copy: [demolition playground prompt](../prompts/demolition-playground.md).
+- Public copy: [demolition playground prompt](../prompts/demolition-playground/PROMPT.md).
 
 ## Recovered settings
 
