@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eee9dc">
+  <meta name="description" content="A sunlit city. A very heavy ball. All the destruction you can undo. A procedural Three.js demolition playground.">
+  <title>Demolition District — A reversible playground</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23f4b531'/%3E%3Cpath d='M34 0v29' stroke='%232c332d' stroke-width='4'/%3E%3Ccircle cx='32' cy='41' r='17' fill='%232c332d'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">{"imports":{"three":"./vendor/three-0.180.0/three.module.js","three/addons/":"./vendor/three-0.180.0/addons/"}}</script>
+</head>
+<body>
+  <main id="playground" aria-label="Interactive demolition district">
+    <canvas id="world" aria-label="Demolition city. Drag to orbit, scroll to zoom. Select a building to swing the ball or place a charge." tabindex="0"></canvas>
+    <header class="topbar">
+      <div class="identity"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><div><strong>Demolition District<span class="small-dot">®</span></strong><div class="eyebrow"><span class="live-dot"></span> ALL CLEAR. HAVE AT IT.</div></div></div>
+      <div class="scoreboard" aria-label="Demolition statistics"><div><span class="eyebrow">TONNES DOWN</span><strong id="tonnage">0<span> t</span></strong></div><span class="score-line"></span><div><span class="eyebrow">CHAIN REACTION</span><strong id="chain">×1<span id="chain-label"> no damage yet</span></strong></div></div>
+    </header>
+    <div class="site-tag"><span class="site-pin">⌖</span><div><span class="eyebrow">THE FINANCIAL QUARTER</span><span>Morning shift <span class="tag-dot">·</span> 08:42 AM</span></div></div>
+    <aside class="view-tools" aria-label="View controls">
+      <button id="action-camera" class="icon-btn" title="Action camera (C)" aria-label="Toggle action camera" aria-pressed="false" data-icon="camera"></button>
+      <button id="reset-view" class="icon-btn" title="Reset camera view (H)" aria-label="Reset camera view" data-icon="scan"></button>
+      <span class="tool-divider"></span>
+      <label class="quality-label" title="Graphics quality"><span data-icon="quality"></span><select id="quality" aria-label="Graphics quality"><option value="high">HIGH</option><option value="medium">MED</option><option value="low">LOW</option></select></label>
+      <button id="sound" class="icon-btn" title="Toggle sound" aria-label="Toggle sound" aria-pressed="false" data-icon="muted"></button>
+    </aside>
+    <div id="target-label" class="target-label" hidden></div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <div class="bottom-ui">
+      <div class="context-row"><span class="tool-hint" id="tool-hint"><span class="key-icon">↖</span> Click a building to swing. <span class="hint-soft">Drag to look around.</span></span><span class="simulation-state" id="simulation-state"><i></i> REAL TIME <span>1.0×</span></span></div>
+      <div class="dock">
+        <div class="tools" role="group" aria-label="Demolition tool"><button id="ball-tool" class="tool active" aria-pressed="true"><span data-icon="ball"></span><span>Wrecking ball</span><kbd>1</kbd></button><button id="charge-tool" class="tool" aria-pressed="false"><span data-icon="charge"></span><span>Charges</span><kbd>2</kbd><span id="charge-count" class="count">0/6</span></button></div>
+        <div class="dock-divider"></div>
+        <button id="slow-motion" class="tool slow" aria-pressed="false" title="Toggle slow motion, or hold Space"><span data-icon="slow"></span><span>Slow motion</span><kbd>SPACE</kbd></button>
+        <div class="dock-divider"></div>
+        <button id="rewind" class="rewind" title="Rewind recorded destruction (R)" aria-pressed="false"><span data-icon="rewind"></span><span>Rewind</span><kbd>R</kbd></button>
+        <button id="reset-city" class="reset-city" title="Rebuild the city by rewinding everything" aria-label="Rebuild city"><span data-icon="rebuild"></span></button>
+      </div>
+      <div class="timeline-row"><button id="play-pause" aria-label="Pause simulation" title="Pause or resume" data-icon="pause"></button><span id="timeline-time">00:00.0</span><div class="timeline-wrap"><div class="timeline-ticks"></div><input id="timeline" type="range" min="0" max="60" step="0.01" value="0" aria-label="Scrub the last 60 seconds"><div class="timeline-fill" id="timeline-fill"></div></div><span class="history-label">60s HISTORY</span><span class="record-dot"></span></div>
+      <div class="footer-hints"><span><span class="mouse-symbol">◧</span> ORBIT <b>·</b> RIGHT DRAG TO PAN <b>·</b> SCROLL TO ZOOM</span><span>EVERYTHING IS TEMPORARY.</span></div>
+    </div>
+    <div class="crane-controls" id="crane-controls" aria-label="Crane controls"><span class="eyebrow">CRANE CONTROL</span><div><button data-crane="left" aria-label="Rotate crane left" title="Rotate left (A)">↶</button><button data-crane="right" aria-label="Rotate crane right" title="Rotate right (D)">↷</button><span></span><button data-crane="up" aria-label="Shorten cable" title="Shorten cable (W)">↑</button><button data-crane="down" aria-label="Lengthen cable" title="Lengthen cable (S)">↓</button><button data-crane="swing" class="swing-button" title="Add swing momentum (F)">SWING <span>↗</span></button></div></div>
+    <button id="detonate" class="detonate" hidden disabled><span data-icon="plunger"></span><span>DETONATE <small id="detonate-count">0 CHARGES</small></span></button>
+    <div id="error" role="alert" hidden></div>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

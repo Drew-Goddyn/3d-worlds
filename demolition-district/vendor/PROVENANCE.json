@@ -1,0 +1,17 @@
+{
+  "dependency": "three",
+  "version": "0.180.0",
+  "license": "MIT",
+  "licenseFile": "three-0.180.0/LICENSE",
+  "sourceBase": "https://cdn.jsdelivr.net/npm/three@0.180.0/",
+  "files": [
+    "build/three.module.js",
+    "build/three.core.js",
+    "examples/jsm/controls/OrbitControls.js",
+    "examples/jsm/utils/BufferGeometryUtils.js"
+  ],
+  "runtimeNetworkRequests": false,
+  "localChanges": [
+    "Normalized indentation whitespace on one line in three.core.js; no runtime changes."
+  ]
+}

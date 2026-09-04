@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-04T22:33:47.387148+00:00",
+  "scope": "demolition-district only; no sibling projects inspected",
+  "context": "Independent verifier received original brief, standing invariant set, and implementation files only.",
+  "status": "functional_and_invariant_gates_pass",
+  "tests": {
+    "command": "node --test tests/*.test.mjs",
+    "passed": 15,
+    "failed": 0,
+    "evidence": "evidence/verification-tests.txt"
+  },
+  "resolvedFindings": [
+    {
+      "problem": "Destroyed ground floor left upper storeys suspended",
+      "before": "Ground floor y=0.28 and state=3; upper bank storeys still y=4.53 and 8.83 with state=0",
+      "after": "Unchanged independent four-corner-charge full-collapse test passes; real one-charge water-building collapse reaches all six storeys",
+      "beforeEvidence": "evidence/verify-support-failure.png"
+    },
+    {
+      "problem": "Rooftop tank was not registered",
+      "before": "Actual city capture had zero tanks",
+      "after": "One tank registered; actual UI collapse detaches tank, bursts 180 water particles, and settles it; rewind reattaches it"
+    },
+    {
+      "problem": "Entire batched facade detail disappeared into tiny replacement fragments",
+      "before": "Five whole-floor material batches hidden after first bank blast",
+      "after": "Architectural source primitives retained in deterministic ballistic render motion; pane ranges detach individually and restore exact vertices"
+    },
+    {
+      "problem": "Portrait overview clipped much of city",
+      "after": "390x844 view fits city; all visible controls stay within viewport"
+    },
+    {
+      "problem": "Space suppressed keyboard button activation",
+      "after": "Real focused-button Space toggles slow-motion control successfully"
+    },
+    {
+      "problem": "Fragment playback lacked interpolated presentation age",
+      "after": "Observed age 0.1625 equals sample-interpolated expected age exactly"
+    }
+  ],
+  "invariants": {
+    "completeDeterministicSnapshots": "Exact future replay, random state, charge schedules, props, tank and history checked by tests. Actual complete browser capture restored exactly.",
+    "history60Seconds": "Unit history under prolonged use retains full 60 seconds; actual browser observed 60.0309 seconds retained.",
+    "branching": "Real timeline Home restored pristine earlier state; real charge placement truncated abandoned end from 88.1398 to 28.2089 seconds.",
+    "reset": "Actual rebuild control returns damage, debris, charges and tank to pristine and starts history at zero, including reset after archived start.",
+    "sourceGeometryPreservation": "Actual city integration has 44 floor assemblies and 308 facade panes. Impact removed 55 panes; rewind restored all exact position buffer values and exact captured state.",
+    "finiteRuntimeState": "All numeric capture fields finite after final six-building collapse; independent long-settle tests keep floors supported and debris persistent.",
+    "scopeAndDependencies": "No package dependencies; local pinned Three.js 0.180.0 import map precedes module; only procedural local assets; localhost server confined to project root.",
+    "qualityAndLOD": "Tests prove distance and quality alter rendering without changing captured disaster; source inspection confirms far point impostors and quality-specific shadow, debris and dust rendering.",
+    "controls": "Real pointer charge placement/detonation and ball collision passed; native timeline keyboard scrub and button Space passed; slow motion measured 0.1500 simulated seconds per 1.5011 wall seconds.",
+    "stressAndReactionRendering": "Final stress shader compiled without browser warnings/errors. Inspected installed crack shader and nonzero stress 0.98595. Actual city has 22 articulated crowd arms and 14 pigeon wings."
+  },
+  "finalPerformance": {
+    "viewport": [
+      1440,
+      900
+    ],
+    "quality": "high",
+    "sampleMs": 7007.1,
+    "frames": 421,
+    "medianFrameMs": 16.7,
+    "p95FrameMs": 16.8,
+    "maxFrameMs": 16.8,
+    "collapsedBuildings": 6,
+    "tonnage": 2259,
+    "debrisCount": 1400,
+    "drawCalls": 401
+  },
+  "visualReplay": {
+    "method": "Read all 1440x900 WebGL RGBA pixels after two animation frames; seek later; return to same fractional mid-collapse time; compare FNV-1a framebuffer hashes",
+    "time": 1.5264,
+    "firstHash": 107547342,
+    "secondHash": 107547342,
+    "identical": true
+  },
+  "browserErrors": [],
+  "browserWarnings": [],
+  "visuallyInspected": [
+    "evidence/verify-pristine.png",
+    "evidence/verify-mobile-fixed.png",
+    "evidence/verify-water-burst.png",
+    "evidence/verify-final-collapse.png",
+    "evidence/verify-final-settled.png"
+  ],
+  "limits": [
+    "The physical solve is coarse storey/column support and impact transfer. Architectural fragment flight is deterministic analytic motion, with ground contact, rather than independent fragment-to-fragment rigid-body collision.",
+    "The decorative chip pool is capped at 1400 and recycles under full-district destruction. Major source architectural primitives and slabs persist; individual decorative chips are not permanent.",
+    "Performance evidence is from this local browser and machine, not an independent fleet of modern laptops. Visual ambition remains a style assessment rather than a numerical guarantee."
+  ],
+  "sourceHashes": {
+    "src/city.js": "0fd048a58d8b344d00dc8afe740cb0c516b0e0f5be4a632dbd47ffd18857edd1",
+    "src/crane.js": "8c57e4eba4c58b5fea40650e9559a157e603cf6f454ba952a5f220b6dbbbf9e6",
+    "src/fracture.js": "3306d23d0819122b1f223a451b7100de701cfc6301012b0ab6b8d151bed9fe43",
+    "src/history.js": "2702269060626387d8a151f5a469755eef5d0951cf47acea1e0c6ee9f22cbede",
+    "src/icons.js": "d727c5daf35261b7a93141f4ddc41c03243103aec2af4f9d77a8c2bbbb3ce30b",
+    "src/main.js": "d1f160ccddb9bcf66a580da2b5594f41f800fcaf569ce642ef343d3327f432c5",
+    "src/simulation.js": "e258aaa9453e54d06907c1b62b005dd3656915d7da9d05999512b4af7732d622"
+  }
+}

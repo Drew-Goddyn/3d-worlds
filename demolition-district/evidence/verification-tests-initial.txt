@@ -1,0 +1,36 @@
+✔ rolling history retains at least 60 seconds and interpolates inside that window (3.438ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (56.62325ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (15.398917ms)
+✔ six-charge limit and all staged detonation state survive rewind (19.460292ms)
+✖ a complete collapse retains finite supported positions and persistent settled debris (41.88475ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 329.768833
+
+✖ failing tests:
+
+test at demolition-district/tests/verification.test.mjs:64:1
+✖ a complete collapse retains finite supported positions and persistent settled debris (41.88475ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert.ok(sim.stats.collapsed>0)
+
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/0d89/3d-worlds/demolition-district/tests/verification.test.mjs:70:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
