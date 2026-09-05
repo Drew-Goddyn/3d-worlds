@@ -105,7 +105,13 @@ export class Crane {
               const speed=this.velocity.length();
               const direction=this.velocity.clone().normalize(),power=Math.min(150,26+speed*5);
               if(hit.body.content)simulation.bank.hitContent(hit.body,power,direction);
-              else simulation.impact(hit.point,power,direction);
+              else {
+                // Breaking thin glazing is not the same energy transfer as
+                // striking its masonry surround. Subsequent physical contact
+                // with stone still applies the full architectural impact.
+                const transfer=hit.body.role==='glass'?.28:hit.body.role==='joinery'?.55:1;
+                simulation.impact(hit.point,power*transfer,direction);
+              }
               const fragile=hit.body.role==='glass'||hit.body.role==='joinery'||hit.body.content;
               // Thin glass and movable contents absorb energy without reflecting
               // the ball from the vanished original facade.
