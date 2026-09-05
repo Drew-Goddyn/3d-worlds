@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "promptId": "demolition-playground",
+  "release": "demolition-demo-v1",
+  "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+  "mode": "preview",
+  "recorderCommit": "1952f39470b7a834dac06b94cd6c019a79954538",
+  "pinnedGameCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "durationSeconds": 70,
+  "fps": 30,
+  "frames": 2100,
+  "individualSize": [
+    1920,
+    1080
+  ],
+  "comparisonSize": [
+    3840,
+    840
+  ],
+  "disclosure": "These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. Original builds remain unchanged.",
+  "publicDownloads": [
+    {
+      "name": "demolition-comparison.mp4",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4",
+      "sha256": "07020b4d30c4ec8665feacb3e0bd23163e13f8930733943305a5ff320a626c5b",
+      "passed": true
+    },
+    {
+      "name": "demolition-evidence.zip",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip",
+      "sha256": "bde2cc7a26b6bc82788c113317596a2e01e99ace62fe4f3c40f90985940558ec",
+      "passed": true
+    },
+    {
+      "name": "demolition-viewer.zip",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip",
+      "sha256": "66dd9bae42e9ec6a8bd9a22149dc122bbf0666fec340854049d1ecefd3d33766",
+      "passed": true
+    },
+    {
+      "name": "gpt-5.5-xhigh.mp4",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-5.5-xhigh.mp4",
+      "sha256": "0f8400700adf344ee9d6be04f63e8dada8cb2d9dc229c02eee24e1c99eed7201",
+      "passed": true
+    },
+    {
+      "name": "gpt-5.6-sol-ultra.mp4",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-5.6-sol-ultra.mp4",
+      "sha256": "c3c1838bd0b2a23fe0dcb2ab6ee315889d224046f9cbd85126e9df6ac253e3b9",
+      "passed": true
+    },
+    {
+      "name": "gpt-6-astra-ultra.mp4",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-6-astra-ultra.mp4",
+      "sha256": "f31abe60aadcb6df8a5f42d73748b22d2dd4e5221e79c0e86b4265947d0c0f8d",
+      "passed": true
+    },
+    {
+      "name": "SHA256SUMS",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS",
+      "sha256": "217c280011f1064478976c5aa4cfe4de76f018778d0fa620d602ff8a7c205949",
+      "passed": true
+    }
+  ]
+}

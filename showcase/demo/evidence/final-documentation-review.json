@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "reviewer": "preview_verify",
+  "checkedAt": "2026-09-05T04:36:34.391Z",
+  "status": "pass",
+  "scope": "Final published-preview documentation, release metadata and anonymous public asset proof",
+  "releaseCommit": "1952f39470b7a834dac06b94cd6c019a79954538",
+  "checks": {
+    "scope": true,
+    "publicProofCopy": true,
+    "approvalCopy": true,
+    "sevenPublicChecks": true,
+    "releaseMetadata": true,
+    "githubDigests": true,
+    "links": true,
+    "sums": true,
+    "releaseBody": true,
+    "strictNotApproved": true
+  },
+  "changedFiles": [
+    {
+      "path": "README.md",
+      "sha256": "ee860c9212376356508ecef9b63e20bd2aeccfadfb7d06b33e457351a68b2f96"
+    },
+    {
+      "path": "prompts/demolition-playground/README.md",
+      "sha256": "f4704601f38c55c3e251c15c86bffee0337a3dd2f0e1cd5fc8388eaaa98242fe"
+    },
+    {
+      "path": "prompts/demolition-playground/demo/README.md",
+      "sha256": "a019bda60086fbcda2c68b4faff452ce8349126361552bc17da5f16873427621"
+    },
+    {
+      "path": "showcase/README.md",
+      "sha256": "2ca17a495e2434607247db6e1d2a867915b76f3803ef93a51c092b2f6c039ca5"
+    },
+    {
+      "path": "showcase/demo/README.md",
+      "sha256": "85b743718d746c9923f20c38caf50bc04806ea182ba97de2c8ea48f1c9aabde5"
+    },
+    {
+      "path": "showcase/demo/STATUS.json",
+      "sha256": "33edd7df6f36115e614a9152cb3154983321b24a560b5f3b8b983cb61547a19c"
+    },
+    {
+      "path": "showcase/demo-release.json",
+      "sha256": "590ebacb44168b073f2fa2abb1de0554ece99dd933c595e74050360909e585af"
+    },
+    {
+      "path": "showcase/demo/evidence/preview-publication-review.json",
+      "sha256": "6ae7725d52031fb13570d16a6b95072c3f2e2525a79dbc2e2a9a8403d2e56a6e"
+    },
+    {
+      "path": "showcase/demo/evidence/public-download-verification.json",
+      "sha256": "008dc4d932134bab95517154c0538437e1b7e3a7b46d50b25211c9d9c48591aa"
+    }
+  ],
+  "diffSha256": "701185534ab0e4200bdb4494b2865e4846a5c5f02a5956809388f0e09cb4554f",
+  "linkChecks": [
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/PROMPT.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-5.5-xhigh/",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-6-astra-ultra/",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "showcase/README.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "showcase/attempts.json",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-5.5-xhigh.mp4",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-5.6-sol-ultra.mp4",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-6-astra-ultra.mp4",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "showcase/demo/README.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/previews/demolition-site.png",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-5.5-xhigh/docs/adversarial-review.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-5.5-xhigh/README.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/previews/district-08.png",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/README.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/previews/demolition-district.png",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-6-astra-ultra/README.md",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verification.json",
+      "passed": true
+    },
+    {
+      "from": "README.md",
+      "url": "showcase/attempts.json",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "PROMPT.md",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "builds/gpt-5.5-xhigh/",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "builds/gpt-5.6-sol-ultra/",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "builds/gpt-6-astra-ultra/",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "../../README.md",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "../../showcase/README.md",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "../../showcase/attempts.json",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "demo/README.md",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/README.md",
+      "url": "../../showcase/demo/README.md",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/demo/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/demo/README.md",
+      "url": "../../../showcase/demo/README.md",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/demo/README.md",
+      "url": "scenario.json",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/demo/README.md",
+      "url": "adapters.json",
+      "passed": true
+    },
+    {
+      "from": "prompts/demolition-playground/demo/README.md",
+      "url": "../../../showcase/demo/README.md",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "../prompts/demolition-playground/PROMPT.md",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "demo-release.json",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS",
+      "passed": true
+    },
+    {
+      "from": "showcase/README.md",
+      "url": "attempts.json",
+      "passed": true
+    },
+    {
+      "from": "showcase/demo/README.md",
+      "url": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+      "passed": true
+    }
+  ],
+  "publicDownloadReview": {
+    "path": "preview-review/independent-public-download-review.json",
+    "sha256": "9c5fc089ce03634310273ef8e550e180bf6f9e72ae990a02441605b59657c0ed"
+  },
+  "releaseNotesSha256": "a817a370633f4fd0d8a756dae5fca33c35db31fcc5c89bf797a0d3a0f6a02f75",
+  "strictContinuityApproved": false
+}

@@ -1,6 +1,6 @@
 # Demolition comparison recorder
 
-Read `STATUS.json` and the independent reports in `evidence/` for the current recording and publication state.
+The [published preview release](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1) contains the four films, offline viewer, evidence and checksums. Read `STATUS.json` and the independent reports in `evidence/` for the exact verified revision and publication state.
 
 The user authorized a **labeled preview release** after the strict capture-continuity review remained inconclusive. Astra's charges chapter contains seven repeated output frames across five brief holds, up to 100 ms. Native presentation between captures is unknown; these films cannot support FPS or performance rankings. The original strict verifier still rejects this film set. Its reports, unsuccessful takes and unchanged frame mappings remain retained.
 
@@ -15,7 +15,7 @@ npm run demo -- package --preview --output .demo-work/demolition-demo-v1-release
 npm run demo -- publish --preview --output .demo-work/demolition-demo-v1-release
 ```
 
-Packaging follows the independent recording/viewer review. Publication additionally requires exact-commit and six-asset-hash approval with `mode: preview`; the release is marked as a GitHub prerelease and prominently discloses the limitation. No existing release or ZIP is overwritten. The commands below retain the strict workflow for future runs.
+Before packaging, retain the aggregate strict report from `npm run demo -- verify --output .demo-work/demolition-demo-v1-release`. Its expected nonzero result records the unresolved continuity finding; preview approval never changes that result. Packaging follows the independent recording/viewer review. Publication additionally requires exact-commit and six-asset-hash approval with `mode: preview`; the release is marked as a GitHub prerelease and prominently discloses the limitation. No existing release or ZIP is overwritten. The commands below retain the strict workflow for future runs.
 
 ## Run locally
 

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "status": "pass",
+  "mode": "preview",
+  "commit": "1952f39470b7a834dac06b94cd6c019a79954538",
+  "assets": {
+    "demolition-comparison.mp4": "07020b4d30c4ec8665feacb3e0bd23163e13f8930733943305a5ff320a626c5b",
+    "demolition-evidence.zip": "bde2cc7a26b6bc82788c113317596a2e01e99ace62fe4f3c40f90985940558ec",
+    "demolition-viewer.zip": "66dd9bae42e9ec6a8bd9a22149dc122bbf0666fec340854049d1ecefd3d33766",
+    "gpt-5.5-xhigh.mp4": "0f8400700adf344ee9d6be04f63e8dada8cb2d9dc229c02eee24e1c99eed7201",
+    "gpt-5.6-sol-ultra.mp4": "c3c1838bd0b2a23fe0dcb2ab6ee315889d224046f9cbd85126e9df6ac253e3b9",
+    "gpt-6-astra-ultra.mp4": "f31abe60aadcb6df8a5f42d73748b22d2dd4e5221e79c0e86b4265947d0c0f8d"
+  },
+  "reviewedAt": "2026-09-05T04:31:08.487Z",
+  "independentVerifier": "preview_verify",
+  "release": "demolition-demo-v1",
+  "repository": "Drew-Goddyn/3d-worlds",
+  "publicationApproved": true,
+  "strictContinuityApproved": false,
+  "scope": "Only the user-authorized labeled preview as a GitHub prerelease at this exact commit with these six asset hashes. No strict capture-continuity certification.",
+  "authorizedException": {
+    "take": "official/astra/charges-rewind/take-1788577251681",
+    "repeatedOutputFrames": 7,
+    "maxDisplayedHoldSeconds": 0.1,
+    "maxSourceMetadataAgeSeconds": 0.09444117546081543,
+    "limitation": "Native presentation between captures remains unknown. Films cannot support FPS or performance ranking."
+  },
+  "evidence": {
+    "recordings": {
+      "file": "preview-recordings-review.json",
+      "sha256": "e21a537b225ba7f30e6447eafe773b1d5bc661ffd29345be5a728d75dcda346f"
+    },
+    "archive": {
+      "file": "preview-review/release-archive-review.json",
+      "sha256": "42f0a49c1d7cdfa22c3e4658486cb76b66a024a83ea9092b79a4fdb5f0b7e018"
+    },
+    "content": {
+      "file": "preview-review/archive-content-review.json",
+      "sha256": "729d041a82200cd22e4b87eb1adf1f1cc7be4cfd68f80c716809d2a4fba4911a"
+    }
+  },
+  "postPublicationRequirements": [
+    "Fetch all six public assets plus SHA256SUMS anonymously and compare every downloaded byte hash.",
+    "Only then update public showcase links and independently verify the actual documentation changes."
+  ]
+}

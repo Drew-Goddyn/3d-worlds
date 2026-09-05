@@ -1,6 +1,6 @@
 # Comparable demolition demos
 
-**Status: design, ready for implementation.** The scenario and adapter inventory are specifications; no recorder, adapter patches, calibrated shots, or videos have been implemented yet. Source inspected at `2d5c93339ee2cd938bebda777f413a8267140858`.
+**Status: implemented and published as [labeled previews](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1).** The shared recorder, temporary adapters, calibrated shots, four films, offline viewer and evidence are available. These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. Original builds remain unchanged. Pinned game source: `2d5c93339ee2cd938bebda777f413a8267140858`. [Commands and verification](../../../showcase/demo/README.md).
 
 Produce a 70-second demonstration of each build using the same shot directions, framing rules, action schedule, and chapter boundaries. Present the recordings with synchronized playback and permanent model/reasoning labels. Viewers should be able to compare city detail, interaction, collapse, debris, and reconstruction.
 
@@ -73,23 +73,13 @@ A new page/context starts every chapter. Assets and shaders may warm up in a dis
 
 ## Recording pipeline
 
-Proposed entry point, **not implemented yet**:
+The implemented entry point is `npm run demo -- <command> --prompt demolition-playground --run <run-id>`. See the [recorder guide](../../../showcase/demo/README.md) for calibration, pilot, recording, assembly, strict verification and the separately authorized preview publication path.
 
-```sh
-node showcase/demo/run.mjs --prompt demolition-playground --all
-```
+The runner extracts the pinned game revision into temporary copies, applies hash-verified adapter patches, and starts isolated agent-browser sessions on owned loopback servers. The installed Playwright library connects to Chrome’s timestamped screencast stream. JPEGs are captured at quality 95 and 1920 × 1080 with DPR 1, acknowledged promptly, and written through a bounded asynchronous queue. Overflow, failed writes or acknowledgment errors invalidate a take. No dependencies were added.
 
-The runner should:
+Recordings run sequentially in fresh contexts, with native highest-quality settings and HUDs. Visible markers before and after chapters, raw animation times before native clamps, action receipts and capture/write clocks retain the elapsed-time mapping and its uncertainty. Encoding occurs after capture; only owned browser sessions and servers are closed. Raw frames, temporary copies and unsuccessful takes remain outside Git.
 
-1. Read build locations and display labels from [the attempt catalog](../../../showcase/attempts.json); resolve the pinned commit, scenario hash, and adapter hashes. Refuse dirty or mismatched inputs unless explicitly creating a labeled development take.
-2. Check local recorder/browser/FFmpeg capabilities, installed build dependencies, and runtime assets. `agent-browser` and FFmpeg are present on the inspected machine; the repository also already includes Playwright. No new external dependency is planned.
-3. Create isolated temporary copies, apply only reviewed adapter patches, launch on loopback spare ports, and calibrate all builds. Freeze one common scenario/calibration set before official recording.
-4. Record builds **sequentially**, using the same browser version, viewport, foreground/visibility state, and GPU configuration. No simultaneous three-world rendering. Use isolated browser storage and no signed-in browsing profile. Record the highest native quality preset, native HUD, and silent audio consistently.
-5. Start recording before navigation/setup: `agent-browser record start` creates a fresh context. Wait for readiness in that recorded context, then run the complete chapter. Include a short visual synchronization pulse in pre-roll, remove it before chapter zero, and locate its video timestamp when trimming. Capture an original-camera still separately for reference.
-6. Stop/flush recording before processing. Save the unedited recording, receipt log, settings, timestamps, and warnings. Close only the browser sessions, servers, and temporary directories owned by this run.
-7. Assemble the three chapter windows with the same cuts and real-time durations, then produce individual films and a labeled synchronized comparison. Retain pre-roll and failed takes as evidence; the published cut starts at the declared marker.
-
-**Recorder resolution must be proven in a pilot.** Check actual dimensions and timestamps with `ffprobe`; viewport size alone does not prove video size. If the CLI recorder cannot produce the required resolution, use a narrow media recorder with the already-installed Playwright library and explicit `recordVideo.size = { width: 1920, height: 1080 }`, while retaining the same adapters and scenario. Await context closure to flush the file. Playwright's documented default scales video down to fit within 800 × 800. [Recording documentation](https://playwright.dev/docs/videos)
+The pilot proved 1080p disk capture above 30 fps on the smooth control fixture. Actual Astra charges recordings nevertheless contain unexplained capture holds. The strict verifier remains inconclusive for that chapter, and the user authorized a clearly labeled preview release. The first recorded charges take remains selected; the failed replacement was not substituted. All other verification requirements remain binding.
 
 Capture at real speed. Delivery may use a constant 30-fps container, preserving source timestamps and duration. Repeated/dropped frames remain visible; do not use optical-flow interpolation, speed ramps, per-build retiming, or frame-by-frame offline rendering. This is not a 30-FPS performance claim. Capture native render cadence separately if available, without scoring builds by their incomparable tonnage counters.
 

@@ -26,6 +26,16 @@ The creative brief matches exactly. The surrounding conditions do not: planning,
 
 Existing verification reports belong to their individual builds and environments. In particular, the first build's historical verification script includes an author-local output directory; it is retained as part of that artifact and is not advertised as a portable showcase-wide test command. The newer build's measured frame rates are local observations, not cross-model benchmark scores.
 
+## Recorded comparison previews
+
+**[Watch the side-by-side preview](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4)** · **[Download the synchronized viewer](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip)** · [All release assets](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1)
+
+These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. Original builds remain unchanged.
+
+The four films use shared chapter boundaries and matched camera framing. Native automatic/manual charge placement, misses, destruction and rewind semantics are retained. Independent review verified unchanged original sources, native controls, marker timing, video format, complete normal-speed playback and the offline viewer. The strict continuity review remains inconclusive; the user explicitly authorized publication with that limitation disclosed.
+
+[Evidence archive](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip) · [Release metadata](demo-release.json) · [Checksums](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS).
+
 ## Catalog fields
 
 [attempts.json](attempts.json) groups attempts by an exact prompt and records their folder, creation commit, lead model, reasoning effort, screenshot, and local launch instructions. Use `unverified` rather than guessing when provenance cannot be recovered.

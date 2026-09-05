@@ -33,7 +33,13 @@ The three original prompt attachments have the same SHA-256 hash. Model and reas
 
 These were iterative coding sessions with different follow-up instructions, tools, and agent workflows. They are a showcase of resulting artifacts, not a controlled model benchmark or a ranking.
 
-[Comparison demo design](prompts/demolition-playground/demo/README.md) specifies matching camera shots and actions for future synchronized recordings; the recorder and videos are not implemented yet.
+**[Watch the side-by-side preview](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4)** · **[Download the synchronized viewer](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip)** · [All release assets](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1)
+
+Three 70-second, 1080p films share camera framing and chapter timing: overview, one bank swing, then charges and native rewind. The downloadable viewer supports shared playback, seeking, chapters and focus mode. Extract the ZIP and open index.html.
+
+Individual previews: [GPT-5.5 · Xhigh](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-5.5-xhigh.mp4) · [GPT-5.6 Sol · Ultra](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-5.6-sol-ultra.mp4) · [GPT-6 Astra · Ultra](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/gpt-6-astra-ultra.mp4).
+
+These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. Original builds remain unchanged. [Evidence archive](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip) · [SHA-256 checksums](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS) · [Recorder and verification notes](showcase/demo/README.md).
 
 ### Demolition Site
 

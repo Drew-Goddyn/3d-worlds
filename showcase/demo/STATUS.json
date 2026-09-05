@@ -1,20 +1,19 @@
 {
   "schemaVersion": 2,
-  "status": "preview-films-verified-awaiting-packaged-assets",
-  "branch": "codex/comparison-recorder",
+  "status": "complete-authorized-preview-release",
+  "branch": "main",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "recordingFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
   "run": "demolition-demo-v1",
   "outputDirectory": ".demo-work/demolition-demo-v1-release",
   "officialTakes": 11,
-  "publication": "not-started",
+  "publication": "published-preview",
   "blockers": [],
   "verification": {
     "originalFilesCompared": 78,
     "unchanged": true,
     "recorderTestsPassed": 19,
     "preRecordingReport": "showcase/demo/evidence/pre-recording-review-2026-09-05.json",
-    "finalFilmsApproved": false,
     "mediaPropertiesPassed": true,
     "actualViewerChecksPassed": true,
     "retainedCaptures": 66,
@@ -23,7 +22,10 @@
     "recordingsReview": "showcase/demo/evidence/recordings-review-inconclusive.json",
     "previewFilmsApproved": true,
     "previewViewerChecksPassed": 18,
-    "previewRecordingsReview": "showcase/demo/evidence/preview-recordings-review.json"
+    "previewRecordingsReview": "showcase/demo/evidence/preview-recordings-review.json",
+    "strictFilmsApproved": false,
+    "publicDownloadsVerified": 7,
+    "publicationReview": "showcase/demo/evidence/preview-publication-review.json"
   },
   "completed": [
     "Hash-pinned temporary copies and native action adapters",
@@ -44,14 +46,9 @@
     "Final preview viewer independently passes18 controls, layout, buffering and disclosure checks",
     "91,225 raw JPEG hashes independently verified across66 retained captures"
   ],
-  "remaining": [
-    "Package six release assets at committed recorder revision",
-    "Obtain independent exact-commit and six-asset-hash approval",
-    "Merge and publish the authorized preview release",
-    "Verify anonymous public downloads and update showcase links"
-  ],
+  "remaining": [],
   "retention": "Every prior calibration, interrupted capture, rehearsal and official take remains under .demo-work outside Git. One rehearsal clock failure and one official start-marker capture failure were independently invalidated and replaced once with unchanged inputs. Historical failed reviews are preserved in evidence/.",
-  "resumeCommand": "Read preview authorization and preview review. No new official takes. Publish only with independent preview approval for exact commit and six asset hashes.",
+  "resumeCommand": "The authorized preview release is complete. Strict capture continuity remains inconclusive; preserve all retained takes and never overwrite demolition-demo-v1.",
   "selectedOfficialTakes": 9,
   "retainedTechnicalFailures": {
     "rehearsal": 1,
@@ -59,5 +56,7 @@
   },
   "previewAuthorization": "showcase/demo/evidence/preview-authorization.json",
   "strictCaptureContinuity": "inconclusive; preserved without waiver or changes to the strict verifier",
-  "publicationMode": "prerelease"
+  "publicationMode": "prerelease",
+  "releaseUrl": "https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1",
+  "verifiedReleaseCommit": "1952f39470b7a834dac06b94cd6c019a79954538"
 }
