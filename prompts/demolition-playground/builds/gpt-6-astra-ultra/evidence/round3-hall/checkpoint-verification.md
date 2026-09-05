@@ -1,0 +1,17 @@
+# Independent verification: accepted bank continuation
+
+**Result: PASS for the accepted round-two checkpoint; no blocking finding.** This is technical verification of the bank continuation and provenance edits, not a perfect-physics or renewed visual-acceptance claim.
+
+Reviewed in a fresh verifier context on 2026-09-05 with Node v26.3.0. Scope: origin/main `ac854cea3d554f34f39ca9f91a3197ad422b79ee` through HEAD `01ab16128ecf6580321d6d0c7e5e6b076ca15294`, including the four uncommitted README provenance changes present during review. Read the applicable operating contract. No implementation edits were made.
+
+## Evidence
+
+- Full existing application suite: **20 passed, 0 failed, 0 skipped**. It covers localized damage at distinct targets, independent bay failure, native-strength charges, retained rubble, deterministic replay, immutable snapshots, branch truncation, charge limits/timers, slow motion, neighboring collapse, water/prop state, quality-independent history, and pristine rebuild. Raw output: `/tmp/astra-checkpoint-suite.txt`.
+- Existing independent probe: **exit 0**. Exact replay passes under variable frame intervals; interpolated presentation preserves exact resume state; a different action in the past changes the future; retained history is **60.04999999999659 seconds**; permanent pristine restoration passes after eviction. Raw output: `/tmp/astra-checkpoint-probe.txt`.
+- Probe collapse: **27/27 bays failed**, **1,525 pieces settled**, **0 loose pieces**, **1,537 retained pieces** in Node (the browser additionally creates its canvas inscription). Reported transforms/velocities were finite. Four repeated rubble impacts left scored mass at **1694.129999999996**, below total movable mass **1694.130000000001**. The diagnostic central-footprint support check reported **0 unsupported settled pieces**, including after three more attacks. This bounded probe does not establish general physical realism.
+- Diff inspection: new geometry and dynamics are bank-specific; shared changes route bank picking, ball contact, charges, snapshots/rendering and score presentation through the new bank representation. Surrounding building recipes and their dynamics remain in place. History implementation, vendor runtime, import map, server, styles, original showcase media and other builds are unchanged. Added runtime imports resolve locally; no new service or dependency is introduced. Existing test assertions were retained; the original verification suite's import mechanism was adapted to load the new local module dependency. `git diff --check origin/main` passes.
+- Provenance: all four edited READMEs identify original films/images as historical evidence at the exact original checkpoint, distinguish the continuing Astra source from creation labels, preserve the capture-continuity caveat, and record acceptance of improved local breaking without claiming completion or perfect physics. The round-two evidence report remains a historical pre-acceptance report; its earlier pending-review wording is not a fresh verdict.
+
+## Limits
+
+This run reviewed source and reran technical checks; it did not repeat browser recordings, performance measurements or the owner's visual/play judgment. Their archived evidence was not promoted into fresh measurements. Contacts remain the disclosed bank-specific approximation, including prepared fracture joints and limited interlocking.

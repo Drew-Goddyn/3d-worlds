@@ -1,1 +1,27 @@
-{"phase":"building","baseline":"6d583d11b73e337114f597a772a5924f769cd562","branch":"round3/astra-bank-breach","checkpointPr":1,"checkpointMerged":true,"sessionSettings":"unverified","baselineReview":"Preserve cream stone civic exterior; make contrasting teller area and contents readable through breach; baseline rubble obscures hall. Stills do not prove material motion.","requiredBeforeDelivery":["complete native browser candidate inspection and revision","one fresh media-only paired review","fresh independent correctness verification","commit push and one unmerged PR","portable evidence ZIP"]}
+{
+  "phase": "verified-awaiting-pr",
+  "baseline": "6d583d11b73e337114f597a772a5924f769cd562",
+  "branch": "round3/astra-bank-breach",
+  "checkpointPr": 1,
+  "checkpointMerged": true,
+  "sessionSettings": "unverified",
+  "baselineReview": "Preserve cream stone civic exterior; make contrasting teller area and contents readable through breach; baseline rubble obscures hall. Stills do not prove material motion.",
+  "requiredBeforeDelivery": [
+    "commit and push evidence",
+    "open one unmerged PR",
+    "create evidence-only ZIP"
+  ],
+  "resultSource": "9aee1cad532278b6672cc535fec8685d473a2eaa",
+  "tests": {
+    "passed": 29,
+    "failed": 0,
+    "skipped": 0
+  },
+  "technicalReport": "independent-glass-final-report.json",
+  "visualReviews": 2,
+  "visualCorrectionPasses": 1,
+  "remainingLimitations": [
+    "Large successive hits still obscure the hall behind rubble.",
+    "Coarse rigid-body bounds and transient overlaps."
+  ]
+}

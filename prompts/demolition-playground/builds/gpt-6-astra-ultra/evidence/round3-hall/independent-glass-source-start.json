@@ -1,0 +1,8 @@
+{
+  "src/bank.js": "d9a1bae7ebb1d0395c658c2481a4de0e1119fb7463adfe3fffce3663b348830a",
+  "src/bank-hall.js": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+  "src/bank-physics.js": "1694fb3c93ccfca46b75e1c38afd56beaa8dbcef6e1f1374cf4f005cc1508112",
+  "src/crane.js": "27cdf880e49b75f9479ace113099e58d4616449698c54889376b085a69533d09",
+  "src/main.js": "acf5c518d78d61f9f8542471c7f94ad8618114dd8a3f29117814fc91d3d27f1f",
+  "tests/hall.test.mjs": "ac48f9ca1c7d654da19bad18e156702042974cd242346f8f165bd9381c5bb7bc"
+}

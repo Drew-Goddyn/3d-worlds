@@ -1,0 +1,90 @@
+✖ the intact hall contains supported furnishings and pre-existing triangular glazing (57.136417ms)
+✖ a window wound releases nearby triangular shards without broadcasting damage into the hall (22.073292ms)
+✖ a falling architectural fragment contacts a writing table and releases only its loose articles (20.336083ms)
+✖ ball contact uses current solid members and passes through a cleared window (21.3995ms)
+✖ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (17.54075ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 333.475041
+
+✖ failing tests:
+
+test at ../../../../../../private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:10:1
+✖ the intact hall contains supported furnishings and pre-existing triangular glazing (57.136417ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(bank.bodies.some(b=>b.role===role))
+  
+      at TestContext.<anonymous> (file:///private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:12:85)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../../private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:21:1
+✖ a window wound releases nearby triangular shards without broadcasting damage into the hall (22.073292ms)
+  TypeError: Cannot read properties of undefined (reading 'origin')
+      at TestContext.<anonymous> (file:///private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:24:20)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at ../../../../../../private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:30:1
+✖ a falling architectural fragment contacts a writing table and releases only its loose articles (20.336083ms)
+  TypeError: Cannot read properties of undefined (reading 'x')
+      at TestContext.<anonymous> (file:///private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:33:64)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at ../../../../../../private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:40:1
+✖ ball contact uses current solid members and passes through a cleared window (21.3995ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'glass'
+  
+      at TestContext.<anonymous> (file:///private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:42:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'glass',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../../private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:49:1
+✖ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (17.54075ms)
+  TypeError: bank.hitContent is not a function
+      at TestContext.<anonymous> (file:///private/tmp/astra-round3-accepted/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs:51:57)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

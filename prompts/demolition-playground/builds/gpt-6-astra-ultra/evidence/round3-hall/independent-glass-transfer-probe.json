@@ -1,0 +1,47 @@
+{
+  "setup": "Contact integration probe uses current native body geometry and actual sphere radius; sphere is positioned at an overlapping contact to isolate transfer, not a gameplay route.",
+  "rows": [
+    {
+      "role": "glass",
+      "radius": 1.7,
+      "contactCenter": [
+        -16.063333333333333,
+        2.11,
+        19.39
+      ],
+      "fullPower": 65.99519586537872,
+      "deliveredPower": 18.478654842306042,
+      "ratio": 0.28,
+      "detachedGlass": 2,
+      "failedBays": 0
+    },
+    {
+      "role": "joinery",
+      "radius": 1.7,
+      "contactCenter": [
+        -15,
+        2.11,
+        19.38
+      ],
+      "fullPower": 65.99519586537872,
+      "deliveredPower": 36.2973577259583,
+      "ratio": 0.55,
+      "detachedGlass": 16,
+      "failedBays": 0
+    },
+    {
+      "role": "masonry",
+      "radius": 1.7,
+      "contactCenter": [
+        -16.65,
+        2.11,
+        19.57
+      ],
+      "fullPower": 65.99519586537872,
+      "deliveredPower": 65.99519586537872,
+      "ratio": 1,
+      "detachedGlass": 14,
+      "failedBays": 0
+    }
+  ]
+}

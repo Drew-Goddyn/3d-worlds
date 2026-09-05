@@ -1,0 +1,476 @@
+{
+  "setup": "Synthetic cleared breach: moved architectural obstacles along swept sphere corridor; preserved furnishings; normal Crane.update with actual ball radius. Does not certify user demolition path.",
+  "radius": 1.7,
+  "removed": [
+    {
+      "id": 432,
+      "role": "slab"
+    },
+    {
+      "id": 433,
+      "role": "slab"
+    },
+    {
+      "id": 434,
+      "role": "slab"
+    },
+    {
+      "id": 435,
+      "role": "slab"
+    },
+    {
+      "id": 436,
+      "role": "pier"
+    },
+    {
+      "id": 437,
+      "role": "pier"
+    },
+    {
+      "id": 438,
+      "role": "pier"
+    },
+    {
+      "id": 439,
+      "role": "pier"
+    },
+    {
+      "id": 442,
+      "role": "masonry"
+    },
+    {
+      "id": 443,
+      "role": "masonry"
+    },
+    {
+      "id": 444,
+      "role": "masonry"
+    },
+    {
+      "id": 445,
+      "role": "masonry"
+    },
+    {
+      "id": 446,
+      "role": "masonry"
+    },
+    {
+      "id": 448,
+      "role": "masonry"
+    },
+    {
+      "id": 449,
+      "role": "masonry"
+    },
+    {
+      "id": 450,
+      "role": "masonry"
+    },
+    {
+      "id": 451,
+      "role": "masonry"
+    },
+    {
+      "id": 452,
+      "role": "masonry"
+    },
+    {
+      "id": 454,
+      "role": "arch"
+    },
+    {
+      "id": 455,
+      "role": "arch"
+    },
+    {
+      "id": 456,
+      "role": "arch"
+    },
+    {
+      "id": 457,
+      "role": "arch"
+    },
+    {
+      "id": 458,
+      "role": "arch"
+    },
+    {
+      "id": 459,
+      "role": "arch"
+    },
+    {
+      "id": 460,
+      "role": "arch"
+    },
+    {
+      "id": 461,
+      "role": "arch"
+    },
+    {
+      "id": 462,
+      "role": "arch"
+    },
+    {
+      "id": 463,
+      "role": "arch"
+    },
+    {
+      "id": 464,
+      "role": "masonry"
+    },
+    {
+      "id": 465,
+      "role": "masonry"
+    },
+    {
+      "id": 466,
+      "role": "lintel"
+    },
+    {
+      "id": 467,
+      "role": "glass"
+    },
+    {
+      "id": 468,
+      "role": "glass"
+    },
+    {
+      "id": 469,
+      "role": "glass"
+    },
+    {
+      "id": 470,
+      "role": "glass"
+    },
+    {
+      "id": 471,
+      "role": "glass"
+    },
+    {
+      "id": 472,
+      "role": "glass"
+    },
+    {
+      "id": 473,
+      "role": "glass"
+    },
+    {
+      "id": 474,
+      "role": "glass"
+    },
+    {
+      "id": 475,
+      "role": "glass"
+    },
+    {
+      "id": 476,
+      "role": "glass"
+    },
+    {
+      "id": 477,
+      "role": "glass"
+    },
+    {
+      "id": 478,
+      "role": "glass"
+    },
+    {
+      "id": 479,
+      "role": "glass"
+    },
+    {
+      "id": 480,
+      "role": "glass"
+    },
+    {
+      "id": 481,
+      "role": "glass"
+    },
+    {
+      "id": 482,
+      "role": "glass"
+    },
+    {
+      "id": 483,
+      "role": "glass"
+    },
+    {
+      "id": 484,
+      "role": "glass"
+    },
+    {
+      "id": 485,
+      "role": "glass"
+    },
+    {
+      "id": 486,
+      "role": "glass"
+    },
+    {
+      "id": 487,
+      "role": "glass"
+    },
+    {
+      "id": 488,
+      "role": "glass"
+    },
+    {
+      "id": 489,
+      "role": "glass"
+    },
+    {
+      "id": 490,
+      "role": "glass"
+    },
+    {
+      "id": 491,
+      "role": "joinery"
+    },
+    {
+      "id": 492,
+      "role": "cornice"
+    },
+    {
+      "id": 493,
+      "role": "cornice"
+    },
+    {
+      "id": 494,
+      "role": "cornice"
+    },
+    {
+      "id": 496,
+      "role": "column"
+    },
+    {
+      "id": 497,
+      "role": "column"
+    },
+    {
+      "id": 498,
+      "role": "column"
+    },
+    {
+      "id": 499,
+      "role": "capital"
+    },
+    {
+      "id": 501,
+      "role": "column"
+    },
+    {
+      "id": 502,
+      "role": "column"
+    },
+    {
+      "id": 503,
+      "role": "column"
+    },
+    {
+      "id": 504,
+      "role": "capital"
+    },
+    {
+      "id": 559,
+      "role": "slab"
+    },
+    {
+      "id": 560,
+      "role": "slab"
+    },
+    {
+      "id": 563,
+      "role": "pier"
+    },
+    {
+      "id": 564,
+      "role": "pier"
+    },
+    {
+      "id": 619,
+      "role": "cornice"
+    },
+    {
+      "id": 626,
+      "role": "capital"
+    },
+    {
+      "id": 1049,
+      "role": "pier"
+    },
+    {
+      "id": 1050,
+      "role": "pier"
+    },
+    {
+      "id": 1051,
+      "role": "pier"
+    },
+    {
+      "id": 1052,
+      "role": "pier"
+    },
+    {
+      "id": 1053,
+      "role": "masonry"
+    },
+    {
+      "id": 1059,
+      "role": "masonry"
+    },
+    {
+      "id": 1065,
+      "role": "masonry"
+    },
+    {
+      "id": 1127,
+      "role": "pier"
+    },
+    {
+      "id": 1128,
+      "role": "pier"
+    },
+    {
+      "id": 1131,
+      "role": "masonry"
+    }
+  ],
+  "hits": [
+    {
+      "role": "table",
+      "id": 1792,
+      "power": 64.14589318347873,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1793,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1794,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1795,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1796,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1797,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1798,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1799,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "paper",
+      "id": 1800,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "equipment",
+      "id": 1801,
+      "power": 41.69483056926118,
+      "ball": [
+        -14.7,
+        3.0259070047201604,
+        18.57129349371583
+      ]
+    },
+    {
+      "role": "table",
+      "id": 1792,
+      "power": 58.71845032974144,
+      "ball": [
+        -14.7,
+        3.00889004503847,
+        17.98267309317637
+      ]
+    },
+    {
+      "role": "equipment",
+      "id": 1801,
+      "power": 53.88443594839945,
+      "ball": [
+        -14.7,
+        3.000909333814377,
+        17.416321630051833
+      ]
+    },
+    {
+      "role": "equipment",
+      "id": 1801,
+      "power": 49.669935067952224,
+      "ball": [
+        -14.7,
+        3.0005948243617624,
+        16.934602817098657
+      ]
+    }
+  ],
+  "tableState": 1,
+  "ball": [
+    -14.7,
+    3.081916395142636,
+    16.76061033967678
+  ]
+}

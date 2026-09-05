@@ -1,0 +1,118 @@
+{
+  "purpose": "Evidence-only owner review packet; no application source or dependencies.",
+  "sourceCommit": "9aee1cad532278b6672cc535fec8685d473a2eaa",
+  "files": {
+    "REVIEW.md": {
+      "bytes": 6716,
+      "sha256": "192cd745cd430bfb7b9372701f27148c33b7bb8a8706650147c0b379282b4b19"
+    },
+    "FOLLOW-UP.md": {
+      "bytes": 15601,
+      "sha256": "da833df2ea2d4a9794b303cee23301fdcf9980dca618176aa24d630708d0625e"
+    },
+    "baseline-review.md": {
+      "bytes": 1565,
+      "sha256": "96fc54072ede8932eebfad7c8477338b6e1953bceed59b6cf8f2726842b80b8c"
+    },
+    "paired-review.md": {
+      "bytes": 2461,
+      "sha256": "ad4bcff47afc513556272f9c725d641a6c065065d9809db0e103c1c503280811"
+    },
+    "viewer.html": {
+      "bytes": 1865,
+      "sha256": "6d334ab8876e63d3cc33b24cf92ba93fc631ababd1621883893ff6622f5bc238"
+    },
+    "media.json": {
+      "bytes": 1459,
+      "sha256": "0eb66a3f4980ebb921042a596784709922eda07ff47b216e28ab4b0584d01826"
+    },
+    "native-inspection.json": {
+      "bytes": 22757,
+      "sha256": "4033ae898299cfbea0063d568a3ae6fc5f52dd35699fd2b1d41fcc3908e0f10a"
+    },
+    "baseline-inputs.json": {
+      "bytes": 11561,
+      "sha256": "984061b6aec4bab243a1d3cc1cd4159e8d1f026f428fd98a50565df30c7ac596"
+    },
+    "candidate-inputs.json": {
+      "bytes": 48396,
+      "sha256": "f6f705f14f9e4197839bfee6ea78a51ec70f4ef830cf29e1a8ce57f57e00bba1"
+    },
+    "tests.txt": {
+      "bytes": 3090,
+      "sha256": "cb504ad1e17194c11f679ddc8cbce9cc027716d23f4594af40c45ed7346a62dd"
+    },
+    "independent-glass-final-report.json": {
+      "bytes": 6642,
+      "sha256": "8f13e19c1a4cbe7a0467fb6283ad103f7af1682f446ecc6b6a1b0588e60ee9da"
+    },
+    "candidate-native-camera.png": {
+      "bytes": 509625,
+      "sha256": "e0e065820caa3fe4a577749a2960d23b70bf7727d5d384d826e716c5f0cee867"
+    },
+    "candidate-strip.png": {
+      "bytes": 1349939,
+      "sha256": "4a705fa29f9e337e4e33a7a41742fa4680a5b84a48fcff0feac33670bae01a0f"
+    },
+    "baseline-strip.png": {
+      "bytes": 1332424,
+      "sha256": "9591d2cbc02a8ea4c6342d6b66bb35de1522c4e6b7ec1751a6c40ba8b0ffd4ed"
+    },
+    "candidate-time-controls.webm": {
+      "bytes": 6928649,
+      "sha256": "5f0976feb1bc689b88dd4551f1c4b41b4b3f0f41bd5ee0d15946b332617ed060"
+    },
+    "candidate-collapse.webm": {
+      "bytes": 6966476,
+      "sha256": "bd40f948be63683981faf8f02e345ca087501716bedf35cc08156e6b18d4447d"
+    },
+    "baseline-intact.png": {
+      "bytes": 477721,
+      "sha256": "9b90894cf196a588c6d41f47e6fd480ca1e885dad7e8c9125dd4b5fc965b7ca9"
+    },
+    "baseline-8s.png": {
+      "bytes": 780676,
+      "sha256": "e60085ba76f1017f56c65fb8ce8aa723ea769e8c7d7d81b1cb6e16e5fb3c1398"
+    },
+    "baseline-13s.png": {
+      "bytes": 834369,
+      "sha256": "d4d62fb01713454abd94cb127553034715a7f051f66f55b9ea71b9c303d6e3c0"
+    },
+    "baseline-18s.png": {
+      "bytes": 814055,
+      "sha256": "d4a4c5e0ba6e449572d9b42a5b9b99f72ce96cf8b43ca195789a51e17b284bd0"
+    },
+    "baseline-breached.png": {
+      "bytes": 621273,
+      "sha256": "d11c283903c6011741ccf15ec2193e5f68bbe6f545a3b84ab24737eaa4379779"
+    },
+    "baseline-native.webm": {
+      "bytes": 12241755,
+      "sha256": "258fa4309ea1a78f566e2b0f77406b49989649ab8f6685fac5b7686ba0b0b82e"
+    },
+    "candidate-intact.png": {
+      "bytes": 486259,
+      "sha256": "f16ebb4fd307dc1a6c096c2a7b653019e52e5834ef747cbf90ff0ed25f7c81d3"
+    },
+    "candidate-8s.png": {
+      "bytes": 780426,
+      "sha256": "b7f3d4fee50b806a09af22874d0171ea68ad525f14809ace2734d98e827d7d07"
+    },
+    "candidate-13s.png": {
+      "bytes": 849104,
+      "sha256": "4a21eac3ad6f405fafcf053c2306c4bc9a7eeb843c5fdf849f2ff5177b9dec14"
+    },
+    "candidate-18s.png": {
+      "bytes": 833936,
+      "sha256": "2a8c67889d78b0a9c06126233b8d1cd8a397dc4a2bcbf7399d1b8790c950d045"
+    },
+    "candidate-breached.png": {
+      "bytes": 633861,
+      "sha256": "e936fd2655a90291779a65efe71a3a8c853f862a1b95ff8818b244411835e0da"
+    },
+    "candidate-native.webm": {
+      "bytes": 12343852,
+      "sha256": "67e6fc1652885e9857e0a4f4337ea7c802fa758b0ccd396bf51f68bd292e059f"
+    }
+  }
+}
