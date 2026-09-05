@@ -66,3 +66,16 @@ test('a charge belongs to the selected roof pane and to settled rubble on a late
   const snapshot=sim.capture();sim.detonate();advance(sim,120);const future=sim.capture();
   sim.restore(snapshot);sim.detonate();advance(sim,120);assert.deepEqual(sim.capture(),future);
 });
+
+test('street-level roof debris remains chargeable outside its original storey volume',()=>{
+  const sim=fixture(),b=sim.bank,pane=b.bodies.find(p=>p.role==='glass'&&p.attachments);
+  assert.ok(sim.placeCharge(pane.origin,0,2,pane.id));sim.detonate();advance(sim,900);
+  const rubble=b.bodies.filter(p=>p.state===2&&!p.content&&b.nodes[p.node].level===2&&b.bounds(p).max.y<1.5);
+  assert.ok(rubble.length>=6);
+  for(const part of rubble.slice(0,6)) {
+    const point=b.bounds(part).getCenter(new THREE.Vector3());
+    assert.ok(sim.placeCharge(point,0,2,part.id),`roof-owned body ${part.id} at street level`);
+    assert.equal(sim.charges.at(-1).bankBody,part.id);
+  }
+  assert.equal(sim.placeCharge(b.bounds(rubble[0]).getCenter(new THREE.Vector3()),0,2,rubble[0].id),false,'six-charge limit remains enforced');
+});
