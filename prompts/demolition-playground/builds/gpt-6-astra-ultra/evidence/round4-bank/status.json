@@ -1,0 +1,15 @@
+{
+  "phase": "implementation",
+  "application": "prompts/demolition-playground/builds/gpt-6-astra-ultra",
+  "branch": "round4/astra-bank-as-a-world",
+  "baseline": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
+  "checkpointHead": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+  "checkpointPR": 2,
+  "checkpointDecision": "Merged to retain inhabited completeness; no perfect physics or major demolition leap acceptance",
+  "idea": "A stone treasury enclosing a tall banking court, perimeter galleries and a copper-glass barrel vault. Damage reveals construction and opens different sections of the occupied volume.",
+  "baselineMediaLocal": "/tmp/astra-round4/baseline",
+  "requiredNext": ["complete candidate", "native browser inspection and consequential revision", "one anonymous paired media review", "fresh independent verification", "selected evidence and ZIP", "one new unmerged PR"],
+  "sessionSettings": "Model and reasoning unverified; directory name describes historical attempt",
+  "deployment": false,
+  "ownerAcceptance": "pending"
+}
