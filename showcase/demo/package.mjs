@@ -1,12 +1,15 @@
 import path from 'node:path';
 import {mkdir,copyFile,readdir,readFile,writeFile} from 'node:fs/promises';
-import {root,demo,run,save,hash,cmd} from './core.mjs';
-export default async function packageAssets({out,builds,scenario}){
+import {root,demo,run,save,hash,cmd,json} from './core.mjs';
+export default async function packageAssets({out,builds,scenario,args=[]}){
+ const preview=args.includes('--preview'),delivery=path.join(out,preview?'preview-delivery':'delivery');
+ if(preview){const {previewAuthorization}=await import('./preview.mjs');await previewAuthorization(out);if((await json(path.join(out,'preview-technical-verification.json'))).status!=='pass')throw Error('Preview checks must pass before packaging');}
  const release=path.join(out,'release'),viewer=path.join(out,'viewer'),evidence=path.join(out,'evidence-package');
  await mkdir(release,{recursive:true});await mkdir(viewer,{recursive:true});await mkdir(evidence,{recursive:true});
- await copyFile(path.join(demo,'viewer.html'),path.join(viewer,'index.html'));
- for(const b of builds){const name=b.folder+'.mp4';await copyFile(path.join(out,'delivery',name),path.join(viewer,name));await copyFile(path.join(out,'delivery',name),path.join(release,name));}
- await copyFile(path.join(out,'delivery','demolition-comparison.mp4'),path.join(release,'demolition-comparison.mp4'));
+ for(const name of ['demolition-viewer.zip','demolition-evidence.zip'])try{await readFile(path.join(release,name));throw Error('Existing release ZIP retained; packaging never overwrites it');}catch(e){if(e.code!=='ENOENT')throw e;}
+ await copyFile(preview?path.join(delivery,'index.html'):path.join(demo,'viewer.html'),path.join(viewer,'index.html'));
+ for(const b of builds){const name=b.folder+'.mp4';await copyFile(path.join(delivery,name),path.join(viewer,name));await copyFile(path.join(delivery,name),path.join(release,name));}
+ await copyFile(path.join(delivery,'demolition-comparison.mp4'),path.join(release,'demolition-comparison.mp4'));
  const manifest=[];
  async function copyEvidence(from,to){
   const original=await readFile(from),binary=from.endsWith('.png');
@@ -23,6 +26,13 @@ export default async function packageAssets({out,builds,scenario}){
   }
  }
  for(const name of ['calibration','official','rehearsal','pilot','viewer-check'])await copyTree(path.join(out,name),path.join(evidence,name));
+ if(preview){
+  for(const name of ['preview-review','preview-viewer-check'])await copyTree(path.join(out,name),path.join(evidence,name));
+  for(const name of ['preview-authorization.json','preview-encoding.json','preview-technical-verification.json','preview-recordings-review.json','preview-metadata-correction.json'])await copyEvidence(path.join(out,name),path.join(evidence,name));
+  const disclosure='These films are user-authorized PREVIEWS. Astra charges contain unexplained capture holds up to 100 ms. Native presentation between captured frames is unknown; these films are not an FPS or performance benchmark. The strict continuity review remains inconclusive and is retained unchanged. All other release requirements remain in force.\n';
+  await writeFile(path.join(viewer,'README.txt'),disclosure+'\nExtract this folder and open index.html. Keep the three MP4 files beside it.\n');
+  await writeFile(path.join(out,'PREVIEW-NOTICE.txt'),disclosure);await copyEvidence(path.join(out,'PREVIEW-NOTICE.txt'),path.join(evidence,'READ-ME-FIRST.txt'));
+ }
  try{await copyTree(path.join(out,'failed-encodings'),path.join(evidence,'failed-encodings'));}catch(e){if(e.code!=='ENOENT')throw e;}
  await copyTree(path.join(demo,'evidence'),path.join(evidence,'independent-reviews'));
  for(const name of ['freeze.json','preservation.json','technical-verification.json','recordings-review.json','retained-takes.json','output-freshness-verification.json','freshness-freeze.json'])await copyEvidence(path.join(out,name),path.join(evidence,name));
@@ -35,7 +45,7 @@ export default async function packageAssets({out,builds,scenario}){
  await copyEvidence(path.join(demo,'browser-runtime.js'),path.join(evidence,'browser-runtime.js'));
  await copyEvidence(path.join(demo,'freshness.mjs'),path.join(evidence,'freshness.mjs'));
  await copyEvidence(path.join(demo,'test','freshness.test.mjs'),path.join(evidence,'freshness.test.mjs'));
- const provenance=Buffer.from(JSON.stringify({recorderCommit:cmd('git',['rev-parse','HEAD']).trim(),pinnedGameCommit:scenario.sourceCommit,createdAt:new Date().toISOString()},null,2)+'\n');
+ const provenance=Buffer.from(JSON.stringify({recorderCommit:cmd('git',['rev-parse','HEAD']).trim(),pinnedGameCommit:scenario.sourceCommit,mode:preview?'preview':'strict',strictContinuityApproved:!preview,createdAt:new Date().toISOString()},null,2)+'\n');
  await writeFile(path.join(evidence,'release-source.json'),provenance);manifest.push({file:'release-source.json',originalSha256:hash(provenance),packagedSha256:hash(provenance),localPathsReplaced:false});
  await save(path.join(evidence,'evidence-manifest.json'),{schemaVersion:1,policy:'Only local run and repository paths are replaced by {RUN} and {REPO} in UTF-8 evidence. Original hashes refer to retained local evidence; packaged hashes verify the corresponding archive files. Binary images are unchanged. Raw JPEGs and clean masters remain outside this archive.',files:manifest.sort((a,b)=>a.file.localeCompare(b.file))});
  for(const [dir,name] of [[viewer,'demolition-viewer.zip'],[evidence,'demolition-evidence.zip']])await run('zip',['-q','-r',path.join(release,name),'.'],{cwd:dir});

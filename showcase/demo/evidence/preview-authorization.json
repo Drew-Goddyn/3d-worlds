@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "mode": "preview",
+  "authorizedAt": "2026-09-05T04:08:07.761Z",
+  "userDecision": "Publish labeled previews — faster, but explicitly relaxes the capture-continuity requirement.",
+  "scope": "Only capture continuity is relaxed for labeled previews. Original source preservation, native actions, camera calibration, elapsed-time mapping, marker alignment, media properties, viewer behavior, evidence retention and independent publication review remain required.",
+  "disclosure": "PREVIEW — Astra charges include unexplained capture holds up to 100 ms. Native presentation between captured frames is unknown. Do not use these films for FPS or performance ranking.",
+  "selectionSha256": "56296081a2fb2d6d6541ec11af4a7ff9bc5a28d3cee8a7a0ddc60c83212f1a4c",
+  "selection": [
+    {
+      "build": "site",
+      "chapter": "city",
+      "take": "official/site/city/take-1788577036724"
+    },
+    {
+      "build": "site",
+      "chapter": "ball",
+      "take": "official/site/ball/take-1788577049158"
+    },
+    {
+      "build": "site",
+      "chapter": "charges-rewind",
+      "take": "official/site/charges-rewind/take-1788577071554"
+    },
+    {
+      "build": "sol",
+      "chapter": "city",
+      "take": "official/sol/city/take-1788577120235"
+    },
+    {
+      "build": "sol",
+      "chapter": "ball",
+      "take": "official/sol/ball/take-1788577136826"
+    },
+    {
+      "build": "sol",
+      "chapter": "charges-rewind",
+      "take": "official/sol/charges-rewind/take-1788577163472"
+    },
+    {
+      "build": "astra",
+      "chapter": "city",
+      "take": "official/astra/city/take-1788577216306"
+    },
+    {
+      "build": "astra",
+      "chapter": "ball",
+      "take": "official/astra/ball/take-1788577616592"
+    },
+    {
+      "build": "astra",
+      "chapter": "charges-rewind",
+      "take": "official/astra/charges-rewind/take-1788577251681"
+    }
+  ],
+  "cleanMasters": {
+    "gpt-5.5-xhigh-clean.mp4": "e561c9b70aa35d7d896df2ad7d5b057045af5c0aeb4fff87c2bfe4652a89e3e0",
+    "gpt-5.6-sol-ultra-clean.mp4": "bf5b1c2985695d71f828958b0cc1ea82d1792e071438776d8bf6fdf8c4ab8a26",
+    "gpt-6-astra-ultra-clean.mp4": "56810c2d0d9f0caff245b4908eeaad27d6f44ffef1011beaa0c4415e2943fd35"
+  },
+  "continuityException": {
+    "build": "astra",
+    "chapter": "charges-rewind",
+    "take": "official/astra/charges-rewind/take-1788577251681",
+    "repeatedOutputFrames": 7,
+    "maxDisplayedHoldSeconds": 0.1,
+    "maxSourceAgeSeconds": 0.09444117546081543,
+    "capture.jsonSha256": "ae8a643c9fd98d3a70fc6439682716b0425a752556842fa779b43bb561543fe4",
+    "receipts.jsonSha256": "628973883522bcb0f517f73d5e2b1cbe26e2d90cb0b0c7473e9fea222dd71462",
+    "encoded-frame-map.jsonSha256": "d8ba4ccb04f5fc5b331bf9d1fc05e90bf5da4d1f7584313a26732cd5f613c45b"
+  }
+}

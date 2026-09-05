@@ -1,0 +1,1552 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-05T04:21:20.860Z",
+  "independentVerifier": "preview_verify",
+  "status": "pass",
+  "mode": "preview",
+  "scope": "Independent source preservation, take selection, pinned inputs, native receipts, retained frames, labeled media properties, complete1x playback and actual offline viewer review. Final committed revision and all six packaged release hashes still require separate independent approval.",
+  "strictReleaseApproved": false,
+  "publicationApproved": false,
+  "finalCommitAndSixAssetReviewRequired": true,
+  "reviewedWorkingTreeBase": "fd170217d9c6791ebde84dc65033260f9d732840",
+  "codeHashes": {
+    "showcase/demo/preview.mjs": "21d222375f2eb139d75287427d363294495388833bf5c59e6973bc8f36c6bda0",
+    "showcase/demo/verify-preview.mjs": "95cc291852c97021d202003848eaa4db5abcb74e3d5770a98ff250e0141d0640",
+    "showcase/demo/package.mjs": "5911c986d043f20ee6a2dfb98e1b55faa322c74956ef9578eec1f0202153ffe3",
+    "showcase/demo/publish.mjs": "47316b91a83b19004eb867567989cb465094cf77c43c6569d69fdf96c29d8c4a",
+    "showcase/demo/retained-takes.mjs": "fb113c9a0169155fece3189df7c661282a908ced3e31619fd69e58cecc6bc968",
+    "showcase/demo/viewer-checks.mjs": "3624f2baebbc73202538a8fcecf92e8dc86ac8afdb98776a9490589dd624b7e9",
+    "showcase/demo/viewer.html": "19e5ee2706b8f5206554516753ca568907dffdc242366eccbf2ffff8b83aa50c",
+    "showcase/demo/test/preview.test.mjs": "ad1d79e28b6db272cdb42c244087711a38cefa7a5e9f652c74196997016670e9"
+  },
+  "authorization": {
+    "schemaVersion": 1,
+    "mode": "preview",
+    "authorizedAt": "2026-09-05T04:08:07.761Z",
+    "userDecision": "Publish labeled previews \u2014 faster, but explicitly relaxes the capture-continuity requirement.",
+    "scope": "Only capture continuity is relaxed for labeled previews. Original source preservation, native actions, camera calibration, elapsed-time mapping, marker alignment, media properties, viewer behavior, evidence retention and independent publication review remain required.",
+    "disclosure": "PREVIEW \u2014 Astra charges include unexplained capture holds up to 100 ms. Native presentation between captured frames is unknown. Do not use these films for FPS or performance ranking.",
+    "selectionSha256": "56296081a2fb2d6d6541ec11af4a7ff9bc5a28d3cee8a7a0ddc60c83212f1a4c",
+    "selection": [
+      {
+        "build": "site",
+        "chapter": "city",
+        "take": "official/site/city/take-1788577036724"
+      },
+      {
+        "build": "site",
+        "chapter": "ball",
+        "take": "official/site/ball/take-1788577049158"
+      },
+      {
+        "build": "site",
+        "chapter": "charges-rewind",
+        "take": "official/site/charges-rewind/take-1788577071554"
+      },
+      {
+        "build": "sol",
+        "chapter": "city",
+        "take": "official/sol/city/take-1788577120235"
+      },
+      {
+        "build": "sol",
+        "chapter": "ball",
+        "take": "official/sol/ball/take-1788577136826"
+      },
+      {
+        "build": "sol",
+        "chapter": "charges-rewind",
+        "take": "official/sol/charges-rewind/take-1788577163472"
+      },
+      {
+        "build": "astra",
+        "chapter": "city",
+        "take": "official/astra/city/take-1788577216306"
+      },
+      {
+        "build": "astra",
+        "chapter": "ball",
+        "take": "official/astra/ball/take-1788577616592"
+      },
+      {
+        "build": "astra",
+        "chapter": "charges-rewind",
+        "take": "official/astra/charges-rewind/take-1788577251681"
+      }
+    ],
+    "cleanMasters": {
+      "gpt-5.5-xhigh-clean.mp4": "e561c9b70aa35d7d896df2ad7d5b057045af5c0aeb4fff87c2bfe4652a89e3e0",
+      "gpt-5.6-sol-ultra-clean.mp4": "bf5b1c2985695d71f828958b0cc1ea82d1792e071438776d8bf6fdf8c4ab8a26",
+      "gpt-6-astra-ultra-clean.mp4": "56810c2d0d9f0caff245b4908eeaad27d6f44ffef1011beaa0c4415e2943fd35"
+    },
+    "continuityException": {
+      "build": "astra",
+      "chapter": "charges-rewind",
+      "take": "official/astra/charges-rewind/take-1788577251681",
+      "repeatedOutputFrames": 7,
+      "maxDisplayedHoldSeconds": 0.1,
+      "maxSourceAgeSeconds": 0.09444117546081543,
+      "capture.jsonSha256": "ae8a643c9fd98d3a70fc6439682716b0425a752556842fa779b43bb561543fe4",
+      "receipts.jsonSha256": "628973883522bcb0f517f73d5e2b1cbe26e2d90cb0b0c7473e9fea222dd71462",
+      "encoded-frame-map.jsonSha256": "d8ba4ccb04f5fc5b331bf9d1fc05e90bf5da4d1f7584313a26732cd5f613c45b"
+    }
+  },
+  "standingInvariants": [
+    "Archived build blobs, dependency versions, provenance, native physics, damage, history, timestep and randomness remain unchanged.",
+    "Adapters may only present cameras, invoke complete native player actions, and observe state.",
+    "Technical failures and ambiguous timing cannot be hidden or selected away for better gameplay outcomes; all takes remain retained.",
+    "Capture preserves source timestamps, raw pre-clamp animation, receipt and disk-write clocks; writer limits fail closed.",
+    "Camera/action synchronization, native outcomes and 44-second end marker require actual official evidence.",
+    "All complete films need normal-speed playback and honest visual inspection; sampling must never be described as continuous watching.",
+    "Offline transport must keep all three players aligned, pause on buffering, and correct drift with seeks, never rates.",
+    "Release approval binds exact commit and six asset checksums; missing films, viewer or evidence cannot pass.",
+    "No new dependencies, credentials, destructive actions or publication are authorized by this review."
+  ],
+  "originalSource": {
+    "passed": true,
+    "filesCompared": 78,
+    "pinnedGameCommit": "2d5c93339ee2cd938bebda777f413a8267140858"
+  },
+  "recordingFingerprint": {
+    "expected": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+    "actual": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+    "passed": true
+  },
+  "strictGate": {
+    "sha256": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583",
+    "passed": true,
+    "inputs": {
+      "showcase/demo/freshness.mjs": "1675e3fa276b813369fe885ff6164a1186be14ed6c179eefc53f13fa3ed47f76",
+      "showcase/demo/test/freshness.test.mjs": "c79da13105d7b53d19a493ea773b64423680be1c3d15ddb8c414e6808649b3d7",
+      "showcase/demo/assemble.mjs": "3b930315da00c0a1a21a8a8344966ada6a21d78dc5d687a8ea142ed4ba477590",
+      "showcase/demo/verify.mjs": "be49fb0e808f04b01019c3d23fee1ded80c17dd695544e1cf3ddd0868fd990be"
+    }
+  },
+  "selection": [
+    {
+      "build": "site",
+      "chapter": "city",
+      "take": "official/site/city/take-1788577036724"
+    },
+    {
+      "build": "site",
+      "chapter": "ball",
+      "take": "official/site/ball/take-1788577049158"
+    },
+    {
+      "build": "site",
+      "chapter": "charges-rewind",
+      "take": "official/site/charges-rewind/take-1788577071554"
+    },
+    {
+      "build": "sol",
+      "chapter": "city",
+      "take": "official/sol/city/take-1788577120235"
+    },
+    {
+      "build": "sol",
+      "chapter": "ball",
+      "take": "official/sol/ball/take-1788577136826"
+    },
+    {
+      "build": "sol",
+      "chapter": "charges-rewind",
+      "take": "official/sol/charges-rewind/take-1788577163472"
+    },
+    {
+      "build": "astra",
+      "chapter": "city",
+      "take": "official/astra/city/take-1788577216306"
+    },
+    {
+      "build": "astra",
+      "chapter": "ball",
+      "take": "official/astra/ball/take-1788577616592"
+    },
+    {
+      "build": "astra",
+      "chapter": "charges-rewind",
+      "take": "official/astra/charges-rewind/take-1788577251681"
+    }
+  ],
+  "chapters": [
+    {
+      "build": "site",
+      "chapter": "city",
+      "take": "official/site/city/take-1788577036724",
+      "controls": {
+        "passed": true,
+        "actions": []
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.016137123107910156,
+      "endErrorSeconds": 0.0003159046173095703,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.017108917236328125,
+      "previewException": false
+    },
+    {
+      "build": "site",
+      "chapter": "ball",
+      "take": "official/site/ball/take-1788577049158",
+      "controls": {
+        "passed": true,
+        "actions": [
+          {
+            "action": "ball.prepare",
+            "planned": 0,
+            "actual": 0.012199999999254942,
+            "delay": 0.012199999999254942
+          },
+          {
+            "action": "ball.swingOnce",
+            "planned": 5,
+            "actual": 5.01189999999851,
+            "delay": 0.011899999998510324
+          }
+        ]
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.018158674240112305,
+      "endErrorSeconds": -0.0025589466094970703,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.0032150745391845703,
+      "previewException": false
+    },
+    {
+      "build": "site",
+      "chapter": "charges-rewind",
+      "take": "official/site/charges-rewind/take-1788577071554",
+      "controls": {
+        "passed": true,
+        "actions": [
+          {
+            "action": "charges.prepareSet",
+            "planned": 4,
+            "actual": 4.017800000000745,
+            "delay": 0.017800000000745442
+          },
+          {
+            "action": "slow.set",
+            "planned": 7,
+            "actual": 7.01760000000149,
+            "delay": 0.0176000000014902
+          },
+          {
+            "action": "charge.detonate",
+            "planned": 8,
+            "actual": 8.01660000000149,
+            "delay": 0.016600000001490756
+          },
+          {
+            "action": "slow.set",
+            "planned": 13,
+            "actual": 13.017400000002235,
+            "delay": 0.01740000000223496
+          },
+          {
+            "action": "rewind.start",
+            "planned": 25,
+            "actual": 25.015900000002237,
+            "delay": 0.01590000000223668
+          },
+          {
+            "action": "rewind.releaseIfHeld",
+            "planned": 37,
+            "actual": 37.01630000000075,
+            "delay": 0.01630000000074716
+          }
+        ]
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.017007112503051758,
+      "endErrorSeconds": 0.014906883239746094,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.018445968627929688,
+      "previewException": false
+    },
+    {
+      "build": "sol",
+      "chapter": "city",
+      "take": "official/sol/city/take-1788577120235",
+      "controls": {
+        "passed": true,
+        "actions": []
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.016521930694580078,
+      "endErrorSeconds": -0.00013589859008789062,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.01777172088623047,
+      "previewException": false
+    },
+    {
+      "build": "sol",
+      "chapter": "ball",
+      "take": "official/sol/ball/take-1788577136826",
+      "controls": {
+        "passed": true,
+        "actions": [
+          {
+            "action": "ball.prepare",
+            "planned": 0,
+            "actual": 0.006199999999254942,
+            "delay": 0.006199999999254942
+          },
+          {
+            "action": "ball.swingOnce",
+            "planned": 5,
+            "actual": 5.00560000000149,
+            "delay": 0.005600000001489747
+          }
+        ]
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.01678609848022461,
+      "endErrorSeconds": -0.0014641284942626953,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.03323197364807129,
+      "previewException": false
+    },
+    {
+      "build": "sol",
+      "chapter": "charges-rewind",
+      "take": "official/sol/charges-rewind/take-1788577163472",
+      "controls": {
+        "passed": true,
+        "actions": [
+          {
+            "action": "charges.prepareSet",
+            "planned": 4,
+            "actual": 4.004,
+            "delay": 0.0039999999999995595
+          },
+          {
+            "action": "charge.place",
+            "planned": 4,
+            "actual": 4.00410000000149,
+            "delay": 0.00410000000148969
+          },
+          {
+            "action": "charge.place",
+            "planned": 5,
+            "actual": 5.003199999999255,
+            "delay": 0.003199999999255354
+          },
+          {
+            "action": "charge.place",
+            "planned": 6,
+            "actual": 6.002900000002235,
+            "delay": 0.0029000000022350036
+          },
+          {
+            "action": "slow.set",
+            "planned": 7,
+            "actual": 7.003800000000745,
+            "delay": 0.0038000000007452073
+          },
+          {
+            "action": "charge.detonate",
+            "planned": 8,
+            "actual": 8.003199999999255,
+            "delay": 0.003199999999255354
+          },
+          {
+            "action": "slow.set",
+            "planned": 13,
+            "actual": 13.0035,
+            "delay": 0.0035000000000007248
+          },
+          {
+            "action": "rewind.start",
+            "planned": 25,
+            "actual": 25.00210000000149,
+            "delay": 0.0021000000014907982
+          },
+          {
+            "action": "rewind.releaseIfHeld",
+            "planned": 37,
+            "actual": 37.00160000000149,
+            "delay": 0.0016000000014884108
+          }
+        ]
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.017712116241455078,
+      "endErrorSeconds": -0.0024590492248535156,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.033066511154174805,
+      "previewException": false
+    },
+    {
+      "build": "astra",
+      "chapter": "city",
+      "take": "official/astra/city/take-1788577216306",
+      "controls": {
+        "passed": true,
+        "actions": []
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.01677417755126953,
+      "endErrorSeconds": 0.015674114227294922,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.030641555786132812,
+      "previewException": false
+    },
+    {
+      "build": "astra",
+      "chapter": "ball",
+      "take": "official/astra/ball/take-1788577616592",
+      "controls": {
+        "passed": true,
+        "actions": [
+          {
+            "action": "ball.prepare",
+            "planned": 0,
+            "actual": 0.016199999999254942,
+            "delay": 0.016199999999254942
+          },
+          {
+            "action": "ball.swingOnce",
+            "planned": 5,
+            "actual": 5.014300000000745,
+            "delay": 0.014300000000744717
+          }
+        ]
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.0160977840423584,
+      "endErrorSeconds": -0.0006589889526367188,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "pass",
+      "repeatedOutputFrames": 0,
+      "maxSourceMetadataAgeSeconds": 0.018854379653930664,
+      "previewException": false
+    },
+    {
+      "build": "astra",
+      "chapter": "charges-rewind",
+      "take": "official/astra/charges-rewind/take-1788577251681",
+      "controls": {
+        "passed": true,
+        "actions": [
+          {
+            "action": "charges.prepareSet",
+            "planned": 4,
+            "actual": 4.009400000002235,
+            "delay": 0.009400000002234954
+          },
+          {
+            "action": "charge.place",
+            "planned": 4,
+            "actual": 4.009800000000745,
+            "delay": 0.009800000000745435
+          },
+          {
+            "action": "charge.place",
+            "planned": 5,
+            "actual": 5.009400000002235,
+            "delay": 0.009400000002234954
+          },
+          {
+            "action": "charge.place",
+            "planned": 6,
+            "actual": 6.0084000000022355,
+            "delay": 0.008400000002235508
+          },
+          {
+            "action": "slow.set",
+            "planned": 7,
+            "actual": 7.0085,
+            "delay": 0.00849999999999973
+          },
+          {
+            "action": "charge.detonate",
+            "planned": 8,
+            "actual": 8.008400000002235,
+            "delay": 0.00840000000223462
+          },
+          {
+            "action": "slow.set",
+            "planned": 13,
+            "actual": 13.0085,
+            "delay": 0.00849999999999973
+          },
+          {
+            "action": "rewind.start",
+            "planned": 25,
+            "actual": 25.00860000000149,
+            "delay": 0.00860000000148986
+          },
+          {
+            "action": "rewind.releaseIfHeld",
+            "planned": 37,
+            "actual": 37.007699999999254,
+            "delay": 0.007699999999253748
+          }
+        ]
+      },
+      "timingPassed": true,
+      "markerUncertaintySeconds": 0.01644301414489746,
+      "endErrorSeconds": -0.0005488395690917969,
+      "priorIndependentHashesMatch": true,
+      "strictFreshnessStatus": "inconclusive",
+      "repeatedOutputFrames": 7,
+      "maxSourceMetadataAgeSeconds": 0.09444117546081543,
+      "previewException": true
+    }
+  ],
+  "cleanMasters": [
+    {
+      "build": "site",
+      "file": "delivery/gpt-5.5-xhigh-clean.mp4",
+      "sha256": "e561c9b70aa35d7d896df2ad7d5b057045af5c0aeb4fff87c2bfe4652a89e3e0",
+      "encodingMatches": true,
+      "chapterHashesMatch": true,
+      "encoding": {
+        "signature": "1577e6c39e268e848444638f1b2d32cd0ca93c42507839fd5e99b78d89ca7f74",
+        "sha256": "e561c9b70aa35d7d896df2ad7d5b057045af5c0aeb4fff87c2bfe4652a89e3e0",
+        "identity": {
+          "chapters": [
+            "51dd411f30fcc0f55e94bf95bfc14ef29bf747d9dc8472747752248820673ec9",
+            "397d79869e2a2d42cf7f531eeda9599f2671c7fde8bf88e29ef671a1a13203ca",
+            "7a766011474ea5457f7136745a4254d6994673eaad61d19a60461b7936c0af40"
+          ]
+        },
+        "args": [
+          "-v",
+          "error",
+          "-n",
+          "-f",
+          "concat",
+          "-safe",
+          "0",
+          "-i",
+          "/Users/Drew/projects/3d-worlds/.demo-work/demolition-demo-v1-release/delivery/site-chapters.txt",
+          "-c",
+          "copy",
+          "-movflags",
+          "+faststart"
+        ]
+      }
+    },
+    {
+      "build": "sol",
+      "file": "delivery/gpt-5.6-sol-ultra-clean.mp4",
+      "sha256": "bf5b1c2985695d71f828958b0cc1ea82d1792e071438776d8bf6fdf8c4ab8a26",
+      "encodingMatches": true,
+      "chapterHashesMatch": true,
+      "encoding": {
+        "signature": "1bac14ebf614c0d9f60d84d21911cb406253015300f7652303e9485dd65d3a37",
+        "sha256": "bf5b1c2985695d71f828958b0cc1ea82d1792e071438776d8bf6fdf8c4ab8a26",
+        "identity": {
+          "chapters": [
+            "916559f9077532994185a1264fe10330454c63835b55960368307bf0cfc5cfae",
+            "3ead518092fa68de942b0f5b4a5b3f0cf4b64f315fba3de2f315baac005779a3",
+            "67b423cadad45f1a3a497ed7cb08e09c05ac4314d5ae01fc50dff9afcf1b9546"
+          ]
+        },
+        "args": [
+          "-v",
+          "error",
+          "-n",
+          "-f",
+          "concat",
+          "-safe",
+          "0",
+          "-i",
+          "/Users/Drew/projects/3d-worlds/.demo-work/demolition-demo-v1-release/delivery/sol-chapters.txt",
+          "-c",
+          "copy",
+          "-movflags",
+          "+faststart"
+        ]
+      }
+    },
+    {
+      "build": "astra",
+      "file": "delivery/gpt-6-astra-ultra-clean.mp4",
+      "sha256": "56810c2d0d9f0caff245b4908eeaad27d6f44ffef1011beaa0c4415e2943fd35",
+      "encodingMatches": true,
+      "chapterHashesMatch": true,
+      "encoding": {
+        "signature": "0e56451d59ca1430b9df8392e3fe6c84fd81b1ba0cd3f3e324a0e019290df42f",
+        "sha256": "56810c2d0d9f0caff245b4908eeaad27d6f44ffef1011beaa0c4415e2943fd35",
+        "identity": {
+          "chapters": [
+            "eb285bf81573fd1303d82ae6d18b8f7b7f6e86882a9692254317589f068b4b62",
+            "2639723cd9d219bfd5ebaea2a9027b3c016d9dcab61fb0b74ef12a02486d53db",
+            "817151f9b5daf5c45471622b3e0649081bfbf3bad5dc7190e67dc1aa1ff13e1e"
+          ]
+        },
+        "args": [
+          "-v",
+          "error",
+          "-n",
+          "-f",
+          "concat",
+          "-safe",
+          "0",
+          "-i",
+          "/Users/Drew/projects/3d-worlds/.demo-work/demolition-demo-v1-release/delivery/astra-chapters.txt",
+          "-c",
+          "copy",
+          "-movflags",
+          "+faststart"
+        ]
+      }
+    }
+  ],
+  "retention": {
+    "status": "pass",
+    "captures": 66,
+    "filesHashed": 91225,
+    "bytesRead": 15470011094,
+    "officialTakeDirectories": 11,
+    "report": "preview-review/retention-review.json",
+    "reportSha256": "17d48dfecf647b2f68c846726b78413ad1a8bd29d31137e339b05b3ceb83fdaa"
+  },
+  "tests": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "log": "preview-review/recorder-and-preview-tests.txt",
+    "sha256": "7fbbd809fd9eabe676475e428283cdefef546f87b2ea235c6c9dc424479346e2"
+  },
+  "films": [
+    {
+      "file": "demolition-comparison.mp4",
+      "sha256": "07020b4d30c4ec8665feacb3e0bd23163e13f8930733943305a5ff320a626c5b",
+      "passed": true,
+      "width": 3840,
+      "height": 840,
+      "frames": 2100,
+      "durationSeconds": 70,
+      "fps": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "crf18SEI": true,
+      "completedAt": "2026-09-05T04:18:22.857Z",
+      "wallSeconds": 70.00540000000224,
+      "presentedFrames": 2100,
+      "auditFrameCount": 2100,
+      "unexpectedEvents": [],
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "screenshots": 22,
+      "playbackLog": "preview-review/demolition-comparison-playback.json",
+      "playbackLogSha256": "a7450263f1cf27677ad9cfe8be95d260490a3e653d183a6167232d2423aa770d"
+    },
+    {
+      "file": "gpt-5.5-xhigh.mp4",
+      "sha256": "0f8400700adf344ee9d6be04f63e8dada8cb2d9dc229c02eee24e1c99eed7201",
+      "passed": true,
+      "width": 1920,
+      "height": 1080,
+      "frames": 2100,
+      "durationSeconds": 70,
+      "fps": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "crf18SEI": true,
+      "completedAt": "2026-09-05T04:14:43.119Z",
+      "wallSeconds": 70.00489999999851,
+      "presentedFrames": 2100,
+      "auditFrameCount": 2100,
+      "unexpectedEvents": [],
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "screenshots": 22,
+      "playbackLog": "preview-review/gpt-5.5-xhigh-playback.json",
+      "playbackLogSha256": "7ceccc9b5aaf8f0c8fe7038146da645501f1c58f05631d7596cb1a8425885361"
+    },
+    {
+      "file": "gpt-5.6-sol-ultra.mp4",
+      "sha256": "c3c1838bd0b2a23fe0dcb2ab6ee315889d224046f9cbd85126e9df6ac253e3b9",
+      "passed": true,
+      "width": 1920,
+      "height": 1080,
+      "frames": 2100,
+      "durationSeconds": 70,
+      "fps": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "crf18SEI": true,
+      "completedAt": "2026-09-05T04:15:55.906Z",
+      "wallSeconds": 70.00170000000298,
+      "presentedFrames": 2100,
+      "auditFrameCount": 2100,
+      "unexpectedEvents": [],
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "screenshots": 22,
+      "playbackLog": "preview-review/gpt-5.6-sol-ultra-playback.json",
+      "playbackLogSha256": "6ab25b1194e5a8b5e13ca272cd3c5f4a02b9bc06b9f86276f59663c4ea4d257f"
+    },
+    {
+      "file": "gpt-6-astra-ultra.mp4",
+      "sha256": "f31abe60aadcb6df8a5f42d73748b22d2dd4e5221e79c0e86b4265947d0c0f8d",
+      "passed": true,
+      "width": 1920,
+      "height": 1080,
+      "frames": 2100,
+      "durationSeconds": 70,
+      "fps": "30/1",
+      "codec": "h264",
+      "pixelFormat": "yuv420p",
+      "crf18SEI": true,
+      "completedAt": "2026-09-05T04:17:08.767Z",
+      "wallSeconds": 70.001,
+      "presentedFrames": 2100,
+      "auditFrameCount": 2100,
+      "unexpectedEvents": [],
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "screenshots": 22,
+      "playbackLog": "preview-review/gpt-6-astra-ultra-playback.json",
+      "playbackLogSha256": "fee0492a0c85c3bed5df6403aa54382e4180f141917cb0f8ce1acc4f0daa5ae4"
+    }
+  ],
+  "visual": {
+    "status": "pass",
+    "method": "Complete normal-speed browser playback of every film, logging each presented frame. The verifier inspected sampled live full-frame screenshots at city, swing, detonation, rewind, and final states for each film, plus dedicated full-resolution Astra/composite header frames and desktop/focus/mobile viewer screenshots.",
+    "limits": "This is complete 1x playback with model inspection of listed samples. It is not continuous human or model visual watching of every moving frame. Playback delivery cadence does not establish native GPU presentation or recorder continuity.",
+    "inspectedImages": [
+      "astra-label-fit.png",
+      "composite-label-fit.png",
+      "gpt-5.5-xhigh/02-6.png",
+      "gpt-5.5-xhigh/05-13.3.png",
+      "gpt-5.5-xhigh/14-34.3.png",
+      "gpt-5.5-xhigh/17-51.3.png",
+      "gpt-5.6-sol-ultra/02-6.png",
+      "gpt-5.6-sol-ultra/05-13.3.png",
+      "gpt-5.6-sol-ultra/14-34.3.png",
+      "gpt-5.6-sol-ultra/17-51.3.png",
+      "gpt-5.6-sol-ultra/20-63.3.png",
+      "gpt-6-astra-ultra/02-6.png",
+      "gpt-6-astra-ultra/05-13.3.png",
+      "gpt-6-astra-ultra/14-34.3.png",
+      "gpt-6-astra-ultra/17-51.3.png",
+      "gpt-6-astra-ultra/20-63.3.png",
+      "demolition-comparison/02-6.png",
+      "demolition-comparison/05-13.3.png",
+      "demolition-comparison/14-34.3.png",
+      "demolition-comparison/17-51.3.png",
+      "demolition-comparison/20-63.3.png",
+      "gpt-5.5-xhigh/10-30.3.png",
+      "gpt-5.5-xhigh/21-69.8.png",
+      "viewer-desktop.png",
+      "viewer-focus.png",
+      "viewer-mobile-320.png",
+      "viewer-mobile-390.png"
+    ],
+    "findings": [
+      "Model and chapter labels stay in reserved header bands and do not cover native gameplay or HUD.",
+      "All films prominently identify preview status and restrict benchmark/FPS interpretation. Astra and composite additionally disclose captured-image holds up to100ms and unknown native presentation. Viewer clearly states the Astra charges limitation and prohibits FPS or performance ranking.",
+      "Native fog, visual density, misses, dust and destruction differences remain visible. Charge arming and rewind behavior remain visible as their recorded native outcomes.",
+      "Desktop viewing allows three films or focus mode; mobile disclosure remains readable at320px and390px without horizontal overflow."
+    ]
+  },
+  "viewer": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "Preview clearly discloses capture holds, unknown presentation and ranking restriction",
+        "passed": true,
+        "evidence": "Preview recordings\nPREVIEW \u2014 Astra charges include unexplained capture holds up to 100 ms. Native presentation between captured frames is unknown. Do not use these films for FPS or performance ranking."
+      },
+      {
+        "name": "Offline page has no external resources",
+        "passed": true,
+        "evidence": []
+      },
+      {
+        "name": "Play advances all movies at exactly 1x",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": true,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.874094
+            },
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.874028
+            },
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.873995
+            }
+          ],
+          "playing": true,
+          "time": 1.8705
+        }
+      },
+      {
+        "name": "Pause holds all movie times",
+        "passed": true,
+        "evidence": {
+          "before": {
+            "busy": false,
+            "desired": false,
+            "driftCorrections": 0,
+            "focus": 0,
+            "players": [
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 2.921269
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 2.921247
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 2.921236
+              }
+            ],
+            "playing": false,
+            "time": 2.91770000000298
+          },
+          "after": {
+            "busy": false,
+            "desired": false,
+            "driftCorrections": 0,
+            "focus": 0,
+            "players": [
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 2.921269
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 2.921247
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 2.921236
+              }
+            ],
+            "playing": false,
+            "time": 2.91770000000298
+          }
+        }
+      },
+      {
+        "name": "Chapter seek 26 lands every movie",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": false,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 26
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 26
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 26
+            }
+          ],
+          "playing": false,
+          "time": 26
+        }
+      },
+      {
+        "name": "Chapter seek 0 lands every movie",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": false,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0
+            }
+          ],
+          "playing": false,
+          "time": 0
+        }
+      },
+      {
+        "name": "Chapter seek 8 lands every movie",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": false,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 8
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 8
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 8
+            }
+          ],
+          "playing": false,
+          "time": 8
+        }
+      },
+      {
+        "name": "Arbitrary rewind-region seek preserves alignment",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": false,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 51.2
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 51.2
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 51.2
+            }
+          ],
+          "playing": false,
+          "time": 51.2
+        }
+      },
+      {
+        "name": "Focus reveals Astra at larger inspection size",
+        "passed": true,
+        "evidence": {
+          "visible": [
+            false,
+            false,
+            true
+          ],
+          "width": 1600
+        }
+      },
+      {
+        "name": "Mobile 390 shows chosen movie without horizontal overflow",
+        "passed": true,
+        "evidence": {
+          "scrollWidth": 390,
+          "select": "block",
+          "visible": [
+            false,
+            true,
+            false
+          ],
+          "width": 390
+        }
+      },
+      {
+        "name": "Mobile 320 shows chosen movie without horizontal overflow",
+        "passed": true,
+        "evidence": {
+          "scrollWidth": 320,
+          "select": "block",
+          "visible": [
+            false,
+            true,
+            false
+          ],
+          "width": 320
+        }
+      },
+      {
+        "name": "Induced drift is fixed with observed seeks and no rate changes",
+        "passed": true,
+        "evidence": {
+          "state": {
+            "busy": false,
+            "desired": true,
+            "driftCorrections": 1,
+            "focus": 1,
+            "players": [
+              {
+                "paused": false,
+                "rate": 1,
+                "ready": 4,
+                "time": 11.259885
+              },
+              {
+                "paused": false,
+                "rate": 1,
+                "ready": 4,
+                "time": 11.260532
+              },
+              {
+                "paused": false,
+                "rate": 1,
+                "ready": 4,
+                "time": 11.249873
+              }
+            ],
+            "playing": true,
+            "time": 11.249000000003726
+          },
+          "events": [
+            {
+              "at": 9115.39999999851,
+              "i": 0,
+              "name": "seeking",
+              "rate": 1,
+              "time": 26
+            },
+            {
+              "at": 9115.39999999851,
+              "i": 1,
+              "name": "seeking",
+              "rate": 1,
+              "time": 26
+            },
+            {
+              "at": 9115.39999999851,
+              "i": 2,
+              "name": "seeking",
+              "rate": 1,
+              "time": 26
+            },
+            {
+              "at": 9176.699999999257,
+              "i": 0,
+              "name": "seeked",
+              "rate": 1,
+              "time": 26
+            },
+            {
+              "at": 9178.199999999257,
+              "i": 1,
+              "name": "seeked",
+              "rate": 1,
+              "time": 26
+            },
+            {
+              "at": 9178.39999999851,
+              "i": 2,
+              "name": "seeked",
+              "rate": 1,
+              "time": 26
+            },
+            {
+              "at": 10431.300000000743,
+              "i": 0,
+              "name": "seeking",
+              "rate": 1,
+              "time": 0
+            },
+            {
+              "at": 10431.300000000743,
+              "i": 1,
+              "name": "seeking",
+              "rate": 1,
+              "time": 0
+            },
+            {
+              "at": 10431.39999999851,
+              "i": 2,
+              "name": "seeking",
+              "rate": 1,
+              "time": 0
+            },
+            {
+              "at": 10436.800000000743,
+              "i": 0,
+              "name": "seeked",
+              "rate": 1,
+              "time": 0
+            },
+            {
+              "at": 10436.89999999851,
+              "i": 1,
+              "name": "seeked",
+              "rate": 1,
+              "time": 0
+            },
+            {
+              "at": 10437.800000000743,
+              "i": 2,
+              "name": "seeked",
+              "rate": 1,
+              "time": 0
+            },
+            {
+              "at": 15798.800000000743,
+              "i": 0,
+              "name": "seeking",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 15798.800000000743,
+              "i": 1,
+              "name": "seeking",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 15798.89999999851,
+              "i": 2,
+              "name": "seeking",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 16389.800000000745,
+              "i": 2,
+              "name": "seeked",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 16392.800000000745,
+              "i": 1,
+              "name": "seeked",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 16399.5,
+              "i": 0,
+              "name": "seeked",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 19884.5,
+              "i": 0,
+              "name": "seeking",
+              "rate": 1,
+              "time": 51.2
+            },
+            {
+              "at": 19884.5,
+              "i": 1,
+              "name": "seeking",
+              "rate": 1,
+              "time": 51.2
+            },
+            {
+              "at": 19884.5,
+              "i": 2,
+              "name": "seeking",
+              "rate": 1,
+              "time": 51.2
+            },
+            {
+              "at": 19970.39999999851,
+              "i": 0,
+              "name": "seeked",
+              "rate": 1,
+              "time": 51.2
+            },
+            {
+              "at": 19970.800000000745,
+              "i": 1,
+              "name": "seeked",
+              "rate": 1,
+              "time": 51.2
+            },
+            {
+              "at": 19970.800000000745,
+              "i": 2,
+              "name": "seeked",
+              "rate": 1,
+              "time": 51.2
+            },
+            {
+              "at": 31897.099999997765,
+              "i": 0,
+              "name": "seeking",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 31897.199999999255,
+              "i": 1,
+              "name": "seeking",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 31897.199999999255,
+              "i": 2,
+              "name": "seeking",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 32286.099999997765,
+              "i": 1,
+              "name": "seeked",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 32290.5,
+              "i": 2,
+              "name": "seeked",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 32292.5,
+              "i": 0,
+              "name": "seeked",
+              "rate": 1,
+              "time": 8
+            },
+            {
+              "at": 34704.800000000745,
+              "i": 2,
+              "name": "seeking",
+              "rate": 1,
+              "time": 9.4561
+            },
+            {
+              "at": 34738.5,
+              "i": 2,
+              "name": "seeked",
+              "rate": 1,
+              "time": 9.4561
+            },
+            {
+              "at": 34739.699999999255,
+              "i": 0,
+              "name": "waiting",
+              "rate": 1,
+              "time": 9.467243
+            }
+          ]
+        }
+      },
+      {
+        "name": "End stops all movies",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": false,
+          "driftCorrections": 1,
+          "focus": 1,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 70
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 70
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 70
+            }
+          ],
+          "playing": false,
+          "time": 70
+        }
+      },
+      {
+        "name": "Play from end restarts all movies at zero",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": true,
+          "driftCorrections": 1,
+          "focus": 1,
+          "players": [
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 3.117028
+            },
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 3.116972
+            },
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 3.116967
+            }
+          ],
+          "playing": true,
+          "time": 3.11689999999851
+        }
+      },
+      {
+        "name": "Replacement early seek remains pending while real metadata bytes are blocked",
+        "passed": true,
+        "evidence": {
+          "busy": true,
+          "desired": false,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 0,
+              "time": 0
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 0,
+              "time": 0
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 0,
+              "time": 0
+            }
+          ],
+          "playing": false,
+          "time": 26
+        }
+      },
+      {
+        "name": "Latest early seek and pause survive metadata delivery",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": false,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 26
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 26
+            },
+            {
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 26
+            }
+          ],
+          "playing": false,
+          "time": 26
+        }
+      },
+      {
+        "name": "Real byte starvation freezes the common clock and every movie",
+        "passed": true,
+        "evidence": {
+          "before": {
+            "busy": false,
+            "desired": true,
+            "driftCorrections": 0,
+            "focus": 0,
+            "players": [
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 3.646653
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 2,
+                "time": 3.64637
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 3.646603
+              }
+            ],
+            "playing": false,
+            "time": 3.632199999999255
+          },
+          "after": {
+            "busy": false,
+            "desired": true,
+            "driftCorrections": 0,
+            "focus": 0,
+            "players": [
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 3.646653
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 2,
+                "time": 3.64637
+              },
+              {
+                "paused": true,
+                "rate": 1,
+                "ready": 4,
+                "time": 3.646603
+              }
+            ],
+            "playing": false,
+            "time": 3.632199999999255
+          },
+          "limit": 775558
+        }
+      },
+      {
+        "name": "Releasing real bytes resumes aligned normal-speed playback",
+        "passed": true,
+        "evidence": {
+          "busy": false,
+          "desired": true,
+          "driftCorrections": 0,
+          "focus": 0,
+          "players": [
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 4.870171
+            },
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 4.869752
+            },
+            {
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 4.869967
+            }
+          ],
+          "playing": true,
+          "time": 4.855
+        }
+      }
+    ],
+    "htmlSha256": "d32468f5519fbfdafc9056caa0962ce959a02f2d2fc5b79d46d91c695e779255",
+    "report": "preview-review/viewer-review.json",
+    "reportSha256": "1678f73aadd30e09abf98dca8420c97104ce5a54f238569597f2d9ec90e587e7"
+  },
+  "preservedStrictReview": {
+    "file": "recordings-review.json",
+    "sha256": "f6235735a6cf29700e4289d89d421b46f7951aa2571d7e6dfdd3137ee5c13570",
+    "status": "inconclusive-capture-continuity"
+  },
+  "publicationPathReview": {
+    "status": "pass-static-pending-actual-archives",
+    "findings": [
+      "Explicit preview mode is required in both independent and technical approval.",
+      "Publication binds exact committed revision and all six asset hashes; existing release/tag refuses overwrite.",
+      "GitHub prerelease notes begin with the full capture limitation.",
+      "Packaging includes a separate preview review alongside strict inconclusive review and failed replacement evidence. Actual archives and release-source provenance remain pending verification."
+    ]
+  }
+}

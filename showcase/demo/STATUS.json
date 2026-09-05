@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "status": "blocked-capture-continuity",
+  "status": "preview-films-verified-awaiting-packaged-assets",
   "branch": "codex/comparison-recorder",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "recordingFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
@@ -8,21 +8,22 @@
   "outputDirectory": ".demo-work/demolition-demo-v1-release",
   "officialTakes": 11,
   "publication": "not-started",
-  "blockers": [
-    "Both official Astra charges captures are inconclusive under the independently approved30fps freshness gate: original7 repeated output frames; one permitted replacement4. No further identical-input retry or release approval. User decision required between deeper recorder diagnostics and a clearly labeled preview with explicitly relaxed continuity criteria."
-  ],
+  "blockers": [],
   "verification": {
     "originalFilesCompared": 78,
     "unchanged": true,
-    "recorderTestsPassed": 17,
+    "recorderTestsPassed": 19,
     "preRecordingReport": "showcase/demo/evidence/pre-recording-review-2026-09-05.json",
     "finalFilmsApproved": false,
     "mediaPropertiesPassed": true,
     "actualViewerChecksPassed": true,
-    "retainedCaptures": 63,
-    "retainedFrameHashesVerified": 85288,
+    "retainedCaptures": 66,
+    "retainedFrameHashesVerified": 91225,
     "outputFreshnessGate": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583",
-    "recordingsReview": "showcase/demo/evidence/recordings-review-inconclusive.json"
+    "recordingsReview": "showcase/demo/evidence/recordings-review-inconclusive.json",
+    "previewFilmsApproved": true,
+    "previewViewerChecksPassed": 18,
+    "previewRecordingsReview": "showcase/demo/evidence/preview-recordings-review.json"
   },
   "completed": [
     "Hash-pinned temporary copies and native action adapters",
@@ -37,19 +38,26 @@
     "Four corrected films pass exact dimensions, frame count, duration, codec, color format and fast-start checks",
     "Actual-film offline viewer passes controls, mobile, drift correction and real buffering checks",
     "All 85288 recorded JPEG hashes verified across 63 retained captures",
-    "Independent strict30fps source-freshness gate frozen; known flawed take fails and eight chapters pass"
+    "Independent strict30fps source-freshness gate frozen; known flawed take fails and eight chapters pass",
+    "User-authorized preview labels rendered from the unchanged existing clean masters",
+    "Four preview films independently played completely at1x, each2100frames; native images and final label placement inspected",
+    "Final preview viewer independently passes18 controls, layout, buffering and disclosure checks",
+    "91,225 raw JPEG hashes independently verified across66 retained captures"
   ],
   "remaining": [
-    "Resolve recurring recorder limitation without weakening the gate; no automatic identical-input retries",
-    "Package evidence and six release assets",
-    "Commit, merge and publish at verified revision",
-    "Verify public download checksums and update showcase links"
+    "Package six release assets at committed recorder revision",
+    "Obtain independent exact-commit and six-asset-hash approval",
+    "Merge and publish the authorized preview release",
+    "Verify anonymous public downloads and update showcase links"
   ],
   "retention": "Every prior calibration, interrupted capture, rehearsal and official take remains under .demo-work outside Git. One rehearsal clock failure and one official start-marker capture failure were independently invalidated and replaced once with unchanged inputs. Historical failed reviews are preserved in evidence/.",
-  "resumeCommand": "Read STATUS.json and independent recordings review; do not publish or retry unchanged captures while the continuity blocker remains",
+  "resumeCommand": "Read preview authorization and preview review. No new official takes. Publish only with independent preview approval for exact commit and six asset hashes.",
   "selectedOfficialTakes": 9,
   "retainedTechnicalFailures": {
     "rehearsal": 1,
-    "official": 1
-  }
+    "official": 3
+  },
+  "previewAuthorization": "showcase/demo/evidence/preview-authorization.json",
+  "strictCaptureContinuity": "inconclusive; preserved without waiver or changes to the strict verifier",
+  "publicationMode": "prerelease"
 }

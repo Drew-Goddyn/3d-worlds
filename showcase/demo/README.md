@@ -2,6 +2,21 @@
 
 Read `STATUS.json` and the independent reports in `evidence/` for the current recording and publication state.
 
+The user authorized a **labeled preview release** after the strict capture-continuity review remained inconclusive. Astra's charges chapter contains seven repeated output frames across five brief holds, up to 100 ms. Native presentation between captures is unknown; these films cannot support FPS or performance rankings. The original strict verifier still rejects this film set. Its reports, unsuccessful takes and unchanged frame mappings remain retained.
+
+The separate preview path pins the existing selection and clean-master hashes in `evidence/preview-authorization.json`. It adds visible disclosures in the reserved video headers and the offline viewer. It does not capture new gameplay or substitute the smoother failed replacement. Only capture continuity is exempted; source preservation, native controls, camera framing, chapter timing, media properties, viewer behavior, evidence retention and fresh independent asset review remain required.
+
+```
+npm run demo -- preview --output .demo-work/demolition-demo-v1-release
+npm run demo -- verify-preview --output .demo-work/demolition-demo-v1-release
+npm run demo -- viewer-checks --preview --output .demo-work/demolition-demo-v1-release
+npm run demo -- retained-takes --output .demo-work/demolition-demo-v1-release
+npm run demo -- package --preview --output .demo-work/demolition-demo-v1-release
+npm run demo -- publish --preview --output .demo-work/demolition-demo-v1-release
+```
+
+Packaging follows the independent recording/viewer review. Publication additionally requires exact-commit and six-asset-hash approval with `mode: preview`; the release is marked as a GitHub prerelease and prominently discloses the limitation. No existing release or ZIP is overwritten. The commands below retain the strict workflow for future runs.
+
 ## Run locally
 
 Existing installations are used: Node, agent-browser, the repository's Playwright library, FFmpeg, ffprobe, Git, tar, and GitHub CLI. No package additions or game dependency changes are required. The Sol build needs its existing node_modules installation.

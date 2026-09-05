@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-09-05T04:08:42.537Z",
+  "independentVerifier": "final_verify",
+  "status": "bounded-diagnosis-complete",
+  "scope": "Ineligible diagnostic recording only; no additional official recordings or release certification.",
+  "files": {
+    "trace": {
+      "path": "trace.json",
+      "sha256": "f16f4176f9def830bf15652c7145ea941067b19ca0ff8459027dda9c12212723",
+      "bytes": 51499167,
+      "dataLossOccurred": false
+    },
+    "capture": {
+      "path": "capture.json",
+      "sha256": "bff420615e696045138cd939717b74ef5b83a23fd876fe03c957263cc4d5f8ab"
+    },
+    "receipts": {
+      "path": "receipts.json",
+      "sha256": "03e41debcbfe72b678c75dbace85edffa9d803b69655e493f2c622e94c310980"
+    },
+    "measurements": {
+      "path": "independent-trace-measurements.json",
+      "sha256": "73b1848a06905b5266e2a5e4ddf477ce796aaa9ce8f26a1c3d2a95469c4105a2"
+    }
+  },
+  "finding": "The trace strongly supports downstream screencast encoding/scheduling/delivery congestion while the target compositor and GPU capture continue. It does not establish a sustained game-rendering stall during the examined diagnostic gaps.",
+  "evidence": {
+    "jpegTasks": 2730,
+    "ackCommandsHandledInBrowser": 2730,
+    "completedCapturesWithSuccessResultAndMediaTimestamp": 2776,
+    "jpegWallDurationsMs": {
+      "min": 8.313,
+      "median": 8.968,
+      "p95": 10.174,
+      "max": 67.627
+    },
+    "largestInFilmGapMs": 123.51179122924805,
+    "largestGapInnerWindow": {
+      "successfulCaptureCompletions": 7,
+      "targetSurfaceCommits": 7,
+      "displayEvents": 6
+    },
+    "nearbyJpegTasks": [
+      {
+        "wallMs": 67.627,
+        "threadCpuMs": 9.768
+      },
+      {
+        "wallMs": 52.266,
+        "threadCpuMs": 13.399
+      },
+      {
+        "wallMs": 48.655,
+        "threadCpuMs": 12.059
+      }
+    ],
+    "captureOracleOrPoolSuppressionEvents": 0,
+    "targetFrameSink": "FrameSinkId(9, 10)"
+  },
+  "confidence": {
+    "renderingVersusDownstreamCongestion": "Strong for the traced intervals: advancing target commits and completed captures occur while JPEG work and ACK processing are delayed. Those trace-internal overlaps share one clock.",
+    "preciseRootCause": "Unresolved. Excess wall duration over JPEG thread CPU time shows waiting or descheduling but does not identify the OS scheduler, lock, browser task queue or transport component responsible.",
+    "threeOutstandingFrameLimit": "Mechanism exists in exact installed Chromium source. No direct PageHandler rejection event is recorded, so exact rejected frame identities remain inferred.",
+    "officialFootage": "No retroactive causal certification. These events were recorded in a separate diagnostic take."
+  },
+  "clockLimit": "Before/after trace clock-sync offsets differ by 9.045 ms; the ordinary page/host probes also shift. Per-source-gap event windows use the endpoint offset hull with 1 ms rounding margins and explicitly assume no intermediate offset excursion outside it. They do not constitute a strict clock-alignment pass.",
+  "sourcePairingLimit": "JPEG spans lack source frame IDs. No blind ordinal JPEG-to-source mapping is used. Capture begin/end tracks are paired by process and local track ID, and target surface identity is checked.",
+  "displayLimit": "Headless Chromium display events establish compositor pipeline progress, not physical monitor observation or proof that every presented image differed.",
+  "userAmendment": "The user subsequently selected explicitly labeled previews and relaxed capture continuity for that preview release. This diagnostic report does not block that amended route; a fresh independent review must apply the amended criteria and every remaining invariant.",
+  "nextAction": "Diagnostics stop here. Preserve the trace and both failed official charges captures; do not perform another official take or imply this trace validates their continuity."
+}

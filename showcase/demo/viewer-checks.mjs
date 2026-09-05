@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import {mkdir,copyFile} from 'node:fs/promises';
 import {spawn} from 'node:child_process';
 import {root,demo,builds,cmd,save,sleep} from './core.mjs';
-export default async function viewerChecks({out}){
- const dir=path.join(out,'viewer-check'),session=`demo-viewer-check-${Date.now()}`;await mkdir(dir,{recursive:true});await copyFile(path.join(demo,'viewer.html'),path.join(dir,'index.html'));for(const b of builds)await copyFile(path.join(out,'delivery',b.folder+'.mp4'),path.join(dir,b.folder+'.mp4'));
+export default async function viewerChecks({out,args=[]}){
+ const preview=args.includes('--preview'),dir=path.join(out,preview?'preview-viewer-check':'viewer-check'),session=`demo-viewer-check-${Date.now()}`;await mkdir(dir,{recursive:true});await copyFile(preview?path.join(out,'preview-delivery/index.html'):path.join(demo,'viewer.html'),path.join(dir,'index.html'));for(const b of builds)await copyFile(path.join(out,preview?'preview-delivery':'delivery',b.folder+'.mp4'),path.join(dir,b.folder+'.mp4'));
  const ab=(...a)=>{const r=JSON.parse(cmd('agent-browser',['--session',session,'--json',...a]));if(!r.success)throw Error(JSON.stringify(r));return r.data;};const evaluate=code=>{const r=ab('eval',code);return r.result??r;};const state=()=>evaluate('window.comparisonViewer.state()');
  const result={startedAt:new Date().toISOString(),checks:[]};let server;
  async function until(check,timeout=15000){const start=Date.now();while(Date.now()-start<timeout){const value=check();if(value)return value;await sleep(100);}throw Error('Viewer condition timed out');}
