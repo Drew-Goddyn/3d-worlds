@@ -40,3 +40,7 @@ The surrounding buildings are coarse storey assemblies with independently damage
 Simulation snapshots include structural transforms, support strengths, random-generator state, debris and dust state, staged charge timers, water tank state, prop damage, crowd/pigeon reaction state, score and crane momentum. A rolling history records at 20 Hz with interpolated presentation; the pristine snapshot is retained separately. Quality changes do not change the support graph or history sampling rate.
 
 The project has no sibling-project imports, external artwork, hosted services, analytics, credentials, persistence, or build pipeline.
+
+## Continuing application and historical evidence
+
+This is the continuing Astra application. The owner accepted round two’s localized bank breaking and crumbling as a significant improvement, without declaring the bank complete or its physics perfect. The directory label records the original attempt’s settings, not later sessions. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee). Round-two captures and limitations are retained in [the round-two record](evidence/round2-bank/ROUND-TWO.md).

@@ -22,7 +22,7 @@ The evidence source is the local Codex `turn_context` metadata correlated with u
 
 ## How to read the comparison
 
-The creative brief matches exactly. The surrounding conditions do not: planning, follow-up requests, tool availability, helper agents, verification effort, and total iteration time differed. No attempt was rebuilt or modified to improve its position in this showcase. Screenshots show the current committed artifacts in their initial view; they are not synthetic mockups.
+The creative brief matches exactly. The surrounding conditions do not: planning, follow-up requests, tool availability, helper agents, verification effort, and total iteration time differed. No attempt was rebuilt or modified to improve its position in this showcase. Screenshots show the original showcase artifacts in their initial view; they are not synthetic mockups.
 
 Existing verification reports belong to their individual builds and environments. In particular, the first build's historical verification script includes an author-local output directory; it is retained as part of that artifact and is not advertised as a portable showcase-wide test command. The newer build's measured frame rates are local observations, not cross-model benchmark scores.
 
@@ -30,7 +30,7 @@ Existing verification reports belong to their individual builds and environments
 
 **[Watch the side-by-side preview](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4)** · **[Download the synchronized viewer](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip)** · [All release assets](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1)
 
-These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. Original builds remain unchanged.
+These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. These films and preview images document the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee). The Astra application continues to evolve; its current source includes the accepted round-two bank improvement. Historical media and creation labels remain unchanged.
 
 The four films use shared chapter boundaries and matched camera framing. Native automatic/manual charge placement, misses, destruction and rewind semantics are retained. Independent review verified unchanged original sources, native controls, marker timing, video format, complete normal-speed playback and the offline viewer. The strict continuity review remains inconclusive; the user explicitly authorized publication with that limitation disclosed.
 
