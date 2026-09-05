@@ -1,6 +1,6 @@
 # Banking-hall breach · review
 
-PR #1 was accepted by the owner and merged after provenance correction and fresh technical checks. Round three is ready for an **unmerged owner-review PR**, not owner acceptance.
+PR #1 was accepted by the owner and merged after provenance correction and fresh technical checks. Round three is [PR #2](https://github.com/Drew-Goddyn/3d-worlds/pull/2), **open and unmerged for owner review**. Owner acceptance is pending.
 
 ## Exact references and launch
 
@@ -22,12 +22,12 @@ For the captured approach, hold **rotate left** about 1.5 seconds, **lengthen ca
 
 Open `viewer.html` beside the selected files for normal-speed videos. `baseline-native.webm` and `candidate-native.webm` each run about 29.4 seconds. Native actions complete near 1.5, 10.5 and 19.5 seconds. These are wall-clock completion labels, not exact contact-frame annotations. Browser MediaRecorder retains real timestamps; idle time is not compressed. The canvas recordings omit DOM controls, which the screenshots/input records retain.
 
-Matched front camera: position `[-9,5,35]`, target `[-11,2.1,15]`, 1440×900, DPR 1. World targets: `[-7,2,19.5]`, `[-7.5,1.6,13.45]`, `[-15,2,19.5]`. `capture.py` reproduces real pointer/button actions; its helper changes only framing. A passive contact wrapper delegates the original method unchanged and logs causes. `candidate-inputs.json` records direct ball contacts with a writing table and counters at simulation times 26.209, 26.309 and 31.409 seconds; earlier falling masonry also moves contents.
+Matched front camera: position `[-9,5,35]`, target `[-11,2.1,15]`, 1440×900, DPR 1. World targets: `[-7,2,19.5]`, `[-7.5,1.6,13.45]`, `[-15,2,19.5]`. `capture.py` (repository-only) reproduces real pointer/button actions; its helper changes only framing. A passive contact wrapper delegates the original method unchanged and logs causes. `candidate-inputs.json` records direct ball contacts with a writing table and counters at simulation times 26.209, 26.309 and 31.409 seconds; earlier falling masonry also moves contents.
 
 - `*-intact.png`, `*-8s.png`, `*-13s.png`, `*-18s.png`, `*-breached.png`: matched intact, early breach, follow-up and final aftermath.
-- `*-second-angle.png`: native timeline inspection of the first breach from `[-3,5,23]` toward `[-11,1.8,14]`; the ball partly occludes this close view. `candidate-native-camera.png` provides a useful wider angle after the larger collapse using real orbit/pan/zoom.
+- `*-second-angle.png` (repository-only): native timeline inspection of the first breach from `[-3,5,23]` toward `[-11,1.8,14]`; the ball partly occludes this close view. `candidate-native-camera.png` provides a useful wider angle after the larger collapse using real orbit/pan/zoom.
 - `candidate-strip.png`: six frames selected from actual footage about five seconds apart, labeled with source timestamps.
-- `candidate-time-controls.webm`: native scrubs, slow replay, rewind, alternate action and pristine rebuild. `candidate-collapse.webm`: six staged charges and normal-speed aftermath. `inspect.py` and `native-inspection.json` retain inputs and outcomes.
+- `candidate-time-controls.webm`: native scrubs, slow replay, rewind, alternate action and pristine rebuild. `candidate-collapse.webm`: six staged charges and normal-speed aftermath. `inspect.py` (repository-only) and the included `native-inspection.json` retain inputs and outcomes. The reproduction scripts and close-angle images are available in the [repository evidence directory](https://github.com/Drew-Goddyn/3d-worlds/tree/9e16523/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round3-hall); they are intentionally excluded from the selected-media ZIP.
 - `media.json`: durations, codecs, dimensions and SHA-256 hashes. Exact commission: `FOLLOW-UP.md`.
 
 ## Verification and bounded review

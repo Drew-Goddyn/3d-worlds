@@ -1,0 +1,38 @@
+{
+  "baseline-native.webm": {
+    "duration": 29.432162,
+    "metadataMatches": true,
+    "shaMatches": true,
+    "packetCount": 884,
+    "firstPTS": 0.0,
+    "lastPTS": 29.432,
+    "timestampsMonotonic": true
+  },
+  "candidate-collapse.webm": {
+    "duration": 17.470718,
+    "metadataMatches": true,
+    "shaMatches": true,
+    "packetCount": 525,
+    "firstPTS": 0.0,
+    "lastPTS": 17.47,
+    "timestampsMonotonic": true
+  },
+  "candidate-native.webm": {
+    "duration": 29.435277,
+    "metadataMatches": true,
+    "shaMatches": true,
+    "packetCount": 884,
+    "firstPTS": 0.0,
+    "lastPTS": 29.435,
+    "timestampsMonotonic": true
+  },
+  "candidate-time-controls.webm": {
+    "duration": 18.917423,
+    "metadataMatches": true,
+    "shaMatches": true,
+    "packetCount": 568,
+    "firstPTS": 0.0,
+    "lastPTS": 18.917,
+    "timestampsMonotonic": true
+  }
+}

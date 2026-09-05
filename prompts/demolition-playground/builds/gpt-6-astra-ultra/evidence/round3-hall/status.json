@@ -1,16 +1,12 @@
 {
-  "phase": "verified-awaiting-pr",
+  "phase": "ready-for-owner-review",
   "baseline": "6d583d11b73e337114f597a772a5924f769cd562",
   "branch": "round3/astra-bank-breach",
   "checkpointPr": 1,
   "checkpointMerged": true,
   "sessionSettings": "unverified",
   "baselineReview": "Preserve cream stone civic exterior; make contrasting teller area and contents readable through breach; baseline rubble obscures hall. Stills do not prove material motion.",
-  "requiredBeforeDelivery": [
-    "commit and push evidence",
-    "open one unmerged PR",
-    "create evidence-only ZIP"
-  ],
+  "requiredBeforeDelivery": [],
   "resultSource": "9aee1cad532278b6672cc535fec8685d473a2eaa",
   "tests": {
     "passed": 29,
@@ -23,5 +19,12 @@
   "remainingLimitations": [
     "Large successive hits still obscure the hall behind rubble.",
     "Coarse rigid-body bounds and transient overlaps."
-  ]
+  ],
+  "pr": {
+    "number": 2,
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/2",
+    "state": "OPEN",
+    "merged": false
+  },
+  "zipPath": "/Users/Drew/Downloads/bank-breach-review.zip"
 }
