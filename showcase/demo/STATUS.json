@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "status": "pre-recording-approved",
+  "status": "official-recording",
   "branch": "codex/comparison-recorder",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "recordingFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
@@ -21,11 +21,11 @@
     "Independent camera/target/history verification",
     "Bounded timestamped JPEG capture and clock-bracket verification",
     "Startup, rendering-change and actual camera telemetry",
-    "Offline viewer verified with real metadata starvation, buffering, seeking and drift correction"
+    "Offline viewer verified with real metadata starvation, buffering, seeking and drift correction",
+    "All nine chapter rehearsals have a technically valid capture; one clock-shift failure retained",
+    "Exact approved capture inputs frozen"
   ],
   "remaining": [
-    "Run final disk pilot and all three build rehearsals",
-    "Freeze exact inputs after successful rehearsal timing checks",
     "Record first technically valid official takes sequentially",
     "Assemble and independently verify actual films and viewer",
     "Package evidence and six release assets",
@@ -33,5 +33,5 @@
     "Verify public download checksums and update showcase links"
   ],
   "retention": "Every prior calibration, interrupted capture and rehearsal remains under .demo-work outside Git. Historical failed reviews are preserved in evidence/.",
-  "resumeCommand": "npm run demo -- pilot --run demolition-demo-v1 --output .demo-work/demolition-demo-v1-release"
+  "resumeCommand": "npm run demo -- record --run demolition-demo-v1 --output .demo-work/demolition-demo-v1-release"
 }

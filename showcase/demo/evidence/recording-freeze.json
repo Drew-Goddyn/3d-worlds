@@ -1,0 +1,33 @@
+{
+  "inputs": {
+    "showcase/demo/browser-runtime.js": "a7b44dae42a29d62093d8f256d941e75e867f0a2daa282c3a1e6c63a0770f448",
+    "showcase/demo/core.mjs": "8e6204273275e459ecd5a0543326849679a3dcd92482de317d109bb489fce8ee",
+    "showcase/demo/timing.mjs": "d9556b219e3edeec40cf6327e9775127f56a101d491c0a5268cf6d05282be5ad",
+    "showcase/demo/run.mjs": "0ed5643a61ad84b6e2e3adbae6d9d7b0681c498749ef72167fa7a07eee07acf9",
+    "showcase/demo/control-checks.mjs": "bbabd11747d5b6f6597c59ce0ecb89c944a48b26228a7294eb3048571116ca29",
+    "showcase/attempts.json": "0ce45c0d78fd56482ed27d994c0625c468756dba07c1e2a89f2edbe87299f47f",
+    "prompts/demolition-playground/demo/scenario.json": "a5fd77bd28173e2c89eb0c8868536866b07f7ebc7a2ba60a644bcd09fe486e4f",
+    "showcase/demo/patches/site.json": "06d22a0c9c45380a70cfa297d7e851e5102d6c68da8e53cd290b3bc04037ef2a",
+    "prompts/demolition-playground/demo/calibration/site.json": "fdde321d31b1b7c69d9d3be36bbd7fe669b37915bbd5f79a48b85ea36eb4197c",
+    "prompts/demolition-playground/demo/calibration/site-native-motion.json": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3",
+    "showcase/demo/patches/sol.json": "6ab941085b5dc988a0a0da199970c974cf644c4c1dfe1c998b97a2dc26f84a7f",
+    "prompts/demolition-playground/demo/calibration/sol.json": "35061cbb8512c4fb73d96eeec9699da5d0ad5cee4eae9ac7cffadd8b63a14180",
+    "prompts/demolition-playground/demo/calibration/sol-native-motion.json": "930cc91946b472ec075b5374dc8f7f988970083b0b5f5346c3fd547697c2041d",
+    "showcase/demo/patches/astra.json": "78ade182af8830d145ef176ce7849b9e4bafcea2a26bc3dc7bca3deb5530efcc",
+    "prompts/demolition-playground/demo/calibration/astra.json": "f8c9c2979835f60e2092b5250b5425da579bc5b748de3f96ea9f700b4f859753",
+    "prompts/demolition-playground/demo/calibration/astra-native-motion.json": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b",
+    "calibration/site": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+    "calibration/sol": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+    "calibration/astra": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db"
+  },
+  "sha256": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "at": "2026-09-05T02:55:22.015Z",
+  "settings": {
+    "jpegQuality": 95,
+    "width": 1920,
+    "height": 1080,
+    "deviceScaleFactor": 1,
+    "fps": 30,
+    "crf": 18
+  }
+}
