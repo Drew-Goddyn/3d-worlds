@@ -33,6 +33,8 @@ The three original prompt attachments have the same SHA-256 hash. Model and reas
 
 These were iterative coding sessions with different follow-up instructions, tools, and agent workflows. They are a showcase of resulting artifacts, not a controlled model benchmark or a ranking.
 
+[Comparison demo design](prompts/demolition-playground/demo/README.md) specifies matching camera shots and actions for future synchronized recordings; the recorder and videos are not implemented yet.
+
 ### Demolition Site
 
 **GPT-5.5 · xhigh**

@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "id": "demolition-comparison-v1",
+  "status": "design-not-implemented",
+  "promptId": "demolition-playground",
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "attemptIds": [
+    "demolition-site",
+    "district-08",
+    "demolition-district"
+  ],
+  "durationSeconds": 70,
+  "clock": "native-monotonic-real-time",
+  "recordingOrder": "sequential",
+  "viewport": {
+    "width": 1920,
+    "height": 1080,
+    "devicePixelRatio": 1
+  },
+  "delivery": {
+    "fps": 30,
+    "individual": [
+      1920,
+      1080
+    ],
+    "comparison": [
+      3840,
+      840
+    ],
+    "frameInterpolation": false,
+    "perBuildRetiming": false
+  },
+  "camera": {
+    "calibrationStatus": "required",
+    "verticalFovDegrees": 45,
+    "elevationDegrees": 30,
+    "rollDegrees": 0,
+    "startAzimuthDegrees": 45,
+    "safeRect": {
+      "left": 0.15,
+      "top": 0.14,
+      "right": 0.85,
+      "bottom": 0.78
+    },
+    "innerMarginFraction": 0.04,
+    "fit": "projected-pristine-bounds",
+    "nativeActionCamera": false
+  },
+  "nativeSettings": {
+    "quality": "highest-preset",
+    "adaptiveRendering": "preserved",
+    "hud": "visible",
+    "audio": "muted",
+    "randomness": "unchanged"
+  },
+  "chapters": [
+    {
+      "id": "city",
+      "startSeconds": 0,
+      "durationSeconds": 8,
+      "freshContext": true,
+      "shot": "overview",
+      "events": [
+        {
+          "at": 0,
+          "action": "camera.hold",
+          "azimuthDegrees": 45
+        },
+        {
+          "at": 2,
+          "action": "camera.orbit",
+          "toAzimuthDegrees": 65,
+          "durationSeconds": 4,
+          "easing": "smoothstep"
+        },
+        {
+          "at": 6,
+          "action": "camera.hold",
+          "azimuthDegrees": 65
+        }
+      ]
+    },
+    {
+      "id": "ball",
+      "startSeconds": 8,
+      "durationSeconds": 18,
+      "freshContext": true,
+      "shot": "bank-and-crane",
+      "events": [
+        {
+          "at": 0,
+          "action": "camera.transition",
+          "fromShot": "overview",
+          "toShot": "bank-and-crane",
+          "durationSeconds": 2
+        },
+        {
+          "at": 0,
+          "action": "ball.prepare",
+          "target": "bank",
+          "deadlineSeconds": 5,
+          "legalControlsOnly": true
+        },
+        {
+          "at": 5,
+          "action": "ball.swingOnce",
+          "target": "bank",
+          "power": "native-default"
+        }
+      ]
+    },
+    {
+      "id": "charges-rewind",
+      "startSeconds": 26,
+      "durationSeconds": 44,
+      "freshContext": true,
+      "shot": "overview",
+      "events": [
+        {
+          "at": 4,
+          "action": "charges.prepareSet",
+          "targets": [
+            "bank",
+            "warehouse",
+            "glass-tower"
+          ],
+          "count": 3,
+          "deadlineSeconds": 7,
+          "nativeAutomaticPlacement": "preserved",
+          "manualPlacementTimes": [
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "at": 7,
+          "action": "slow.set",
+          "enabled": true
+        },
+        {
+          "at": 8,
+          "action": "charge.detonate"
+        },
+        {
+          "at": 13,
+          "action": "slow.set",
+          "enabled": false
+        },
+        {
+          "at": 25,
+          "action": "rewind.start",
+          "mode": "native"
+        },
+        {
+          "at": 37,
+          "action": "rewind.releaseIfHeld"
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "officialTake": "first-technically-valid",
+    "retriesForOutcome": false,
+    "seedSearching": false,
+    "retainAllAttempts": true
+  },
+  "unresolvedCalibration": [
+    "exact camera positions and targets",
+    "HUD-safe framing and target visibility",
+    "legal bank aiming sequence within shared lead-in",
+    "ground-floor support IDs and local hit points",
+    "recorder dimensions, timestamps, throughput"
+  ]
+}

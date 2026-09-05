@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "status": "design-not-implemented",
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "patchPolicy": "Temporary recording copies only; camera, native action dispatch and observation; original build blobs unchanged.",
+  "adapters": [
+    {
+      "attemptId": "demolition-site",
+      "directory": "prompts/demolition-playground/builds/gpt-5.5-xhigh",
+      "entry": "src/main.js",
+      "nativeFovDegrees": 55,
+      "availableBridge": "window.demolitionApp",
+      "landmarks": {
+        "bank": "bank",
+        "warehouse": "warehouse",
+        "glass-tower": "tower"
+      },
+      "quality": "high",
+      "chargeStaggerSeconds": 0.28,
+      "rewind": {
+        "type": "automatic-once-started",
+        "entry": "startRewind",
+        "cameraRestoredByHistory": true,
+        "stopOnRelease": false
+      },
+      "ball": {
+        "nativeHandler": "native swing button -> triggerSwing at chapter second 5",
+        "preparation": "Native yaw/cable UI sliders only; never canvas pointer input before second 5",
+        "launchActions": 1
+      },
+      "neededHooks": [
+        "camera and pristine scene bounds",
+        "visible support enumeration/raycast projection",
+        "native slider/swing/tool-selector handler dispatch with automatic-charge readback",
+        "action receipts"
+      ],
+      "prohibitedShortcuts": [
+        "damageBuilding",
+        "advanceForEvidence",
+        "runEvidenceScenario",
+        "runChromePerfScenario",
+        "calling autoPlaceCharge directly outside native selector behavior"
+      ],
+      "notes": [
+        "Native Math.random prevents a promise of bitwise replay.",
+        "scrubTo restores a snapshot but does not pause the normal animation loop.",
+        "Selecting the empty charge tool automatically arms bank, warehouse and tower.",
+        "Native canvas pointer-down in ball mode aims and launches in the same handler."
+      ],
+      "charges": {
+        "preparation": "native setTool(charge) at second 4 automatically places the three-target set",
+        "manualAdditionalPlacements": 0,
+        "preserveNativeSupportPositions": true,
+        "readback": "exactly three charges and bank/warehouse/tower memberships"
+      },
+      "slow": {
+        "enable": "complete slowOn path",
+        "disable": "complete slowOff path",
+        "caution": "Pointer-up, click, and pointer-leave have distinct effects; verify against native interaction."
+      }
+    },
+    {
+      "attemptId": "district-08",
+      "directory": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra",
+      "entry": "app/playground/DemolitionPlayground.tsx",
+      "sceneSource": "app/playground/city.ts",
+      "nativeFovDegrees": 46,
+      "availableBridge": null,
+      "internalApi": "apiRef.current, closure-local",
+      "landmarks": {
+        "bank": "bank",
+        "warehouse": "warehouse",
+        "glass-tower": "glass-tower"
+      },
+      "quality": "cinematic",
+      "chargeStaggerSeconds": 0.19,
+      "rewind": {
+        "type": "hold",
+        "control": "rewindHoldRef / native KeyR handler",
+        "nativeRate": 2.4,
+        "stopOnRelease": true
+      },
+      "ball": {
+        "nativeHandler": "apiRef.current.kickBall(1) at chapter second 5",
+        "preparation": "Native yaw/hoist controls",
+        "launchActions": 1
+      },
+      "neededHooks": [
+        "opt-in bridge inside component lifecycle",
+        "camera and district bounds/pieces",
+        "existing UI handlers and React state synchronization",
+        "charge placement through full makeCharge bookkeeping",
+        "action receipts and cleanup on component unmount"
+      ],
+      "prohibitedShortcuts": [
+        "direct simulation.damage calls",
+        "direct simulation.update stepping",
+        "direct piece detachment"
+      ],
+      "notes": [
+        "No public window API currently exists.",
+        "Simulation-only calls would omit charge markers, effects, UI, and other component state."
+      ],
+      "charges": {
+        "preparation": "select charges at second 4; one native manual placement at seconds 4,5,6",
+        "targetRule": "visible attached ground-floor support on each semantic target"
+      },
+      "slow": {
+        "enable": "native slow toggle/hold logic with UI synchronization",
+        "disable": "native slow toggle/hold release logic with UI synchronization"
+      }
+    },
+    {
+      "attemptId": "demolition-district",
+      "directory": "prompts/demolition-playground/builds/gpt-6-astra-ultra",
+      "entry": "src/main.js",
+      "sceneSource": "src/city.js",
+      "nativeFovDegrees": 39,
+      "availableBridge": "window.demolition",
+      "landmarks": {
+        "bank": 0,
+        "warehouse": 4,
+        "glass-tower": 3
+      },
+      "landmarkNames": {
+        "bank": "Mercantile Bank",
+        "warehouse": "Foundry Warehouse",
+        "glass-tower": "Verdant Tower"
+      },
+      "quality": "high",
+      "rewind": {
+        "type": "toggle",
+        "control": "toggleRewind",
+        "nativeRate": 3,
+        "stopOnRelease": false
+      },
+      "ball": {
+        "nativeHandler": "one native canvas aim/launch action at chapter second 5",
+        "preparation": "Resolve bank target only; do not invoke aimAt yet",
+        "launchActions": 1
+      },
+      "neededHooks": [
+        "camera and pristine bounds",
+        "visible structural-support projection",
+        "full native UI action dispatch",
+        "action receipts"
+      ],
+      "prohibitedShortcuts": [
+        "impactBuilding",
+        "direct simulation.update stepping",
+        "direct support damage"
+      ],
+      "notes": [
+        "aimBuilding/aimAt includes the native launch impulse.",
+        "Existing placeCharge uses a fixed building/floor point; it does not resolve the common visible-support rule."
+      ],
+      "charges": {
+        "preparation": "select charges at second 4; one native manual placement at seconds 4,5,6",
+        "targetRule": "visible attached ground-floor support on each semantic target"
+      },
+      "slow": {
+        "enable": "setSlow(true)",
+        "disable": "setSlow(false)"
+      }
+    }
+  ]
+}
