@@ -1,0 +1,7 @@
+import path from 'node:path';
+import {launch,capture,save,builds as catalog} from './core.mjs';
+export default async function pilot({scenario,out,record,args=[]}){
+ const b=catalog[2],session=await launch(b,scenario,out,'control-pilot');
+ try{await session.page.goto('data:text/html,'+encodeURIComponent(`<!doctype html><style>body{margin:0;background:#162438;color:white;font:60px monospace}#ball{width:160px;height:160px;background:#ffba38;position:absolute;top:420px}</style><p>1080p recorder control · native animation clock</p><div id="ball"></div><script>window.samples=[];function draw(t){samples.push(t);document.getElementById('ball').style.left=(860+700*Math.sin(t/700))+'px';requestAnimationFrame(draw)}requestAnimationFrame(draw)</script>`));const result=await capture(session,path.join(out,'pilot','control'),{seconds:8});const frames=result.frames,fps=(frames.length-1)/(frames.at(-1).timestamp-frames[0].timestamp);const report={fps,dimensions:frames.every(f=>f.width===1920&&f.height===1080),writes:frames.every(f=>f.bytes>0&&f.sha256&&!f.writeError),peakBytes:result.peakBytes,animationTimestamps:await session.page.evaluate(()=>window.samples)};report.passed=fps>=30&&report.dimensions&&report.writes;await save(path.join(out,'pilot','control-result.json'),report);if(!report.passed)throw Error('Recorder control pilot failed');console.log(`Disk capture control: ${fps.toFixed(2)} fps, ${frames.length} written frames`);}finally{await session.close();}
+ if(!args.includes('--control-only'))await record('rehearsal');
+}

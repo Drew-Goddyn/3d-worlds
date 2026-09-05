@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "node prompts/demolition-playground/builds/gpt-5.5-xhigh/server.mjs",
     "check": "node prompts/demolition-playground/builds/gpt-5.5-xhigh/scripts/check-import-assets.mjs",
-    "verify": "node prompts/demolition-playground/builds/gpt-5.5-xhigh/scripts/verify-playground.mjs"
+    "verify": "node prompts/demolition-playground/builds/gpt-5.5-xhigh/scripts/verify-playground.mjs",
+    "demo": "node showcase/demo/run.mjs",
+    "test:demo": "node --test showcase/demo/test/*.test.mjs"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0"

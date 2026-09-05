@@ -1,0 +1,36 @@
+{
+  "kind": "astra",
+  "folder": "gpt-6-astra-ultra",
+  "entry": "src/main.js",
+  "sourceSha256": "d1f160ccddb9bcf66a580da2b5594f41f800fcaf569ce642ef343d3327f432c5",
+  "edits": [
+    {
+      "find": "import * as THREE from 'three';\n",
+      "replace": "import { attachComparison } from \"./__comparison-runtime.js\";\nimport * as THREE from 'three';\n"
+    },
+    {
+      "find": "canvas.addEventListener('pointerdown',event=>{pointerDown={x:event.clientX,y:event.clientY,button:event.button};canvas.style.cursor='grabbing';});",
+      "replace": "const comparisonDown=event=>{pointerDown={x:event.clientX,y:event.clientY,button:event.button};canvas.style.cursor='grabbing';};canvas.addEventListener('pointerdown',comparisonDown);"
+    },
+    {
+      "find": "canvas.addEventListener('pointerup',event=>{",
+      "replace": "const comparisonUp=event=>{"
+    },
+    {
+      "find": "$('target-label').hidden=true;record();updateUI();\n});",
+      "replace": "$('target-label').hidden=true;record();updateUI();\n};canvas.addEventListener('pointerup',comparisonUp);"
+    },
+    {
+      "find": "function animate(now){",
+      "replace": "attachComparison({THREE,camera,scene,controls,renderer,\n describe(){scene.updateMatrixWorld(true);const bound=b=>{const x=new THREE.Box3();for(const f of b.floors)x.expandByObject(f.group);return {min:x.min.toArray(),max:x.max.toArray()};};const all=new THREE.Box3();for(const b of city.buildings){const x=bound(b);all.union(new THREE.Box3(new THREE.Vector3(...x.min),new THREE.Vector3(...x.max)));}const cb=new THREE.Box3().setFromObject(crane.root).expandByObject(crane.cable).expandByObject(crane.ball);all.union(cb);const b=city.buildings[0];return {frontAzimuthDegrees:0,front:[0,0,1],right:[1,0,0],facadeCenters:Object.fromEntries(Object.entries({bank:0,warehouse:4,'glass-tower':3}).map(([key,id])=>{const b=city.buildings[id];return [key,[b.x,2,b.z+b.depth/2]];})),fitBounds:[...city.buildings.map(bound),{min:cb.min.toArray(),max:cb.max.toArray()}],bounds:{min:all.min.toArray(),max:all.max.toArray()},craneBounds:{min:cb.min.toArray(),max:cb.max.toArray()},bankBounds:bound(b),bankPoint:[b.x,5,b.z+b.depth/2]};},\n swingEnvelope(p){const target=new THREE.Vector3(...p.bankPoint),goalYaw=Math.atan2(target.z-crane.base.z,target.x-crane.base.x),delta=Math.atan2(Math.sin(goalYaw-crane.yaw),Math.cos(goalYaw-crane.yaw)),reach=THREE.MathUtils.clamp(Math.hypot(target.x-crane.base.x,target.z-crane.base.z)+2,14,51),length=Math.max(crane.length,THREE.MathUtils.clamp(42-THREE.MathUtils.clamp(target.y,3,32),9,39)),bounds=new THREE.Box3();for(let i=0;i<=32;i++){const u=i/32,yaw=crane.yaw+delta*u,r=crane.reach+(reach-crane.reach)*u,anchor=new THREE.Vector3(crane.base.x+Math.cos(yaw)*r,42,crane.base.z+Math.sin(yaw)*r);bounds.expandByPoint(anchor.clone().addScalar(length+1.8));bounds.expandByPoint(anchor.clone().addScalar(-length-1.8));}return {min:bounds.min.toArray(),max:bounds.max.toArray(),method:'initial/prepared tether spheres along the native shortest yaw arc, including ball radius'};},\n supports(key){const id={bank:0,warehouse:4,'glass-tower':3}[key],b=city.buildings[id],f=b.floors[0];return f.columns.map((p,i)=>({key:`${id}/0/${i}`,id,floor:0,bounds:{min:[b.x+p.x-.215,f.y+.2,b.z+p.z-.215],max:[b.x+p.x+.215,f.y+f.height-.2,b.z+p.z+.215]}}));},\n hit(screen){return pick({clientX:screen.x,clientY:screen.y});},\n matches(s,h){return h.building.id===s.id&&h.floor.index===0&&h.point.x>=s.bounds.min[0]-1e-5&&h.point.x<=s.bounds.max[0]+1e-5&&h.point.z>=s.bounds.min[2]-1e-5&&h.point.z<=s.bounds.max[2]+1e-5;},\n hitIdentity(h){return {building:h.building.id,floor:h.floor.index};},\n observe(){return {time:simulation.time,cursor,slow:slow||spaceSlow,mode:rewinding?'rewind':paused?'paused':'live',tonnage:simulation.stats.tonnage,charges:simulation.charges.map(c=>({...c,building:simulation.floors[c.floor].building.id})),crane:crane.capture()};},\n chargePoints(){return simulation.charges.map(c=>simulation.floors[c.floor].floor.group.localToWorld(new THREE.Vector3(c.x,c.y,c.z)));},\n action(action,cal,extra){\n if(action==='charges.prepareSet')$('charge-tool').click();\n if(action==='charge.detonate')$('detonate').click();\n if(action==='slow.set')setSlow(extra.enabled);\n if(action==='rewind.start')$('rewind').click();\n if(action==='charge.place'||action==='ball.swingOnce'){const target=action==='charge.place'?cal.targets[extra.target].point:cal.bankPoint;const p=new THREE.Vector3(...target).project(window.__comparison.camera);const event={clientX:(p.x+1)*innerWidth/2,clientY:(1-p.y)*innerHeight/2,button:0};const hit=pick(event);if(!hit)throw Error('Native pointer missed target');comparisonDown(event);comparisonUp(event);return {point:hit.point.toArray(),building:hit.building.id,floor:hit.floor.index};}\n }\n});\nfunction animate(now){\n  window.__comparison?.beforeFrame(now);"
+    },
+    {
+      "find": "controls.update();renderer.render(scene,camera);",
+      "replace": "controls.update();window.__comparison?.beforeRender();renderer.render(scene,window.__comparison?.camera??camera);"
+    },
+    {
+      "find": "raycaster.setFromCamera(pointer,camera);",
+      "replace": "raycaster.setFromCamera(pointer,window.__comparison?.camera??camera);"
+    }
+  ]
+}

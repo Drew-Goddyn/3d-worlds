@@ -1,0 +1,9 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {FrameWriter} from '../core.mjs';
+test('queue fails closed on overflow and retains attempted take evidence',async()=>{let release;const w=new FrameWriter('/unused',{maxFrames:1,write:()=>new Promise(r=>release=r)});assert.equal(w.push(Buffer.alloc(2),{file:'a'}),true);assert.equal(w.push(Buffer.alloc(2),{file:'b'}),false);release();await assert.rejects(w.drain(),/overflow/);assert.equal(w.rows.length,1);});
+test('disk failure invalidates recording',async()=>{const w=new FrameWriter('/unused',{write:async()=>{throw Error('disk full')}});w.push(Buffer.alloc(1),{file:'a'});await assert.rejects(w.drain(),/disk full/);assert.equal(w.rows[0].writeError,'disk full');});
+test('queue records writes, sizes, hashes, completion and stays bounded',async()=>{const w=new FrameWriter('/unused',{write:async()=>{}});for(let i=0;i<20;i++)w.push(Buffer.from('jpeg'),{file:String(i)});await w.drain();assert.equal(w.bytes,0);assert.ok(w.peakBytes<=w.maxBytes);assert.ok(w.rows.every(r=>r.sha256.length===64&&r.writeCompletedEpochMs&&r.bytes===4));});
+import {frameSchedule} from '../timing.mjs';
+test('elapsed-time mapping keeps a native stall and preserves chapter length',()=>{const frames=[{timestamp:10},{timestamp:10.02},{timestamp:10.5},{timestamp:11}];const map=frameSchedule(frames,10,1);assert.equal(map.length,30);assert.equal(map[14].sourceIndex,1);assert.equal(map[15].sourceIndex,2);assert.equal(map[29].sourceIndex,2);});
+test('out-of-order CDP delivery is encoded by original timestamp, retaining source identity',()=>{const frames=[{timestamp:10},{timestamp:10.1},{timestamp:10.05},{timestamp:10.15}];const map=frameSchedule(frames,10,.2);assert.equal(map[2].sourceIndex,2);assert.equal(map[3].sourceIndex,1);assert.equal(map[5].sourceIndex,3);});

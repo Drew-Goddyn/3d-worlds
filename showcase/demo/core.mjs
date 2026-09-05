@@ -1,0 +1,46 @@
+import {readFile,writeFile,mkdir,symlink,stat} from 'node:fs/promises';
+import {existsSync,createWriteStream} from 'node:fs';
+import {spawn,execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {chromium} from 'playwright';
+export const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..');
+export const demo=path.join(root,'showcase/demo');
+export const builds=[{id:'site',folder:'gpt-5.5-xhigh',label:'GPT-5.5 · Xhigh',port:4321},{id:'sol',folder:'gpt-5.6-sol-ultra',label:'GPT-5.6 Sol · Ultra',port:4322},{id:'astra',folder:'gpt-6-astra-ultra',label:'GPT-6 Astra · Ultra',port:4323}];
+export const hash=x=>createHash('sha256').update(x).digest('hex');
+export const json=async p=>JSON.parse(await readFile(p,'utf8'));
+export async function save(p,x){await mkdir(path.dirname(p),{recursive:true});await writeFile(p,JSON.stringify(x,null,2)+'\n');}
+export const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+export function cmd(bin,args,options={}){return execFileSync(bin,args,{cwd:root,encoding:'utf8',maxBuffer:64*1024*1024,...options});}
+export async function run(bin,args,options={}){await new Promise((resolve,reject)=>{const p=spawn(bin,args,{cwd:root,stdio:'inherit',...options});p.on('error',reject);p.on('exit',code=>code===0?resolve():reject(Error(`${bin} exited ${code}`)));});}
+export async function prepare(build,scenario,runDir){const dest=path.join(runDir,'work',build.id),folder=`prompts/${scenario.promptId}/builds/${build.folder}`;
+ if(!existsSync(path.join(dest,'source.json'))){await mkdir(dest,{recursive:true});await new Promise((resolve,reject)=>{const g=spawn('git',['archive',scenario.sourceCommit,folder],{cwd:root}),t=spawn('tar',['-x','-C',dest]);g.stdout.pipe(t.stdin);g.on('error',reject);t.on('exit',c=>c?reject(Error('archive failed')):resolve());});const home=path.join(dest,folder);const patch=await json(path.join(demo,'patches',`${build.id}.json`));const entry=path.join(home,patch.entry);let source=await readFile(entry,'utf8');if(hash(source)!==patch.sourceSha256)throw Error('Pinned source hash mismatch');for(const e of patch.edits){if(source.split(e.find).length!==2)throw Error(`Nonunique patch ${build.id}: ${e.find.slice(0,80)}`);source=source.replace(e.find,e.replace);}await writeFile(entry,source);await writeFile(path.join(path.dirname(entry),'__comparison-runtime.js'),await readFile(path.join(demo,'browser-runtime.js')));if(build.id==='sol')await symlink(path.join(root,folder,'node_modules'),path.join(home,'node_modules'),'dir');await save(path.join(dest,'source.json'),{commit:scenario.sourceCommit,folder,patchSha256:hash(await readFile(path.join(demo,'patches',`${build.id}.json`))),runtimeSha256:hash(await readFile(path.join(demo,'browser-runtime.js'))),sourceSha256:patch.sourceSha256,patchedSha256:hash(source)});}
+ const recorded=await json(path.join(dest,'source.json'));if(recorded.patchSha256!==hash(await readFile(path.join(demo,'patches',`${build.id}.json`)))||recorded.runtimeSha256!==hash(await readFile(path.join(demo,'browser-runtime.js'))))throw Error('Temporary adapter copy is stale; preserve this run and select a new run ID');
+ return path.join(dest,folder);
+}
+export async function launch(build,scenario,runDir,label='probe'){
+ const home=await prepare(build,scenario,runDir),session=`demo-${build.id}-${label}-${Date.now()}`;
+ const ab=(...args)=>{const x=JSON.parse(cmd('agent-browser',['--session',session,'--json',...args]));if(!x.success)throw Error(JSON.stringify(x));return x.data;};
+ const url=`http://${build.id==='sol'?'localhost':'127.0.0.1'}:${build.port}`;
+ // Refuse an occupied port: a recorder never adopts or kills another server.
+ try{await fetch(url,{signal:AbortSignal.timeout(500)});throw Error(`Recorder port already occupied: ${url}`);}catch(e){if(e.message.startsWith('Recorder port'))throw e;}
+ const log=createWriteStream(path.join(runDir,`${session}-server.log`));const proc=spawn(build.id==='sol'?'npm':process.execPath,build.id==='sol'?['run','dev','--','--port',String(build.port)]:['server.mjs'],{cwd:home,env:{...process.env,PORT:String(build.port)},detached:true,stdio:['ignore','pipe','pipe']});proc.stdout.pipe(log);proc.stderr.pipe(log);
+ let browser,cdp,page;const errors=[];
+ async function close(){try{if(cdp)await cdp.detach();}catch{}try{if(browser)await browser.close();}catch{}try{ab('close');}catch{}try{process.kill(-proc.pid,'SIGTERM');}catch{}log.end();}
+ try{let ready=false;for(let i=0;i<120;i++){if(proc.exitCode!==null)throw Error('Server exited');try{const r=await fetch(url,{signal:AbortSignal.timeout(1000)});if(r.ok){ready=true;break;}}catch{}await sleep(500);}if(!ready)throw Error('Server readiness timeout');ab('open',url);ab('set','viewport','1920','1080','1');const info=ab('get','cdp-url');const endpoint=Object.values(info).find(v=>typeof v==='string'&&/^(ws|http)/.test(v));browser=await chromium.connectOverCDP(endpoint);const context=browser.contexts()[0];page=context.pages().find(p=>p.url().startsWith(url))??context.pages()[0];page.on('pageerror',e=>errors.push({type:'pageerror',message:e.message}));cdp=await context.newCDPSession(page);await cdp.send('Emulation.setDeviceMetricsOverride',{width:1920,height:1080,deviceScaleFactor:1,mobile:false});await page.waitForFunction(()=>window.__comparison?.ready(),{},{timeout:60000});await page.evaluate(()=>{for(const m of document.querySelectorAll('audio,video'))m.muted=true;for(const s of document.querySelectorAll('select')){if([...s.options].some(o=>o.value==='high')){s.value='high';s.dispatchEvent(new Event('change',{bubbles:true}));}}});return {page,cdp,ab,close,errors,session,url};
+ }catch(e){await close();throw e;}
+}
+// A strict bounded queue; never drops a frame to make a take pass.
+export class FrameWriter{
+ constructor(dir,{maxFrames=120,maxBytes=128*1024*1024,concurrency=4,write=writeFile}={}){Object.assign(this,{dir,maxFrames,maxBytes,concurrency,write});this.queue=[];this.active=0;this.bytes=0;this.peakBytes=0;this.peakDepth=0;this.rows=[];this.errors=[];this.waiters=[];}
+ push(buffer,row){if(this.queue.length+this.active>=this.maxFrames||this.bytes+buffer.length>this.maxBytes){this.errors.push('Frame write queue overflow');return false;}this.bytes+=buffer.length;this.queue.push({buffer,row});row.queueDepth=this.queue.length+this.active;row.queueBytes=this.bytes;this.peakDepth=Math.max(this.peakDepth,row.queueDepth);this.peakBytes=Math.max(this.peakBytes,this.bytes);this.rows.push(row);this.pump();return true;}
+ pump(){while(this.active<this.concurrency&&this.queue.length){const {buffer,row}=this.queue.shift();this.active++;this.write(path.join(this.dir,row.file),buffer).then(()=>{row.writeCompletedEpochMs=Date.now();row.bytes=buffer.length;row.sha256=hash(buffer);}).catch(e=>{row.writeError=e.message;this.errors.push(e.message);}).finally(()=>{this.active--;this.bytes-=buffer.length;this.pump();if(!this.active&&!this.queue.length)this.waiters.splice(0).forEach(f=>f());});}}
+ async drain(){if(this.active||this.queue.length)await new Promise(r=>this.waiters.push(r));if(this.errors.length)throw Error(this.errors.join('; '));}
+}
+export async function capture(browser,dir,{chapter,calibration,seconds}={}){await mkdir(path.join(dir,'frames'),{recursive:true});const writer=new FrameWriter(path.join(dir,'frames'));let n=0;const {page,cdp}=browser;
+ const onFrame=e=>{const arrival=Date.now();const row={index:n,file:`${String(n++).padStart(6,'0')}.jpg`,timestamp:e.metadata.timestamp,arrivalEpochMs:arrival,ackRequestedEpochMs:Date.now(),width:e.metadata.deviceWidth,height:e.metadata.deviceHeight};cdp.send('Page.screencastFrameAck',{sessionId:e.sessionId}).then(()=>{row.ackCompletedEpochMs=Date.now();}).catch(err=>writer.errors.push(`ack: ${err.message}`));writer.push(Buffer.from(e.data,'base64'),row);};cdp.on('Page.screencastFrame',onFrame);
+ let receipts,error;
+ try{await cdp.send('Page.startScreencast',{format:'jpeg',quality:95,maxWidth:1920,maxHeight:1080,everyNthFrame:1});if(chapter){await page.evaluate(({calibration,chapter})=>{window.__comparison.load(calibration);return window.__comparison.arm(chapter);},{calibration,chapter});await page.waitForFunction(()=>window.__comparison.receipts().done,{},{timeout:(chapter.durationSeconds+30)*1000});await sleep(700);receipts=await page.evaluate(()=>window.__comparison.receipts());}else await sleep(seconds*1000);}catch(e){error=e.message;}finally{await cdp.send('Page.stopScreencast').catch(()=>{});cdp.off('Page.screencastFrame',onFrame);try{await writer.drain();}catch(e){error=e.message;}await save(path.join(dir,'capture.json'),{settings:{width:1920,height:1080,jpegQuality:95,maxQueueFrames:writer.maxFrames,maxQueueBytes:writer.maxBytes,writeConcurrency:writer.concurrency},frames:writer.rows,peakDepth:writer.peakDepth,peakBytes:writer.peakBytes,errors:[...writer.errors,...browser.errors],error});if(receipts)await save(path.join(dir,'receipts.json'),receipts);}
+ if(error||writer.errors.length||browser.errors.length)throw Error(`Invalid recording: ${error??JSON.stringify(browser.errors)}`);return {frames:writer.rows,receipts,peakBytes:writer.peakBytes};
+}

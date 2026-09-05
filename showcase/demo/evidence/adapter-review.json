@@ -1,0 +1,704 @@
+{
+  "schemaVersion": 1,
+  "reviewType": "independent-preliminary-adapter-review",
+  "status": "FAIL",
+  "finalRecordingApproval": false,
+  "reviewedAt": "2026-09-05T01:03:31.300Z",
+  "scope": "Recorder adapter patches, native-handler preservation, fixed-camera calibration, charge target identity and visibility, and original source integrity. This review certifies neither recording throughput nor final footage.",
+  "independence": "Fresh verifier context; reviewed diff, committed criteria, source and actual calibration evidence. No implementation edits made. Temporary read-only context exposure was routed into isolated verification pages solely for scene/raycast inspection.",
+  "snapshot": {
+    "at": "2026-09-05T00:57:15.622Z",
+    "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+    "filesChecked": 78,
+    "mismatches": [],
+    "patches": {
+      "site": "e34a0f752eca90e488e8646fdec9ba03faf82c756e45d57476b26909a58c3d03",
+      "sol": "22a735f4582e6508119f52ecda486a275d34c67053087d41d3df02e2a90e9072",
+      "astra": "5811ca474f2eceeec15bfbd45b4e7daf0555fc7d08dd1495b0bf5b5e91dcb731"
+    },
+    "runtime": "6f20b4f6472daf6e65f2e7d21a0fc1f6d61291b282568df23b3b32adda7a5c05"
+  },
+  "criteriaSources": [
+    "/Users/Drew/.codex/AGENTS.md",
+    "prompts/demolition-playground/demo/README.md",
+    "prompts/demolition-playground/demo/scenario.json",
+    "prompts/demolition-playground/demo/adapters.json"
+  ],
+  "standingInvariants": [
+    "Original source artifacts and native simulation behavior remain unchanged.",
+    "Recorder changes must be limited to presentation, complete native player-action dispatch, and observation.",
+    "Evidence must establish the actual target identity and visibility; coordinate projection, charge count, and lack of exceptions cannot substitute for those properties.",
+    "A validator must not report a property as passing when tolerance admits a different target.",
+    "Native history and presentation history remain distinguishable; the standardized camera must not contaminate native snapshots.",
+    "All required checks must pass before official approval; source or application failures cannot be silently retried or relabeled.",
+    "Temporary sessions are isolated and only verifier-owned processes are closed; no secrets or new dependencies are introduced."
+  ],
+  "findings": [
+    {
+      "id": "automatic-charge-visibility",
+      "severity": "blocking",
+      "status": "FAIL",
+      "problem": "All three native automatic charge markers are occluded in the inspected Site overview even though calibration reports passed.",
+      "criterion": "Camera calibration must show the native automatic markers as well as manual targets.",
+      "cause": "The +Z view looks through the bank roof and warehouse/tower floors toward the automatic markers. Calibration validates charge count and projected positions but does not validate occlusion.",
+      "evidence": [
+        {
+          "charge": {
+            "id": "charge-1",
+            "building": "bank",
+            "member": "bank-23",
+            "point": [
+              -29.106290845656066,
+              5.9,
+              -17.436054086712332
+            ],
+            "detonated": false
+          },
+          "targetDistance": 163.25371720498427,
+          "firstOpaque": {
+            "name": "bank-21",
+            "distance": 145.86315462603565,
+            "point": [
+              -17.0326914249923,
+              12.8,
+              -6.99335980593996
+            ],
+            "member": "bank-21",
+            "kind": "roof",
+            "building": "bank"
+          },
+          "blockedBeforeMarker": true
+        },
+        {
+          "charge": {
+            "id": "charge-2",
+            "building": "warehouse",
+            "member": "warehouse-0",
+            "point": [
+              -8.396410131051162,
+              2.55,
+              -17.19820506552558
+            ],
+            "detonated": false
+          },
+          "targetDistance": 150.94620507584577,
+          "firstOpaque": {
+            "name": "warehouse-18",
+            "distance": 139.4685309458413,
+            "point": [
+              -1.352925240532807,
+              7.73,
+              -9.762216628766588
+            ],
+            "member": "warehouse-18",
+            "kind": "floor",
+            "building": "warehouse"
+          },
+          "blockedBeforeMarker": true
+        },
+        {
+          "charge": {
+            "id": "charge-3",
+            "building": "tower",
+            "member": "tower-0",
+            "point": [
+              17.186610274578122,
+              2.7199999999999998,
+              -13.813389725421878
+            ],
+            "detonated": false
+          },
+          "targetDistance": 134.26091649629575,
+          "firstOpaque": {
+            "name": "tower-18",
+            "distance": 123.3744169832757,
+            "point": [
+              22.623164382887293,
+              8.229999999999999,
+              -6.158348832362375
+            ],
+            "member": "tower-18",
+            "kind": "floor",
+            "building": "tower"
+          },
+          "blockedBeforeMarker": true
+        }
+      ],
+      "recommendation": "Use source-declared architectural axes and a shared camera rule that visibly exposes the preserved native markers. Add actual occlusion/visual validation; do not relocate automatic charges.",
+      "sourceAxisEvidence": {
+        "building": "bank",
+        "source": "prompts/demolition-playground/builds/gpt-5.5-xhigh/src/main.js",
+        "semanticMemberKind": "front-column",
+        "localZ": -6.05,
+        "bankCenterZ": -11,
+        "supportedFront": [
+          0,
+          0,
+          -1
+        ],
+        "basis": "Explicit native architectural front-column placement; independent of destruction outcomes."
+      }
+    },
+    {
+      "id": "manual-structural-target-identity",
+      "severity": "blocking",
+      "status": "FAIL",
+      "problem": "The inspected Astra adapter labels floor/facade hits as hits on the selected structural column.",
+      "criterion": "Manual charges must be raycast-visible placements on attached ground-floor structural supports.",
+      "cause": "The match predicate checks building/floor and expands column X/Z bounds by 0.3. All three accepted hits are outside the actual selected-column bounds. This validator passes without establishing the target property.",
+      "evidence": {
+        "bank": {
+          "target": {
+            "key": "0/0/5",
+            "point": [
+              -4.9800000190735005,
+              0.8275570881875427,
+              19.22718591053038
+            ],
+            "screen": {
+              "x": 763.9774945773431,
+              "y": 620.5809343879714,
+              "depth": 0.997788586308666
+            },
+            "building": "bank",
+            "score": 196.02250542265688,
+            "native": {
+              "building": 0,
+              "floor": 0
+            }
+          },
+          "support": {
+            "key": "0/0/5",
+            "id": 0,
+            "floor": 0,
+            "bounds": {
+              "min": [
+                -5.665,
+                0.43000000000000005,
+                18.835
+              ],
+              "max": [
+                -5.235,
+                4.33,
+                19.265
+              ]
+            }
+          },
+          "hit": {
+            "identity": {
+              "building": 0,
+              "floor": 0
+            },
+            "point": [
+              -4.9800000190735005,
+              0.8275570881875427,
+              19.22718591053038
+            ],
+            "object": ""
+          },
+          "withinExactSupportBounds": false
+        },
+        "warehouse": {
+          "target": {
+            "key": "4/0/5",
+            "point": [
+              -18.980000019073486,
+              0.7535652733120872,
+              -7.232688265507932
+            ],
+            "screen": {
+              "x": 867.9092934697112,
+              "y": 489.8576683011829,
+              "depth": 0.998262712235977
+            },
+            "building": "warehouse",
+            "score": 92.0907065302888,
+            "native": {
+              "building": 4,
+              "floor": 0
+            }
+          },
+          "support": {
+            "key": "4/0/5",
+            "id": 4,
+            "floor": 0,
+            "bounds": {
+              "min": [
+                -19.665,
+                0.43000000000000005,
+                -7.665
+              ],
+              "max": [
+                -19.235,
+                3.38,
+                -7.235
+              ]
+            }
+          },
+          "hit": {
+            "identity": {
+              "building": 4,
+              "floor": 0
+            },
+            "point": [
+              -18.980000019073486,
+              0.7535652733120872,
+              -7.232688265507932
+            ],
+            "object": ""
+          },
+          "withinExactSupportBounds": false
+        },
+        "glass-tower": {
+          "target": {
+            "key": "3/0/1",
+            "point": [
+              5.21825125120364,
+              0.8071076297284878,
+              -6.940000057220473
+            ],
+            "screen": {
+              "x": 1013.0594231339079,
+              "y": 563.4715002362971,
+              "depth": 0.997997194563323
+            },
+            "building": "glass-tower",
+            "score": 53.0594231339079,
+            "native": {
+              "building": 3,
+              "floor": 0
+            }
+          },
+          "support": {
+            "key": "3/0/1",
+            "id": 3,
+            "floor": 0,
+            "bounds": {
+              "min": [
+                4.735,
+                0.43000000000000005,
+                -7.665
+              ],
+              "max": [
+                5.165,
+                3.1799999999999997,
+                -7.235
+              ]
+            }
+          },
+          "hit": {
+            "identity": {
+              "building": 3,
+              "floor": 0
+            },
+            "point": [
+              5.21825125120364,
+              0.8071076297284878,
+              -6.940000057220473
+            ],
+            "object": ""
+          },
+          "withinExactSupportBounds": false
+        }
+      },
+      "recommendation": "Reject non-column intersections and identify the actual intersected structural primitive. If native visible facade hits are desired instead, change the user-approved scenario before recording and report their real identity. Do not widen tolerance or relabel facade hits to obtain a pass."
+    },
+    {
+      "id": "native-camera-history",
+      "severity": "blocking",
+      "status": "FAIL",
+      "problem": "The standardized camera becomes part of the native Site rewind history.",
+      "criterion": "The override changes presentation only and must not change a simulation snapshot; native camera behavior during rewind must be logged separately.",
+      "cause": "The adapter mutates the native camera and controls target before rendering and leaves those values in place. The next native snapshot serializes the recorder pose.",
+      "evidence": {
+        "before": {
+          "count": 4,
+          "lastTime": 0.3166999999999999,
+          "firstCamera": {
+            "p": [
+              44,
+              34,
+              48
+            ],
+            "t": [
+              0,
+              7,
+              0
+            ],
+            "action": 0
+          },
+          "lastCamera": {
+            "p": [
+              44,
+              34,
+              48
+            ],
+            "t": [
+              0,
+              7,
+              0
+            ],
+            "action": 0
+          }
+        },
+        "standardized": {
+          "position": [
+            84.2344924969876,
+            70.67367500910908,
+            80.59462498027776
+          ],
+          "target": [
+            4.074931978635488,
+            5.223667917205439,
+            0.43506446192562986
+          ],
+          "fov": 45,
+          "targets": {
+            "bank": {
+              "nativeAutomatic": true
+            },
+            "warehouse": {
+              "nativeAutomatic": true
+            },
+            "glass-tower": {
+              "nativeAutomatic": true
+            }
+          }
+        },
+        "after": {
+          "count": 6,
+          "lastTime": 0.5498999999999999,
+          "firstCamera": {
+            "p": [
+              44,
+              34,
+              48
+            ],
+            "t": [
+              0,
+              7,
+              0
+            ],
+            "action": 0
+          },
+          "lastCamera": {
+            "p": [
+              84.234,
+              70.674,
+              80.595
+            ],
+            "t": [
+              4.075,
+              5.224,
+              0.435
+            ],
+            "action": 0
+          }
+        },
+        "method": "Fresh pinned Site page; read native camera snapshots; load standardized calibration; wait for normal native snapshot cadence; read native snapshots again. No simulation clock or snapshot writes."
+      },
+      "recommendation": "Keep a distinct presentation camera or restore native camera state after rendering, preserving native raycast action semantics. Record native and standardized camera poses independently and re-run the native-history repro."
+    },
+    {
+      "id": "manual-target-ranking",
+      "severity": "required-correction",
+      "status": "FAIL",
+      "problem": "The inspected manual target resolver chooses the support closest to the viewport center, not the center of that building’s visible facade.",
+      "criterion": "Select attached ground-floor structural supports nearest the center of the visible facade, resolving ties by stable support ID.",
+      "evidence": {
+        "runtimeHash": "6f20b4f6472daf6e65f2e7d21a0fc1f6d61291b282568df23b3b32adda7a5c05",
+        "scoringExpression": "Math.abs(screen.x-960)",
+        "observedSolHits": {
+          "bankY": 0.47599999999560133,
+          "warehouseY": 10.259999999999955,
+          "glassTowerY": 14.989999999998021
+        },
+        "note": "Sol floor-0 support pieces can span several storeys. The placement heights are recorded facts; floor metadata alone should not be mistaken for a ground-level hit."
+      },
+      "recommendation": "Compute and save a per-building visible-facade reference and rank eligible structural targets against it. Keep stable support tie-breaking and precise target identities."
+    },
+    {
+      "id": "camera-fit-evidence",
+      "severity": "required-correction",
+      "status": "FAIL",
+      "problem": "The inspected calibration does not establish the specified complete fixed-box fit, exact framing center, or full legal ball envelope.",
+      "criterion": "Fit the eight fixed pristine bounding-box corners including the complete crane; save axes and projected rectangles; include legal swing envelope in the bank/crane shot.",
+      "evidence": {
+        "projectionAudit": {
+          "site": {
+            "overview": {
+              "start": {
+                "angle": 45,
+                "fixedBox": [
+                  0.235231074506071,
+                  0.0896975846502196,
+                  0.7361269580897856,
+                  0.7740987222393485
+                ],
+                "parts": [
+                  0.29980382313718035,
+                  0.16605952010164254,
+                  0.6827838585723529,
+                  0.7539520737154154
+                ]
+              },
+              "end": {
+                "angle": 65,
+                "fixedBox": [
+                  0.28126118043713566,
+                  0.09142697240146824,
+                  0.7376568768475724,
+                  0.7649799979128056
+                ],
+                "parts": [
+                  0.315056464553062,
+                  0.16818239403214663,
+                  0.6460660480691626,
+                  0.7397814803770683
+                ]
+              },
+              "fixedBoxFitsEverySample": false,
+              "partsFitEverySample": false,
+              "startProjectedCenter": [
+                0.49129384085476663,
+                0.46000579690852894
+              ],
+              "specifiedCenter": [
+                0.5,
+                0.46
+              ]
+            },
+            "ball": {
+              "start": {
+                "angle": 45,
+                "fixedBox": [
+                  0.341609935240055,
+                  0.1656000000000008,
+                  0.658961350557747,
+                  0.7543999999999995
+                ],
+                "parts": [
+                  0.341609935240055,
+                  0.1656000000000008,
+                  0.658961350557747,
+                  0.7543999999999995
+                ]
+              },
+              "end": {
+                "angle": 45,
+                "fixedBox": [
+                  0.341609935240055,
+                  0.1656000000000008,
+                  0.658961350557747,
+                  0.7543999999999995
+                ],
+                "parts": [
+                  0.341609935240055,
+                  0.1656000000000008,
+                  0.658961350557747,
+                  0.7543999999999995
+                ]
+              },
+              "fixedBoxFitsEverySample": true,
+              "partsFitEverySample": true,
+              "startProjectedCenter": [
+                0.500285642898901,
+                0.4600000000000002
+              ],
+              "specifiedCenter": [
+                0.5,
+                0.46
+              ]
+            }
+          },
+          "sol": {
+            "overview": {
+              "start": {
+                "angle": 45,
+                "fixedBox": [
+                  0.2680593780504509,
+                  0.11889689899765404,
+                  0.7219073167588672,
+                  0.7786728578663192
+                ],
+                "parts": [
+                  0.29427170489352333,
+                  0.16560000000000086,
+                  0.6694511955918739,
+                  0.7522485091942055
+                ]
+              },
+              "end": {
+                "angle": 65,
+                "fixedBox": [
+                  0.3123506950781857,
+                  0.11845246651912789,
+                  0.7129551073135623,
+                  0.780720560017065
+                ],
+                "parts": [
+                  0.3329549662708336,
+                  0.18072155103650406,
+                  0.6372365646752681,
+                  0.7471320894042764
+                ]
+              },
+              "fixedBoxFitsEverySample": false,
+              "partsFitEverySample": true,
+              "startProjectedCenter": [
+                0.48186145024269866,
+                0.4589242545971032
+              ],
+              "specifiedCenter": [
+                0.5,
+                0.46
+              ]
+            },
+            "ball": {
+              "start": {
+                "angle": 45,
+                "fixedBox": [
+                  0.2974294609549516,
+                  0.16560000000000047,
+                  0.6721508185417386,
+                  0.7543999999999997
+                ],
+                "parts": [
+                  0.2974294609549516,
+                  0.16560000000000047,
+                  0.6721508185417386,
+                  0.7543999999999997
+                ]
+              },
+              "end": {
+                "angle": 45,
+                "fixedBox": [
+                  0.2974294609549516,
+                  0.16560000000000047,
+                  0.6721508185417386,
+                  0.7543999999999997
+                ],
+                "parts": [
+                  0.2974294609549516,
+                  0.16560000000000047,
+                  0.6721508185417386,
+                  0.7543999999999997
+                ]
+              },
+              "fixedBoxFitsEverySample": true,
+              "partsFitEverySample": true,
+              "startProjectedCenter": [
+                0.4847901397483451,
+                0.4600000000000001
+              ],
+              "specifiedCenter": [
+                0.5,
+                0.46
+              ]
+            }
+          }
+        },
+        "ballBoundsConstruction": "Union of pristine crane/bank bounds expanded by a fixed 2 units; no legal swing-envelope derivation.",
+        "solCraneObservation": "Uses cranePivot, cable and ball but excludes separately created crawler base; inspected crane minimum Y is 3.25.",
+        "missingSavedFields": [
+          "declared front/right axes",
+          "projected rectangles",
+          "legal swing envelope and control geometry",
+          "marked target contact sheet"
+        ]
+      },
+      "recommendation": "Recalibrate against the specified fixed complete geometry, declare source-grounded axes, derive legal motion bounds, and save directly verifiable projected rectangles. Regenerate the six-view contact sheet with real target locations."
+    }
+  ],
+  "passingChecks": [
+    {
+      "property": "Original source integrity",
+      "status": "PASS",
+      "evidence": {
+        "commit": "2d5c93339ee2cd938bebda777f413a8267140858",
+        "filesChecked": 78,
+        "mismatches": []
+      }
+    },
+    {
+      "property": "Native physics source preservation",
+      "status": "PASS",
+      "evidence": "Inspected adapter edits do not directly alter force constants, gravity, charge strength/stagger, timesteps, debris limits, destruction geometry, or rewind speed; no diagnostic damage or physics-advance shortcuts are called."
+    },
+    {
+      "property": "Complete native action handlers",
+      "status": "PASS-STATIC",
+      "evidence": {
+        "site": "Native selector/swing/detonate/rewind click handlers and complete slowOn/slowOff paths are called; aim preparation changes only native slider values.",
+        "sol": "Native pointer-down/up charge path retains history and charge bookkeeping; native fire/slow/crane/rewind handlers are used.",
+        "astra": "Extracted pointer handlers retain branch, placement or aim, record and UI updates; native selectors, slow, detonate and rewind paths are used."
+      },
+      "limitation": "This verifies handler paths, not full real-time acceptance/timing or correctness of a raycast target. Failed target identity findings still block approval."
+    },
+    {
+      "property": "Inspected viewport and basic camera constants",
+      "status": "PASS-PARTIAL",
+      "evidence": {
+        "site": {
+          "width": 1920,
+          "height": 1080,
+          "dpr": 1
+        },
+        "astra": {
+          "width": 1920,
+          "height": 1080,
+          "dpr": 1
+        },
+        "verticalFovDegrees": 45,
+        "elevationDegrees": 30,
+        "rollDegrees": 0
+      },
+      "limitation": "This is not a pass for common framing or useful visibility."
+    },
+    {
+      "property": "No new external dependency",
+      "status": "PASS",
+      "evidence": "Tracked package diff adds recorder commands only; dependency declarations are unchanged."
+    },
+    {
+      "property": "Verifier cleanup",
+      "status": "PASS",
+      "evidence": "Independent verification used fresh ports 4331 and 4333 and isolated agent-browser sessions; all verifier-owned sessions and servers were closed."
+    }
+  ],
+  "notVerified": [
+    "Actual complete five-second legal bank aim sequence and accepted bank hit/launch identity for each build.",
+    "Full chapter event scheduling, native slow/rewind visual behavior, receipt timing and main-thread-lag attribution.",
+    "Native quality/adaptive-rendering logs and full runtime-asset completion.",
+    "First-technically-valid official take selection, source/adapter freeze enforcement, recording dimensions/timestamps, final comparison media and normal-speed viewing."
+  ],
+  "evidenceArtifacts": [
+    ".demo-work/independent-adapter-review/site-inspection.json",
+    ".demo-work/independent-adapter-review/astra-inspection.json",
+    ".demo-work/independent-adapter-review/site-native-camera-history.json",
+    ".demo-work/independent-adapter-review/projection-audit.json",
+    ".demo-work/independent-adapter-review/source-audit.json",
+    ".demo-work/independent-adapter-review/site-charges.png",
+    ".demo-work/independent-adapter-review/astra-charges.png",
+    ".demo-work/calibration-v4/calibration/site/charges.png",
+    ".demo-work/calibration-v4/calibration/site/ball.png",
+    ".demo-work/calibration-v4/calibration/sol/charges.png",
+    ".demo-work/calibration-v4/calibration/sol/ball.png",
+    ".demo-work/calibration-v4/calibration/astra/ball.png"
+  ],
+  "revisionsDuringReview": "Builder revisions were announced while this review was running. They are not certified by this report. Findings and direct-browser evidence apply to the exact runtime/patch hashes in snapshot and to the indicated calibration artifacts. Re-review the corrected adapter/calibration before official recording.",
+  "evidenceHashes": {
+    ".demo-work/independent-adapter-review/site-inspection.json": "08cc7342ee17518f3f0f0f384e7bd388ba49d21768003482b6209644da3a5312",
+    ".demo-work/independent-adapter-review/astra-inspection.json": "6bd2a6c762d692c04b8c3c6e4a76808cb93a8fb70f83964a8fa19855f3502417",
+    ".demo-work/independent-adapter-review/site-native-camera-history.json": "131c6af27109ef41e7b414f89b7814fd0fafeab19ee8d76ecc4f64dbce5f1cf8",
+    ".demo-work/independent-adapter-review/projection-audit.json": "16b9587bd66bd66471d3842d8e99d1903428d1445cd3b86ae9d8cb6b79b745b2",
+    ".demo-work/independent-adapter-review/source-audit.json": "913cd529b473dbaa9ab8e72c6cf269aa4834b9683425cdd5ad451e7eaf16b712",
+    ".demo-work/independent-adapter-review/site-charges.png": "9cbcf14ca67ba6ca19debd1caec960f16c278f8a0c536b009cc7d8a6dda7879d",
+    ".demo-work/independent-adapter-review/astra-charges.png": "ce50051958be7cbc4b134409903ffaf3e7dc48fcfbf3549cb5ab042d01771a3e",
+    ".demo-work/calibration-v4/calibration/site/charges.png": "3b83c3f17c783aecc90226cfd6c420d30500acae1d610a42e9b3666476145361",
+    ".demo-work/calibration-v4/calibration/site/ball.png": "a1c1819eabbf6ee411a2fe56771a13830785a23612aee2424730bdc389e320df",
+    ".demo-work/calibration-v4/calibration/sol/charges.png": "7dfeb0821a6dd47843fcd3e1fdcc30095e80ca6f91c52eb7b94e130f19acb2ee",
+    ".demo-work/calibration-v4/calibration/sol/ball.png": "50767a4b721e05e88e99fb5101ba0b4bbedc2a90b7880ecd6691e7eda946c72d",
+    ".demo-work/calibration-v4/calibration/astra/ball.png": "bc20bb307f206c8489ebd9544dfd83cb3ca3a4bf69397238ae53547a6d96d633"
+  }
+}

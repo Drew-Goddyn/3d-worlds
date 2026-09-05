@@ -1,0 +1,17 @@
+{
+  "status": "INCOMPLETE",
+  "publicationApproved": false,
+  "evidenceScope": "Development checkpoint, not final acceptance",
+  "originals": {"trackedBuildFilesCompared": 78, "unchanged": true, "lockfileChanged": false},
+  "diskPilot": {"run": "calibration-v4", "width": 1920, "height": 1080, "framesWritten": 480, "fps": 60.04, "passed": true},
+  "siteRehearsal": {
+    "run": "calibration-v6",
+    "chapters": {"city": {"capturedFrames": 531}, "ball": {"capturedFrames": 1060, "unexplainedCaptureGapsOver100ms": 3}, "charges-rewind": {"capturedFrames": 2721}},
+    "nativeActions": "one swing; three automatic charges; slow on/off; native automatic rewind",
+    "officialSelection": false
+  },
+  "viewerFixture": {"playPause": true, "chapterSeekAllAt26Seconds": true, "focus": true, "mobileViewportWidth": 390, "mobileScrollWidth": 390, "realBufferingTest": "pending", "actualFilmReview": "pending"},
+  "unitChecks": {"passed": 5, "scope": "bounded writes, failure handling, timestamp order, visible hold mapping"},
+  "pendingDecision": "Permit accurately reported native ground-floor facade hits for Astra, whose columns are behind its exterior walls; the strict column check remains enforced until the user decides.",
+  "retainedRawEvidence": ".demo-work/ (ignored; preserve failed and rehearsal takes)"
+}
