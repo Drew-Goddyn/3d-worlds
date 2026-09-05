@@ -1,6 +1,6 @@
 # Mercantile Bank — round two
 
-A locally playable continuation of Astra's existing district, for player review. No push, merge, publication or deployment was performed.
+A locally playable continuation for player review. Implementation commit: `585c0b8`. No push, merge, publication or deployment was performed.
 
 ## Provenance and launch
 
@@ -12,36 +12,38 @@ A locally playable continuation of Astra's existing district, for player review.
 
 ## What changed
 
-The original three rigid floor assemblies are replaced only at the bank by 27 connected support bays. Their individual pier strengths, vertical support and lateral bridging govern local deflection and release. Damaged masonry courses and column drums release the pieces they support. Further hits and falling pieces can destroy surviving support. An isolated corner can fall while other bays remain standing.
+Only the bank replaces its rigid storeys with 27 connected support bays and 1,538 retained architectural pieces (1,537 in Node, which omits the canvas inscription). Individual pier strength, vertical support and lateral bridging govern deflection and release. Masonry courses and column drums release what rests on them; falling pieces can damage surviving support. Instancing shares geometry without sharing motion. All new damage, motion, settling, impact and scoring state participates in the original minute of rewind and permanent pristine rebuild.
 
-The procedural recipe builds recessed arched windows, rusticated limestone, fluted columns and capitals, bronze entrance doors, projecting cornices with dentils, a balustrade, pediment and copper roof feature. Actual openings reveal thick floor fragments, supporting piers, tiled flooring and selected teller counters. The former facade and slabs are not concealed behind this model. All 1,538 browser architectural pieces are retained; instanced geometry shares draw calls, not transforms. The Node fixture has 1,537 pieces because it omits the canvas inscription.
+The recipe adds real arched openings, rusticated limestone, fluted columns/capitals, bronze doors, deep cornices, balustrades, a pediment and copper roof feature. Broken openings reveal thick floors, piers, tiled flooring and teller counters. The original shell is not hidden behind this geometry. Important rubble persists permanently.
 
-Stone, column and cornice pieces retain their original geometry. Glazing releases earlier and its panels and bronze frames tip into the rubble. Ground impacts can fracture supporting architecture below. Major rubble is never sent into the recycling particle pool. Its strength, motion, settling, impact-pair and one-time scoring state are included in snapshots. The original rolling minute, permanent pristine snapshot and retained-future/alternate-action distinction remain intact.
-
-The first browser candidate exposed missing arch infill, incorrectly pitched roof plates, jitter under variable frame intervals, overly upright window frames in rubble and repeated scoring of struck rubble. These were revised and reinspected. The independent verifier reproduced the scoring defect and its correction.
+Browser revision corrected arch gaps and surface overlap, roof pitch, an obscured inscription, variable-frame settling jitter and overly upright rubble. Independent review found and reverified the correction for repeated rubble scoring.
 
 ## Evidence and reproduction
 
 - Baseline: `baseline-overview.png`, `baseline-close.png`, `baseline-ball-aftermath.png`, `baseline-tests.txt` (15/15).
 - Candidate: matched `baseline-matched-close.png` / `final-matched-close.png`, `final-overview.png`, `final-native-orbit.png`, `final-intact-close.png`, `final-charges-placed.png`, `final-charges-0-4s.png`, `final-charges-1-5s.png`, `final-charges-3s.png`, `final-charges-6s.png`, `final-charges-12s.png`.
 - Temporal evidence: `final-charges-real-time.webm` records the actual canvas at 30 fps using browser MediaRecorder timestamps. `final-time-controls-real-time.webm` records native scrubbing, slow replay, rewind, an alternate ball action, and rebuild. Canvas recordings omit the DOM control overlay; corresponding screenshots and `native-playthrough.json` preserve the controls and sampled states. `final-collapse-sequence.png` is an ordered extract from the normal-speed event.
-- `playthrough.py` reproduces the six real canvas clicks and native button/range interactions through the existing agent-browser CLI. Its camera helper changes framing only. It does not inject damage or advance simulation directly. The JSON records click coordinates and actual charge inventory. The demonstrated front/right sequence releases 15 bays and settles 1,006 architectural bodies while other sections remain supported.
+- `playthrough.py` reproduces the six real canvas clicks and native button/range interactions through the existing agent-browser CLI. Its camera helper changes framing only. It does not inject damage or advance simulation directly. The JSON records click coordinates and actual charge inventory. The demonstrated front/right sequence releases 15 bays and settles 1,006 architectural bodies. Screenshot suffixes name requested wait targets; actual sampled simulation times are in JSON and include capture latency.
 - `extra-inspection.py` / `extra-native-controls.json` reproduce and record native orbit/pan/zoom, two different ball targets, action camera, and held crane rotation/cable/swing controls. `final-ball-left-real-time.webm` and `final-ball-right-real-time.webm` show the two native ball actions.
 - `native-playthrough.json` checks that scrubs restore the actual recorded bank and charge snapshot, records the old and branched history endpoints, and checks pristine state after rebuild. The separate independent probes cover deterministic resumed physics and rolling history beyond sixty seconds.
 - `baseline-ball.webm` and `charges-normal.webm` are **exploratory CLI-recorder clips, not real-time evidence**: that recorder compressed elapsed time. They were useful for ordered visual inspection but must not be used for speed or FPS claims. The explicitly named `*-real-time.webm` files use canvas MediaRecorder instead.
+- Tests: `npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test` — **20/20 pass** (15 existing checks plus five bank checks), with a separate independent probe.
+- Additional damage inspection: `final-rubble-reverse-angle.png` shows surviving floor depth and supports from behind the damaged bank.
 - Independent technical review: `independent-review.md`, with its reproducible probe, raw test output and source hashes. Probe-driven destruction is diagnostic, not evidence of player input.
 
 ## Responsiveness
 
-`performance.py` and `performance.json` record the same headless Chrome session, 1440×900, DPR 1, high quality, no video recorder, and 240 requestAnimationFrame intervals per phase. Chrome reported **ANGLE Metal / Apple M2 Pro**, not a software renderer. A temporary unchanged baseline checkout used port 4176. Same-screen ball input was followed by native charges at the waterworks and glass tower; actual inventories are recorded. The baseline ball had already collapsed the waterworks, so that subsequent placement failed there; the candidate's still-standing waterworks accepted it. These are comparable player sequences, not equal physical workloads.
+`performance.py` / `performance.json` compare **fresh headless Chrome processes**, 1440×900, DPR 1, high quality, no recorder, 240 requestAnimationFrame intervals per phase. Renderer: **ANGLE Metal / Apple M2 Pro**. Runtime: Node 26.3.0. Source: implementation commit `585c0b8`; unchanged baseline on port 4176. Earlier reused-browser measurements were superseded because capture state remained allocated.
 
 | Phase | Baseline mean / p95 | Candidate mean / p95 |
 |---|---:|---:|
-| Intact overview | 27.0 / 37.8 ms | 27.2 / 30.9 ms |
-| Native bank swing | 27.2 / 37.9 ms | 27.1 / 31.1 ms |
-| Multi-building sequence | 27.5 / 38.4 ms | 26.7 / 31.1 ms |
+| Intact overview | 16.6 / 17.2 ms | 16.6 / 17.2 ms |
+| Native bank swing | 16.6 / 17.3 ms | 16.7 / 17.8 ms |
+| Multi-building sequence | 16.6 / 17.4 ms | 16.7 / 18.0 ms |
 
-This short headless run does not establish foreground laptop FPS or a speed advantage. JavaScript heap use at the end of the sampled sequence rose from roughly **116 MB to 243 MB**; sampling is affected by GC and the candidate retains more architectural state. Intact overview triangle count rose from 76,052 to 127,866, while draw calls were 400 versus 404. History duration and the surrounding district were not reduced to obtain these results.
+Same-screen inputs produced different physical workloads: the baseline ball had already collapsed the waterworks, so a subsequent charge there failed; the candidate accepted it. This is a player-sequence comparison, not an equal-workload speedup claim. Sampled JS heap at sequence end was **53 MB baseline / 101 MB candidate**, subject to GC. Intact triangles were 76,052 / 127,674; draw calls 400 / 404. History and surroundings were preserved.
+
+`charge-performance.py` / `charge-performance.json` additionally sample the candidate's six-charge collapse at the close camera: mean **16.6 ms**, p95 **18.6 ms**, max **19.8 ms** over 240 frames. Fifteen bays failed during that sample. No video recorder ran. These short headless measurements do not establish foreground laptop FPS; full-minute heap growth and GPU memory were not measured.
 
 ## Limits
 

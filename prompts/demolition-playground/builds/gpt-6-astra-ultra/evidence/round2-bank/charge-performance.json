@@ -1,0 +1,194 @@
+{
+  "sourceCommit": "585c0b8",
+  "charges": [
+    {
+      "bankBody": 305,
+      "floor": 0,
+      "id": 0,
+      "when": -1,
+      "x": 0.535999250411983,
+      "y": 0.003412243655722458,
+      "z": 0.09059121494001232
+    },
+    {
+      "bankBody": 421,
+      "floor": 0,
+      "id": 1,
+      "when": -1,
+      "x": -0.3146578474792481,
+      "y": -0.2595066502974952,
+      "z": 0.0600006873905663
+    },
+    {
+      "bankBody": 485,
+      "floor": 0,
+      "id": 2,
+      "when": -1,
+      "x": -0.025421909203735993,
+      "y": -0.1641999668977434,
+      "z": 0.3424591964888002
+    },
+    {
+      "bankBody": 170,
+      "floor": 0,
+      "id": 3,
+      "when": -1,
+      "x": 0.008144721290568313,
+      "y": -0.1839061034188421,
+      "z": 0.4526662250359923
+    },
+    {
+      "bankBody": 273,
+      "floor": 0,
+      "id": 4,
+      "when": -1,
+      "x": -0.02197614903747258,
+      "y": 0.4150000292062759,
+      "z": -0.53102123938692
+    },
+    {
+      "bankBody": 500,
+      "floor": 0,
+      "id": 5,
+      "when": -1,
+      "x": -0.016745191841041063,
+      "y": 0.415000029206278,
+      "z": -0.37669927434267336
+    }
+  ],
+  "sample": {
+    "diagnostics": {
+      "buildings": [
+        {
+          "floors": 3,
+          "height": 12.9,
+          "id": 0,
+          "name": "Mercantile Bank",
+          "x": -11,
+          "z": 14
+        },
+        {
+          "floors": 6,
+          "height": 19.200000000000003,
+          "id": 1,
+          "name": "Waterworks Lofts",
+          "x": -24,
+          "z": 14
+        },
+        {
+          "floors": 4,
+          "height": 12.4,
+          "id": 2,
+          "name": "Parkside Garage",
+          "x": 11,
+          "z": 14
+        },
+        {
+          "floors": 11,
+          "height": 34.65,
+          "id": 3,
+          "name": "Verdant Tower",
+          "x": 10,
+          "z": -13
+        },
+        {
+          "floors": 4,
+          "height": 13.4,
+          "id": 4,
+          "name": "Foundry Warehouse",
+          "x": -24,
+          "z": -13
+        },
+        {
+          "floors": 6,
+          "height": 19.5,
+          "id": 5,
+          "name": "Union House",
+          "x": -11,
+          "z": -13
+        },
+        {
+          "floors": 7,
+          "height": 22.4,
+          "id": 6,
+          "name": "Atlantic Building",
+          "x": 24,
+          "z": -13
+        },
+        {
+          "floors": 3,
+          "height": 10.8,
+          "id": 7,
+          "name": "Supply Exchange",
+          "x": -11,
+          "z": -26
+        }
+      ],
+      "crane": {
+        "aim": [
+          0,
+          0,
+          0
+        ],
+        "aimTime": 0,
+        "cooldown": 0,
+        "goalLength": 27,
+        "goalReach": 30,
+        "goalYaw": -2.72,
+        "length": 27,
+        "p": [
+          0.6749367016773645,
+          15.000133663811685,
+          3.653536233871176
+        ],
+        "reach": 30,
+        "time": 7.426300000000034,
+        "v": [
+          0.311323799158009,
+          0.00029308897742987006,
+          0.10076480461568632
+        ],
+        "yaw": -2.72
+      },
+      "cursor": 7.426300000000032,
+      "drawCalls": 329,
+      "fps": 60,
+      "historyEnd": 7.393000000000032,
+      "historyFrames": 149,
+      "historyStart": 0,
+      "mode": "live",
+      "tool": "charge",
+      "triangles": 124500
+    },
+    "frames": 240,
+    "heap": {
+      "total": 134628676,
+      "used": 64144372
+    },
+    "max": 19.799999999813735,
+    "mean": 16.62041666666725,
+    "p50": 16.600000000093132,
+    "p95": 18.600000000093132,
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Pro, Unspecified Version)",
+    "stats": {
+      "bank": {
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 69,
+        "retained": 1538,
+        "settled": 937
+      },
+      "chain": 1,
+      "charges": 0,
+      "collapsed": 0,
+      "pieces": 72,
+      "tonnage": 979
+    },
+    "viewport": [
+      1440,
+      900,
+      1
+    ]
+  },
+  "note": "Candidate only, close camera, native six-charge event, 240 RAF samples, no recording; not directly comparable to overview phases."
+}

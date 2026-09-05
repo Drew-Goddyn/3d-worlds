@@ -1,0 +1,27 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ retains a full minute after prolonged recording and interpolates every seek (4.383167ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.341125ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (87.327459ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (91.251333ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (127.4955ms)
+✔ slow motion advances exactly the supplied simulation time (3.145709ms)
+✔ a falling assembly transfers impact into an adjacent building (48.591792ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (41.829792ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (3.74575ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (38.329041ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (2.736917ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (27.565125ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (8.394041ms)
+✔ six-charge limit and all staged detonation state survive rewind (26.293208ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (143.232875ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 617.719042
