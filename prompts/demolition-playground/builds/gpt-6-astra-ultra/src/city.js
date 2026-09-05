@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { createBank } from './bank.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 
 // Each storey is a complete, movable structural assembly. Geometry is batched
@@ -362,6 +363,7 @@ export function createCity(scene) {
   ];
   for (const spec of specs) {
     const b = { ...spec, id: buildings.length, height: spec.storeys * spec.storeyHeight, floors: [] };
+    if (b.id === 0) { createBank(b, root); buildings.push(b); continue; }
     for (let i = 0; i < b.storeys; i++) {
       const group = new THREE.Group();
       const floor = { group, y: 0.23 + i * b.storeyHeight, height: b.storeyHeight, index: i, material: b.kind, columns: [], pieces: [] };
@@ -378,7 +380,6 @@ export function createCity(scene) {
     }
     buildings.push(b);
   }
-  sign(buildings[0].floors[1].group, 'MERCANTILE BANK', 0, 3.45, 6.28, 9.7, 0.8, '#d9c6a0', '#615e4c');
   sign(buildings[4].floors[0].group, 'FOUNDRY & CO.', 0, 2.75, 6.26, 7.4, 0.8, '#254748');
   sign(buildings[5].floors[0].group, 'UNION  /  COFFEE', 0, 2.7, 6.25, 7.4, 0.7, '#467c78');
   sign(buildings[6].floors[6].group, 'ATLANTIC', 0, 2.6, 6.25, 7.7, 0.9, '#ae604a');

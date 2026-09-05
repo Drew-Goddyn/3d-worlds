@@ -1,5 +1,7 @@
 # Demolition District
 
+> **Round-two continuation:** this branch rebuilds Mercantile Bank with carved masonry, open interiors, independently failing bays and retained architectural rubble. The original attempt is preserved at `ac854cea3d554f34f39ca9f91a3197ad422b79ee`. This continuation’s session model/reasoning are **unverified**; the directory name describes the original build. See [round-two evidence and reproduction](evidence/round2-bank/ROUND-TWO.md).
+
 A standalone procedural Three.js demolition playground. Eight downtown buildings, a controllable wrecking crane, staged demolition charges, material-specific rubble, water, dust, slow motion, and a scrubbable one-minute destruction history.
 
 ## Run
@@ -33,7 +35,7 @@ Tests exercise support-loss propagation, neighboring collapse, snapshot ownershi
 
 All geometry, building signs, brick textures, reflection lighting and audio are generated locally. The only third-party runtime is the locally vendored Three.js **0.180.0**, with its matching controls and geometry utility. The import map precedes the module script and application imports use only `three` or `three/addons/` names. The original brief is retained in `SPEC.md`.
 
-Buildings are coarse storey assemblies with independently damaged column connections. Support loss, downward momentum and lateral collisions propagate collapse. Material fragments use a bounded pool; settled structural assemblies preserve their architectural detail as rubble. It is a playful custom structural simulation, not a validated civil-engineering model.
+The surrounding buildings are coarse storey assemblies with independently damaged column connections. Mercantile Bank uses a bank-specific support graph and individually retained masonry, glazing and frame fragments, rendered with instancing; its recipe and dynamics are in `src/bank.js` and `src/bank-physics.js`. Support loss, downward momentum and lateral collisions propagate collapse. Material fragments use a bounded pool; settled structural assemblies preserve their architectural detail as rubble. It is a playful custom structural simulation, not a validated civil-engineering model.
 
 Simulation snapshots include structural transforms, support strengths, random-generator state, debris and dust state, staged charge timers, water tank state, prop damage, crowd/pigeon reaction state, score and crane momentum. A rolling history records at 20 Hz with interpolated presentation; the pristine snapshot is retained separately. Quality changes do not change the support graph or history sampling rate.
 

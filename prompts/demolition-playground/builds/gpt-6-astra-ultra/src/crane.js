@@ -99,6 +99,15 @@ export class Crane {
       if(this.ballPosition.y<2){this.ballPosition.y=2;this.velocity.y=Math.abs(this.velocity.y)*.4;}
       if(this.cooldown<=0&&this.velocity.length()>2.4){
         outer:for(const b of city.buildings){
+          if(b.bank) {
+            const hit=simulation.bank.sphereHit(this.ballPosition,1.7);
+            if(hit){
+              const speed=this.velocity.length();
+              simulation.impact(hit.point,Math.min(150,26+speed*5),this.velocity.clone().normalize());
+              this.velocity.multiplyScalar(-.34);this.velocity.y=Math.abs(this.velocity.y)+2;this.cooldown=.44;break outer;
+            }
+            continue;
+          }
           for(const floor of b.floors){
             if(!floor.group.visible)continue;
             const p=floor.group.position;

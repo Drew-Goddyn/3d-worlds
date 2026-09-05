@@ -39,7 +39,7 @@ let tool='ball',slow=false,spaceSlow=false,paused=false,rewinding=false,resettin
 let cursor=0,recordAccumulator=0,activeClock=0,frameCount=0,frameTotal=0,fps=60;
 let pristine,resetFrom=null,resetBlend=0,lastToast=0,soundEnabled=false,audioContext=null;
 const held=new Set(),raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2();
-const hitGroups=city.buildings.flatMap(b=>b.floors.map(f=>f.group));
+const hitGroups=city.buildings.flatMap(b=>b.bank?[b.bank.root]:b.floors.map(f=>f.group));
 let hoverHit=null,pointerDown=null;
 
 function capture(){const s=simulation.capture();s.crane=crane.capture();return s;}
@@ -93,6 +93,12 @@ function pick(event){
   const rect=canvas.getBoundingClientRect();pointer.set((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1);raycaster.setFromCamera(pointer,camera);
   const hits=raycaster.intersectObjects(hitGroups,true);
   for(const hit of hits){
+    if(hit.object.userData.bank){
+      const body=simulation.bank.bodies[hit.object.userData.bodyIds[hit.instanceId]];
+      if(body.fixed)continue;
+      const building=hit.object.userData.bank.building;
+      return {...hit,building,floor:building.floors[simulation.bank.nodes[body.node].level]};
+    }
     let object=hit.object;while(object&&!hitGroups.includes(object))object=object.parent;
     if(!object||!object.visible)continue;
     const building=city.buildings.find(b=>b.floors.some(f=>f.group===object));
@@ -146,7 +152,7 @@ function formatTime(t){return `${String(Math.floor(t/60)).padStart(2,'0')}:${(t%
 function updateUI(){
   const stats=simulation.stats;
   $('tonnage').innerHTML=Math.round(stats.tonnage).toLocaleString()+'<span> t</span>';
-  $('chain').innerHTML=`×${Math.max(1,stats.chain)}<span>${stats.collapsed?stats.collapsed+' buildings down':'no damage yet'}</span>`;
+  $('chain').innerHTML=`×${Math.max(1,stats.chain)}<span>${stats.collapsed?stats.collapsed+' buildings down':stats.tonnage?'partial damage':'no damage yet'}</span>`;
   $('charge-count').textContent=`${stats.charges}/6`;$('detonate-count').textContent=`${stats.charges} CHARGE${stats.charges===1?'':'S'}`;$('detonate').disabled=!stats.charges;
   $('rewind').setAttribute('aria-pressed',rewinding);icon($('play-pause'),paused||rewinding?'play':'pause');$('play-pause').setAttribute('aria-label',paused||rewinding?'Resume simulation':'Pause simulation');
   const state=resetting?'REBUILDING':rewinding?'REWINDING':paused?'TIME PAUSED':slow||spaceSlow?'SLOW MOTION':'REAL TIME';
@@ -193,6 +199,8 @@ setTool('ball');controls.update();updateUI();requestAnimationFrame(animate);
 // Read-only diagnostics and explicit action hooks for reproducible browser checks.
 window.demolition={
   get ready(){return true;},get stats(){return {...simulation.stats};},get diagnostics(){return {fps,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,historyFrames:history.length,historyStart:history.start,historyEnd:history.end,cursor,mode:resetting?'reset':rewinding?'rewind':paused?'paused':'live',tool,buildings:city.buildings.map(b=>({id:b.id,name:b.name,floors:b.floors.length,x:b.x,z:b.z,height:b.height})),crane:crane.capture()};},
+  view(position,target){camera.position.fromArray(position);controls.target.fromArray(target);controls.update();},
+  projectPoint(x,y,z){const p=new THREE.Vector3(x,y,z).project(camera);return {x:(p.x*.5+.5)*innerWidth,y:(-p.y*.5+.5)*innerHeight};},
   projectBuilding(id,floor=0){const b=city.buildings.find(b=>b.id===id);if(!b)return null;const p=new THREE.Vector3(b.x,b.floors[floor]?.y+1.5||2,b.z+b.depth/2).project(camera);return {x:(p.x*.5+.5)*innerWidth,y:(-p.y*.5+.5)*innerHeight};},
   pause(){paused=true;rewinding=false;},resume(){paused=false;rewinding=false;},seek(time){paused=true;rewinding=false;restoreSample(time);updateUI();},reset:resetCity,
   state(){return capture();},historySample(time){return history.sample(time);},

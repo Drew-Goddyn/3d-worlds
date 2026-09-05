@@ -1,13 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFile} from 'node:fs/promises';
+import {registerHooks} from 'node:module';
 import * as THREE from '../vendor/three-0.180.0/three.module.js';
 import {History} from '../src/history.js';
 
 // Independent invariant checks; imports use the exact locally vendored runtime.
-const source = await readFile(new URL('../src/simulation.js', import.meta.url), 'utf8');
-const threeURL = new URL('../vendor/three-0.180.0/three.module.js', import.meta.url).href;
-const {Simulation} = await import('data:text/javascript;base64,' + Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64'));
+registerHooks({resolve(specifier, context, next) {
+  if(specifier==='three')return {url:new URL('../vendor/three-0.180.0/three.module.js',import.meta.url).href,shortCircuit:true};
+  return next(specifier,context);
+}});
+const {Simulation}=await import('../src/simulation.js');
 function makeSimulation() {
   const scene = new THREE.Scene();
   const b = {id:0,kind:'brick',x:0,z:0,width:10,depth:10,height:9,floors:[]};
