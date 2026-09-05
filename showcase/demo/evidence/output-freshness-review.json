@@ -1,0 +1,110 @@
+{
+  "at": "2026-09-05T03:42:28.496Z",
+  "independentVerifier": "final_verify",
+  "status": "pass",
+  "scope": "Supplementary delivery-resolution capture freshness gate, independent recomputation against all nine selected chapters and boundary probes.",
+  "hashes": {
+    "showcase/demo/freshness.mjs": "1675e3fa276b813369fe885ff6164a1186be14ed6c179eefc53f13fa3ed47f76",
+    "showcase/demo/test/freshness.test.mjs": "c79da13105d7b53d19a493ea773b64423680be1c3d15ddb8c414e6808649b3d7",
+    "showcase/demo/assemble.mjs": "3b930315da00c0a1a21a8a8344966ada6a21d78dc5d687a8ea142ed4ba477590",
+    "showcase/demo/verify.mjs": "be49fb0e808f04b01019c3d23fee1ded80c17dd695544e1cf3ddd0868fd990be"
+  },
+  "cases": [
+    {
+      "take": "official/site/city/take-1788577036724",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/site/ball/take-1788577049158",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/site/charges-rewind/take-1788577071554",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/sol/city/take-1788577120235",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/sol/ball/take-1788577136826",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/sol/charges-rewind/take-1788577163472",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/astra/city/take-1788577216306",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/astra/ball/take-1788577616592",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "take": "official/astra/charges-rewind/take-1788577251681",
+      "expected": "inconclusive",
+      "actual": "inconclusive",
+      "agrees": true
+    },
+    {
+      "name": "future source rejected",
+      "expected": "inconclusive",
+      "actual": "inconclusive",
+      "agrees": true
+    },
+    {
+      "name": "exact one-frame-old source rejected",
+      "expected": "inconclusive",
+      "actual": "inconclusive",
+      "agrees": true
+    },
+    {
+      "name": "strictly recent advancing sources pass",
+      "expected": "pass",
+      "actual": "pass",
+      "agrees": true
+    },
+    {
+      "name": "same timestamp cannot establish advancement",
+      "expected": "inconclusive",
+      "actual": "inconclusive",
+      "agrees": true
+    }
+  ],
+  "staticReview": {
+    "strictHalfOpenAgeRange": true,
+    "strictlyAdvancingSourceTimes": true,
+    "allIntervalsOverOneOutputFrameDisclosed": true,
+    "noAutomaticNativeStallExemption": true,
+    "officialSelectionAndTechnicalVerificationBothEnforceGate": true,
+    "gateInputsHashFrozenSeparatelyFromCaptureInputs": true
+  },
+  "limits": "This approves the gate implementation at these hashes. It does not approve the invalid current Astra charges take or any unrecorded replacement.",
+  "frozenVerifierSha256": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583",
+  "originalCaptureFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "frozenInputsMatchReviewedFiles": true,
+  "tests": {
+    "total": 17,
+    "passed": 17,
+    "failed": 0,
+    "skipped": 0
+  }
+}

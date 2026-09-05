@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-09-05T03:41:26.262Z",
+  "originalCaptureFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "policy": "Every output image must be a new chronological captured source younger than one30fps frame. All longer source intervals remain disclosed. No automatic native-stall exemptions; inconclusive cases need independent positive evidence and never authorize retrying native stalls away.",
+  "inputs": {
+    "showcase/demo/freshness.mjs": "1675e3fa276b813369fe885ff6164a1186be14ed6c179eefc53f13fa3ed47f76",
+    "showcase/demo/test/freshness.test.mjs": "c79da13105d7b53d19a493ea773b64423680be1c3d15ddb8c414e6808649b3d7",
+    "showcase/demo/assemble.mjs": "3b930315da00c0a1a21a8a8344966ada6a21d78dc5d687a8ea142ed4ba477590",
+    "showcase/demo/verify.mjs": "be49fb0e808f04b01019c3d23fee1ded80c17dd695544e1cf3ddd0868fd990be"
+  },
+  "sha256": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583"
+}

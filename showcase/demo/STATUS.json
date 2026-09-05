@@ -1,20 +1,27 @@
 {
   "schemaVersion": 2,
-  "status": "official-recording",
+  "status": "recording-continuity-replacement",
   "branch": "codex/comparison-recorder",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "recordingFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
   "run": "demolition-demo-v1",
   "outputDirectory": ".demo-work/demolition-demo-v1-release",
-  "officialTakes": 0,
+  "officialTakes": 10,
   "publication": "not-started",
-  "blockers": [],
+  "blockers": [
+    "Independent review found seven repeated source frames in Astra charges without proven native stalls. The old100ms capture-gap threshold does not establish the full continuity requirement. Publication is paused while stricter output-frame freshness and one unchanged-input replacement are assessed."
+  ],
   "verification": {
     "originalFilesCompared": 78,
     "unchanged": true,
-    "recorderTestsPassed": 13,
+    "recorderTestsPassed": 17,
     "preRecordingReport": "showcase/demo/evidence/pre-recording-review-2026-09-05.json",
-    "finalFilmsApproved": false
+    "finalFilmsApproved": false,
+    "mediaPropertiesPassed": true,
+    "actualViewerChecksPassed": true,
+    "retainedCaptures": 63,
+    "retainedFrameHashesVerified": 85288,
+    "outputFreshnessGate": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583"
   },
   "completed": [
     "Hash-pinned temporary copies and native action adapters",
@@ -23,15 +30,25 @@
     "Startup, rendering-change and actual camera telemetry",
     "Offline viewer verified with real metadata starvation, buffering, seeking and drift correction",
     "All nine chapter rehearsals have a technically valid capture; one clock-shift failure retained",
-    "Exact approved capture inputs frozen"
+    "Exact approved capture inputs frozen",
+    "All nine official chapters captured sequentially in fresh contexts under the frozen inputs",
+    "All nine selected official chapters pass unchanged timing gates; one independently rejected capture-boundary failure retained",
+    "Four corrected films pass exact dimensions, frame count, duration, codec, color format and fast-start checks",
+    "Actual-film offline viewer passes controls, mobile, drift correction and real buffering checks",
+    "All 85288 recorded JPEG hashes verified across 63 retained captures",
+    "Independent strict30fps source-freshness gate frozen; known flawed take fails and eight chapters pass"
   ],
   "remaining": [
-    "Record first technically valid official takes sequentially",
-    "Assemble and independently verify actual films and viewer",
+    "Resolve independent capture-continuity finding, then complete final recording review",
     "Package evidence and six release assets",
     "Commit, merge and publish at verified revision",
     "Verify public download checksums and update showcase links"
   ],
-  "retention": "Every prior calibration, interrupted capture and rehearsal remains under .demo-work outside Git. Historical failed reviews are preserved in evidence/.",
-  "resumeCommand": "npm run demo -- record --run demolition-demo-v1 --output .demo-work/demolition-demo-v1-release"
+  "retention": "Every prior calibration, interrupted capture, rehearsal and official take remains under .demo-work outside Git. One rehearsal clock failure and one official start-marker capture failure were independently invalidated and replaced once with unchanged inputs. Historical failed reviews are preserved in evidence/.",
+  "resumeCommand": "npm run demo -- record --run demolition-demo-v1 --output .demo-work/demolition-demo-v1-release --build astra --chapter charges-rewind",
+  "selectedOfficialTakes": 9,
+  "retainedTechnicalFailures": {
+    "rehearsal": 1,
+    "official": 1
+  }
 }

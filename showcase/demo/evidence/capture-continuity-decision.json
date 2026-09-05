@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-05T03:38:39.350Z",
+  "independentVerifier": "final_verify",
+  "status": "current-take-invalid-one-replacement-permitted",
+  "build": "astra",
+  "chapter": "charges-rewind",
+  "fingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "rejectedTake": "official/astra/charges-rewind/take-1788577251681",
+  "reason": "Seven output frames reuse captured source images across five holds, while native raw animation and pre-render records remain smooth. Neither native main-thread stall nor unchanged intermediate presentation is established. The unsupported 100 ms capture-gap filter had missed this technical failure.",
+  "metrics": {
+    "build": "astra",
+    "chapter": "charges-rewind",
+    "take": "official/astra/charges-rewind/take-1788577251681",
+    "passed": false,
+    "outputFrames": 1320,
+    "maxAgeSeconds": 0.09444117546081543,
+    "sourceIntervalsOverOutputFrame": 11,
+    "repeatedOutputFrames": 7,
+    "violations": [
+      {
+        "outputFrame": 84,
+        "sourceIndex": 222,
+        "ageSeconds": 0.06110787391662598,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      },
+      {
+        "outputFrame": 85,
+        "sourceIndex": 222,
+        "ageSeconds": 0.09444117546081543,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      },
+      {
+        "outputFrame": 526,
+        "sourceIndex": 1100,
+        "ageSeconds": 0.06143331527709961,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      },
+      {
+        "outputFrame": 825,
+        "sourceIndex": 1691,
+        "ageSeconds": 0.06500101089477539,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      },
+      {
+        "outputFrame": 828,
+        "sourceIndex": 1693,
+        "ageSeconds": 0.051071882247924805,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      },
+      {
+        "outputFrame": 829,
+        "sourceIndex": 1693,
+        "ageSeconds": 0.08440542221069336,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      },
+      {
+        "outputFrame": 1034,
+        "sourceIndex": 2101,
+        "ageSeconds": 0.047853708267211914,
+        "issues": [
+          "age-outside-half-open-output-frame",
+          "reused-source",
+          "source-time-not-advancing"
+        ]
+      }
+    ],
+    "captureSha256": "ae8a643c9fd98d3a70fc6439682716b0425a752556842fa779b43bb561543fe4",
+    "mapSha256": "d8ba4ccb04f5fc5b331bf9d1fc05e90bf5da4d1f7584313a26732cd5f613c45b",
+    "receiptsSha256": "628973883522bcb0f517f73d5e2b1cbe26e2d90cb0b0c7473e9fea222dd71462"
+  },
+  "decision": {
+    "consistentWithScenario": true,
+    "replacementCount": 1,
+    "conditions": [
+      "Freeze and independently test the supplementary strict output freshness gate before the replacement. Apply it to every selected chapter, not only Astra.",
+      "Keep all frozen recording inputs byte-identical, preserve native randomness and outcomes, and leave all eight passing chapters selected.",
+      "Retain all failed raw JPEGs, receipts, original reports, superseded maps and superseded encodings.",
+      "Record one replacement official Astra charges chapter. Select it only if every technical gate and independent review passes; do not use collapse appearance or damage magnitude as a selection criterion.",
+      "If it fails, stop and surface the cause rather than repeatedly recording until a pass.",
+      "Reassemble and repeat full actual 1x playback and visual checks for the changed individual film and composite before release."
+    ]
+  },
+  "criterionRationale": "A new captured source younger than one output frame at every 30 fps sample proves that the recorder adds no extra hold at delivery resolution. Source intervals longer than 1/30 second still must be reported. This does not establish exact GPU presentation timing or explain every native-cadence frame omission.",
+  "noAutomaticStallExemptions": "Any proposed hold exception requires separate positive evidence that the entire observed hold corresponds to a native stall, and independent review. There are no such exceptions in this decision.",
+  "supersededClaim": {
+    "artifact": "official-replacement-decision.json",
+    "field": "otherAstraChapter.unexplainedInFilmGaps",
+    "reason": "The value 0 came from a 100 ms-filtered analyzer and was not a complete continuity review. It must not be cited as an all-gap pass."
+  },
+  "evidence": [
+    "viewer-check/independent/output-freshness-review.json",
+    "viewer-check/independent/capture-continuity.json",
+    "viewer-check/independent/gap-pixels.json",
+    "viewer-check/independent/backpressure-analysis.json"
+  ],
+  "finalReleaseApproval": false
+}

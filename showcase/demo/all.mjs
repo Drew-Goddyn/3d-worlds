@@ -3,6 +3,8 @@ import {existsSync} from 'node:fs';
 import pilot from './pilot.mjs';
 import assemble,{chooseTake} from './assemble.mjs';
 import verify,{freeze,fingerprint} from './verify.mjs';
+import viewerChecks from './viewer-checks.mjs';
+import retainedTakes from './retained-takes.mjs';
 import {json} from './core.mjs';
 export default async function all(options){
  if(!options.builds.every(b=>existsSync(path.join(options.out,'calibration',b.id,'camera.json'))))await options.calibrate();
@@ -18,4 +20,6 @@ export default async function all(options){
  }
  await assemble(options);
  await verify(options);
+ await viewerChecks(options);
+ await retainedTakes(options);
 }
