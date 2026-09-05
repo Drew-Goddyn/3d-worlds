@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { BankPhysics } from './bank-physics.js';
 
 const MATERIALS = ['brick', 'stone', 'glass', 'concrete', 'steel', 'water'];
 const MATERIAL_INDEX = Object.fromEntries(MATERIALS.map((name, i) => [name, i]));
@@ -120,6 +121,8 @@ export class Simulation {
       const tank = building.waterTower?.group || building.waterTower || building.tank?.group || building.tank;
       if (tank?.isObject3D) this.tanks.push({ group: tank, bs, parent: tank.parent, base: tank.position.clone(), rotation: tank.rotation.clone(), state: 0, x: 0, y: 0, z: 0, rx: 0, rz: 0, vx: 0, vy: 0, vz: 0, age: 0, burst: false });
     }
+    this.bank = city.buildings.find(b => b.bank)?.bank;
+    this.bank = this.bank ? new BankPhysics(this.bank, this) : null;
     for (const prop of city.props || []) {
       const group = prop.group || prop;
       if (!group?.isObject3D) continue;
@@ -318,6 +321,7 @@ export class Simulation {
   }
 
   _damageFloor(f, point, power, direction, blast) {
+    if (f.building.bank) { this.bank.damage(point, power, direction, blast); return; }
     const radius = blast ? 7 : 4.7;
     let minDist = Infinity, nearest = 0;
     for (let i = 0; i < f.columns.length; i++) {
@@ -388,8 +392,10 @@ export class Simulation {
     const f = this._nearestFloor(point, buildingId, floorIndex);
     if (!f || f.state === 3) return false;
     f.floor.group.updateWorldMatrix(true, false);
-    const local = f.floor.group.worldToLocal(point.clone());
-    this.charges.push({ id: this.chargeId++, floor: f.index, x: local.x, y: local.y, z: local.z, when: -1 });
+    const bankBody = f.building.bank ? this.bank.nearest(point, floorIndex) : null;
+    if (f.building.bank && !bankBody) return false;
+    const local = bankBody ? point.clone().applyMatrix4(this.bank.bodyMatrix(bankBody).invert()) : f.floor.group.worldToLocal(point.clone());
+    this.charges.push({ id: this.chargeId++, floor: f.index, x: local.x, y: local.y, z: local.z, when: -1, ...(bankBody ? {bankBody: bankBody.id} : {}) });
     this.render();
     return true;
   }
@@ -509,7 +515,7 @@ export class Simulation {
       if (c.when < 0 || c.when > this.time) continue;
       const f = this.floors[c.floor];
       f.floor.group.updateWorldMatrix(true, false);
-      const point = f.floor.group.localToWorld(new THREE.Vector3(c.x, c.y, c.z));
+      const point = c.bankBody != null ? this.bank.chargePoint(c) : f.floor.group.localToWorld(new THREE.Vector3(c.x, c.y, c.z));
       this.lastImpact.copy(point);
       this._damageFloor(f, point, 118, new THREE.Vector3(), true);
       this._emit('blast', point, { power: 118, buildingId: f.building.id });
@@ -517,7 +523,9 @@ export class Simulation {
       if (this.flockStart < 0) this.flockStart = this.time;
       this.charges.splice(i, 1);
     }
+    this.bank?.step(dt);
     for (const f of this.floors) {
+      if (f.building.bank) continue;
       if (f.state < 2) {
         this._assessSupport(f);
         if (f.below?.state >= 2) {
@@ -744,6 +752,7 @@ export class Simulation {
     }
     return {
       version: 1, time: this.time, seed: this.seed,
+      ...(this.bank ? {bank: this.bank.capture()} : {}),
       floors, strengths, debris: this.debris.slice(0, this.debrisExtent * D), dust: this.dust.slice(0, this.dustExtent * U),
       debrisCursor: this.debrisCursor, dustCursor: this.dustCursor,
       hidden: this.hiddenSnapshot,
@@ -788,6 +797,7 @@ export class Simulation {
     this.lastCollapseBuilding = a.lastCollapseBuilding; this.lastImpact.fromArray(a.lastImpact);
     this.crowdReaction = a.crowdReaction; this.cheerUntil = a.cheerUntil; this.flockStart = a.flockStart;
     this.collisionPairs = new Set(a.collisionPairs);
+    if (this.bank && a.bank) this.bank.restore(a.bank);
     this.render(b, t);
   }
 
@@ -800,6 +810,7 @@ export class Simulation {
       group.rotation.z = next ? lerp(f.rz, next.floors[p + 4], alpha) : f.rz;
       group.scale.y = next ? lerp(f.squash, next.floors[p + 13], alpha) : f.squash;
     }
+    this.bank?.render(next?.bank, alpha);
     this._renderReinforcement();
     const counts = new Uint16Array(6), d = this.debris;
     const cameraPosition = this.camera ? this.camera.getWorldPosition(new THREE.Vector3()) : null;
@@ -859,7 +870,7 @@ export class Simulation {
       if (!charge) continue;
       const f = this.floors[charge.floor];
       f.floor.group.updateWorldMatrix(true, false);
-      mesh.position.copy(f.floor.group.localToWorld(_point.set(charge.x, charge.y, charge.z)));
+      mesh.position.copy(charge.bankBody != null ? _point.set(charge.x,charge.y,charge.z).applyMatrix4(this.bank.presentationMatrices[charge.bankBody]) : f.floor.group.localToWorld(_point.set(charge.x, charge.y, charge.z)));
       mesh.scale.setScalar(1 + Math.sin(this.time * 9 + i) * .07);
     }
     for (let i = 0; i < this.props.length; i++) {
@@ -921,7 +932,7 @@ export class Simulation {
     const a = new THREE.Vector3(), b = new THREE.Vector3(), c = new THREE.Vector3();
     const direction = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0);
     for (const f of this.floors) {
-      if (f.state === 0 && f.support > .9) continue;
+      if (f.building.bank || f.state === 0 && f.support > .9) continue;
       f.floor.group.updateWorldMatrix(true, false);
       for (let i = 0; i < f.columns.length; i++) {
         const damage = f.state >= 2 ? Math.max(.65, 1 - f.strength[i]) : 1 - f.strength[i];
@@ -955,6 +966,6 @@ export class Simulation {
   get stats() {
     let pieces = 0;
     for (let i = 0; i < this.debrisExtent; i++) if (this.debris[i * D] >= 0) pieces++;
-    return { tonnage: Math.round(this.tonnage), chain: this.chain, collapsed: this.collapsedCount, charges: this.charges.length, pieces };
+    return { tonnage: Math.round(this.tonnage), chain: this.chain, collapsed: this.collapsedCount, charges: this.charges.length, pieces, ...(this.bank ? {bank: this.bank.stats} : {}) };
   }
 }

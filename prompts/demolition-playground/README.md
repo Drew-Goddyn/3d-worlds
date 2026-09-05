@@ -18,6 +18,6 @@ The original prompts match byte for byte. Follow-up instructions, tools, and ite
 
 Chapters: 0–8 seconds overview, 8–26 seconds one bank swing, 26–70 seconds charges, slow motion and native rewind. Extract the viewer ZIP and open index.html for synchronized playback, seeking and focus mode.
 
-These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. Original builds remain unchanged.
+These are labeled previews. Astra’s charges chapter includes unexplained capture holds up to 100 ms; native presentation between captures is unknown. Do not use the films for FPS or performance ranking. These films and preview images document the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee). The Astra application continues to evolve; its current source includes the accepted round-two bank improvement. Historical media and creation labels remain unchanged.
 
 [Evidence](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-evidence.zip) · [Checksums](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/SHA256SUMS) · [Scenario and camera design](demo/README.md) · [Implemented recorder](../../showcase/demo/README.md).

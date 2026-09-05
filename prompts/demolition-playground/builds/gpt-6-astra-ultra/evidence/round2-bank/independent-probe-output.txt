@@ -1,0 +1,15 @@
+PASS variable-dt replay and immutable history
+PASS recorded future interpolation preserves exact resume state
+PASS alternative past action changes future
+COLLAPSE { bays: 27, failedBays: 27, loose: 0, settled: 1525, retained: 1537 } tonnage 1694.129999999996 finite true
+REPEAT_RUBBLE_IMPACT 0 1694.129999999996 total mass 1694.130000000001
+REPEAT_RUBBLE_IMPACT 1 1694.129999999996 total mass 1694.130000000001
+REPEAT_RUBBLE_IMPACT 2 1694.129999999996 total mass 1694.130000000001
+REPEAT_RUBBLE_IMPACT 3 1694.129999999996 total mass 1694.130000000001
+UNSUPPORTED_SETTLED 0 []
+RUBBLE_HEIGHT 5.481053813388031
+AFTER_ATTACK_UNSUPPORTED 0 0 []
+AFTER_ATTACK_UNSUPPORTED 1 0 []
+AFTER_ATTACK_UNSUPPORTED 2 0 []
+PASS scored mass remains bounded after rubble re-impacts
+PASS full minute retained and permanent pristine restored after eviction 60.04999999999659

@@ -1,0 +1,32 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ a limited bank wound is local, remains standing, and changes with the hit location (601.511625ms)
+✔ bank support loss can peel one bay while leaving an independently supported bay intact (617.15025ms)
+✔ bank charges, support, fragment motion and impact contacts replay exactly without snapshot aliasing (868.624541ms)
+✔ extensive bank destruction settles into finite persistent architecture and retains a full minute (9434.553375ms)
+✔ six normal bank charges can cause substantial failure without an easy-collapse override (1385.139625ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (9.578917ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.334542ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (117.952417ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (132.573708ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (146.218375ms)
+✔ slow motion advances exactly the supplied simulation time (2.785167ms)
+✔ a falling assembly transfers impact into an adjacent building (52.085417ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (48.162917ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (3.965ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (45.826125ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (4.569959ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (37.793709ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (22.487333ms)
+✔ six-charge limit and all staged detonation state survive rewind (39.527375ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (193.90525ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13127.365708
