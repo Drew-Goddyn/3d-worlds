@@ -387,12 +387,15 @@ export class Simulation {
     this.chainTime = this.time;
   }
 
-  placeCharge(point, buildingId, floorIndex) {
+  placeCharge(point, buildingId, floorIndex, bankBodyId=null) {
     if (this.charges.length >= 6) return false;
     const f = this._nearestFloor(point, buildingId, floorIndex);
     if (!f || f.state === 3) return false;
     f.floor.group.updateWorldMatrix(true, false);
-    const bankBody = f.building.bank ? this.bank.nearest(point, floorIndex) : null;
+    const selected = f.building.bank && bankBodyId!=null ? this.bank.bodies[bankBodyId] : null;
+    // The rendered roof panel or retained rubble under the pointer carries
+    // its own charge, even if another structural member is nearby.
+    const bankBody = f.building.bank ? (selected&&!selected.fixed&&!selected.content ? selected : this.bank.nearest(point, floorIndex)) : null;
     if (f.building.bank && !bankBody) return false;
     const local = bankBody ? point.clone().applyMatrix4(this.bank.bodyMatrix(bankBody).invert()) : f.floor.group.worldToLocal(point.clone());
     this.charges.push({ id: this.chargeId++, floor: f.index, x: local.x, y: local.y, z: local.z, when: -1, ...(bankBody ? {bankBody: bankBody.id} : {}) });

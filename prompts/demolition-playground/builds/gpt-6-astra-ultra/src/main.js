@@ -119,7 +119,8 @@ canvas.addEventListener('pointerup',event=>{
   if(!down||down.button!==0||Math.hypot(event.clientX-down.x,event.clientY-down.y)>5)return;
   const hit=pick(event);if(!hit||!branch())return;
   if(tool==='charge'){
-    if(simulation.placeCharge(hit.point,hit.building.id,hit.floor.index))sound(7);else toast('Six charges is a full set. Time to detonate.');
+    const bankBodyId=hit.object.userData.bank?hit.object.userData.bodyIds[hit.instanceId]:null;
+    if(simulation.placeCharge(hit.point,hit.building.id,hit.floor.index,bankBodyId))sound(7);else toast('Six charges is a full set. Time to detonate.');
   }else{crane.aimAt(hit.point,hit.building.bank?2.1:3);toast(`Taking a swing at ${hit.building.name}.`);}
   $('target-label').hidden=true;record();updateUI();
 });
