@@ -1,0 +1,34 @@
+{
+  "min": [
+    -44.74639014295576,
+    6.014569497440299,
+    -32.753899552234614
+  ],
+  "max": [
+    -21.49283736260643,
+    31,
+    -13.46553895820767
+  ],
+  "method": "One native scripted ball rehearsal; full observed ball/anchor sweep, plus 15 percent or 4 world units per axis; unioned with pristine bank and complete crane; no damage-based choice",
+  "observationCount": 2162,
+  "rawMin": [
+    -40.74639014295576,
+    10.014569497440299,
+    -28.753899552234614
+  ],
+  "rawMax": [
+    -25.49283736260643,
+    27,
+    -17.46553895820767
+  ],
+  "padding": [
+    4,
+    4,
+    4
+  ],
+  "source": "retained motion-calibration rehearsal / rehearsal/site/ball/take-1788572221826/receipts.json",
+  "sourceSha256": "efd6b5296999d1ecc0cbd783a2b71232f05851053f0e75b0a2cbf8eff83856b6",
+  "traceFile": "prompts/demolition-playground/demo/calibration/site-native-motion.json",
+  "traceSha256": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3",
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858"
+}

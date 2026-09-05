@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "design-not-implemented",
+  "status": "implemented-pending-final-verification",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "patchPolicy": "Temporary recording copies only; camera, native action dispatch and observation; original build blobs unchanged.",
   "adapters": [
@@ -81,7 +81,7 @@
         "stopOnRelease": true
       },
       "ball": {
-        "nativeHandler": "apiRef.current.kickBall(1) at chapter second 5",
+        "nativeHandler": "Native kick at second 5; sign from finite native tangent dot product toward bank; forward for exact zero",
         "preparation": "Native yaw/hoist controls",
         "launchActions": 1
       },
@@ -156,7 +156,7 @@
       ],
       "charges": {
         "preparation": "select charges at second 4; one native manual placement at seconds 4,5,6",
-        "targetRule": "visible attached ground-floor support on each semantic target"
+        "targetRule": "Visible native ground-floor facade; actual building, floor, charge identity and hit coordinates; columns remain observation-only"
       },
       "slow": {
         "enable": "setSlow(true)",

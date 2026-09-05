@@ -18,9 +18,20 @@ const now=()=>Math.max(0,Math.min(70,playing?anchorTime+(performance.now()-ancho
 const fmt=t=>Math.floor(t/60)+':'+String(Math.floor(t%60)).padStart(2,'0');
 function pausePlayers(){anchorTime=now();playing=false;videos.forEach(v=>v.pause());}
 function display(){const t=now();seek.value=t;time.value=`${fmt(t)} / 1:10`;play.textContent=desired?'Pause':'Play';play.setAttribute('aria-label',desired?'Pause all demos':'Play all demos');}
-async function align(t){busy=true;pausePlayers();anchorTime=Math.max(0,Math.min(70,t));const mine=++token;await Promise.all(videos.map(v=>new Promise(resolve=>{if(!v.readyState||Math.abs(v.currentTime-anchorTime)<.015){resolve();return;}const done=()=>{v.removeEventListener('seeked',done);resolve();};v.addEventListener('seeked',done,{once:true});v.currentTime=anchorTime;})));if(mine!==token)return;busy=false;display();maybePlay();}
-async function maybePlay(){if(busy||playing||!desired)return;if(videos.some(v=>v.readyState<3||v.seeking)){status.textContent='Buffering — all builds paused';return;}if(anchorTime>=69.999){desired=false;display();return;}busy=true;const mine=token;try{await Promise.all(videos.map(v=>v.play()));if(mine!==token||!desired){videos.forEach(v=>v.pause());return;}anchorClock=performance.now();playing=true;status.textContent='Playing together';}catch{desired=false;pausePlayers();status.textContent='Playback could not start. Press Play to retry.';}finally{busy=false;display();}}
-function buffering(){if(!desired||busy)return;pausePlayers();status.textContent='Buffering — all builds paused';align(anchorTime);}
+let alignmentAbort=null;
+function mediaEvent(video,event,signal){return new Promise(resolve=>{const done=()=>{video.removeEventListener(event,done);video.removeEventListener('error',done);signal.removeEventListener('abort',done);resolve();};video.addEventListener(event,done,{once:true});video.addEventListener('error',done,{once:true});signal.addEventListener('abort',done,{once:true});if(signal.aborted)done();});}
+async function align(t){
+ alignmentAbort?.abort();alignmentAbort=new AbortController();const signal=alignmentAbort.signal,mine=++token,target=Math.max(0,Math.min(70,t));
+ busy=true;pausePlayers();anchorTime=target;display();
+ await Promise.all(videos.map(async v=>{
+  if(!v.readyState)await mediaEvent(v,'loadedmetadata',signal);
+  if(signal.aborted||v.error)return;
+  if(v.seeking||Math.abs(v.currentTime-target)>=.015){const seeked=mediaEvent(v,'seeked',signal);v.currentTime=target;await seeked;}
+ }));
+ if(mine!==token)return;busy=false;display();maybePlay();
+}
+async function maybePlay(){if(busy||playing||!desired)return;if(videos.some(v=>v.readyState<3||v.seeking)){status.textContent='Buffering — all builds paused';return;}if(anchorTime>=69.999){desired=false;display();return;}busy=true;const mine=token;try{await Promise.all(videos.map(v=>v.play()));if(mine!==token)return;if(!desired){videos.forEach(v=>v.pause());return;}anchorClock=performance.now();playing=true;status.textContent='Playing together';}catch{if(mine===token){desired=false;pausePlayers();status.textContent='Playback could not start. Press Play to retry.';}}finally{if(mine===token){busy=false;display();}}}
+function buffering(){if(!desired||(busy&&videos.every(v=>v.paused)))return;pausePlayers();status.textContent='Buffering — all builds paused';align(anchorTime);}
 videos.forEach(v=>{v.playbackRate=1;v.addEventListener('waiting',buffering);v.addEventListener('stalled',()=>{if(v.readyState<3)buffering();});v.addEventListener('canplay',()=>{if(!desired&&videos.every(v=>v.readyState>=3))status.textContent='Ready';maybePlay();});v.addEventListener('error',()=>{desired=false;pausePlayers();status.textContent='A video could not load. Keep all three MP4 files beside this HTML file.';display();});});
 play.onclick=()=>{desired=!desired;if(desired){if(anchorTime>=69.999)align(0);else maybePlay();}else{pausePlayers();status.textContent='Paused';}display();};
 seek.oninput=()=>align(Number(seek.value));document.querySelectorAll('[data-time]').forEach(b=>b.onclick=()=>align(Number(b.dataset.time)));

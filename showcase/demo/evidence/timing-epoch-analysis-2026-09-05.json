@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-05T02:12:52.062Z",
+  "status": "analysis-only",
+  "scope": "Independent epoch semantics and fixed-bound candidate evaluation; no implementation approval or film approval",
+  "sources": [
+    {
+      "url": "https://chromedevtools.github.io/devtools-protocol/tot/Page/#type-ScreencastFrameMetadata",
+      "claim": "Screencast metadata records a frame-swap timestamp typed as Network.TimeSinceEpoch."
+    },
+    {
+      "url": "https://www.w3.org/TR/hr-time-3/#sec-time-origin",
+      "claim": "The time-origin timestamp relates the monotonic origin to the estimated Unix epoch; adding relative performance time produces epoch-relative time. The specification explicitly notes possible divergence from current wall-clock time after adjustments."
+    }
+  ],
+  "conclusion": "The visible marker displacement does not isolate a clock offset. The marker is timestamped before rendering/compositing and becomes visible later. Subtracting this displacement from every capture PTS can shift native intervals incorrectly. Direct epoch-space comparison needs separately measured clock agreement; first/last request-round-trip brackets can supply that evidence for new takes.",
+  "fixedBoundSeconds": 0.03333333333333333,
+  "solDirectEpochEvidence": {
+    "capture": {
+      "from": 1788573419.085329,
+      "to": 1788573419.304324,
+      "seconds": 0.2189948558807373,
+      "nativeSamples": 6,
+      "maxRawDeltaMs": 16.80000000000109,
+      "classification": "unexplained"
+    },
+    "raw": {
+      "from": 1788573419.1125998,
+      "to": 1788573419.2958999,
+      "fromResidualSeconds": 0.027270793914794922,
+      "toResidualSeconds": -0.008424043655395508,
+      "durationResidualSeconds": -0.03569483757019043
+    },
+    "callback": {
+      "from": 1788573419.1137,
+      "to": 1788573419.3019,
+      "fromResidualSeconds": 0.02837085723876953,
+      "toResidualSeconds": -0.002424001693725586,
+      "durationResidualSeconds": -0.030794858932495117
+    }
+  },
+  "probeRequirements": [
+    "Record host request-start and response-receipt epochs and page performance epoch for start/end probes.",
+    "Treat the page-to-host offset as an interval bounded by each round trip.",
+    "Require sufficient agreement/stability to test endpoint residuals against the same fixed budget across the whole possible offset interval. Do not add probe uncertainty to a tolerance.",
+    "Keep missing, wide, inconsistent, or moving clock evidence inconclusive."
+  ],
+  "filmScopingEdgeCase": {
+    "start": 100,
+    "duration": 1,
+    "fps": 30,
+    "lastOutputSample": 100.96666666666667,
+    "gap": {
+      "from": 100.98,
+      "to": 101.2
+    },
+    "affectsOutput": false,
+    "currentContinuousWindowResult": true
+  },
+  "priorReport": "showcase/demo/evidence/timing-review-2026-09-05.json",
+  "finalFilmsApproved": false
+}

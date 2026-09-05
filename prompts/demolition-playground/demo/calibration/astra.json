@@ -1,0 +1,34 @@
+{
+  "min": [
+    -17.90016130310608,
+    -0.5391467330369641,
+    -0.45143503564646226
+  ],
+  "max": [
+    5.810812945055567,
+    47.54858435648308,
+    24.434653345300198
+  ],
+  "method": "One native scripted ball rehearsal; full observed ball/anchor sweep, plus 15 percent or 4 world units per axis; unioned with pristine bank and complete crane; no damage-based choice",
+  "observationCount": 2156,
+  "rawMin": [
+    -13.90016130310608,
+    5.009437623446118,
+    3.5485649643535377
+  ],
+  "rawMax": [
+    1.8108129450555668,
+    42,
+    20.434653345300198
+  ],
+  "padding": [
+    4,
+    5.548584356483082,
+    4
+  ],
+  "source": "retained motion-calibration rehearsal / rehearsal/astra/ball/take-1788572275493/receipts.json",
+  "sourceSha256": "3946a5e81dd2bf86ae0fffd3fea95d9acf9174990e4cc351cfaf5a7a07eddbfc",
+  "traceFile": "prompts/demolition-playground/demo/calibration/astra-native-motion.json",
+  "traceSha256": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b",
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858"
+}

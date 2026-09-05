@@ -1,0 +1,960 @@
+{
+  "schemaVersion": 1,
+  "reviewType": "fresh-independent-calibration-approval",
+  "reviewedAt": "2026-09-05T01:56:59.431Z",
+  "status": "pass",
+  "finalRecordingApproval": false,
+  "scope": "Current demolition comparison camera calibration, target identity and native action adapters. This approval does not certify later official takes, assembled films, synchronization, viewer behavior or publication.",
+  "fingerprint": "75148a7107f7540a98a29905cdeade2f7c443831b1bea470a0d24875fa05e50f",
+  "fingerprintInputs": {
+    "showcase/demo/browser-runtime.js": "103a1b0db85bccc961eb32eb623023edfc08ddca8daa95b18a2c4b3ce52e93ce",
+    "showcase/demo/core.mjs": "7b8be6b64d8381f4513a96c43a896b42ab8c9232abd9d502c9816bb6e9ae0acf",
+    "showcase/demo/timing.mjs": "796dd222fdbde8df12d8a0bb6fd945fa05bc805be4355d109ff15ea5fb8bd3de",
+    "showcase/demo/run.mjs": "6d98f7a1fdec4b88c82fdb3a34c64b0337bd2ce9f58fbe0f28b146e306ffcf42",
+    "showcase/demo/control-checks.mjs": "2d6504382f70076d78c1242d73e6bd4b6c4ca6822fdcf5d2f8e7b4546b054d13",
+    "showcase/attempts.json": "0ce45c0d78fd56482ed27d994c0625c468756dba07c1e2a89f2edbe87299f47f",
+    "prompts/demolition-playground/demo/scenario.json": "a5fd77bd28173e2c89eb0c8868536866b07f7ebc7a2ba60a644bcd09fe486e4f",
+    "showcase/demo/patches/site.json": "d2d466c1a444ee2e51af6683b6bc9c900f0a8a5512543899411315c1472b1d34",
+    "prompts/demolition-playground/demo/calibration/site.json": "fdde321d31b1b7c69d9d3be36bbd7fe669b37915bbd5f79a48b85ea36eb4197c",
+    "prompts/demolition-playground/demo/calibration/site-native-motion.json": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3",
+    "showcase/demo/patches/sol.json": "0f02211f7737c499da8da2a2636e217f323c3a7a55d76e87cab4c2b1dd1e98c7",
+    "prompts/demolition-playground/demo/calibration/sol.json": "35061cbb8512c4fb73d96eeec9699da5d0ad5cee4eae9ac7cffadd8b63a14180",
+    "prompts/demolition-playground/demo/calibration/sol-native-motion.json": "930cc91946b472ec075b5374dc8f7f988970083b0b5f5346c3fd547697c2041d",
+    "showcase/demo/patches/astra.json": "35f12191f3a3588a086139b8ea8851a86b0c092b719f28fc2b92a2cde7cfa12e",
+    "prompts/demolition-playground/demo/calibration/astra.json": "f8c9c2979835f60e2092b5250b5425da579bc5b748de3f96ea9f700b4f859753",
+    "prompts/demolition-playground/demo/calibration/astra-native-motion.json": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b",
+    "calibration/site": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+    "calibration/sol": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+    "calibration/astra": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db"
+  },
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "reviewedDiffBase": "b395b4551b834e9746be9a4aa722ed12be69e9bd",
+  "workingCommit": "aea7b546f03ff12737c0c6de791f8938692547ed",
+  "independence": "Fresh verifier reviewed source diff, current criteria, native implementation and actual saved calibration. Read-only native object exposure was added only to separate verifier-owned temporary copies. Three live pages ran sequentially after recorder permission; all were closed before recording resumed. Builder reasoning was not used to certify behavior.",
+  "standingInvariants": [
+    "Original archived build blobs, native physics, damage, history, timing, randomness, materials, fog and dependencies remain unchanged.",
+    "Recording adapters are limited to presentation, complete native player-action dispatch and observation.",
+    "Target membership, identity and unobstructed raycasts require direct evidence; projection or charge count alone is insufficient.",
+    "Native UI/bookkeeping and history remain complete; standardized presentation must not contaminate native snapshots.",
+    "Safety and correctness gates cannot be weakened, and invalid actions cannot be silently accepted during take selection.",
+    "Capture and browser work remain isolated and sequential; only owned sessions are closed; no credentials, new dependencies or destructive actions are introduced.",
+    "Calibration approval is separate from complete film, timing, usefulness and publication approval."
+  ],
+  "authorization": {
+    "astra": "Current scenario records user authorization for accurately identified native ground-floor facade hits on the same three buildings at unchanged times. Observation-only columns are never used as charge identities.",
+    "motionFraming": "Current shared rule uses the first retained scripted native ball/anchor rehearsal and the same max(4 units, 15 percent span) padding on each axis, unioned with pristine bank and full crane."
+  },
+  "checks": [
+    {
+      "property": "Immutable source artifacts and dependency preservation",
+      "status": "pass",
+      "evidence": "All 78 tracked original build files match SHA-256 of the pinned source commit. Diff adds recorder/specification/evidence only; no dependency declarations or game lockfiles changed."
+    },
+    {
+      "property": "Motion-only calibration provenance",
+      "status": "pass",
+      "evidence": "All three checked-in trace hashes and original receipt hashes match retained files. Trace frames and events exactly equal every in-chapter observation in the source receipt. All extrema and padding reproduce exactly. Motion generator takes the first timestamp-sorted rehearsal and never branches on tonnage, collapse or damage. Native adapter/runtime hashes of the motion rehearsal match current calibration copies."
+    },
+    {
+      "property": "Common camera fit and trace coverage",
+      "status": "pass",
+      "evidence": "Actual shared runtime evaluated with the installed THREE geometry library at 2,001 overview orbit samples per build. All eight fixed-box corners stay within x=.178-.822, y=.1656-.7544, including near-plane constraints. Actual saved 45-degree poses match runtime results. All retained ball/anchor samples stay in the common safe rectangle through both transition and held shot.",
+      "metrics": {
+        "site": {
+          "orbitProjectedY": [
+            0.16560284537630815,
+            0.7543971546239097
+          ],
+          "motionOutOfSafeRect": 0
+        },
+        "sol": {
+          "orbitProjectedY": [
+            0.16560293819302724,
+            0.7543970618070527
+          ],
+          "motionOutOfSafeRect": 0
+        },
+        "astra": {
+          "orbitProjectedY": [
+            0.16560030370865625,
+            0.7543996962913476
+          ],
+          "motionOutOfSafeRect": 0
+        },
+        "each": {
+          "verticalFovDegrees": 45,
+          "elevationDegrees": 30,
+          "rollDegrees": 0,
+          "overviewAzimuthDegrees": [
+            45,
+            65
+          ],
+          "viewport": [
+            1920,
+            1080
+          ],
+          "dpr": 1
+        }
+      }
+    },
+    {
+      "property": "Complete pristine crane and bank bounds",
+      "status": "pass",
+      "evidence": "Site includes base/arm/cable/ball with native counterweight children; Sol includes both separate crawler base and complete upper yaw assembly plus cable/ball; Astra includes complete crane root/cable/ball. Each held shot unions those bounds with bank and motion envelope. Native fog remains unchanged."
+    },
+    {
+      "property": "Visible target identities and charge bookkeeping",
+      "status": "pass",
+      "evidence": "Fresh live exact rays hit Sol attached floor-0 columns 2,47,89; all resulting charges have matching native charge records. Astra hits exact floor-0 facade coordinates on buildings 0,4,3, producing local charge records with native global floors 0,24,13. Site invokes only its native selector and retains all three automatic charges; marker-center rays reach the markers before opaque architecture."
+    },
+    {
+      "property": "Complete native actions and single launch",
+      "status": "pass",
+      "evidence": "Source review confirms native Site slider preparation then one swing button, Sol native yaw/hoist control then one kick, and Astra one complete native pointer down/up aim-launch at second 5. No damage/advance shortcuts or velocity writes in adapters. All retained motion receipts contain exactly one prepare and one launch. Sol uses the original native tangent formula and a finite dot product toward the bank; observed direction=-1 for dot=-29.108977127581436."
+    },
+    {
+      "property": "Slow motion and native rewind",
+      "status": "pass",
+      "evidence": "Site exposes original slowOn/slowOff including held state and CSS; Sol invokes native toggle/KeyR handlers including refs and key bookkeeping; Astra invokes setSlow and complete rewind UI handler. Retained complete charge rehearsals validate three buildings, three charges, slow before firing, normal speed before rewind, Sol hold/release, and native automatic/toggle rewind behavior without synthetic restoration."
+    },
+    {
+      "property": "Separate native camera and history",
+      "status": "pass",
+      "evidence": "Fresh live pages confirm distinct camera objects. Native FOVs remain Site=55, Sol=46, Astra=39 while presentation is45. Site native snapshots before and after standardization retain position [44,34,48], target [0,7,0], action=0. Presentation camera is applied only at render, after native updates. Per-frame receipts keep native camera telemetry separately."
+    },
+    {
+      "property": "Framing and marked contact sheet",
+      "status": "pass",
+      "evidence": "Viewed actual nine-panel contact sheet: each overview, bank/crane shot and native three-charge set is visible with native HUD. Revised ball panels explicitly mark BANK AIM. Site has the strongest native fog; views retain it and do not modify exposure/fog to equalize artwork."
+    },
+    {
+      "property": "Take-selection native-action gate",
+      "status": "pass",
+      "evidence": "Required correction made during review: selection now reruns native control validation before timing acceptance. Independent invalid-overview fixture containing a ball launch is rejected with saved controls.passed=false and No technically valid official take for site/city.",
+      "regression": {
+        "passed": true,
+        "error": "No technically valid official take for site/city",
+        "saved": {
+          "passed": false,
+          "error": "Overview must not trigger gameplay\n\n1 !== 0\n"
+        }
+      }
+    },
+    {
+      "property": "Recorder checks",
+      "status": "pass",
+      "evidence": "Current five queue/write/timestamp unit tests pass, 0 failed. Tests were rerun after the final selection/fingerprint changes."
+    },
+    {
+      "property": "Live isolation and cleanup",
+      "status": "pass",
+      "evidence": "Each fresh page reported visible document, 1920x1080 DPR1, native high/cinematic quality, action camera disabled and no page errors. Verifier sessions on ports4421-4423 were closed; lsof showed no remaining listeners and process check showed no owned browser/server jobs."
+    }
+  ],
+  "liveEvidence": [
+    {
+      "id": "site",
+      "before": {
+        "native": [
+          43.999999999999986,
+          34.00000000000001,
+          47.99999999999999
+        ],
+        "target": [
+          0,
+          7,
+          0
+        ],
+        "fov": 55,
+        "snapshot": {
+          "p": [
+            44,
+            34,
+            48
+          ],
+          "t": [
+            0,
+            7,
+            0
+          ],
+          "action": 0
+        }
+      },
+      "charges": {
+        "charges": [
+          {
+            "id": "charge-1",
+            "building": "bank",
+            "member": "bank-23",
+            "point": [
+              -29.106290845656066,
+              5.9,
+              -17.436054086712332
+            ],
+            "detonated": false
+          },
+          {
+            "id": "charge-2",
+            "building": "warehouse",
+            "member": "warehouse-0",
+            "point": [
+              -8.396410131051162,
+              2.55,
+              -17.19820506552558
+            ],
+            "detonated": false
+          },
+          {
+            "id": "charge-3",
+            "building": "tower",
+            "member": "tower-0",
+            "point": [
+              17.186610274578122,
+              2.7199999999999998,
+              -13.813389725421878
+            ],
+            "detonated": false
+          }
+        ],
+        "markers": [
+          {
+            "point": [
+              -29.106290845656066,
+              5.9,
+              -17.436054086712332
+            ],
+            "screen": {
+              "x": 1012.4409395436899,
+              "y": 663.4749889147087,
+              "depth": 0.9991697672275134
+            }
+          },
+          {
+            "point": [
+              -8.396410131051162,
+              2.55,
+              -17.19820506552558
+            ],
+            "screen": {
+              "x": 883.2482320465232,
+              "y": 613.0432017460963,
+              "depth": 0.9993086687214022
+            }
+          },
+          {
+            "point": [
+              17.186610274578122,
+              2.7199999999999998,
+              -13.813389725421878
+            ],
+            "screen": {
+              "x": 770.59315504354,
+              "y": 525.5914053045434,
+              "depth": 0.9994456960812758
+            }
+          }
+        ]
+      },
+      "inspection": {
+        "native": {
+          "position": [
+            43.999999999999986,
+            34.00000000000001,
+            47.99999999999999
+          ],
+          "target": [
+            0,
+            7,
+            0
+          ],
+          "fov": 55,
+          "snapshot": {
+            "p": [
+              44,
+              34,
+              48
+            ],
+            "t": [
+              0,
+              7,
+              0
+            ],
+            "action": 0
+          }
+        },
+        "presentation": {
+          "position": [
+            -104.76989674007292,
+            85.90474595473177,
+            -100.91937599538014
+          ],
+          "fov": 45,
+          "separate": true
+        },
+        "targets": [],
+        "markerVisibility": [
+          {
+            "id": "charge-1",
+            "building": "bank",
+            "member": "bank-23",
+            "targetDistance": 138.1854032419237,
+            "firstOpaqueDistance": 138.31129143611935,
+            "firstOpaqueName": "bank-24",
+            "blocked": false
+          },
+          {
+            "id": "charge-2",
+            "building": "warehouse",
+            "member": "warehouse-0",
+            "targetDistance": 152.46342858608125,
+            "firstOpaqueDistance": 152.80579069958117,
+            "firstOpaqueName": "warehouse-0",
+            "blocked": false
+          },
+          {
+            "id": "charge-3",
+            "building": "tower",
+            "member": "tower-0",
+            "targetDistance": 171.40753894397426,
+            "firstOpaqueDistance": 171.6700238262889,
+            "firstOpaqueName": "tower-0",
+            "blocked": false
+          }
+        ],
+        "chargeRecords": null,
+        "quality": "high",
+        "actionCamera": false,
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "dpr": 1
+        },
+        "pageVisibility": "visible"
+      },
+      "errors": []
+    },
+    {
+      "id": "sol",
+      "before": {
+        "native": [
+          63.00000000000003,
+          43,
+          67
+        ],
+        "target": [
+          0,
+          12,
+          0
+        ],
+        "fov": 46,
+        "snapshot": null
+      },
+      "charges": {
+        "charges": [
+          {
+            "id": 0,
+            "piece": 2,
+            "building": "bank",
+            "point": [
+              -32.075750624227624,
+              0.8999999999999997,
+              -7.536366551527598
+            ]
+          },
+          {
+            "id": 1,
+            "piece": 47,
+            "building": "warehouse",
+            "point": [
+              -28.250000000001872,
+              0.36699999999548183,
+              25.76
+            ]
+          },
+          {
+            "id": 2,
+            "piece": 89,
+            "building": "glass-tower",
+            "point": [
+              17.880000000000738,
+              7.729999999996976,
+              -8.39
+            ]
+          }
+        ],
+        "markers": [
+          {
+            "point": [
+              -32.075750624227624,
+              0.8999999999999997,
+              -7.536366551527598
+            ],
+            "screen": {
+              "x": 828.1589924677709,
+              "y": 481.60832370086354,
+              "depth": 0.9996135093127886
+            }
+          },
+          {
+            "point": [
+              -28.250000000001872,
+              0.36699999999548183,
+              25.76
+            ],
+            "screen": {
+              "x": 663.2883845892206,
+              "y": 571.3526683575612,
+              "depth": 0.99949365764827
+            }
+          },
+          {
+            "point": [
+              17.880000000000738,
+              7.729999999996976,
+              -8.39
+            ],
+            "screen": {
+              "x": 1075.2005767702028,
+              "y": 557.110785536437,
+              "depth": 0.9994234198433642
+            }
+          }
+        ]
+      },
+      "inspection": {
+        "native": {
+          "position": [
+            63.00000000000003,
+            43,
+            67
+          ],
+          "target": [
+            0,
+            12,
+            0
+          ],
+          "fov": 46,
+          "snapshot": null
+        },
+        "presentation": {
+          "position": [
+            111.5132408021132,
+            95.54495362384758,
+            106.70356662825176
+          ],
+          "fov": 45,
+          "separate": true
+        },
+        "targets": [
+          {
+            "name": "bank",
+            "key": "2",
+            "point": [
+              -32.075750624227624,
+              0.7799999999999997,
+              -7.536366551527598
+            ],
+            "hit": [
+              -32.075750624227624,
+              0.7799999999999997,
+              -7.536366551527598
+            ],
+            "piece": 2,
+            "building": "bank",
+            "kind": "column",
+            "floor": 0,
+            "detached": false
+          },
+          {
+            "name": "warehouse",
+            "key": "47",
+            "point": [
+              -28.250000000001872,
+              0.36699999999548183,
+              25.64
+            ],
+            "hit": [
+              -28.250000000001872,
+              0.36699999999548183,
+              25.64
+            ],
+            "piece": 47,
+            "building": "warehouse",
+            "kind": "column",
+            "floor": 0,
+            "detached": false
+          },
+          {
+            "name": "glass-tower",
+            "key": "89",
+            "point": [
+              17.880000000000738,
+              7.729999999996976,
+              -8.51
+            ],
+            "hit": [
+              17.880000000000738,
+              7.729999999996976,
+              -8.51
+            ],
+            "piece": 89,
+            "building": "glass-tower",
+            "kind": "column",
+            "floor": 0,
+            "detached": false
+          }
+        ],
+        "markerVisibility": [],
+        "chargeRecords": [
+          {
+            "id": 0,
+            "piece": 2,
+            "placedAt": 0.2596620000007451,
+            "firedAt": null
+          },
+          {
+            "id": 1,
+            "piece": 47,
+            "placedAt": 0.2596620000007451,
+            "firedAt": null
+          },
+          {
+            "id": 2,
+            "piece": 89,
+            "placedAt": 0.2596620000007451,
+            "firedAt": null
+          }
+        ],
+        "quality": "cinematic",
+        "actionCamera": false,
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "dpr": 1
+        },
+        "pageVisibility": "visible"
+      },
+      "errors": []
+    },
+    {
+      "id": "astra",
+      "before": {
+        "native": [
+          82.00000000000001,
+          66,
+          91.00000000000003
+        ],
+        "target": [
+          -1,
+          9,
+          -3
+        ],
+        "fov": 39,
+        "snapshot": null
+      },
+      "charges": {
+        "charges": [
+          {
+            "id": 0,
+            "floor": 0,
+            "x": 0.030249688615384684,
+            "y": 1.8134664466339103,
+            "z": 5.519999980926514,
+            "when": -1,
+            "building": 0
+          },
+          {
+            "id": 1,
+            "floor": 24,
+            "x": 0.0684275795974969,
+            "y": 1.7226497607058349,
+            "z": 6.054999828338623,
+            "when": -1,
+            "building": 4
+          },
+          {
+            "id": 2,
+            "floor": 13,
+            "x": 0.05443410611037791,
+            "y": 1.871895461651917,
+            "z": 6.059999942779541,
+            "when": -1,
+            "building": 3
+          }
+        ],
+        "markers": [
+          {
+            "point": [
+              -10.969750311384615,
+              2.0434664466339103,
+              19.519999980926514
+            ],
+            "screen": {
+              "x": 737.7055572160218,
+              "y": 618.4141696645371,
+              "depth": 0.9982694947475081
+            }
+          },
+          {
+            "point": [
+              -23.931572420402503,
+              1.9526497607058348,
+              -6.945000171661377
+            ],
+            "screen": {
+              "x": 835.4813075260134,
+              "y": 508.8891876679115,
+              "depth": 0.9986053019416373
+            }
+          },
+          {
+            "point": [
+              10.054434106110378,
+              2.101895461651917,
+              -6.940000057220459
+            ],
+            "screen": {
+              "x": 1013.432459555383,
+              "y": 600.880577360862,
+              "depth": 0.9983212283837576
+            }
+          }
+        ]
+      },
+      "inspection": {
+        "native": {
+          "position": [
+            82.00000000000001,
+            66,
+            91.00000000000003
+          ],
+          "target": [
+            -1,
+            9,
+            -3
+          ],
+          "fov": 39,
+          "snapshot": null
+        },
+        "presentation": {
+          "position": [
+            101.55683746564127,
+            89.33689946778075,
+            93.91843884853597
+          ],
+          "fov": 45,
+          "separate": true
+        },
+        "targets": [
+          {
+            "name": "bank",
+            "key": "0/0/facade",
+            "point": [
+              -10.969750311384615,
+              2.0434664466339103,
+              19.519999980926514
+            ],
+            "hit": [
+              -10.969750311384615,
+              2.0434664466339103,
+              19.519999980926514
+            ],
+            "building": 0,
+            "floor": 0,
+            "kind": "native-facade"
+          },
+          {
+            "name": "warehouse",
+            "key": "4/0/facade",
+            "point": [
+              -23.931572420402503,
+              1.9526497607058348,
+              -6.945000171661377
+            ],
+            "hit": [
+              -23.931572420402503,
+              1.9526497607058348,
+              -6.945000171661377
+            ],
+            "building": 4,
+            "floor": 0,
+            "kind": "native-facade"
+          },
+          {
+            "name": "glass-tower",
+            "key": "3/0/facade",
+            "point": [
+              10.054434106110378,
+              2.101895461651917,
+              -6.940000057220459
+            ],
+            "hit": [
+              10.054434106110378,
+              2.101895461651917,
+              -6.940000057220459
+            ],
+            "building": 3,
+            "floor": 0,
+            "kind": "native-facade"
+          }
+        ],
+        "markerVisibility": [],
+        "chargeRecords": null,
+        "quality": "high",
+        "actionCamera": "false",
+        "viewport": {
+          "width": 1920,
+          "height": 1080,
+          "dpr": 1
+        },
+        "pageVisibility": "visible"
+      },
+      "errors": []
+    }
+  ],
+  "motionEvidence": [
+    {
+      "build": "site",
+      "envelope": {
+        "min": [
+          -44.74639014295576,
+          6.014569497440299,
+          -32.753899552234614
+        ],
+        "max": [
+          -21.49283736260643,
+          31,
+          -13.46553895820767
+        ],
+        "method": "One native scripted ball rehearsal; full observed ball/anchor sweep, plus 15 percent or 4 world units per axis; unioned with pristine bank and complete crane; no damage-based choice",
+        "observationCount": 2162,
+        "rawMin": [
+          -40.74639014295576,
+          10.014569497440299,
+          -28.753899552234614
+        ],
+        "rawMax": [
+          -25.49283736260643,
+          27,
+          -17.46553895820767
+        ],
+        "padding": [
+          4,
+          4,
+          4
+        ],
+        "source": "retained motion-calibration rehearsal / rehearsal/site/ball/take-1788572221826/receipts.json",
+        "sourceSha256": "efd6b5296999d1ecc0cbd783a2b71232f05851053f0e75b0a2cbf8eff83856b6",
+        "traceFile": "prompts/demolition-playground/demo/calibration/site-native-motion.json",
+        "traceSha256": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3",
+        "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858"
+      },
+      "traceSamples": 1081,
+      "firstSampleSeconds": 0.010200000001117588,
+      "lastSampleSeconds": 18.00950000000112,
+      "maxSampleGapMs": 16.800000000001702,
+      "traceAndSourceHashesMatch": true,
+      "traceExactlyMatchesAllRetainedInChapterMotion": true,
+      "eventsExactlyMatchRetainedReceipts": true,
+      "extremaAndCommonPaddingRecomputed": true,
+      "onePrepareOneLaunch": [
+        {
+          "action": "ball.prepare",
+          "planned": 0,
+          "actual": 0.011100000001490116,
+          "result": {
+            "yaw": "37",
+            "cable": "11"
+          }
+        },
+        {
+          "action": "ball.swingOnce",
+          "planned": 5,
+          "actual": 5.010400000000373,
+          "result": null
+        }
+      ]
+    },
+    {
+      "build": "sol",
+      "envelope": {
+        "min": [
+          -4.065051483414104,
+          1.6831044307146357,
+          -12.6918576293489
+        ],
+        "max": [
+          14.016273894821838,
+          40.53263855251548,
+          -0.5960711035132915
+        ],
+        "method": "One native scripted ball rehearsal; full observed ball/anchor sweep, plus 15 percent or 4 world units per axis; unioned with pristine bank and complete crane; no damage-based choice",
+        "observationCount": 2140,
+        "rawMin": [
+          -0.06505148341410383,
+          6.165742983230118,
+          -8.6918576293489
+        ],
+        "rawMax": [
+          10.016273894821838,
+          36.05,
+          -4.5960711035132915
+        ],
+        "padding": [
+          4,
+          4.482638552515482,
+          4
+        ],
+        "source": "retained motion-calibration rehearsal / rehearsal/sol/ball/take-1788572244246/receipts.json",
+        "sourceSha256": "dd2c02b1a01ae7cbc69070580a2d4145e90b1d062ee43e228a4a3f3c703bf09b",
+        "traceFile": "prompts/demolition-playground/demo/calibration/sol-native-motion.json",
+        "traceSha256": "930cc91946b472ec075b5374dc8f7f988970083b0b5f5346c3fd547697c2041d",
+        "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858"
+      },
+      "traceSamples": 1070,
+      "firstSampleSeconds": 0.01969999999962738,
+      "lastSampleSeconds": 18.00229999999963,
+      "maxSampleGapMs": 183.30000000000018,
+      "traceAndSourceHashesMatch": true,
+      "traceExactlyMatchesAllRetainedInChapterMotion": true,
+      "eventsExactlyMatchRetainedReceipts": true,
+      "extremaAndCommonPaddingRecomputed": true,
+      "onePrepareOneLaunch": [
+        {
+          "action": "ball.prepare",
+          "planned": 0,
+          "actual": 0.02309999999962747,
+          "result": {
+            "yaw": -0.06769302269396865,
+            "cable": 30
+          }
+        },
+        {
+          "action": "ball.swingOnce",
+          "planned": 5,
+          "actual": 5.003699999999255,
+          "result": {
+            "direction": -1,
+            "dot": -29.108977127581436,
+            "tangent": [
+              0.9898580381417201,
+              0.11914522061843065,
+              0.07736588867201485
+            ],
+            "position": [
+              6.034990910069321,
+              6.2068713072512445,
+              -4.5960711035132915
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "build": "astra",
+      "envelope": {
+        "min": [
+          -17.90016130310608,
+          -0.5391467330369641,
+          -0.45143503564646226
+        ],
+        "max": [
+          5.810812945055567,
+          47.54858435648308,
+          24.434653345300198
+        ],
+        "method": "One native scripted ball rehearsal; full observed ball/anchor sweep, plus 15 percent or 4 world units per axis; unioned with pristine bank and complete crane; no damage-based choice",
+        "observationCount": 2156,
+        "rawMin": [
+          -13.90016130310608,
+          5.009437623446118,
+          3.5485649643535377
+        ],
+        "rawMax": [
+          1.8108129450555668,
+          42,
+          20.434653345300198
+        ],
+        "padding": [
+          4,
+          5.548584356483082,
+          4
+        ],
+        "source": "retained motion-calibration rehearsal / rehearsal/astra/ball/take-1788572275493/receipts.json",
+        "sourceSha256": "3946a5e81dd2bf86ae0fffd3fea95d9acf9174990e4cc351cfaf5a7a07eddbfc",
+        "traceFile": "prompts/demolition-playground/demo/calibration/astra-native-motion.json",
+        "traceSha256": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b",
+        "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858"
+      },
+      "traceSamples": 1078,
+      "firstSampleSeconds": 0.010800000000000183,
+      "lastSampleSeconds": 18.01,
+      "maxSampleGapMs": 66.60000000000022,
+      "traceAndSourceHashesMatch": true,
+      "traceExactlyMatchesAllRetainedInChapterMotion": true,
+      "eventsExactlyMatchRetainedReceipts": true,
+      "extremaAndCommonPaddingRecomputed": true,
+      "onePrepareOneLaunch": [
+        {
+          "action": "ball.prepare",
+          "planned": 0,
+          "actual": 0.0115,
+          "result": null
+        },
+        {
+          "action": "ball.swingOnce",
+          "planned": 5,
+          "actual": 5.011400000000372,
+          "result": {
+            "point": [
+              -10.989252778286357,
+              5.009437463490655,
+              19.510000228881836
+            ],
+            "building": 0,
+            "floor": 1
+          }
+        }
+      ]
+    }
+  ],
+  "artifactHashes": {
+    "calibration/site/scene.json": "84e01f6baf1df83fa931a85a04f1ce84e1c5ee1d5c39e5bb3dfb0aff339c3140",
+    "calibration/site/camera.json": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+    "calibration/site/overview.json": "346f56162de18d1502df90187c0d45e6dbda8439a7cb71d23ec13277b31c3f78",
+    "calibration/site/ball.json": "fdecb82b3d1c410ab4d27753e3578ed13d38ca77c28a6801b46c8963fef3fd2e",
+    "calibration/site/charges.json": "59d66ef753b6c008530cc6d639b3710371a84331c8c1b338e8ec32ab570a904b",
+    "calibration/site/overview.png": "32d9f65980ba01dc502773cc2e8ac252bd43e08ebf2903705d76e99e078ab635",
+    "calibration/site/ball.png": "d82818f3663c6fee4cd1d35e154164fb94b6c7e4f92abd6d4f7753bf793a617d",
+    "calibration/site/charges.png": "936538f4d25b79275f887f31875b1595a2a81a6a61662d0829769e9a34826cb6",
+    "calibration/sol/scene.json": "a17e7e6f8abf87bbd3dabd638aaf57159837964dffe2ffd3e1fedb35275a53e7",
+    "calibration/sol/camera.json": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+    "calibration/sol/overview.json": "602a3d632001435fa945b7aa1f09213c515ba7df33e2d3f52923314ee700e9c6",
+    "calibration/sol/ball.json": "d954d9262b364665ec68d657ca42430c8b15f534ddc6e7f4d3f9bffcd7224b2b",
+    "calibration/sol/charges.json": "b8400a00d71e27e024593a94bcbe826e8a3ef558e9cf368fd56b54b5120103af",
+    "calibration/sol/overview.png": "75e9f2fab06ad373308cf31ace52e4834b3acf011a2c0a8ed7efbf3e981fcb69",
+    "calibration/sol/ball.png": "d564a0d09bff83ca3ffd02d7e7c2ce08b410305bc7d29a18f75cd3b966612edf",
+    "calibration/sol/charges.png": "430a32335955394296b43bc2acdea78b7573e54d4d10616d6f5de94367b33a63",
+    "calibration/astra/scene.json": "36f822f12b69dfec420884bb554acc8dca6fd995e2c780fbf1b972998699cd40",
+    "calibration/astra/camera.json": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db",
+    "calibration/astra/overview.json": "c628f5b65ee3a8589548030b8e498658d1be6c5a077badd31f6127d8e0270aed",
+    "calibration/astra/ball.json": "e2c03003ae7b63277b94ba324ab80b3e92cc1f6f382db80040c1110eb6d02dbf",
+    "calibration/astra/charges.json": "530d7b4e96a2ca110ecc73464f664bf30510014ba0b56303202a9950a09e177b",
+    "calibration/astra/overview.png": "0c7a6ba15bc703b5032261174713fbf95892efc59b3f3b36489b99d5cdd9f5bc",
+    "calibration/astra/ball.png": "be2357ddb3af7be0ec3b73787e2cf300b6fa75f6e9fdd46b6905b528468b24ed",
+    "calibration/astra/charges.png": "fad42c8a96716be02cad179c15619e2933b630933811d108a6af3cdaa9950e66",
+    "calibration/contact-sheet.png": "7f6068a71b8c3dfdfb7176b9c38005bcf9a2ba2faca9f2afa6ccd371fba80818"
+  },
+  "resolvedDuringReview": [
+    "Ball target annotations were absent in initial contact sheet; current viewed sheet includes BANK AIM in all three ball panels.",
+    "Current resume README/status still claimed Astra authorization pending; current guidance now records the authorized facade policy.",
+    "Take selection could ignore a failed control check; current selection reruns validation and rejects invalid actions."
+  ],
+  "blockers": [],
+  "limitations": [
+    "Approval is calibration-only. Current final rehearsals and all official takes still require per-take input hashes, complete action acceptance, trace framing, captured continuity/timing and native outcome review.",
+    "Motion bounds cover a measured native trajectory with common padding, not every theoretically reachable position. Any later motion outside the framed region must be surfaced rather than hidden or retried for a more favorable outcome.",
+    "Native balls can miss or produce limited damage; native charge locations, native fog and rewind results intentionally differ. These are not calibration failures.",
+    "All full films must still be watched at normal speed and final synchronization/viewer/release evidence independently reviewed before publication."
+  ]
+}

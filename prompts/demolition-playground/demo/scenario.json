@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "demolition-comparison-v1",
-  "status": "design-not-implemented",
+  "status": "implementation-calibration",
   "promptId": "demolition-playground",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "attemptIds": [
@@ -44,14 +44,16 @@
     },
     "innerMarginFraction": 0.04,
     "fit": "projected-pristine-bounds",
-    "nativeActionCamera": false
+    "nativeActionCamera": false,
+    "swingEnvelope": "single scripted native rehearsal ball/anchor sweep; add max(4 units,15 percent span) per axis; union with pristine bank and full crane; freeze before official take"
   },
   "nativeSettings": {
     "quality": "highest-preset",
     "adaptiveRendering": "preserved",
     "hud": "visible",
     "audio": "muted",
-    "randomness": "unchanged"
+    "randomness": "unchanged",
+    "astraChargeTarget": "native visible ground-floor facade; actual building, floor, charge ID and hit coordinates; never label facade as hidden column"
   },
   "chapters": [
     {
@@ -171,5 +173,12 @@
     "legal bank aiming sequence within shared lead-in",
     "ground-floor support IDs and local hit points",
     "recorder dimensions, timestamps, throughput"
+  ],
+  "decisions": [
+    {
+      "decision": "Allow accurately identified native facade hits for Astra because columns are occluded by exterior walls; preserve all three building memberships and action times.",
+      "authorization": "User: I trust you to do your best, continue to completion.",
+      "reason": "Independent raycast verification showed exterior hits precede hidden column geometry."
+    }
   ]
 }

@@ -1,0 +1,717 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-05T02:19:46.793Z",
+  "status": "pass",
+  "scope": "Independent implementation review of recorder timing attribution, bounded clock alignment, and raw evidence retention. This is not approval of any final film or new capture.",
+  "reviewedSha256": {
+    "showcase/demo/timing.mjs": "d9556b219e3edeec40cf6327e9775127f56a101d491c0a5268cf6d05282be5ad",
+    "showcase/demo/core.mjs": "8e6204273275e459ecd5a0543326849679a3dcd92482de317d109bb489fce8ee",
+    "showcase/demo/test/core.test.mjs": "88cc0341a973a145ec97f8d42e948d24661a935a22fbbf273f6cf5a1fff45334"
+  },
+  "supersedesForImplementationOnly": [
+    "showcase/demo/evidence/timing-review-2026-09-05.json",
+    "showcase/demo/evidence/timing-review-2026-09-05-v2.json"
+  ],
+  "relatedAnalysis": "showcase/demo/evidence/timing-epoch-analysis-2026-09-05.json",
+  "summary": "The corrected gate compares complete raw and callback intervals in epoch space. Both sets of endpoints and callback duration must agree within one output frame, with measured clock uncertainty deducted from the budget. Page clock reads are bracketed by wall-clock reads, and host request/response times also constrain alignment. All identified rejection vectors now fail closed.",
+  "standingInvariantResults": [
+    {
+      "invariant": "Unexplained in-film capture gaps remain inconclusive",
+      "passed": true,
+      "evidence": "Both initial false-native vectors are rejected; contradictory callback evidence is rejected; missing/wide/inconsistent clock evidence cannot validate a take."
+    },
+    {
+      "invariant": "Native animation stalls remain visible",
+      "passed": true,
+      "evidence": "The timestamp-based source-frame schedule is unchanged for all nine original takes. Sol still selects source frame 480 for seven output frames spanning chapter seconds 7.000 through 7.200."
+    },
+    {
+      "invariant": "Chapter boundaries and end remain within one output frame",
+      "passed": true,
+      "evidence": "The synchronization and endpoint thresholds remain 1/30 second. Independent original-marker JPEG decoding found a maximum endpoint error of 17.789 ms and maximum uncertainty of 18.499 ms."
+    },
+    {
+      "invariant": "Capture logs retain all gaps",
+      "passed": true,
+      "evidence": "Classification retains pre-roll, in-film and post-roll gaps. Astra retains its unexplained 112.790 ms gap starting 731.517 ms beyond the film end. Original capture and receipt hashes remain unchanged."
+    },
+    {
+      "invariant": "No tolerance loosening or outcome retries",
+      "passed": true,
+      "evidence": "The cadence-derived bound was removed. The fixed endpoint bound shrinks with clock uncertainty. The source-frame encoder and first-technically-valid selection are unchanged; no capture or outcome retry was performed by this review."
+    }
+  ],
+  "tests": {
+    "repositoryCommand": "npm run test:demo",
+    "repositoryPassed": 13,
+    "repositoryFailed": 0,
+    "independentPassed": 15,
+    "independentFailed": 0,
+    "independentChecks": [
+      {
+        "name": "Stable bracketed clock probes validate",
+        "input": [
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 100000,
+            "hostAfterEpochMs": 100004,
+            "pageEpochMs": 100001.25,
+            "pageWallBeforeEpochMs": 100001,
+            "pageWallAfterEpochMs": 100001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 102000,
+            "hostAfterEpochMs": 102004,
+            "pageEpochMs": 102001.25,
+            "pageWallBeforeEpochMs": 102001,
+            "pageWallAfterEpochMs": 102001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 104000,
+            "hostAfterEpochMs": 104004,
+            "pageEpochMs": 104001.25,
+            "pageWallBeforeEpochMs": 104001,
+            "pageWallAfterEpochMs": 104001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 106000,
+            "hostAfterEpochMs": 106004,
+            "pageEpochMs": 106001.25,
+            "pageWallBeforeEpochMs": 106001,
+            "pageWallAfterEpochMs": 106001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 108000,
+            "hostAfterEpochMs": 108004,
+            "pageEpochMs": 108001.25,
+            "pageWallBeforeEpochMs": 108001,
+            "pageWallAfterEpochMs": 108001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 110000,
+            "hostAfterEpochMs": 110004,
+            "pageEpochMs": 110001.25,
+            "pageWallBeforeEpochMs": 110001,
+            "pageWallAfterEpochMs": 110001
+          }
+        ],
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "name": "Missing clock probes fail closed",
+        "input": [],
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "name": "Six probes from only one boundary fail",
+        "input": [
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 100000,
+            "hostAfterEpochMs": 100004,
+            "pageEpochMs": 100001.25,
+            "pageWallBeforeEpochMs": 100001,
+            "pageWallAfterEpochMs": 100001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 102000,
+            "hostAfterEpochMs": 102004,
+            "pageEpochMs": 102001.25,
+            "pageWallBeforeEpochMs": 102001,
+            "pageWallAfterEpochMs": 102001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 104000,
+            "hostAfterEpochMs": 104004,
+            "pageEpochMs": 104001.25,
+            "pageWallBeforeEpochMs": 104001,
+            "pageWallAfterEpochMs": 104001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 106000,
+            "hostAfterEpochMs": 106004,
+            "pageEpochMs": 106001.25,
+            "pageWallBeforeEpochMs": 106001,
+            "pageWallAfterEpochMs": 106001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 108000,
+            "hostAfterEpochMs": 108004,
+            "pageEpochMs": 108001.25,
+            "pageWallBeforeEpochMs": 108001,
+            "pageWallAfterEpochMs": 108001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 110000,
+            "hostAfterEpochMs": 110004,
+            "pageEpochMs": 110001.25,
+            "pageWallBeforeEpochMs": 110001,
+            "pageWallAfterEpochMs": 110001
+          }
+        ],
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "name": "Nonfinite clock observation fails",
+        "input": [
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 100000,
+            "hostAfterEpochMs": 100004,
+            "pageEpochMs": 100001.25,
+            "pageWallBeforeEpochMs": 100001,
+            "pageWallAfterEpochMs": 100001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 102000,
+            "hostAfterEpochMs": 102004,
+            "pageEpochMs": 102001.25,
+            "pageWallBeforeEpochMs": 102001,
+            "pageWallAfterEpochMs": 102001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 104000,
+            "hostAfterEpochMs": 104004,
+            "pageEpochMs": 104001.25,
+            "pageWallBeforeEpochMs": 104001,
+            "pageWallAfterEpochMs": 104001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 106000,
+            "hostAfterEpochMs": 106004,
+            "pageEpochMs": 106001.25,
+            "pageWallBeforeEpochMs": 106001,
+            "pageWallAfterEpochMs": 106001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 108000,
+            "hostAfterEpochMs": 108004,
+            "pageEpochMs": null,
+            "pageWallBeforeEpochMs": 108001,
+            "pageWallAfterEpochMs": 108001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 110000,
+            "hostAfterEpochMs": 110004,
+            "pageEpochMs": 110001.25,
+            "pageWallBeforeEpochMs": 110001,
+            "pageWallAfterEpochMs": 110001
+          }
+        ],
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "name": "Paused clock reads stay inconclusive",
+        "input": [
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 100000,
+            "hostAfterEpochMs": 100100,
+            "pageEpochMs": 100000,
+            "pageWallBeforeEpochMs": 100000,
+            "pageWallAfterEpochMs": 100100
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 102000,
+            "hostAfterEpochMs": 102100,
+            "pageEpochMs": 102000,
+            "pageWallBeforeEpochMs": 102000,
+            "pageWallAfterEpochMs": 102100
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 104000,
+            "hostAfterEpochMs": 104100,
+            "pageEpochMs": 104000,
+            "pageWallBeforeEpochMs": 104000,
+            "pageWallAfterEpochMs": 104100
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 106000,
+            "hostAfterEpochMs": 106100,
+            "pageEpochMs": 106000,
+            "pageWallBeforeEpochMs": 106000,
+            "pageWallAfterEpochMs": 106100
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 108000,
+            "hostAfterEpochMs": 108100,
+            "pageEpochMs": 108000,
+            "pageWallBeforeEpochMs": 108000,
+            "pageWallAfterEpochMs": 108100
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 110000,
+            "hostAfterEpochMs": 110100,
+            "pageEpochMs": 110000,
+            "pageWallBeforeEpochMs": 110000,
+            "pageWallAfterEpochMs": 110100
+          }
+        ],
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "name": "Clock jump between boundaries fails",
+        "input": [
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 100000,
+            "hostAfterEpochMs": 100004,
+            "pageEpochMs": 100001.25,
+            "pageWallBeforeEpochMs": 100001,
+            "pageWallAfterEpochMs": 100001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 102000,
+            "hostAfterEpochMs": 102004,
+            "pageEpochMs": 102001.25,
+            "pageWallBeforeEpochMs": 102001,
+            "pageWallAfterEpochMs": 102001
+          },
+          {
+            "phase": "before",
+            "hostBeforeEpochMs": 104000,
+            "hostAfterEpochMs": 104004,
+            "pageEpochMs": 104001.25,
+            "pageWallBeforeEpochMs": 104001,
+            "pageWallAfterEpochMs": 104001
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 106150,
+            "hostAfterEpochMs": 106154,
+            "pageEpochMs": 106001.25,
+            "pageWallBeforeEpochMs": 106151,
+            "pageWallAfterEpochMs": 106151
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 108150,
+            "hostAfterEpochMs": 108154,
+            "pageEpochMs": 108001.25,
+            "pageWallBeforeEpochMs": 108151,
+            "pageWallAfterEpochMs": 108151
+          },
+          {
+            "phase": "after",
+            "hostBeforeEpochMs": 110150,
+            "hostAfterEpochMs": 110154,
+            "pageEpochMs": 110001.25,
+            "pageWallBeforeEpochMs": 110151,
+            "pageWallAfterEpochMs": 110151
+          }
+        ],
+        "actual": false,
+        "expected": false,
+        "passed": true
+      },
+      {
+        "name": "native callbacks continue through first 60 ms of the capture gap; the later stall is not sufficient evidence",
+        "input": {
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.244
+            },
+            {
+              "timestamp": 100.26
+            },
+            {
+              "timestamp": 100.276
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100048,
+                "rawDelta": 16,
+                "now": 48,
+                "receipt": 48
+              },
+              {
+                "epoch": 100064,
+                "rawDelta": 16,
+                "now": 64,
+                "receipt": 64
+              },
+              {
+                "epoch": 100080,
+                "rawDelta": 16,
+                "now": 80,
+                "receipt": 80
+              },
+              {
+                "epoch": 100092,
+                "rawDelta": 12,
+                "now": 92,
+                "receipt": 92
+              },
+              {
+                "epoch": 100275,
+                "rawDelta": 183,
+                "now": 275,
+                "receipt": 275
+              }
+            ]
+          },
+          "clockUncertainty": 0.001
+        },
+        "actual": "unexplained",
+        "expected": "unexplained",
+        "passed": true
+      },
+      {
+        "name": "slower capture cadence cannot excuse 220 ms unexplained time",
+        "input": {
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.09
+            },
+            {
+              "timestamp": 100.18
+            },
+            {
+              "timestamp": 100.68
+            },
+            {
+              "timestamp": 100.77
+            },
+            {
+              "timestamp": 100.86
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100270,
+                "rawDelta": 16,
+                "now": 270,
+                "receipt": 270
+              },
+              {
+                "epoch": 100350,
+                "rawDelta": 16,
+                "now": 350,
+                "receipt": 350
+              },
+              {
+                "epoch": 100650,
+                "rawDelta": 280,
+                "now": 650,
+                "receipt": 650
+              }
+            ]
+          },
+          "clockUncertainty": 0.001
+        },
+        "actual": "unexplained",
+        "expected": "unexplained",
+        "passed": true
+      },
+      {
+        "name": "exactly corresponding native interval is retained as native",
+        "input": {
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.232
+            },
+            {
+              "timestamp": 100.248
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100032,
+                "now": 32,
+                "receipt": 32
+              },
+              {
+                "epoch": 100232,
+                "rawDelta": 200,
+                "now": 232,
+                "receipt": 232
+              }
+            ]
+          },
+          "clockUncertainty": 0.001
+        },
+        "actual": "native-animation-stall",
+        "expected": "native-animation-stall",
+        "passed": true
+      },
+      {
+        "name": "no native evidence stays unexplained",
+        "input": {
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.232
+            },
+            {
+              "timestamp": 100.248
+            }
+          ],
+          "receipt": {
+            "frames": []
+          },
+          "clockUncertainty": 0.001
+        },
+        "actual": "unexplained",
+        "expected": "unexplained",
+        "passed": true
+      },
+      {
+        "name": "Matching raw gap with contradictory callback timestamps fails",
+        "input": {
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.232
+            },
+            {
+              "timestamp": 100.248
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100032,
+                "now": 32,
+                "receipt": 100
+              },
+              {
+                "epoch": 100232,
+                "now": 232,
+                "receipt": 300,
+                "rawDelta": 200
+              }
+            ]
+          }
+        },
+        "actual": "unexplained",
+        "expected": "unexplained",
+        "passed": true
+      },
+      {
+        "name": "All nine original frame schedules remain byte-equivalent in JSON",
+        "input": null,
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "name": "Old rehearsal evidence cannot pass without newly required clock probes",
+        "input": null,
+        "actual": true,
+        "expected": true,
+        "passed": true
+      },
+      {
+        "name": "Actual Sol interval matches fixed bound with hypothetical measured 1 ms clock uncertainty",
+        "input": {
+          "take": ".demo-work/demolition-demo-v1-final/rehearsal/sol/charges-rewind/take-1788573404840",
+          "clockUncertainty": 0.001,
+          "note": "Arithmetic only; no real probes exist in this old take."
+        },
+        "actual": "native-animation-stall",
+        "expected": "native-animation-stall",
+        "passed": true
+      },
+      {
+        "name": "Actual Sol interval stays unexplained when clock uncertainty consumes its margin",
+        "input": {
+          "take": ".demo-work/demolition-demo-v1-final/rehearsal/sol/charges-rewind/take-1788573404840",
+          "clockUncertainty": 0.01
+        },
+        "actual": "unexplained",
+        "expected": "unexplained",
+        "passed": true
+      }
+    ]
+  },
+  "historicalTakeArithmetic": [
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/ball/take-1788573470038",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/charges-rewind/take-1788573492448",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [
+        {
+          "from": 1788573540.436503,
+          "to": 1788573540.549293,
+          "affectsFilm": false,
+          "classification": "unexplained"
+        }
+      ],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/city/take-1788573457484",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/ball/take-1788573291362",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/charges-rewind/take-1788573313552",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/city/take-1788573279074",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/ball/take-1788573378424",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/charges-rewind/take-1788573404840",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [
+        {
+          "from": 1788573419.085329,
+          "to": 1788573419.304324,
+          "affectsFilm": true,
+          "classification": "unexplained"
+        }
+      ],
+      "actualOverallPassed": false
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/city/take-1788573362015",
+      "frameMapUnchanged": true,
+      "actualClockPassed": false,
+      "actualGapClassifications": [],
+      "actualOverallPassed": false
+    }
+  ],
+  "hypotheticalSolClockArithmetic": {
+    "from": 1788573419.085329,
+    "to": 1788573419.304324,
+    "seconds": 0.2189948558807373,
+    "affectsFilm": true,
+    "epochCorrectionSeconds": 0,
+    "clockUncertaintySeconds": 0.001,
+    "endpointBoundSeconds": 0.03233333333333333,
+    "nativeIntervals": [
+      {
+        "from": 1788573419.1125998,
+        "to": 1788573419.2958999,
+        "rawDeltaMs": 183.3000000000011,
+        "callbackFrom": 1788573419.1137,
+        "callbackTo": 1788573419.3019
+      }
+    ],
+    "matchedNativeIntervals": [
+      {
+        "from": 1788573419.1125998,
+        "to": 1788573419.2958999,
+        "rawDeltaMs": 183.3000000000011,
+        "callbackFrom": 1788573419.1137,
+        "callbackTo": 1788573419.3019
+      }
+    ],
+    "classification": "native-animation-stall",
+    "warning": "The 1 ms clock uncertainty is a synthetic arithmetic input, not observed evidence for the old Sol take. The actual old take fails the newly required clock gate because probes were not collected."
+  },
+  "sourcePreservation": {
+    "allNineFrameMapsUnchanged": true,
+    "allNineRawCaptureAndReceiptHashesUnchanged": true
+  },
+  "limitations": [
+    "New recording sets must collect the six real clock probes and pass the live timing checks. None of the nine historical rehearsals qualifies under the new clock gate.",
+    "Film scoping deliberately retains the conservative continuous chapter window. A gap beginning after the final output sampling instant but before the nominal chapter end can still invalidate a take; this can reject harmless tail evidence but cannot admit missing film evidence.",
+    "This review does not certify final film appearance, game behavior, new capture performance, calibration acceptance, or publication readiness."
+  ],
+  "finalFilmsApproved": false
+}

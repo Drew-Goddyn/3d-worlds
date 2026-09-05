@@ -8,11 +8,14 @@ export function attachComparison(c) {
   const box=v=>new T.Box3(vector(v.min),vector(v.max));
   scene.updateMatrixWorld(true);
   const pristine=c.describe();
+  let lastPoseKey=null;
   let previewShot="overview",calibration=null,chapter=null,zero=0,end=null,eventCursor=0,lastRaw=null,disposed=false;
-  const events=[],frames=[],markers=[],errors=[];
+  const events=[],frames=[],markers=[],errors=[],renderSettings=[];let lastRenderSettings=null;
   const marker=document.createElement('div');
   marker.style.cssText='position:fixed;left:0;top:0;width:64px;height:64px;z-index:2147483647;pointer-events:none;display:none;background:#ff00ff';
   document.body.append(marker);
+  let armState=null,firstLiveState=null,readiness=null;
+  function pageInfo(){return {timeOrigin:performance.timeOrigin,now:performance.now(),visibility:document.visibilityState,hasFocus:document.hasFocus(),documentReady:document.readyState,width:innerWidth,height:innerHeight,devicePixelRatio,canvasWidth:c.renderer.domElement.width,canvasHeight:c.renderer.domElement.height,webglContextLost:c.renderer.getContext().isContextLost(),renderCalls:c.renderer.info.render.calls};}
   let markerPhase='off';
   function mark(phase){if(phase===markerPhase)return;markerPhase=phase;marker.style.display=phase==='live'?'none':'block';marker.style.background=phase==='end'?'#00ffff':'#ff00ff';markers.push({phase,now:performance.now(),epoch:performance.timeOrigin+performance.now()});}
   function basis(az=45){const a=(az+(pristine.frontAzimuthDegrees??0))*Math.PI/180,e=Math.PI/6;const outward=new T.Vector3(Math.sin(a)*Math.cos(e),Math.sin(e),Math.cos(a)*Math.cos(e));const right=new T.Vector3(Math.cos(a),0,-Math.sin(a));const up=new T.Vector3().crossVectors(outward,right);return {outward,right,up};}
@@ -32,7 +35,7 @@ export function attachComparison(c) {
     function centered(axis,factor,wanted){let lo=-500,hi=500;for(let i=0;i<45;i++){const mid=(lo+hi)/2,values=rows.map(r=>(r[axis]-mid)/(r.depth*factor)),value=(Math.min(...values)+Math.max(...values))/2;if(value>wanted)lo=mid;else hi=mid;}return (lo+hi)/2;}
     const target=center.addScaledVector(right,centered('x',tan*16/9,0)).addScaledVector(up,centered('y',tan,.08));return {target,position:target.clone().addScaledVector(outward,d)};}
 
-  function apply(shot='overview',az=45,blend=1){if(!calibration)return;let p=pose(calibration.shots[shot],az);if(blend<1){const o=pose(calibration.shots.overview,45);p={target:o.target.lerp(p.target,blend),position:o.position.lerp(p.position,blend)};}camera.fov=45;camera.aspect=16/9;camera.up.set(0,1,0);camera.position.copy(p.position);controls.target.copy(p.target);camera.lookAt(p.target);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);}
+  function apply(shot='overview',az=45,blend=1){if(!calibration)return;const key=`${shot}/${az}/${blend}`;if(key===lastPoseKey)return;lastPoseKey=key;let p=pose(calibration.shots[shot],az);if(blend<1){const o=pose(calibration.shots.overview,45);p={target:o.target.lerp(p.target,blend),position:o.position.lerp(p.position,blend)};}camera.fov=45;camera.aspect=16/9;camera.up.set(0,1,0);camera.position.copy(p.position);controls.target.copy(p.target);camera.lookAt(p.target);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);}
   function projected(p){const q=p.clone().project(camera);return {x:(q.x+1)*960,y:(1-q.y)*540,depth:q.z};}
   function chooseTargets(){apply();scene.updateMatrixWorld(true);const targets={};for(const key of ['bank','warehouse','glass-tower']){
       if(c.automaticCharges){targets[key]={nativeAutomatic:true};continue;}
@@ -50,18 +53,18 @@ export function attachComparison(c) {
     }return targets;}
   function dispatch(action,extra={}){const before=c.observe(),at=performance.now();try{const result=c.action(action,calibration,extra);events.push({action,planned:extra.planned??null,actual:(at-zero)/1000,epoch:performance.timeOrigin+at,before,after:c.observe(),result:result??null});}catch(error){errors.push({action,message:error.message,actual:(at-zero)/1000});throw error;}}
   const api={
-    camera,ready:()=>true,inspect:()=>clone(pristine),
-    calibrate(){const overview=pristine.bounds;const envelope=c.swingEnvelope(pristine);const ballBox=box(pristine.craneBounds).union(box(pristine.bankBounds)).union(box(envelope));calibration={version:1,front:pristine.front,right:pristine.right,frontAzimuthDegrees:pristine.frontAzimuthDegrees,swingEnvelope:envelope,shots:{overview:fit(overview,Array.from({length:21},(_,i)=>45+i)),ball:fit(packBox(ballBox),[45])},targets:{},bankPoint:pristine.bankPoint};apply();calibration.targets=chooseTargets();return clone(calibration);},
-    load(value){calibration=clone(value);apply();},
+    camera,ready:()=>true,nativeView:()=>({position:nativeCamera.position.toArray(),target:c.controls.target.toArray(),fov:nativeCamera.fov,state:c.observe(),page:pageInfo()}),done:()=>end!==null,inspect:()=>clone(pristine),
+    calibrate(measuredEnvelope=null){const overview=pristine.bounds;const envelope=measuredEnvelope??c.swingEnvelope(pristine);const ballBox=box(pristine.craneBounds).union(box(pristine.bankBounds)).union(box(envelope));lastPoseKey=null;calibration={version:1,front:pristine.front,right:pristine.right,frontAzimuthDegrees:pristine.frontAzimuthDegrees,swingEnvelope:envelope,shots:{overview:fit(overview,Array.from({length:21},(_,i)=>45+i)),ball:fit(packBox(ballBox),[45])},targets:{},bankPoint:pristine.bankPoint};apply();calibration.targets=chooseTargets();return clone(calibration);},
+    load(value){lastPoseKey=null;calibration=clone(value);apply();},
     view(shot='overview'){previewShot=shot;apply(shot);scene.updateMatrixWorld(true);c.renderer.render(scene,camera);return {position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov,targets:calibration.targets,projectedBounds:corners(box(calibration.shots[shot].bounds)).map(projected)};},
     checkCharges(){dispatch('charges.prepareSet');if(!c.automaticCharges)for(const key of ['bank','warehouse','glass-tower'])dispatch('charge.place',{target:key});const charges=c.observe().charges;if(charges.length!==3)throw Error(`Expected three charges, got ${charges.length}`);return {charges,markers:c.chargePoints().map(p=>({point:p.toArray(),screen:projected(p)}))};},
-    arm(spec){if(!calibration)throw Error('Calibration required');chapter=clone(spec);previewShot='overview';zero=performance.now()+1000;eventCursor=0;end=null;events.length=frames.length=markers.length=errors.length=0;mark('pre');return {zero,epochZero:performance.timeOrigin+zero};},
-    beforeFrame(now){const rawDelta=lastRaw===null?null:now-lastRaw;lastRaw=now;if(!chapter)return;frames.push({now,rawDelta,epoch:performance.timeOrigin+now,receipt:performance.now(),nativeCamera:{position:nativeCamera.position.toArray(),target:c.controls.target.toArray(),fov:nativeCamera.fov}});const t=(now-zero)/1000;if(t<0)return;if(t>=chapter.durationSeconds){if(end===null){end=now;mark('end');}return;}mark('live');
+    arm(spec){if(!calibration)throw Error('Calibration required');chapter=clone(spec);armState=c.observe();firstLiveState=null;readiness=pageInfo();previewShot='overview';zero=performance.now()+1000;eventCursor=0;end=null;events.length=frames.length=markers.length=errors.length=renderSettings.length=0;lastRenderSettings=null;mark('pre');return {zero,epochZero:performance.timeOrigin+zero};},
+    beforeFrame(now){const rawDelta=lastRaw===null?null:now-lastRaw;lastRaw=now;if(!chapter)return;frames.push({now,rawDelta,epoch:performance.timeOrigin+now,receipt:performance.now(),motion:c.motion(),nativeCamera:{position:nativeCamera.position.toArray(),target:c.controls.target.toArray(),fov:nativeCamera.fov}});const t=(now-zero)/1000;if(t<0)return;if(t>=chapter.durationSeconds){if(end===null){end=now;mark('end');}return;}if(firstLiveState===null)firstLiveState={now,epoch:performance.timeOrigin+now,state:c.observe(),page:pageInfo()};mark('live');
       try{c.tick?.(t,calibration);while(eventCursor<chapter.events.length&&chapter.events[eventCursor].at<=t){const e=chapter.events[eventCursor++];if(e.action.startsWith('camera.'))continue;dispatch(e.action,{...e,planned:e.at});}}
       catch(error){if(!errors.some(e=>e.message===error.message))errors.push({message:error.message,actual:t});}
     },
-    beforeRender(){if(!calibration||disposed)return;const t=chapter?(performance.now()-zero)/1000:0;let az=45,shot=previewShot,blend=1;if(chapter?.id==='city'){const u=Math.max(0,Math.min(1,(t-2)/4));az=45+20*u*u*(3-2*u);}if(chapter?.id==='ball'){shot='ball';const u=Math.max(0,Math.min(1,t/2));blend=u*u*(3-2*u);}apply(shot,az,blend);},
-    receipts:()=>clone({events,frames,markers,errors,zero,epochZero:performance.timeOrigin+zero,end,done:end!==null,observation:c.observe(),camera:{position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov}}),
+    beforeRender(){if(!calibration||disposed)return;if(chapter){const settings=c.renderSettings(),key=JSON.stringify(settings);if(key!==lastRenderSettings){lastRenderSettings=key;const now=performance.now();renderSettings.push({now,epoch:performance.timeOrigin+now,chapterTime:(now-zero)/1000,settings});}}const t=chapter?(performance.now()-zero)/1000:0;let az=45,shot=previewShot,blend=1;if(chapter?.id==='city'){const u=Math.max(0,Math.min(1,(t-2)/4));az=45+20*u*u*(3-2*u);}if(chapter?.id==='ball'){shot='ball';const u=Math.max(0,Math.min(1,t/2));blend=u*u*(3-2*u);}apply(shot,az,blend);if(chapter&&frames.length){const now=performance.now();frames.at(-1).render={now,epoch:performance.timeOrigin+now,position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov,aspect:camera.aspect};}},
+    receipts:()=>clone({events,frames,markers,errors,renderSettings,armState,firstLiveState,readiness,zero,epochZero:performance.timeOrigin+zero,end,done:end!==null,observation:c.observe(),camera:{position:camera.position.toArray(),target:controls.target.toArray(),fov:camera.fov}}),
     dispose(){disposed=true;marker.remove();}
   };
   window.__comparison=api;return api;

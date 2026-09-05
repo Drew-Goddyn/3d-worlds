@@ -1,0 +1,450 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-05T02:16:37.017Z",
+  "status": "fail",
+  "scope": "Independent review of fixed epoch interval gate and added clock probes; no final-film approval",
+  "reviewedSha256": {
+    "showcase/demo/timing.mjs": "66721300f8f06c75d10c61e8cd72d9c9654e174947d201b213aa7e99c6f0e216",
+    "showcase/demo/core.mjs": "65740586eddd095a5711505f49dfcafe1c2e1c71b4276c5c5b1373b4b0a4ec6c",
+    "showcase/demo/test/core.test.mjs": "b48acad427481f0c79cf187859151fc582c6092cec83d79567f98da93cfc607c"
+  },
+  "priorReport": "showcase/demo/evidence/timing-review-2026-09-05.json",
+  "fixedIntervalReview": {
+    "status": "pass",
+    "reason": "Both raw interval endpoints, both callback receipt endpoints, and callback duration must agree within a fixed output-frame bound reduced by clock uncertainty. The prior two counterexamples now stay unexplained. Frame selection and the one-output-frame chapter boundary thresholds are unchanged.",
+    "independentCases": [
+      {
+        "name": "native callbacks continue through first 60 ms of the capture gap; the later stall is not sufficient evidence",
+        "frames": [
+          {
+            "timestamp": 100
+          },
+          {
+            "timestamp": 100.016
+          },
+          {
+            "timestamp": 100.032
+          },
+          {
+            "timestamp": 100.244
+          },
+          {
+            "timestamp": 100.26
+          },
+          {
+            "timestamp": 100.276
+          }
+        ],
+        "receipt": {
+          "frames": [
+            {
+              "epoch": 100048,
+              "rawDelta": 16,
+              "now": 48,
+              "receipt": 48
+            },
+            {
+              "epoch": 100064,
+              "rawDelta": 16,
+              "now": 64,
+              "receipt": 64
+            },
+            {
+              "epoch": 100080,
+              "rawDelta": 16,
+              "now": 80,
+              "receipt": 80
+            },
+            {
+              "epoch": 100092,
+              "rawDelta": 12,
+              "now": 92,
+              "receipt": 92
+            },
+            {
+              "epoch": 100275,
+              "rawDelta": 183,
+              "now": 275,
+              "receipt": 275
+            }
+          ]
+        },
+        "options": {
+          "start": 100,
+          "duration": 1,
+          "offset": 0,
+          "uncertainty": 0.017
+        },
+        "expected": "unexplained",
+        "oldClassification": "unexplained",
+        "actual": [
+          {
+            "from": 100.032,
+            "to": 100.244,
+            "seconds": 0.2120000000000033,
+            "affectsFilm": true,
+            "epochCorrectionSeconds": 0,
+            "clockUncertaintySeconds": 0.001,
+            "endpointBoundSeconds": 0.03233333333333333,
+            "nativeIntervals": [
+              {
+                "from": 100.092,
+                "to": 100.275,
+                "rawDeltaMs": 183,
+                "callbackFrom": 100.092,
+                "callbackTo": 100.275
+              }
+            ],
+            "matchedNativeIntervals": [],
+            "classification": "unexplained"
+          }
+        ],
+        "passed": true
+      },
+      {
+        "name": "slower capture cadence cannot excuse 220 ms unexplained time",
+        "frames": [
+          {
+            "timestamp": 100
+          },
+          {
+            "timestamp": 100.09
+          },
+          {
+            "timestamp": 100.18
+          },
+          {
+            "timestamp": 100.68
+          },
+          {
+            "timestamp": 100.77
+          },
+          {
+            "timestamp": 100.86
+          }
+        ],
+        "receipt": {
+          "frames": [
+            {
+              "epoch": 100270,
+              "rawDelta": 16,
+              "now": 270,
+              "receipt": 270
+            },
+            {
+              "epoch": 100350,
+              "rawDelta": 16,
+              "now": 350,
+              "receipt": 350
+            },
+            {
+              "epoch": 100650,
+              "rawDelta": 280,
+              "now": 650,
+              "receipt": 650
+            }
+          ]
+        },
+        "options": {
+          "start": 100,
+          "duration": 1,
+          "offset": 0,
+          "uncertainty": 0.03333333333333333
+        },
+        "expected": "unexplained",
+        "oldClassification": "native-animation-stall",
+        "actual": [
+          {
+            "from": 100.18,
+            "to": 100.68,
+            "seconds": 0.5,
+            "affectsFilm": true,
+            "epochCorrectionSeconds": 0,
+            "clockUncertaintySeconds": 0.001,
+            "endpointBoundSeconds": 0.03233333333333333,
+            "nativeIntervals": [
+              {
+                "from": 100.37,
+                "to": 100.65,
+                "rawDeltaMs": 280,
+                "callbackFrom": 100.35,
+                "callbackTo": 100.65
+              }
+            ],
+            "matchedNativeIntervals": [],
+            "classification": "unexplained"
+          }
+        ],
+        "passed": true
+      },
+      {
+        "name": "exactly corresponding native interval is retained as native",
+        "frames": [
+          {
+            "timestamp": 100
+          },
+          {
+            "timestamp": 100.016
+          },
+          {
+            "timestamp": 100.032
+          },
+          {
+            "timestamp": 100.232
+          },
+          {
+            "timestamp": 100.248
+          }
+        ],
+        "receipt": {
+          "frames": [
+            {
+              "epoch": 100032,
+              "now": 32,
+              "receipt": 32
+            },
+            {
+              "epoch": 100232,
+              "rawDelta": 200,
+              "now": 232,
+              "receipt": 232
+            }
+          ]
+        },
+        "options": {
+          "start": 100,
+          "duration": 1,
+          "offset": 0,
+          "uncertainty": 0.017
+        },
+        "expected": "native-animation-stall",
+        "oldClassification": "native-animation-stall",
+        "actual": [
+          {
+            "from": 100.032,
+            "to": 100.232,
+            "seconds": 0.20000000000000284,
+            "affectsFilm": true,
+            "epochCorrectionSeconds": 0,
+            "clockUncertaintySeconds": 0.001,
+            "endpointBoundSeconds": 0.03233333333333333,
+            "nativeIntervals": [
+              {
+                "from": 100.032,
+                "to": 100.232,
+                "rawDeltaMs": 200,
+                "callbackFrom": 100.032,
+                "callbackTo": 100.232
+              }
+            ],
+            "matchedNativeIntervals": [
+              {
+                "from": 100.032,
+                "to": 100.232,
+                "rawDeltaMs": 200,
+                "callbackFrom": 100.032,
+                "callbackTo": 100.232
+              }
+            ],
+            "classification": "native-animation-stall"
+          }
+        ],
+        "passed": true
+      },
+      {
+        "name": "no native evidence stays unexplained",
+        "frames": [
+          {
+            "timestamp": 100
+          },
+          {
+            "timestamp": 100.016
+          },
+          {
+            "timestamp": 100.032
+          },
+          {
+            "timestamp": 100.232
+          },
+          {
+            "timestamp": 100.248
+          }
+        ],
+        "receipt": {
+          "frames": []
+        },
+        "options": {
+          "start": 100,
+          "duration": 1,
+          "offset": 0,
+          "uncertainty": 0.017
+        },
+        "expected": "unexplained",
+        "oldClassification": "unexplained",
+        "actual": [
+          {
+            "from": 100.032,
+            "to": 100.232,
+            "seconds": 0.20000000000000284,
+            "affectsFilm": true,
+            "epochCorrectionSeconds": 0,
+            "clockUncertaintySeconds": 0.001,
+            "endpointBoundSeconds": 0.03233333333333333,
+            "nativeIntervals": [],
+            "matchedNativeIntervals": [],
+            "classification": "unexplained"
+          }
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "clockProbeReview": {
+    "status": "fail",
+    "problem": "A Date.now reading made after the performance reading is treated as a symmetric +/- 1 ms bound on the wall-clock time at the earlier performance reading. Preemption between the two reads violates that assumption.",
+    "counterexample": {
+      "description": "Each performance sample occurs at hostBeforeEpochMs with zero real wall-versus-monotonic offset. The page is paused for 100 ms before the following Date.now call. The request then returns.",
+      "clocks": [
+        {
+          "phase": "before",
+          "hostBeforeEpochMs": 90000,
+          "hostAfterEpochMs": 90100,
+          "pageEpochMs": 90000,
+          "pageWallEpochMs": 90100
+        },
+        {
+          "phase": "before",
+          "hostBeforeEpochMs": 92000,
+          "hostAfterEpochMs": 92100,
+          "pageEpochMs": 92000,
+          "pageWallEpochMs": 92100
+        },
+        {
+          "phase": "before",
+          "hostBeforeEpochMs": 94000,
+          "hostAfterEpochMs": 94100,
+          "pageEpochMs": 94000,
+          "pageWallEpochMs": 94100
+        },
+        {
+          "phase": "after",
+          "hostBeforeEpochMs": 96000,
+          "hostAfterEpochMs": 96100,
+          "pageEpochMs": 96000,
+          "pageWallEpochMs": 96100
+        },
+        {
+          "phase": "after",
+          "hostBeforeEpochMs": 98000,
+          "hostAfterEpochMs": 98100,
+          "pageEpochMs": 98000,
+          "pageWallEpochMs": 98100
+        },
+        {
+          "phase": "after",
+          "hostBeforeEpochMs": 100000,
+          "hostAfterEpochMs": 100100,
+          "pageEpochMs": 100000,
+          "pageWallEpochMs": 100100
+        }
+      ],
+      "actualOffsetSeconds": 0,
+      "computedOffsetBracketSeconds": [
+        0.099,
+        0.101
+      ],
+      "computedCorrectionSeconds": 0.1,
+      "computedUncertaintySeconds": 0.0010000000000000009,
+      "computedClockPassed": true,
+      "capture": [
+        {
+          "timestamp": 100.168
+        },
+        {
+          "timestamp": 100.184
+        },
+        {
+          "timestamp": 100.2
+        },
+        {
+          "timestamp": 100.5
+        },
+        {
+          "timestamp": 100.516
+        }
+      ],
+      "receipt": {
+        "frames": [
+          {
+            "epoch": 100100,
+            "now": 100,
+            "receipt": 100
+          },
+          {
+            "epoch": 100400,
+            "now": 400,
+            "receipt": 400,
+            "rawDelta": 300
+          }
+        ]
+      },
+      "classificationWithTrueClock": {
+        "from": 100.2,
+        "to": 100.5,
+        "seconds": 0.29999999999999716,
+        "affectsFilm": true,
+        "epochCorrectionSeconds": 0,
+        "clockUncertaintySeconds": 0,
+        "endpointBoundSeconds": 0.03333333333333333,
+        "nativeIntervals": [
+          {
+            "from": 100.1,
+            "to": 100.4,
+            "rawDeltaMs": 300,
+            "callbackFrom": 100.1,
+            "callbackTo": 100.4
+          }
+        ],
+        "matchedNativeIntervals": [],
+        "classification": "unexplained"
+      },
+      "classificationWithComputedClock": {
+        "from": 100.2,
+        "to": 100.5,
+        "seconds": 0.29999999999999716,
+        "affectsFilm": true,
+        "epochCorrectionSeconds": 0.1,
+        "clockUncertaintySeconds": 0.0010000000000000009,
+        "endpointBoundSeconds": 0.03233333333333333,
+        "nativeIntervals": [
+          {
+            "from": 100.1,
+            "to": 100.4,
+            "rawDeltaMs": 300,
+            "callbackFrom": 100.1,
+            "callbackTo": 100.4
+          }
+        ],
+        "matchedNativeIntervals": [
+          {
+            "from": 100.1,
+            "to": 100.4,
+            "rawDeltaMs": 300,
+            "callbackFrom": 100.1,
+            "callbackTo": 100.4
+          }
+        ],
+        "classification": "native-animation-stall"
+      }
+    },
+    "recommendation": "Use host request/response brackets alone, or bracket the performance reading with page wall-clock reads taken both before and after it. Keep broad or inconsistent intervals inconclusive."
+  },
+  "tests": {
+    "repositoryPassed": 11,
+    "repositoryFailed": 0,
+    "independentFixedIntervalPassed": 4,
+    "independentFixedIntervalFailed": 0
+  },
+  "rawTakesRewritten": false,
+  "finalFilmsApproved": false
+}

@@ -1,6 +1,6 @@
 # Demolition comparison recorder
 
-Implementation in progress. Read `STATUS.json` and the independent reports in `evidence/` before resuming. No official take or release has been approved yet.
+Read `STATUS.json` and the independent reports in `evidence/` for the current recording and publication state.
 
 ## Run locally
 
@@ -25,10 +25,12 @@ Every take has JPEG frames, CDP timestamps, arrival/ack/write data, bounded queu
 
 The disk queue has four writers, a 120-frame limit and a 128 MiB payload limit. Overflow, failed acknowledgements, write failures and page errors invalidate the take. Encoding holds the last timestamped source frame at each 30-fps output instant. It never advances simulation or interpolates motion.
 
-`calibrate` currently writes candidate evidence, not independent approval. An independent reviewer must establish framing, charge visibility, native action identity, history preservation and complete crane/swing bounds before creating the run's `calibration/independent-review.json` (`status: pass`, exact `fingerprint`). Unexplained capture gaps remain inconclusive. Actual footage and the offline viewer need a fresh final review after technical media checks. Publication requires `independent-verification.json` with `status: pass`, the exact committed revision, and SHA-256 hashes of all six release assets. A pre-existing release is an error, never an overwrite opportunity.
+`calibrate` currently writes candidate evidence, not independent approval. An independent reviewer must establish framing, charge visibility, native action identity, history preservation and complete crane/swing bounds before creating the run's `calibration/independent-review.json` (`status: pass`, exact `fingerprint`). Gap attribution compares native animation and callback intervals with CDP frame-swap times in epoch space. Bracketed wall/monotonic clock probes before and after capture consume the fixed one-output-frame matching budget. Visible marker displacement measures presentation delay, not clock offset. All gaps remain in evidence; unexplained gaps entering the film remain inconclusive. Actual footage and the offline viewer need a fresh final review after technical media checks. Publication requires `independent-verification.json` with `status: pass`, the exact committed revision, and SHA-256 hashes of all six release assets. A pre-existing release is an error, never an overwrite opportunity.
 
 The output layout separates raw/rehearsal/official data, calibration, clean masters, delivery films, and release assets. Keep `.demo-work` out of Git. The release should contain three model-labeled films, the clean-master composite, viewer ZIP, evidence ZIP and `SHA256SUMS`; clean masters remain internal.
 
-## Outstanding acceptance issue
+## Native interface and calibration decisions
 
-The strict Astra column test rejects native facade hits because the structural columns are covered by exterior geometry. A user decision is pending on recording accurately identified visible ground-floor facade hits instead. Never restore the previous loose tolerance or label a facade hit as a column hit to pass calibration.
+The user authorized accurately reported native ground-floor facade hits for Astra after independent raycasts proved its columns are occluded by exterior geometry. Its hit records retain actual building/floor membership and coordinates; observation-only column keys are never substituted for hit identity. Sol uses actual structural supports and the first build preserves automatic placement.
+
+The ball shot uses the recorded native ball-and-anchor sweep from the first dedicated movement rehearsal, with a shared padding rule of 15% or four world units on every axis. These traces and their hashes are checked in under the prompt's calibration metadata. They are unioned with the pristine bank and complete crane. This retains the shared 45-degree FOV and native fog; fitting the unvisited full theoretical tether sphere had made Astra invisible. Official movement is checked against the fixed shot; the camera is never refitted during a take.

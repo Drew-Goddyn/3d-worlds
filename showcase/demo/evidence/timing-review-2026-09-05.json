@@ -1,0 +1,1068 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-09-05T02:10:02.318Z",
+  "status": "fail",
+  "scope": "independent recorder timing gate review; no browser or capture; no final-film approval",
+  "reviewedFiles": {
+    "showcase/demo/timing.mjs": "0468f8b61d0e024450cbc90425a2faa7147259e13e0b0661608020a81a619839",
+    "showcase/demo/test/core.test.mjs": "b209dc5733d97153e8b68649fa4f500d95e7905c76a1bbf033cb08fdded3f32a"
+  },
+  "beforeTimingSha256": "796dd222fdbde8df12d8a0bb6fd945fa05bc805be4355d109ff15ea5fb8bd3de",
+  "standingInvariants": [
+    "Unexplained capture gaps entering output remain inconclusive.",
+    "Native animation stalls remain visible without interpolation or retiming.",
+    "Chapter boundaries and endpoint stay within one 30 fps output frame.",
+    "Capture and receipt logs retain all gaps and attempts.",
+    "No tolerance loosening or outcome retries."
+  ],
+  "summary": "The film-window exclusion and unchanged source-frame schedule preserve their properties. The doubled cadence-plus-uncertainty bound does not prove that a capture gap is native: it admits intervals with normal animation callbacks throughout a missing segment, and grows with capture slowness.",
+  "findings": [
+    {
+      "severity": "blocking",
+      "property": "Unexplained capture gaps stay inconclusive",
+      "problem": "The bound applies twice the sum of median capture cadence and marker uncertainty to each endpoint and duration. Median capture cadence is not an upper bound on delivery uncertainty, and the factor of two permits missing spans beyond one source frame plus measured uncertainty.",
+      "proof": "The first adversarial case changes from unexplained in the prior gate to native-animation-stall after the correction although raw callbacks continue for the first 60 ms of the 212 ms capture gap. The second classifies a 500 ms capture gap as native using only a 280 ms native interval.",
+      "recommendation": "Keep questionable intervals inconclusive. Match interval endpoints using a bounded, independently justified time relationship; do not allow the recorder cadence itself to grow the exoneration tolerance, and include callback receipt evidence when attributing a stall."
+    }
+  ],
+  "tests": {
+    "repositorySuite": {
+      "command": "npm run test:demo",
+      "passed": 9,
+      "failed": 0
+    },
+    "independentAdversarial": {
+      "passed": 2,
+      "failed": 2,
+      "cases": [
+        {
+          "name": "native callbacks continue through first 60 ms of the capture gap; the later stall is not sufficient evidence",
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.244
+            },
+            {
+              "timestamp": 100.26
+            },
+            {
+              "timestamp": 100.276
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100048,
+                "rawDelta": 16
+              },
+              {
+                "epoch": 100064,
+                "rawDelta": 16
+              },
+              {
+                "epoch": 100080,
+                "rawDelta": 16
+              },
+              {
+                "epoch": 100092,
+                "rawDelta": 12
+              },
+              {
+                "epoch": 100275,
+                "rawDelta": 183
+              }
+            ]
+          },
+          "options": {
+            "start": 100,
+            "duration": 1,
+            "offset": 0,
+            "uncertainty": 0.017
+          },
+          "expected": "unexplained",
+          "oldClassification": "unexplained",
+          "actual": [
+            {
+              "from": 100.032,
+              "to": 100.244,
+              "seconds": 0.2120000000000033,
+              "affectsFilm": true,
+              "sourceCadenceSeconds": 0.016000000000005343,
+              "endpointBoundSeconds": 0.06600000000001069,
+              "nativeIntervals": [
+                {
+                  "from": 100.092,
+                  "to": 100.275,
+                  "rawDeltaMs": 183
+                }
+              ],
+              "matchedNativeIntervals": [
+                {
+                  "from": 100.092,
+                  "to": 100.275,
+                  "rawDeltaMs": 183
+                }
+              ],
+              "classification": "native-animation-stall"
+            }
+          ],
+          "passed": false
+        },
+        {
+          "name": "slower capture cadence cannot excuse 220 ms unexplained time",
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.09
+            },
+            {
+              "timestamp": 100.18
+            },
+            {
+              "timestamp": 100.68
+            },
+            {
+              "timestamp": 100.77
+            },
+            {
+              "timestamp": 100.86
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100270,
+                "rawDelta": 16
+              },
+              {
+                "epoch": 100350,
+                "rawDelta": 16
+              },
+              {
+                "epoch": 100650,
+                "rawDelta": 280
+              }
+            ]
+          },
+          "options": {
+            "start": 100,
+            "duration": 1,
+            "offset": 0,
+            "uncertainty": 0.03333333333333333
+          },
+          "expected": "unexplained",
+          "oldClassification": "native-animation-stall",
+          "actual": [
+            {
+              "from": 100.18,
+              "to": 100.68,
+              "seconds": 0.5,
+              "affectsFilm": true,
+              "sourceCadenceSeconds": 0.09000000000000341,
+              "endpointBoundSeconds": 0.24666666666667347,
+              "nativeIntervals": [
+                {
+                  "from": 100.37,
+                  "to": 100.65,
+                  "rawDeltaMs": 280
+                }
+              ],
+              "matchedNativeIntervals": [
+                {
+                  "from": 100.37,
+                  "to": 100.65,
+                  "rawDeltaMs": 280
+                }
+              ],
+              "classification": "native-animation-stall"
+            }
+          ],
+          "passed": false
+        },
+        {
+          "name": "exactly corresponding native interval is retained as native",
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.232
+            },
+            {
+              "timestamp": 100.248
+            }
+          ],
+          "receipt": {
+            "frames": [
+              {
+                "epoch": 100232,
+                "rawDelta": 200
+              }
+            ]
+          },
+          "options": {
+            "start": 100,
+            "duration": 1,
+            "offset": 0,
+            "uncertainty": 0.017
+          },
+          "expected": "native-animation-stall",
+          "oldClassification": "native-animation-stall",
+          "actual": [
+            {
+              "from": 100.032,
+              "to": 100.232,
+              "seconds": 0.20000000000000284,
+              "affectsFilm": true,
+              "sourceCadenceSeconds": 0.016000000000005343,
+              "endpointBoundSeconds": 0.06600000000001069,
+              "nativeIntervals": [
+                {
+                  "from": 100.032,
+                  "to": 100.232,
+                  "rawDeltaMs": 200
+                }
+              ],
+              "matchedNativeIntervals": [
+                {
+                  "from": 100.032,
+                  "to": 100.232,
+                  "rawDeltaMs": 200
+                }
+              ],
+              "classification": "native-animation-stall"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "name": "no native evidence stays unexplained",
+          "frames": [
+            {
+              "timestamp": 100
+            },
+            {
+              "timestamp": 100.016
+            },
+            {
+              "timestamp": 100.032
+            },
+            {
+              "timestamp": 100.232
+            },
+            {
+              "timestamp": 100.248
+            }
+          ],
+          "receipt": {
+            "frames": []
+          },
+          "options": {
+            "start": 100,
+            "duration": 1,
+            "offset": 0,
+            "uncertainty": 0.017
+          },
+          "expected": "unexplained",
+          "oldClassification": "unexplained",
+          "actual": [
+            {
+              "from": 100.032,
+              "to": 100.232,
+              "seconds": 0.20000000000000284,
+              "affectsFilm": true,
+              "sourceCadenceSeconds": 0.016000000000005343,
+              "endpointBoundSeconds": 0.06600000000001069,
+              "nativeIntervals": [],
+              "matchedNativeIntervals": [],
+              "classification": "unexplained"
+            }
+          ],
+          "passed": true
+        }
+      ]
+    }
+  },
+  "actualRehearsals": [
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/ball/take-1788573470038",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 540
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/charges-rewind/take-1788573492448",
+      "beforePassed": false,
+      "afterPassed": true,
+      "gaps": [
+        {
+          "from": 1788573540.436503,
+          "to": 1788573540.549293,
+          "seconds": 0.11279010772705078,
+          "affectsFilm": false,
+          "sourceCadenceSeconds": 0.016670942306518555,
+          "endpointBoundSeconds": 0.06749629974365234,
+          "nativeIntervals": [],
+          "matchedNativeIntervals": [],
+          "classification": "unexplained"
+        }
+      ],
+      "frameMapUnchanged": true,
+      "outputFrames": 1320
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/city/take-1788573457484",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 240
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/ball/take-1788573291362",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 540
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/charges-rewind/take-1788573313552",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 1320
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/city/take-1788573279074",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 240
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/ball/take-1788573378424",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 540
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/charges-rewind/take-1788573404840",
+      "beforePassed": false,
+      "afterPassed": true,
+      "gaps": [
+        {
+          "from": 1788573419.085329,
+          "to": 1788573419.304324,
+          "seconds": 0.2189948558807373,
+          "affectsFilm": true,
+          "sourceCadenceSeconds": 0.016680002212524414,
+          "endpointBoundSeconds": 0.06760406494140625,
+          "nativeIntervals": [
+            {
+              "from": 1788573419.1125998,
+              "to": 1788573419.2958999,
+              "rawDeltaMs": 183.3000000000011
+            }
+          ],
+          "matchedNativeIntervals": [
+            {
+              "from": 1788573419.1125998,
+              "to": 1788573419.2958999,
+              "rawDeltaMs": 183.3000000000011
+            }
+          ],
+          "classification": "native-animation-stall"
+        }
+      ],
+      "frameMapUnchanged": true,
+      "outputFrames": 1320
+    },
+    {
+      "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/city/take-1788573362015",
+      "beforePassed": true,
+      "afterPassed": true,
+      "gaps": [],
+      "frameMapUnchanged": true,
+      "outputFrames": 240
+    }
+  ],
+  "markerVerification": {
+    "method": "Decoded the 8 by 8 marker crop from the source JPEG immediately before and at each reported live/end transition; all 36 source pixels independently reproduce pre/live/live/end.",
+    "maximumAbsoluteEndpointErrorSeconds": 0.01778888702392578,
+    "maximumUncertaintySeconds": 0.018499135971069336,
+    "frameToleranceSeconds": 0.03333333333333333,
+    "takes": [
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/ball/take-1788573470038",
+        "sourceHashes": {
+          "capture.json": "c4cabf7dbc4574d45933e4f2d97d78ceebc3a44a98651ac864be0a262bbad4ef",
+          "receipts.json": "5bc5fe1b9c46877ea19250d37536a561549d181a6b7add3051992c92e95e3639",
+          "encoded-frame-map.json": "547ebd04054d0a0df06b01c4e324aa7fede0754bba0a98815a15da4e98b423e1",
+          "timing.json": "7cc2136763775b2b431225abb402d917e8732e663ebf71996332d6eaea77b753"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000060.jpg",
+            "timestamp": 1788573473.241091,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000061.jpg",
+            "timestamp": 1788573473.257442,
+            "rgb": [
+              228,
+              232,
+              217
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "001130.jpg",
+            "timestamp": 1788573491.257479,
+            "rgb": [
+              228,
+              232,
+              217
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "001131.jpg",
+            "timestamp": 1788573491.275231,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/charges-rewind/take-1788573492448",
+        "sourceHashes": {
+          "capture.json": "b00b44d4eada6e3bccddaffb5242cbedc077695af87130c135abe62fac40b75a",
+          "receipts.json": "9a31e47c7d41c51b809f9cf9b493c42b0eb9304896f8acf5dea1a97a3ddf5520",
+          "encoded-frame-map.json": "bfc17732337fb339d9bdba84cd74424b37d773b87276c8b9852f23fd975d3404",
+          "timing.json": "03a8c1b4863a454d57eb5aac34ee6c551cb3be7ba1d5229c54dbec0a238114aa"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000060.jpg",
+            "timestamp": 1788573495.687909,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000061.jpg",
+            "timestamp": 1788573495.704986,
+            "rgb": [
+              228,
+              232,
+              217
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "002676.jpg",
+            "timestamp": 1788573539.685869,
+            "rgb": [
+              228,
+              232,
+              217
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "002677.jpg",
+            "timestamp": 1788573539.703504,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/city/take-1788573457484",
+        "sourceHashes": {
+          "capture.json": "cf283bb39b6ceb29599fb69a480ab080c759f9115b30eebdffaf70907cf783fb",
+          "receipts.json": "1631c743c3de2600dde536cb3b1c8cc1fcf638d91e7fd078826c04ecf3783d54",
+          "encoded-frame-map.json": "70f5cc28645bb8eeea0a5bc692d5ef43107842fc318cd2e4b0b0af183c000d8c",
+          "timing.json": "395bef0fa0aee8f4de8cf8d1ba17808c21b2a25668e55d31198b15d581ca72bb"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000061.jpg",
+            "timestamp": 1788573460.882031,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000062.jpg",
+            "timestamp": 1788573460.899376,
+            "rgb": [
+              228,
+              232,
+              217
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "000541.jpg",
+            "timestamp": 1788573468.882413,
+            "rgb": [
+              228,
+              232,
+              217
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "000542.jpg",
+            "timestamp": 1788573468.898923,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/ball/take-1788573291362",
+        "sourceHashes": {
+          "capture.json": "86ba3a7c8768385a6c078618967fe694ffdbf767f8f126d8669993733676f820",
+          "receipts.json": "2594b958956fbd22e531c8977970450d805f45b56ed4f03fbb0b8e0ff2d2fd47",
+          "encoded-frame-map.json": "4c58af5ad4a4b4bd2de74d39c7877af8a6be8b8fb7c55a211d80b86f8228c7c9",
+          "timing.json": "042b60d86bca43dcf8de33ef4d5507bde24cc58a4cd11aca468999610bda9695"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000060.jpg",
+            "timestamp": 1788573294.323506,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000061.jpg",
+            "timestamp": 1788573294.340105,
+            "rgb": [
+              146,
+              215,
+              255
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "001140.jpg",
+            "timestamp": 1788573312.322199,
+            "rgb": [
+              146,
+              215,
+              255
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "001141.jpg",
+            "timestamp": 1788573312.33937,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/charges-rewind/take-1788573313552",
+        "sourceHashes": {
+          "capture.json": "3644a05c7377bcff4ea97f2e53f3e4ea16a1966b6dfce006a4282423defcaf94",
+          "receipts.json": "f507d27803aa970c6a0fbbd3a287f76ed3a703eb68fb0e0f2545ca029c4c54bc",
+          "encoded-frame-map.json": "e574b635b45fe0cdcb27a3f1eb03267d612e09bed7505543690c92cab7b488a4",
+          "timing.json": "83ca3917e3a20a1ee0a3270e7412e7dbc6e0d32228cf4c7ed94695ffd63337ac"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000058.jpg",
+            "timestamp": 1788573316.570897,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000059.jpg",
+            "timestamp": 1788573316.586235,
+            "rgb": [
+              146,
+              215,
+              255
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "002696.jpg",
+            "timestamp": 1788573360.581322,
+            "rgb": [
+              146,
+              215,
+              255
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "002697.jpg",
+            "timestamp": 1788573360.597431,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/city/take-1788573279074",
+        "sourceHashes": {
+          "capture.json": "e980a5bde9a7665da673138ad7165099d6d5a81ccf2cbf9796f09e99d052c056",
+          "receipts.json": "e6c319f921b9c3e6c9f7b7a7da7c0b94c21a1cc82f9ce915a1fa1edf0bddfe7a",
+          "encoded-frame-map.json": "b6646bc620895450d64b6981b3cd5d3b44a015e9e8b3fd832ca13f1a3c4dee16",
+          "timing.json": "0c489ec0eb397253ab5539ac81872f0b4ccdc130370cfd2a4d0e12c8e1de2e1c"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000060.jpg",
+            "timestamp": 1788573282.18606,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000061.jpg",
+            "timestamp": 1788573282.202875,
+            "rgb": [
+              146,
+              215,
+              255
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "000540.jpg",
+            "timestamp": 1788573290.185596,
+            "rgb": [
+              146,
+              215,
+              255
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "000541.jpg",
+            "timestamp": 1788573290.202608,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/ball/take-1788573378424",
+        "sourceHashes": {
+          "capture.json": "19b73f4570fdc3f00ce72289de65026baf028b1a4fb7772f13186452ca4d35ef",
+          "receipts.json": "2b3a699be6bb883df4515e842d2fedc4417e8ddc40e248122df0b15ddf1a8965",
+          "encoded-frame-map.json": "e4466760d6737cf6d4d5f87b698db3ee8c39f5c299e510746327bff2e3d7f049",
+          "timing.json": "d43c8dcd96b92d1b2a1dd7a3419e0d1caadf463bba711c2f8ade9cdd300d84b8"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000060.jpg",
+            "timestamp": 1788573385.646,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000061.jpg",
+            "timestamp": 1788573385.659023,
+            "rgb": [
+              153,
+              211,
+              235
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "001139.jpg",
+            "timestamp": 1788573403.641208,
+            "rgb": [
+              153,
+              211,
+              235
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "001140.jpg",
+            "timestamp": 1788573403.657837,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/charges-rewind/take-1788573404840",
+        "sourceHashes": {
+          "capture.json": "adf80c6f4dce4186b3026ef5527fbd932481219193bc937c950d4426e729a938",
+          "receipts.json": "f7ee9ff0956e1cc9f4f9ecae2a085f5c46c0fd17c15bcdf2c6303455520936aa",
+          "encoded-frame-map.json": "be6f5e5cd9ca9a01ccc281971715d447ecdd0855a28eb04bb622657bf7cccd5b",
+          "timing.json": "43475208414cec0a8b760cd75044eb0d170530093c3f5931a7e7500a56ee9ca1"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000060.jpg",
+            "timestamp": 1788573412.084406,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000061.jpg",
+            "timestamp": 1788573412.101528,
+            "rgb": [
+              153,
+              211,
+              235
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "002683.jpg",
+            "timestamp": 1788573456.085024,
+            "rgb": [
+              153,
+              211,
+              235
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "002684.jpg",
+            "timestamp": 1788573456.098833,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/city/take-1788573362015",
+        "sourceHashes": {
+          "capture.json": "21df0994ffc0afebd1165f8ee3fffebbb423115293f544afae763f9c1500eaa8",
+          "receipts.json": "e17afc915f3d16dcbc9118686bc17dea8d52fcb53567935001cbcc52fce7be2e",
+          "encoded-frame-map.json": "c048887c53a8d76c802ce526541b370a61fa210056bc050d9c9100235616569d",
+          "timing.json": "479f241ead096990a20ed0ae8bbf3705aeeac1c01820d290af9237aef23e022e"
+        },
+        "markerChecks": [
+          {
+            "phase": "live",
+            "label": "previous",
+            "file": "000061.jpg",
+            "timestamp": 1788573369.357277,
+            "rgb": [
+              255,
+              0,
+              254
+            ],
+            "color": "pre"
+          },
+          {
+            "phase": "live",
+            "label": "first",
+            "file": "000062.jpg",
+            "timestamp": 1788573369.375776,
+            "rgb": [
+              153,
+              211,
+              235
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "previous",
+            "file": "000540.jpg",
+            "timestamp": 1788573377.356577,
+            "rgb": [
+              153,
+              211,
+              235
+            ],
+            "color": "live"
+          },
+          {
+            "phase": "end",
+            "label": "first",
+            "file": "000541.jpg",
+            "timestamp": 1788573377.376262,
+            "rgb": [
+              0,
+              255,
+              255
+            ],
+            "color": "end"
+          }
+        ]
+      }
+    ]
+  },
+  "solGapEvidence": {
+    "captureFrom": 1788573419.085329,
+    "captureTo": 1788573419.304324,
+    "captureGapSeconds": 0.2189948558807373,
+    "translatedPageFrom": 1788573419.0471013,
+    "translatedPageTo": 1788573419.266096,
+    "rawNativeGapSeconds": 0.1833,
+    "callbackReceiptGapSeconds": 0.18819999999925494,
+    "nativeReceipts": [
+      {
+        "rawTimestampMilliseconds": 8787.1,
+        "rawEpochSeconds": 1788573419.0293,
+        "rawDeltaMilliseconds": 16.700000000000728,
+        "callbackReceiptEpochSeconds": 1788573419.0295
+      },
+      {
+        "rawTimestampMilliseconds": 8803.7,
+        "rawEpochSeconds": 1788573419.0458999,
+        "rawDeltaMilliseconds": 16.600000000000364,
+        "callbackReceiptEpochSeconds": 1788573419.047
+      },
+      {
+        "rawTimestampMilliseconds": 8820.3,
+        "rawEpochSeconds": 1788573419.0625,
+        "rawDeltaMilliseconds": 16.599999999998545,
+        "callbackReceiptEpochSeconds": 1788573419.0627
+      },
+      {
+        "rawTimestampMilliseconds": 8837.1,
+        "rawEpochSeconds": 1788573419.0793002,
+        "rawDeltaMilliseconds": 16.80000000000109,
+        "callbackReceiptEpochSeconds": 1788573419.0795999
+      },
+      {
+        "rawTimestampMilliseconds": 8853.7,
+        "rawEpochSeconds": 1788573419.0958998,
+        "rawDeltaMilliseconds": 16.600000000000364,
+        "callbackReceiptEpochSeconds": 1788573419.096
+      },
+      {
+        "rawTimestampMilliseconds": 8870.4,
+        "rawEpochSeconds": 1788573419.1125998,
+        "rawDeltaMilliseconds": 16.69999999999891,
+        "callbackReceiptEpochSeconds": 1788573419.1137
+      },
+      {
+        "rawTimestampMilliseconds": 9053.7,
+        "rawEpochSeconds": 1788573419.2958999,
+        "rawDeltaMilliseconds": 183.3000000000011,
+        "callbackReceiptEpochSeconds": 1788573419.3019
+      },
+      {
+        "rawTimestampMilliseconds": 9070.3,
+        "rawEpochSeconds": 1788573419.3125,
+        "rawDeltaMilliseconds": 16.599999999998545,
+        "callbackReceiptEpochSeconds": 1788573419.3137
+      }
+    ],
+    "retainedOutputFrames": {
+      "first": 210,
+      "last": 216,
+      "chapterTimeFirstSeconds": 7,
+      "chapterTimeLastSeconds": 7.2,
+      "sourceIndex": 480
+    },
+    "interpretation": "There is an actual native stall, but the marker-offset model used by this classifier places the start of the native interval 65.499 ms after the beginning of the inferred missing interval. Accepting that discrepancy with a 67.604 ms bound is not sufficient evidence that the entire capture gap is native."
+  },
+  "astraGapEvidence": {
+    "captureGapSeconds": 0.11279010772705078,
+    "gapStartsAfterFilmEndSeconds": 0.7315170764923096,
+    "entersOutput": false,
+    "classificationRetained": "unexplained",
+    "interpretation": "Excluding this retained post-roll gap from film validity is justified because no source frame bordering it is selected for the film."
+  },
+  "sourcePreservation": {
+    "allNineOutputMapsUnchanged": true,
+    "rawEvidenceHashChecks": [
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/ball/take-1788573470038",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/charges-rewind/take-1788573492448",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/astra/city/take-1788573457484",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/ball/take-1788573291362",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/charges-rewind/take-1788573313552",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/site/city/take-1788573279074",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/ball/take-1788573378424",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/charges-rewind/take-1788573404840",
+        "unchanged": true
+      },
+      {
+        "dir": ".demo-work/demolition-demo-v1-final/rehearsal/sol/city/take-1788573362015",
+        "unchanged": true
+      }
+    ],
+    "timingFilesNotRewrittenByReviewer": true
+  },
+  "finalFilmsApproved": false
+}

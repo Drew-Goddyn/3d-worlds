@@ -1,0 +1,827 @@
+{
+  "schemaVersion": 1,
+  "reviewType": "fresh-independent-pre-recording-review",
+  "reviewedAt": "2026-09-05T02:42:05.513Z",
+  "status": "pass",
+  "fingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "fingerprintInputs": {
+    "showcase/demo/browser-runtime.js": "a7b44dae42a29d62093d8f256d941e75e867f0a2daa282c3a1e6c63a0770f448",
+    "showcase/demo/core.mjs": "8e6204273275e459ecd5a0543326849679a3dcd92482de317d109bb489fce8ee",
+    "showcase/demo/timing.mjs": "d9556b219e3edeec40cf6327e9775127f56a101d491c0a5268cf6d05282be5ad",
+    "showcase/demo/run.mjs": "0ed5643a61ad84b6e2e3adbae6d9d7b0681c498749ef72167fa7a07eee07acf9",
+    "showcase/demo/control-checks.mjs": "bbabd11747d5b6f6597c59ce0ecb89c944a48b26228a7294eb3048571116ca29",
+    "showcase/attempts.json": "0ce45c0d78fd56482ed27d994c0625c468756dba07c1e2a89f2edbe87299f47f",
+    "prompts/demolition-playground/demo/scenario.json": "a5fd77bd28173e2c89eb0c8868536866b07f7ebc7a2ba60a644bcd09fe486e4f",
+    "showcase/demo/patches/site.json": "06d22a0c9c45380a70cfa297d7e851e5102d6c68da8e53cd290b3bc04037ef2a",
+    "prompts/demolition-playground/demo/calibration/site.json": "fdde321d31b1b7c69d9d3be36bbd7fe669b37915bbd5f79a48b85ea36eb4197c",
+    "prompts/demolition-playground/demo/calibration/site-native-motion.json": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3",
+    "showcase/demo/patches/sol.json": "6ab941085b5dc988a0a0da199970c974cf644c4c1dfe1c998b97a2dc26f84a7f",
+    "prompts/demolition-playground/demo/calibration/sol.json": "35061cbb8512c4fb73d96eeec9699da5d0ad5cee4eae9ac7cffadd8b63a14180",
+    "prompts/demolition-playground/demo/calibration/sol-native-motion.json": "930cc91946b472ec075b5374dc8f7f988970083b0b5f5346c3fd547697c2041d",
+    "showcase/demo/patches/astra.json": "78ade182af8830d145ef176ce7849b9e4bafcea2a26bc3dc7bca3deb5530efcc",
+    "prompts/demolition-playground/demo/calibration/astra.json": "f8c9c2979835f60e2092b5250b5425da579bc5b748de3f96ea9f700b4f859753",
+    "prompts/demolition-playground/demo/calibration/astra-native-motion.json": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b",
+    "calibration/site": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+    "calibration/sol": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+    "calibration/astra": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db"
+  },
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "reviewedDiffBase": "b395b4551b834e9746be9a4aa722ed12be69e9bd",
+  "independence": "Fresh verifier context supplied diff base, criteria and invariants without builder reasoning. This reviewer has made no implementation edits.",
+  "standingInvariants": [
+    "Archived build blobs, dependency versions, provenance, native physics, damage, history, timestep and randomness remain unchanged.",
+    "Adapters may only present cameras, invoke complete native player actions, and observe state.",
+    "Technical failures and ambiguous timing cannot be hidden or selected away for better gameplay outcomes; all takes remain retained.",
+    "Capture preserves source timestamps, raw pre-clamp animation, receipt and disk-write clocks; writer limits fail closed.",
+    "Camera/action synchronization, native outcomes and 44-second end marker require actual official evidence.",
+    "All complete films need normal-speed playback and honest visual inspection; sampling must never be described as continuous watching.",
+    "Offline transport must keep all three players aligned, pause on buffering, and correct drift with seeks, never rates.",
+    "Release approval binds exact commit and six asset checksums; missing films, viewer or evidence cannot pass.",
+    "No new dependencies, credentials, destructive actions or publication are authorized by this review."
+  ],
+  "scope": "Approval of the five static-review fixes and unchanged camera/target calibration for pilot and full rehearsal validation. This approval may satisfy calibration review at freeze only after all current-fingerprint full rehearsals and timing checks pass. No official take, film or publication is approved here.",
+  "provenanceNote": "The preliminary static-review report was written while the builder began remediation, so some of its source hashes already include getters. Adapter-diff isolation here is instead proven against the immutable retained production source manifests: removing only each read-only getter exactly restores every previously recorded patch hash.",
+  "resolvedFindings": [
+    {
+      "id": "native-rendering-change-evidence",
+      "status": "resolved",
+      "evidence": "New read-only native getters and change-only page timestamps inspected. Live Site probe records preset, actual and target pixel ratio, native render mode and shadow update stride. Full collapse change records remain subject to rehearsal verification."
+    },
+    {
+      "id": "loading-seek",
+      "status": "resolved",
+      "evidence": "Independent real-browser HTTP starvation passed pending26-second seek, replacement by8seconds, exact paused8second alignment after loading, and synchronized1x resume. Two independent DOM controller checks also passed."
+    },
+    {
+      "id": "startup-and-visibility-evidence",
+      "status": "resolved",
+      "evidence": "All three fresh native3.1s observation-only probes produce arm/first-live native state and complete visible1920x1080 DPR1 live-WebGL page facts; zero initial charges and no dispatched player events."
+    },
+    {
+      "id": "rendered-camera-evidence",
+      "status": "resolved",
+      "evidence": "Each build retained186 in-film render poses with finite position/target, FOV45, aspect16/9, render epoch after callback receipt, and actual orbit pose changes after2seconds."
+    },
+    {
+      "id": "original-camera-still",
+      "status": "resolved",
+      "evidence": "All three original-camera JSON/still artifacts inspected. Live probes confirm presentation camera equals original position/FOV before comparison calibration; native FOV55/46/39 and native HUDs are retained."
+    }
+  ],
+  "checks": {
+    "preservation": {
+      "passed": true,
+      "files": [
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/README.md",
+          "sha256": "6af4ab29bf9abb6d55f24762b912ac486f79b75b5a6a813f2f55e15e003a2f11",
+          "expectedSha256": "6af4ab29bf9abb6d55f24762b912ac486f79b75b5a6a813f2f55e15e003a2f11",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/docs/adversarial-review.md",
+          "sha256": "af178478589ad5f588bc038a0f11df3df35c7cfc87004059bf524cdb157b3465",
+          "expectedSha256": "af178478589ad5f588bc038a0f11df3df35c7cfc87004059bf524cdb157b3465",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/index.html",
+          "sha256": "65c04a64e98674869a24c3df668c5f83899ab003731737e8f1da87ed104e40cf",
+          "expectedSha256": "65c04a64e98674869a24c3df668c5f83899ab003731737e8f1da87ed104e40cf",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/scripts/check-import-assets.mjs",
+          "sha256": "8afb05ccb61cfd2794f5c0edc948c5a0b945a8dc5ca1a8042d48e47f176a6c1a",
+          "expectedSha256": "8afb05ccb61cfd2794f5c0edc948c5a0b945a8dc5ca1a8042d48e47f176a6c1a",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/scripts/verify-playground.mjs",
+          "sha256": "831698b87767b1c10c4a56be0a9c9465bbbe589a51bf406b8c269811926d0821",
+          "expectedSha256": "831698b87767b1c10c4a56be0a9c9465bbbe589a51bf406b8c269811926d0821",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/server.mjs",
+          "sha256": "c7030016f480328e60225bc36205cd0be15de32c6790feb9d9d3539ea5112627",
+          "expectedSha256": "c7030016f480328e60225bc36205cd0be15de32c6790feb9d9d3539ea5112627",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/src/main.js",
+          "sha256": "e6ca92d3327dc39a4bcb4585258cecd97b8d6fb78c3a2493a76bd9d5341b117b",
+          "expectedSha256": "e6ca92d3327dc39a4bcb4585258cecd97b8d6fb78c3a2493a76bd9d5341b117b",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.5-xhigh/styles.css",
+          "sha256": "1126a6ee653293849429df0569ad733935d96b33e312eb8f735af3b42416c0b9",
+          "expectedSha256": "1126a6ee653293849429df0569ad733935d96b33e312eb8f735af3b42416c0b9",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/.gitignore",
+          "sha256": "1456acc281bf5a95d9d917488cfed0e5e6dee41ce285e6a8f9aeefe7689326be",
+          "expectedSha256": "1456acc281bf5a95d9d917488cfed0e5e6dee41ce285e6a8f9aeefe7689326be",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/.openai/hosting.json",
+          "sha256": "d532abb65cf9ae20634b464d954cb4a08a0de9f3cd3cdf7f9c3ec8948826d947",
+          "expectedSha256": "d532abb65cf9ae20634b464d954cb4a08a0de9f3cd3cdf7f9c3ec8948826d947",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/AGENTS.md",
+          "sha256": "778becd93de907c60f0067d47c03e0fb169a993ba6acffd49a6c2b88f55cac26",
+          "expectedSha256": "778becd93de907c60f0067d47c03e0fb169a993ba6acffd49a6c2b88f55cac26",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/README.md",
+          "sha256": "bc1e681d48cde8fb96a76637693f159da43bcb3d0cd819f9b6bc5ed1cbe5fd23",
+          "expectedSha256": "bc1e681d48cde8fb96a76637693f159da43bcb3d0cd819f9b6bc5ed1cbe5fd23",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/chatgpt-auth.ts",
+          "sha256": "17a965f8948b21510cdf8ecbd70c5fdf58100e10970463f6a8fd2cc4795f8044",
+          "expectedSha256": "17a965f8948b21510cdf8ecbd70c5fdf58100e10970463f6a8fd2cc4795f8044",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/globals.css",
+          "sha256": "fd7cb14a3a9ea69df3cb434cebabc828e11b9ebec94e81894bbef2c653533246",
+          "expectedSha256": "fd7cb14a3a9ea69df3cb434cebabc828e11b9ebec94e81894bbef2c653533246",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/layout.tsx",
+          "sha256": "4f459168f8a54e498dedb0f54ebb851e6f112818db3cdabf0ab75cc24f28bcad",
+          "expectedSha256": "4f459168f8a54e498dedb0f54ebb851e6f112818db3cdabf0ab75cc24f28bcad",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/page.tsx",
+          "sha256": "0d228ae101bcdad42597f09101722e0444179a09673f0ae7fb4b8f989f34a105",
+          "expectedSha256": "0d228ae101bcdad42597f09101722e0444179a09673f0ae7fb4b8f989f34a105",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/playground/DemolitionPlayground.tsx",
+          "sha256": "a1a1f2c30edbd796b956a5859589020d59cd52ddb76964a96d0ba9d863d54d55",
+          "expectedSha256": "a1a1f2c30edbd796b956a5859589020d59cd52ddb76964a96d0ba9d863d54d55",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/playground/city.ts",
+          "sha256": "466a503a76562881229e24673d6dee1673f245ec5c936cd6531af03aef37fa03",
+          "expectedSha256": "466a503a76562881229e24673d6dee1673f245ec5c936cd6531af03aef37fa03",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/playground/effects.ts",
+          "sha256": "e0a81524021abbeb02cba8760ce07efea1cc5f948fa181b6c60cf17d18df36be",
+          "expectedSha256": "e0a81524021abbeb02cba8760ce07efea1cc5f948fa181b6c60cf17d18df36be",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/playground/simulation.ts",
+          "sha256": "4734fcca7019ec7e4f9e166d8f42e60df1e15c83a9b8482de36929b676559a9d",
+          "expectedSha256": "4734fcca7019ec7e4f9e166d8f42e60df1e15c83a9b8482de36929b676559a9d",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/app/playground/types.ts",
+          "sha256": "d87ac88872ec7a1109c496f8e3fe81642214a0721d6f21c49048264639f83d87",
+          "expectedSha256": "d87ac88872ec7a1109c496f8e3fe81642214a0721d6f21c49048264639f83d87",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/build/sites-vite-plugin.ts",
+          "sha256": "81b7cbfaeb970611572256aba0e313425beb3809f6426f63750696c15d9c756b",
+          "expectedSha256": "81b7cbfaeb970611572256aba0e313425beb3809f6426f63750696c15d9c756b",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/db/index.ts",
+          "sha256": "dc7610b00b918e0ffff1360a63626f16655ced3064b2eaf96095a4101fb14bcd",
+          "expectedSha256": "dc7610b00b918e0ffff1360a63626f16655ced3064b2eaf96095a4101fb14bcd",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/db/schema.ts",
+          "sha256": "13ddacbf0be50e054d450a6c642b7fdc1aa943fd6b99084711e07e58b600390d",
+          "expectedSha256": "13ddacbf0be50e054d450a6c642b7fdc1aa943fd6b99084711e07e58b600390d",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/drizzle.config.ts",
+          "sha256": "af081f7384aaeb0082cf422e29f139d137ca2f6a57c69b2c37b9fb1f8479867b",
+          "expectedSha256": "af081f7384aaeb0082cf422e29f139d137ca2f6a57c69b2c37b9fb1f8479867b",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/drizzle/meta/_journal.json",
+          "sha256": "90cb374e093894d0efce6f1830d873a42aadd8ba49d2f024495e5cb2e1c8c303",
+          "expectedSha256": "90cb374e093894d0efce6f1830d873a42aadd8ba49d2f024495e5cb2e1c8c303",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/eslint.config.mjs",
+          "sha256": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+          "expectedSha256": "870f1adccecf3051cbcd9fd307cef51d7633cf510979c181a81f4b1797273493",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/examples/d1/app/api/notes/route.ts",
+          "sha256": "a3d4a74fd53b7bf53e2df41f169d9d9d44a8b22aeb6d92f4e754956079af8909",
+          "expectedSha256": "a3d4a74fd53b7bf53e2df41f169d9d9d44a8b22aeb6d92f4e754956079af8909",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/examples/d1/db/schema.ts",
+          "sha256": "d89eabd95716ce404f5f7ca2a254220435be8ddce7c899d7ef461ff22ec80454",
+          "expectedSha256": "d89eabd95716ce404f5f7ca2a254220435be8ddce7c899d7ef461ff22ec80454",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/next.config.ts",
+          "sha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc",
+          "expectedSha256": "614bce25b089c3f19b1e17a6346c74b858034040154c6621e7d35303004767cc",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/package-lock.json",
+          "sha256": "886a362144b4f4dbfede1cb19efecaf3ecc4fe170da8f8381321de3fa1a345c9",
+          "expectedSha256": "886a362144b4f4dbfede1cb19efecaf3ecc4fe170da8f8381321de3fa1a345c9",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/package.json",
+          "sha256": "a57c75feefb81855546bdad67da82de08c964c8dcf25956b8d708f0e68858c70",
+          "expectedSha256": "a57c75feefb81855546bdad67da82de08c964c8dcf25956b8d708f0e68858c70",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/postcss.config.mjs",
+          "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+          "expectedSha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/tests/rendered-html.test.mjs",
+          "sha256": "641a6f0c111f75d975287006f39918bdf578a1df0ac27b6b5487fa6e649ee6bb",
+          "expectedSha256": "641a6f0c111f75d975287006f39918bdf578a1df0ac27b6b5487fa6e649ee6bb",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/tsconfig.json",
+          "sha256": "be18523b23b78b6e1a876ddd107d330f0168bddf09d751b57e0b5edce69c66f3",
+          "expectedSha256": "be18523b23b78b6e1a876ddd107d330f0168bddf09d751b57e0b5edce69c66f3",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/vite.config.ts",
+          "sha256": "f7c14b8a38546bb6a7ec93cba22f8e8f131da9fbfe8b39327422ed5bb98d4613",
+          "expectedSha256": "f7c14b8a38546bb6a7ec93cba22f8e8f131da9fbfe8b39327422ed5bb98d4613",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-5.6-sol-ultra/worker/index.ts",
+          "sha256": "2ed36d7fa996e946d9d7695c5925e7760246f6bf8fa35c06f1bc515c087dc450",
+          "expectedSha256": "2ed36d7fa996e946d9d7695c5925e7760246f6bf8fa35c06f1bc515c087dc450",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/README.md",
+          "sha256": "5fd4ca700e53b962056495756077c860248a22e5c63dfdfcc6e6e3bab04b4481",
+          "expectedSha256": "5fd4ca700e53b962056495756077c860248a22e5c63dfdfcc6e6e3bab04b4481",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/SPEC.md",
+          "sha256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+          "expectedSha256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/ball-impact.png",
+          "sha256": "5949fb75a3fabbfaccb0590c3745dfacaad5eee219f1fb87fd694478bc3dc0d9",
+          "expectedSha256": "5949fb75a3fabbfaccb0590c3745dfacaad5eee219f1fb87fd694478bc3dc0d9",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/charged-collapse.png",
+          "sha256": "7018b0ec9b8080c47359df479739bb937ccc884dbc04691c079542b25fbc6e9d",
+          "expectedSha256": "7018b0ec9b8080c47359df479739bb937ccc884dbc04691c079542b25fbc6e9d",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/first-preview.png",
+          "sha256": "6454201b54763029b898d5a05e3394edc97bd2f4bc9e3ec651c064c25e21c65e",
+          "expectedSha256": "6454201b54763029b898d5a05e3394edc97bd2f4bc9e3ec651c064c25e21c65e",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/fractured-architecture-settled.png",
+          "sha256": "8862fba7123573da7a50b089d87c21fda782c4964eedaa0c3cd9f8121655fd4e",
+          "expectedSha256": "8862fba7123573da7a50b089d87c21fda782c4964eedaa0c3cd9f8121655fd4e",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/fractured-architecture.png",
+          "sha256": "cd9bffd6970cf6466fcdcc749d3c317f674dee667a27ff8c589bb5ecce0bf362",
+          "expectedSha256": "cd9bffd6970cf6466fcdcc749d3c317f674dee667a27ff8c589bb5ecce0bf362",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/glass-collapse.png",
+          "sha256": "922bc3a5189d16f8f9bf587f88cd1d590c8ff68462a8371239ba6eaf29a9f9dc",
+          "expectedSha256": "922bc3a5189d16f8f9bf587f88cd1d590c8ff68462a8371239ba6eaf29a9f9dc",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/pristine-desktop.png",
+          "sha256": "7b2a7eec5a57cbb219c9988dd835c2c3bf1b7c8ee5934df61f35dae01e3bdbbe",
+          "expectedSha256": "7b2a7eec5a57cbb219c9988dd835c2c3bf1b7c8ee5934df61f35dae01e3bdbbe",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/pristine-mobile.png",
+          "sha256": "d56323afe2bca14aa9e962d1134aa7757b8fe558ff16f1f0d89c52385d0616e5",
+          "expectedSha256": "d56323afe2bca14aa9e962d1134aa7757b8fe558ff16f1f0d89c52385d0616e5",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verification-tests-initial.txt",
+          "sha256": "63fc68fce92b1eb1dcbbb549a32efcdefcda13ddd576995ac4f66e9d8bada93d",
+          "expectedSha256": "63fc68fce92b1eb1dcbbb549a32efcdefcda13ddd576995ac4f66e9d8bada93d",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verification-tests.txt",
+          "sha256": "6a3f24ebddc97a43aad441e7d49d1c7f9283ea1a83a37db6bc062f48232131a5",
+          "expectedSha256": "6a3f24ebddc97a43aad441e7d49d1c7f9283ea1a83a37db6bc062f48232131a5",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verification.json",
+          "sha256": "d6faca7d6cba5e85cdd32bb78be597a4cf00c3fdc4ef086693ce731517064aa5",
+          "expectedSha256": "d6faca7d6cba5e85cdd32bb78be597a4cf00c3fdc4ef086693ce731517064aa5",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-final-collapse.png",
+          "sha256": "c959702fc965dbd9e09700a2118bd0a4fbc6c4989ab6992250c76ddac17a5b95",
+          "expectedSha256": "c959702fc965dbd9e09700a2118bd0a4fbc6c4989ab6992250c76ddac17a5b95",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-final-settled.png",
+          "sha256": "4b739054de8fb1beaf3152a7d71f134da119f1dd02cd2e3f17db66cbf39d454f",
+          "expectedSha256": "4b739054de8fb1beaf3152a7d71f134da119f1dd02cd2e3f17db66cbf39d454f",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-mobile-fixed.png",
+          "sha256": "e0eb96124c54876fb968609cd08186b89bf9b1e089104805b23b71a3810cdfa7",
+          "expectedSha256": "e0eb96124c54876fb968609cd08186b89bf9b1e089104805b23b71a3810cdfa7",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-mobile.png",
+          "sha256": "d224bf15fbea3aa82ef613c5ef775affcc55155a30b04f190fc4b4a77f9ed284",
+          "expectedSha256": "d224bf15fbea3aa82ef613c5ef775affcc55155a30b04f190fc4b4a77f9ed284",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-pristine.png",
+          "sha256": "6c4f67ca80e560ae38889f3e65c0e389f24717063123cf0b93dfea8562d0da8e",
+          "expectedSha256": "6c4f67ca80e560ae38889f3e65c0e389f24717063123cf0b93dfea8562d0da8e",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-support-failure.png",
+          "sha256": "312216db5425fbac9afcd05a8c8ecd6c40780325af58f36ceccee37cead669cf",
+          "expectedSha256": "312216db5425fbac9afcd05a8c8ecd6c40780325af58f36ceccee37cead669cf",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-water-burst.png",
+          "sha256": "f4d1099977df3e3f025ca49017fb9a2d7769485c15d4d5a8a38fc5159e5ef0b5",
+          "expectedSha256": "f4d1099977df3e3f025ca49017fb9a2d7769485c15d4d5a8a38fc5159e5ef0b5",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verify-water-collapse.png",
+          "sha256": "64f4a024877a0f593b6bc84f98617bc690b2f9a22946370c3eb1cbaded7d49dc",
+          "expectedSha256": "64f4a024877a0f593b6bc84f98617bc690b2f9a22946370c3eb1cbaded7d49dc",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/index.html",
+          "sha256": "e408b5c2361a254c160e95bdd8e4b4a77a2151be23fb8ba91b8204c6b7599a6a",
+          "expectedSha256": "e408b5c2361a254c160e95bdd8e4b4a77a2151be23fb8ba91b8204c6b7599a6a",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/package.json",
+          "sha256": "79d21413b2be6ed1e0ee9fb0ad37ffbb82eeb89a535971bd1b07ed66bc39f26c",
+          "expectedSha256": "79d21413b2be6ed1e0ee9fb0ad37ffbb82eeb89a535971bd1b07ed66bc39f26c",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/server.mjs",
+          "sha256": "1b562e16b668233fd23ecf030e9ec1a7e28b6ac1daf25d5b5a6c77580f46865c",
+          "expectedSha256": "1b562e16b668233fd23ecf030e9ec1a7e28b6ac1daf25d5b5a6c77580f46865c",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/city.js",
+          "sha256": "0fd048a58d8b344d00dc8afe740cb0c516b0e0f5be4a632dbd47ffd18857edd1",
+          "expectedSha256": "0fd048a58d8b344d00dc8afe740cb0c516b0e0f5be4a632dbd47ffd18857edd1",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/crane.js",
+          "sha256": "8c57e4eba4c58b5fea40650e9559a157e603cf6f454ba952a5f220b6dbbbf9e6",
+          "expectedSha256": "8c57e4eba4c58b5fea40650e9559a157e603cf6f454ba952a5f220b6dbbbf9e6",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/fracture.js",
+          "sha256": "3306d23d0819122b1f223a451b7100de701cfc6301012b0ab6b8d151bed9fe43",
+          "expectedSha256": "3306d23d0819122b1f223a451b7100de701cfc6301012b0ab6b8d151bed9fe43",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/history.js",
+          "sha256": "2702269060626387d8a151f5a469755eef5d0951cf47acea1e0c6ee9f22cbede",
+          "expectedSha256": "2702269060626387d8a151f5a469755eef5d0951cf47acea1e0c6ee9f22cbede",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/icons.js",
+          "sha256": "d727c5daf35261b7a93141f4ddc41c03243103aec2af4f9d77a8c2bbbb3ce30b",
+          "expectedSha256": "d727c5daf35261b7a93141f4ddc41c03243103aec2af4f9d77a8c2bbbb3ce30b",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/main.js",
+          "sha256": "d1f160ccddb9bcf66a580da2b5594f41f800fcaf569ce642ef343d3327f432c5",
+          "expectedSha256": "d1f160ccddb9bcf66a580da2b5594f41f800fcaf569ce642ef343d3327f432c5",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/simulation.js",
+          "sha256": "e258aaa9453e54d06907c1b62b005dd3656915d7da9d05999512b4af7732d622",
+          "expectedSha256": "e258aaa9453e54d06907c1b62b005dd3656915d7da9d05999512b4af7732d622",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/style.css",
+          "sha256": "07177aec8e1a5576e0ceadf5e8c9113d55725e4c3c0dc2946ba1952a7110b662",
+          "expectedSha256": "07177aec8e1a5576e0ceadf5e8c9113d55725e4c3c0dc2946ba1952a7110b662",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/history.test.mjs",
+          "sha256": "e3d4c4a9fda1392986de18db265827c400d5b261c24b5fc01b2a657d040ff0ab",
+          "expectedSha256": "e3d4c4a9fda1392986de18db265827c400d5b261c24b5fc01b2a657d040ff0ab",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/simulation.test.mjs",
+          "sha256": "30ac47902a5c64d7c088825f68da828223acb1256b2cdf32c3731a707a0287da",
+          "expectedSha256": "30ac47902a5c64d7c088825f68da828223acb1256b2cdf32c3731a707a0287da",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/verification.test.mjs",
+          "sha256": "a56c6b6af667ef48019a718fbde2cd8443c9b28aba129a31aad62fc92d5c1485",
+          "expectedSha256": "a56c6b6af667ef48019a718fbde2cd8443c9b28aba129a31aad62fc92d5c1485",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/PROVENANCE.json",
+          "sha256": "3de3f454252cbc5efe7e6dfd3ad6f80c0a1273c6399cb5af6c40a96c82ab1e1d",
+          "expectedSha256": "3de3f454252cbc5efe7e6dfd3ad6f80c0a1273c6399cb5af6c40a96c82ab1e1d",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/LICENSE",
+          "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+          "expectedSha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/addons/controls/OrbitControls.js",
+          "sha256": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c",
+          "expectedSha256": "b97879c748170baadeb3fb84cea1ffdf4674e283dc06042f34e2acb95a76042c",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/addons/utils/BufferGeometryUtils.js",
+          "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+          "expectedSha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/three.core.js",
+          "sha256": "94337bbcde63e61eb954f00d2ad72d122d1cc3dc3e0de68e57277eca3d30af47",
+          "expectedSha256": "94337bbcde63e61eb954f00d2ad72d122d1cc3dc3e0de68e57277eca3d30af47",
+          "unchanged": true
+        },
+        {
+          "file": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/three.module.js",
+          "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "expectedSha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+          "unchanged": true
+        }
+      ]
+    },
+    "tests": {
+      "repository": {
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0
+      },
+      "independentController": {
+        "passed": 2,
+        "failed": 0
+      },
+      "independentBrowserLoading": {
+        "passed": 4,
+        "failed": 0
+      },
+      "nativePageProbes": [
+        {
+          "build": "site",
+          "status": "pass",
+          "frames": 186,
+          "errors": []
+        },
+        {
+          "build": "sol",
+          "status": "pass",
+          "frames": 186,
+          "errors": []
+        },
+        {
+          "build": "astra",
+          "status": "pass",
+          "frames": 186,
+          "errors": []
+        }
+      ]
+    },
+    "nativeAdapterChanges": [
+      {
+        "build": "site",
+        "removedOnlyReadOnlyGetterRestoresRetainedProductionPatchHash": true,
+        "priorPatchSha256": "d2d466c1a444ee2e51af6683b6bc9c900f0a8a5512543899411315c1472b1d34"
+      },
+      {
+        "build": "sol",
+        "removedOnlyReadOnlyGetterRestoresRetainedProductionPatchHash": true,
+        "priorPatchSha256": "0f02211f7737c499da8da2a2636e217f323c3a7a55d76e87cab4c2b1dd1e98c7"
+      },
+      {
+        "build": "astra",
+        "removedOnlyReadOnlyGetterRestoresRetainedProductionPatchHash": true,
+        "priorPatchSha256": "35f12191f3a3588a086139b8ea8851a86b0c092b719f28fc2b92a2cde7cfa12e"
+      }
+    ],
+    "calibration": [
+      {
+        "build": "site",
+        "cameraSha256": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+        "cameraUnchanged": true,
+        "shots": [
+          {
+            "shot": "overview",
+            "rect": {
+              "left": 0.2912390547391013,
+              "right": 0.7087609452607875,
+              "top": 0.1664890316242162,
+              "bottom": 0.753510968375839
+            },
+            "fov": 45
+          },
+          {
+            "shot": "ball",
+            "rect": {
+              "left": 0.3405427050840733,
+              "right": 0.6594572949160701,
+              "top": 0.1656029439706248,
+              "bottom": 0.7543970560295171
+            },
+            "fov": 45
+          }
+        ],
+        "chargeMemberships": [
+          "bank",
+          "tower",
+          "warehouse"
+        ],
+        "markerCoordinates": [
+          {
+            "x": 1012.4409395436899,
+            "y": 663.4749889147087,
+            "depth": 0.9991697672275134
+          },
+          {
+            "x": 883.2482320465232,
+            "y": 613.0432017460963,
+            "depth": 0.9993086687214022
+          },
+          {
+            "x": 770.59315504354,
+            "y": 525.5914053045434,
+            "depth": 0.9994456960812758
+          }
+        ]
+      },
+      {
+        "build": "sol",
+        "cameraSha256": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+        "cameraUnchanged": true,
+        "shots": [
+          {
+            "shot": "overview",
+            "rect": {
+              "left": 0.3024680741050919,
+              "right": 0.6975319258948087,
+              "top": 0.16851051902595465,
+              "bottom": 0.7514894809739416
+            },
+            "fov": 45
+          },
+          {
+            "shot": "ball",
+            "rect": {
+              "left": 0.3177656372648046,
+              "right": 0.6822343627352566,
+              "top": 0.1656029439705174,
+              "bottom": 0.7543970560293813
+            },
+            "fov": 45
+          }
+        ],
+        "chargeMemberships": [
+          "bank",
+          "glass-tower",
+          "warehouse"
+        ],
+        "markerCoordinates": [
+          {
+            "x": 828.1589924677709,
+            "y": 481.60832370086354,
+            "depth": 0.9996135093127886
+          },
+          {
+            "x": 663.2883845892206,
+            "y": 571.3526683575612,
+            "depth": 0.99949365764827
+          },
+          {
+            "x": 1075.2005767702028,
+            "y": 557.110785536437,
+            "depth": 0.9994234198433642
+          }
+        ]
+      },
+      {
+        "build": "astra",
+        "cameraSha256": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db",
+        "cameraUnchanged": true,
+        "shots": [
+          {
+            "shot": "overview",
+            "rect": {
+              "left": 0.31048857700408433,
+              "right": 0.6895114229958073,
+              "top": 0.16624546507166965,
+              "bottom": 0.7537545349285095
+            },
+            "fov": 45
+          },
+          {
+            "shot": "ball",
+            "rect": {
+              "left": 0.35627911625811237,
+              "right": 0.6437208837419794,
+              "top": 0.16560294397064745,
+              "bottom": 0.7543970560295419
+            },
+            "fov": 45
+          }
+        ],
+        "chargeMemberships": [
+          0,
+          3,
+          4
+        ],
+        "markerCoordinates": [
+          {
+            "x": 737.7055572160218,
+            "y": 618.4141696645371,
+            "depth": 0.9982694947475081
+          },
+          {
+            "x": 835.4813075260134,
+            "y": 508.8891876679115,
+            "depth": 0.9986053019416373
+          },
+          {
+            "x": 1013.432459555383,
+            "y": 600.880577360862,
+            "depth": 0.9983212283837576
+          }
+        ]
+      }
+    ],
+    "visualInspection": {
+      "method": "Viewed full saved nine-shot calibration contact sheet and each of the three1920x1080 original-camera PNGs.",
+      "observed": "Native HUDs visible. Standardized shots show all three target markers and bank/crane relationships. Original views differ from normalized framing. Site remains faint under its unchanged native fog; no rendering or outcome adjustment was made.",
+      "continuousFilmPlayback": false
+    },
+    "cleanup": [
+      {
+        "port": 4321,
+        "ownedServerNoLongerReachable": true
+      },
+      {
+        "port": 4322,
+        "ownedServerNoLongerReachable": true
+      },
+      {
+        "port": 4323,
+        "ownedServerNoLongerReachable": true
+      },
+      {
+        "port": 4391,
+        "ownedServerNoLongerReachable": true
+      }
+    ]
+  },
+  "artifactHashes": {
+    "calibration/astra/ball-marked.png": "f70d11852ef706eeba311b2422dbab3b3c88d39e30915581591667b2680aac3b",
+    "calibration/astra/ball.json": "e2c03003ae7b63277b94ba324ab80b3e92cc1f6f382db80040c1110eb6d02dbf",
+    "calibration/astra/ball.png": "e347e650397e80d99f592afcd96fb2fa8b01890fa99273b7b70c5f309872d96e",
+    "calibration/astra/camera.json": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db",
+    "calibration/astra/charges-marked.png": "30eb89af768bb2f94ccdf65d40ca75b3487c2ae31570bff52815f1e7ca4503a6",
+    "calibration/astra/charges.json": "530d7b4e96a2ca110ecc73464f664bf30510014ba0b56303202a9950a09e177b",
+    "calibration/astra/charges.png": "2b4e359335c49cab39c2fb3d202d207e92b32e2b5278330835edfc95c395d354",
+    "calibration/astra/original-camera.json": "c1fe05f38f7a92aa18eef9eeac3d241deb1dd4f8a30126c6042ccccec8c998a6",
+    "calibration/astra/original-camera.png": "9c60f69d0b8f2fb9f8438bc7cc6a17405818092d40eb509dfa645b5b94ec5a45",
+    "calibration/astra/overview-marked.png": "92cc67cde7b3b7c6b8bc2137f11605540bd6795db2b2b9a45d7ca8d84cdfdf73",
+    "calibration/astra/overview.json": "c628f5b65ee3a8589548030b8e498658d1be6c5a077badd31f6127d8e0270aed",
+    "calibration/astra/overview.png": "6d904ad1aa8b5632e356e05040b704c20e33c807c8232c22cab26483179eec14",
+    "calibration/astra/result.json": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+    "calibration/astra/scene.json": "36f822f12b69dfec420884bb554acc8dca6fd995e2c780fbf1b972998699cd40",
+    "calibration/contact-sheet.png": "2a3be1f0593c1a233069993627e4d836fe65595cc8eefe82328135fa97dca06b",
+    "calibration/independent-probes/astra-runtime-receipts.json": "1713a2a0dba4dda8f2abe621f60875f127b1566a099946b7c9d162e2a602e539",
+    "calibration/independent-probes/independent-viewer-loading.json": "8138156ccef87cc341eed5388d8e1eea71ca8d6cb4e2cb722756ecf8fd0d7059",
+    "calibration/independent-probes/runtime-probes.json": "8534a38f5e1c8033444ffda52b15ad252738f3a99afa62f5bd7c99cd1d743886",
+    "calibration/independent-probes/site-runtime-receipts.json": "11a4812c13ec82d8b92a28f4930ed538a73620a0e240d088a3e0ba7ce55cfb3f",
+    "calibration/independent-probes/sol-runtime-receipts.json": "085d784a1851ebc83691e8f81b7974e3874761089a714daaa7cca32b9e1688d8",
+    "calibration/site/ball-marked.png": "f581f33ad8fef5a2f10a3a893541c5916a5e8ed0fbdcb2614ed1ae24105acba0",
+    "calibration/site/ball.json": "fdecb82b3d1c410ab4d27753e3578ed13d38ca77c28a6801b46c8963fef3fd2e",
+    "calibration/site/ball.png": "66e4bffc2e74a299c15f74e18c6feb1dfc52079534f3b57dd0c6bd920fa10374",
+    "calibration/site/camera.json": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+    "calibration/site/charges-marked.png": "93a1dd2e7822068091e1b64af281239ad377b9c128b5bd44dfa6ae4f38154ca3",
+    "calibration/site/charges.json": "59d66ef753b6c008530cc6d639b3710371a84331c8c1b338e8ec32ab570a904b",
+    "calibration/site/charges.png": "8d828a54ffdfc50bcca78a87fe983712491cb7f8930828d8a353cfe2239f20d6",
+    "calibration/site/original-camera.json": "ff78326a5af9ed42166ac0e4f13d47e46ff003621424f6ef40b528223b67a10c",
+    "calibration/site/original-camera.png": "19028f06fd553167aa71847f5f92641f74cf512fdad09b0f992d7d0b6f56f149",
+    "calibration/site/overview-marked.png": "ca748de37d779c9a7fd86838e37eccc56fb6aa97194a126248d6dfa455ac50e2",
+    "calibration/site/overview.json": "346f56162de18d1502df90187c0d45e6dbda8439a7cb71d23ec13277b31c3f78",
+    "calibration/site/overview.png": "93febd49dd29a9e9ec07598b92ea36f3fa7606980bd9e0fd3b9d02eace5782a8",
+    "calibration/site/result.json": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+    "calibration/site/scene.json": "84e01f6baf1df83fa931a85a04f1ce84e1c5ee1d5c39e5bb3dfb0aff339c3140",
+    "calibration/sol/ball-marked.png": "ac1696ca9e8163132e7c07e88bb972b5f5ef0afd07098fe72b43a97fc46827e9",
+    "calibration/sol/ball.json": "d954d9262b364665ec68d657ca42430c8b15f534ddc6e7f4d3f9bffcd7224b2b",
+    "calibration/sol/ball.png": "768097ebde0c10213eb70a9b17db2374f423bad82025e9efd74c500f14f7da9f",
+    "calibration/sol/camera.json": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+    "calibration/sol/charges-marked.png": "934b0d53b650792a80cf16015f4023bcb8e48e5ae31eb300f7c49e8017663565",
+    "calibration/sol/charges.json": "b8400a00d71e27e024593a94bcbe826e8a3ef558e9cf368fd56b54b5120103af",
+    "calibration/sol/charges.png": "2e3b086f96fdb0729a79676485f94a103026614850bf0466be7f729125813e33",
+    "calibration/sol/original-camera.json": "c0ab7841ba81f6a53a0041bb54e823c020f4b14179a6bf038a84bda9891c8f7b",
+    "calibration/sol/original-camera.png": "661e437a7f0f9505cb9b9b1255620a6e9127c2b2718a9d180423c47e0962ba09",
+    "calibration/sol/overview-marked.png": "8b337ac53ce177d3c6885509217392bbb54e51dd5c040ddca8878a79cd195240",
+    "calibration/sol/overview.json": "602a3d632001435fa945b7aa1f09213c515ba7df33e2d3f52923314ee700e9c6",
+    "calibration/sol/overview.png": "6171e03f44e838d57e491cff7c79d83bcb9dd23d1f38e2a60ffbe73ec6eb162e",
+    "calibration/sol/result.json": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+    "calibration/sol/scene.json": "a17e7e6f8abf87bbd3dabd638aaf57159837964dffe2ffd3e1fedb35275a53e7"
+  },
+  "limitations": [
+    "No official takes exist and no complete final film has been watched. This is pre-recording approval only.",
+    "New full rehearsals must prove actual destructive render-setting changes, native actions, frame timing and continuity at this exact fingerprint before freeze.",
+    "The fixed measured motion envelope does not cover every theoretical trajectory; official motion remains subject to framing verification.",
+    "Final release still requires independent full-film/viewer evidence plus exact committed revision and six packaged asset checksums."
+  ],
+  "blockers": []
+}

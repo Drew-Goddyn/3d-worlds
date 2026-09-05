@@ -1,0 +1,389 @@
+{
+  "schemaVersion": 1,
+  "reviewType": "independent-calibration-approval-transfer",
+  "reviewedAt": "2026-09-05T02:21:08.832Z",
+  "status": "pass",
+  "scope": "Transfer the previously independently approved camera calibration and native-action adapter acceptance to the production capture directory after an independently reviewed recorder timing correction. Pre-recording approval only.",
+  "finalRecordingApproval": false,
+  "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "outputDirectory": ".demo-work/demolition-demo-v1-production",
+  "previousApproval": {
+    "report": "showcase/demo/evidence/calibration-review-2026-09-05-final.json",
+    "reportSha256": "2dd0da7290f7fd63702f356c8bb898c1120da1ca70ed1e6a9bd1d787298d9485",
+    "fingerprint": "75148a7107f7540a98a29905cdeade2f7c443831b1bea470a0d24875fa05e50f"
+  },
+  "fingerprint": "f4cc0a7ab9f93b29c7a6cbfb23ffb33998b4ff1a228f62815693d5b31007a08e",
+  "fingerprintInputs": {
+    "showcase/demo/browser-runtime.js": "103a1b0db85bccc961eb32eb623023edfc08ddca8daa95b18a2c4b3ce52e93ce",
+    "showcase/demo/core.mjs": "8e6204273275e459ecd5a0543326849679a3dcd92482de317d109bb489fce8ee",
+    "showcase/demo/timing.mjs": "d9556b219e3edeec40cf6327e9775127f56a101d491c0a5268cf6d05282be5ad",
+    "showcase/demo/run.mjs": "6d98f7a1fdec4b88c82fdb3a34c64b0337bd2ce9f58fbe0f28b146e306ffcf42",
+    "showcase/demo/control-checks.mjs": "2d6504382f70076d78c1242d73e6bd4b6c4ca6822fdcf5d2f8e7b4546b054d13",
+    "showcase/attempts.json": "0ce45c0d78fd56482ed27d994c0625c468756dba07c1e2a89f2edbe87299f47f",
+    "prompts/demolition-playground/demo/scenario.json": "a5fd77bd28173e2c89eb0c8868536866b07f7ebc7a2ba60a644bcd09fe486e4f",
+    "showcase/demo/patches/site.json": "d2d466c1a444ee2e51af6683b6bc9c900f0a8a5512543899411315c1472b1d34",
+    "prompts/demolition-playground/demo/calibration/site.json": "fdde321d31b1b7c69d9d3be36bbd7fe669b37915bbd5f79a48b85ea36eb4197c",
+    "prompts/demolition-playground/demo/calibration/site-native-motion.json": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3",
+    "showcase/demo/patches/sol.json": "0f02211f7737c499da8da2a2636e217f323c3a7a55d76e87cab4c2b1dd1e98c7",
+    "prompts/demolition-playground/demo/calibration/sol.json": "35061cbb8512c4fb73d96eeec9699da5d0ad5cee4eae9ac7cffadd8b63a14180",
+    "prompts/demolition-playground/demo/calibration/sol-native-motion.json": "930cc91946b472ec075b5374dc8f7f988970083b0b5f5346c3fd547697c2041d",
+    "showcase/demo/patches/astra.json": "35f12191f3a3588a086139b8ea8851a86b0c092b719f28fc2b92a2cde7cfa12e",
+    "prompts/demolition-playground/demo/calibration/astra.json": "f8c9c2979835f60e2092b5250b5425da579bc5b748de3f96ea9f700b4f859753",
+    "prompts/demolition-playground/demo/calibration/astra-native-motion.json": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b",
+    "calibration/site": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+    "calibration/sol": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+    "calibration/astra": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db"
+  },
+  "changedFingerprintedInputs": [
+    {
+      "file": "showcase/demo/core.mjs",
+      "before": "7b8be6b64d8381f4513a96c43a896b42ab8c9232abd9d502c9816bb6e9ae0acf",
+      "after": "8e6204273275e459ecd5a0543326849679a3dcd92482de317d109bb489fce8ee"
+    },
+    {
+      "file": "showcase/demo/timing.mjs",
+      "before": "796dd222fdbde8df12d8a0bb6fd945fa05bc805be4355d109ff15ea5fb8bd3de",
+      "after": "d9556b219e3edeec40cf6327e9775127f56a101d491c0a5268cf6d05282be5ad"
+    }
+  ],
+  "unchangedInputs": [
+    {
+      "file": "showcase/demo/browser-runtime.js",
+      "sha256": "103a1b0db85bccc961eb32eb623023edfc08ddca8daa95b18a2c4b3ce52e93ce"
+    },
+    {
+      "file": "showcase/demo/run.mjs",
+      "sha256": "6d98f7a1fdec4b88c82fdb3a34c64b0337bd2ce9f58fbe0f28b146e306ffcf42"
+    },
+    {
+      "file": "showcase/demo/control-checks.mjs",
+      "sha256": "2d6504382f70076d78c1242d73e6bd4b6c4ca6822fdcf5d2f8e7b4546b054d13"
+    },
+    {
+      "file": "showcase/attempts.json",
+      "sha256": "0ce45c0d78fd56482ed27d994c0625c468756dba07c1e2a89f2edbe87299f47f"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/scenario.json",
+      "sha256": "a5fd77bd28173e2c89eb0c8868536866b07f7ebc7a2ba60a644bcd09fe486e4f"
+    },
+    {
+      "file": "showcase/demo/patches/site.json",
+      "sha256": "d2d466c1a444ee2e51af6683b6bc9c900f0a8a5512543899411315c1472b1d34"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/calibration/site.json",
+      "sha256": "fdde321d31b1b7c69d9d3be36bbd7fe669b37915bbd5f79a48b85ea36eb4197c"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/calibration/site-native-motion.json",
+      "sha256": "7bad9be5cca245af1a90162a8b4b71dbe728d0ac36060233a70a99e5cbaa10f3"
+    },
+    {
+      "file": "showcase/demo/patches/sol.json",
+      "sha256": "0f02211f7737c499da8da2a2636e217f323c3a7a55d76e87cab4c2b1dd1e98c7"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/calibration/sol.json",
+      "sha256": "35061cbb8512c4fb73d96eeec9699da5d0ad5cee4eae9ac7cffadd8b63a14180"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/calibration/sol-native-motion.json",
+      "sha256": "930cc91946b472ec075b5374dc8f7f988970083b0b5f5346c3fd547697c2041d"
+    },
+    {
+      "file": "showcase/demo/patches/astra.json",
+      "sha256": "35f12191f3a3588a086139b8ea8851a86b0c092b719f28fc2b92a2cde7cfa12e"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/calibration/astra.json",
+      "sha256": "f8c9c2979835f60e2092b5250b5425da579bc5b748de3f96ea9f700b4f859753"
+    },
+    {
+      "file": "prompts/demolition-playground/demo/calibration/astra-native-motion.json",
+      "sha256": "51641e548bde72a648956802cec6299f9a0806bee0d551bbc0adc68c0210118b"
+    },
+    {
+      "file": "calibration/site",
+      "sha256": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7"
+    },
+    {
+      "file": "calibration/sol",
+      "sha256": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055"
+    },
+    {
+      "file": "calibration/astra",
+      "sha256": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db"
+    }
+  ],
+  "timingDependency": {
+    "report": "showcase/demo/evidence/timing-review-2026-09-05-v3.json",
+    "reportSha256": "dbea118da2476b2e907390b4b5f2874d29356709870b7523527244714d6c1023",
+    "status": "pass",
+    "reviewedSha256": {
+      "showcase/demo/timing.mjs": "d9556b219e3edeec40cf6327e9775127f56a101d491c0a5268cf6d05282be5ad",
+      "showcase/demo/core.mjs": "8e6204273275e459ecd5a0543326849679a3dcd92482de317d109bb489fce8ee",
+      "showcase/demo/test/core.test.mjs": "88cc0341a973a145ec97f8d42e948d24661a935a22fbbf273f6cf5a1fff45334"
+    },
+    "repositoryTests": {
+      "passed": 13,
+      "failed": 0
+    },
+    "independentChecks": {
+      "passed": 15,
+      "failed": 0
+    },
+    "scope": "Independent implementation review of recorder timing attribution, bounded clock alignment, and raw evidence retention. This is not approval of any final film or new capture."
+  },
+  "comparisonEvidence": {
+    "checkedAt": "2026-09-05T02:20:00.224Z",
+    "sourcePreservation": {
+      "count": 78,
+      "passed": true,
+      "failures": []
+    },
+    "originalReportHashMatches": true,
+    "originalApprovedArtifactsStillMatch": true,
+    "productionFingerprint": "f4cc0a7ab9f93b29c7a6cbfb23ffb33998b4ff1a228f62815693d5b31007a08e",
+    "productionCalibrationFiles": [
+      {
+        "file": "astra/ball-marked.png",
+        "sha256": "05d814b8cb5965b91d2ab3b619cc2fa0943712b245089dfc5fb719e9eb5c89a7",
+        "productionSha256": "05d814b8cb5965b91d2ab3b619cc2fa0943712b245089dfc5fb719e9eb5c89a7",
+        "identical": true
+      },
+      {
+        "file": "astra/ball.json",
+        "sha256": "e2c03003ae7b63277b94ba324ab80b3e92cc1f6f382db80040c1110eb6d02dbf",
+        "productionSha256": "e2c03003ae7b63277b94ba324ab80b3e92cc1f6f382db80040c1110eb6d02dbf",
+        "identical": true
+      },
+      {
+        "file": "astra/ball.png",
+        "sha256": "be2357ddb3af7be0ec3b73787e2cf300b6fa75f6e9fdd46b6905b528468b24ed",
+        "productionSha256": "be2357ddb3af7be0ec3b73787e2cf300b6fa75f6e9fdd46b6905b528468b24ed",
+        "identical": true
+      },
+      {
+        "file": "astra/camera.json",
+        "sha256": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db",
+        "productionSha256": "ed3ad54455ad03c1295b11bc92da1884ff6e8f9048a75dd60330d3c260a294db",
+        "identical": true
+      },
+      {
+        "file": "astra/charges-marked.png",
+        "sha256": "1de5495a97a84d2a57bf2c74c7d539e847f79a4dc84d0dd9fdb24f0bddbda4e3",
+        "productionSha256": "1de5495a97a84d2a57bf2c74c7d539e847f79a4dc84d0dd9fdb24f0bddbda4e3",
+        "identical": true
+      },
+      {
+        "file": "astra/charges.json",
+        "sha256": "530d7b4e96a2ca110ecc73464f664bf30510014ba0b56303202a9950a09e177b",
+        "productionSha256": "530d7b4e96a2ca110ecc73464f664bf30510014ba0b56303202a9950a09e177b",
+        "identical": true
+      },
+      {
+        "file": "astra/charges.png",
+        "sha256": "fad42c8a96716be02cad179c15619e2933b630933811d108a6af3cdaa9950e66",
+        "productionSha256": "fad42c8a96716be02cad179c15619e2933b630933811d108a6af3cdaa9950e66",
+        "identical": true
+      },
+      {
+        "file": "astra/overview-marked.png",
+        "sha256": "eda4906724e56b4e80430859ee4ba1699d7d5e3b4d19afd114c0c2b9e6202d92",
+        "productionSha256": "eda4906724e56b4e80430859ee4ba1699d7d5e3b4d19afd114c0c2b9e6202d92",
+        "identical": true
+      },
+      {
+        "file": "astra/overview.json",
+        "sha256": "c628f5b65ee3a8589548030b8e498658d1be6c5a077badd31f6127d8e0270aed",
+        "productionSha256": "c628f5b65ee3a8589548030b8e498658d1be6c5a077badd31f6127d8e0270aed",
+        "identical": true
+      },
+      {
+        "file": "astra/overview.png",
+        "sha256": "0c7a6ba15bc703b5032261174713fbf95892efc59b3f3b36489b99d5cdd9f5bc",
+        "productionSha256": "0c7a6ba15bc703b5032261174713fbf95892efc59b3f3b36489b99d5cdd9f5bc",
+        "identical": true
+      },
+      {
+        "file": "astra/result.json",
+        "sha256": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+        "productionSha256": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+        "identical": true
+      },
+      {
+        "file": "astra/scene.json",
+        "sha256": "36f822f12b69dfec420884bb554acc8dca6fd995e2c780fbf1b972998699cd40",
+        "productionSha256": "36f822f12b69dfec420884bb554acc8dca6fd995e2c780fbf1b972998699cd40",
+        "identical": true
+      },
+      {
+        "file": "contact-sheet.png",
+        "sha256": "7f6068a71b8c3dfdfb7176b9c38005bcf9a2ba2faca9f2afa6ccd371fba80818",
+        "productionSha256": "7f6068a71b8c3dfdfb7176b9c38005bcf9a2ba2faca9f2afa6ccd371fba80818",
+        "identical": true
+      },
+      {
+        "file": "site/ball-marked.png",
+        "sha256": "0f3f0acc29eb024f9df1b5286973fe919c40a0f5488a8b19278bb283316b5e97",
+        "productionSha256": "0f3f0acc29eb024f9df1b5286973fe919c40a0f5488a8b19278bb283316b5e97",
+        "identical": true
+      },
+      {
+        "file": "site/ball.json",
+        "sha256": "fdecb82b3d1c410ab4d27753e3578ed13d38ca77c28a6801b46c8963fef3fd2e",
+        "productionSha256": "fdecb82b3d1c410ab4d27753e3578ed13d38ca77c28a6801b46c8963fef3fd2e",
+        "identical": true
+      },
+      {
+        "file": "site/ball.png",
+        "sha256": "d82818f3663c6fee4cd1d35e154164fb94b6c7e4f92abd6d4f7753bf793a617d",
+        "productionSha256": "d82818f3663c6fee4cd1d35e154164fb94b6c7e4f92abd6d4f7753bf793a617d",
+        "identical": true
+      },
+      {
+        "file": "site/camera.json",
+        "sha256": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+        "productionSha256": "6ffe983bee4f96c5a78602d8cd360e60a0747abba9a65c6ce78880b84f4ffca7",
+        "identical": true
+      },
+      {
+        "file": "site/charges-marked.png",
+        "sha256": "7020f5ff5189d005326ae6e539b03625bb22a168cd97debb8edea5bc17dc27b0",
+        "productionSha256": "7020f5ff5189d005326ae6e539b03625bb22a168cd97debb8edea5bc17dc27b0",
+        "identical": true
+      },
+      {
+        "file": "site/charges.json",
+        "sha256": "59d66ef753b6c008530cc6d639b3710371a84331c8c1b338e8ec32ab570a904b",
+        "productionSha256": "59d66ef753b6c008530cc6d639b3710371a84331c8c1b338e8ec32ab570a904b",
+        "identical": true
+      },
+      {
+        "file": "site/charges.png",
+        "sha256": "936538f4d25b79275f887f31875b1595a2a81a6a61662d0829769e9a34826cb6",
+        "productionSha256": "936538f4d25b79275f887f31875b1595a2a81a6a61662d0829769e9a34826cb6",
+        "identical": true
+      },
+      {
+        "file": "site/overview-marked.png",
+        "sha256": "397f1a36f3285f05d00dfa8283e2f4d961b90a94294f8520c1c53b5257fbd716",
+        "productionSha256": "397f1a36f3285f05d00dfa8283e2f4d961b90a94294f8520c1c53b5257fbd716",
+        "identical": true
+      },
+      {
+        "file": "site/overview.json",
+        "sha256": "346f56162de18d1502df90187c0d45e6dbda8439a7cb71d23ec13277b31c3f78",
+        "productionSha256": "346f56162de18d1502df90187c0d45e6dbda8439a7cb71d23ec13277b31c3f78",
+        "identical": true
+      },
+      {
+        "file": "site/overview.png",
+        "sha256": "32d9f65980ba01dc502773cc2e8ac252bd43e08ebf2903705d76e99e078ab635",
+        "productionSha256": "32d9f65980ba01dc502773cc2e8ac252bd43e08ebf2903705d76e99e078ab635",
+        "identical": true
+      },
+      {
+        "file": "site/result.json",
+        "sha256": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+        "productionSha256": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+        "identical": true
+      },
+      {
+        "file": "site/scene.json",
+        "sha256": "84e01f6baf1df83fa931a85a04f1ce84e1c5ee1d5c39e5bb3dfb0aff339c3140",
+        "productionSha256": "84e01f6baf1df83fa931a85a04f1ce84e1c5ee1d5c39e5bb3dfb0aff339c3140",
+        "identical": true
+      },
+      {
+        "file": "sol/ball-marked.png",
+        "sha256": "7686922e3832206aa48bcd820d27f21917e7c5427b692a6b72f30858b81e918b",
+        "productionSha256": "7686922e3832206aa48bcd820d27f21917e7c5427b692a6b72f30858b81e918b",
+        "identical": true
+      },
+      {
+        "file": "sol/ball.json",
+        "sha256": "d954d9262b364665ec68d657ca42430c8b15f534ddc6e7f4d3f9bffcd7224b2b",
+        "productionSha256": "d954d9262b364665ec68d657ca42430c8b15f534ddc6e7f4d3f9bffcd7224b2b",
+        "identical": true
+      },
+      {
+        "file": "sol/ball.png",
+        "sha256": "d564a0d09bff83ca3ffd02d7e7c2ce08b410305bc7d29a18f75cd3b966612edf",
+        "productionSha256": "d564a0d09bff83ca3ffd02d7e7c2ce08b410305bc7d29a18f75cd3b966612edf",
+        "identical": true
+      },
+      {
+        "file": "sol/camera.json",
+        "sha256": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+        "productionSha256": "82bb41c21baaff8f503f3f2086e71c7c52d47c024851c322611959d8cc9c4055",
+        "identical": true
+      },
+      {
+        "file": "sol/charges-marked.png",
+        "sha256": "6223eece73ab9f1c217af540231213ae4e442119c4ed8cb6360958acc37dae20",
+        "productionSha256": "6223eece73ab9f1c217af540231213ae4e442119c4ed8cb6360958acc37dae20",
+        "identical": true
+      },
+      {
+        "file": "sol/charges.json",
+        "sha256": "b8400a00d71e27e024593a94bcbe826e8a3ef558e9cf368fd56b54b5120103af",
+        "productionSha256": "b8400a00d71e27e024593a94bcbe826e8a3ef558e9cf368fd56b54b5120103af",
+        "identical": true
+      },
+      {
+        "file": "sol/charges.png",
+        "sha256": "430a32335955394296b43bc2acdea78b7573e54d4d10616d6f5de94367b33a63",
+        "productionSha256": "430a32335955394296b43bc2acdea78b7573e54d4d10616d6f5de94367b33a63",
+        "identical": true
+      },
+      {
+        "file": "sol/overview-marked.png",
+        "sha256": "891cf37b8a39dceaddafbee9c188103b08852e27847ac334cbec244945af2cec",
+        "productionSha256": "891cf37b8a39dceaddafbee9c188103b08852e27847ac334cbec244945af2cec",
+        "identical": true
+      },
+      {
+        "file": "sol/overview.json",
+        "sha256": "602a3d632001435fa945b7aa1f09213c515ba7df33e2d3f52923314ee700e9c6",
+        "productionSha256": "602a3d632001435fa945b7aa1f09213c515ba7df33e2d3f52923314ee700e9c6",
+        "identical": true
+      },
+      {
+        "file": "sol/overview.png",
+        "sha256": "75e9f2fab06ad373308cf31ace52e4834b3acf011a2c0a8ed7efbf3e981fcb69",
+        "productionSha256": "75e9f2fab06ad373308cf31ace52e4834b3acf011a2c0a8ed7efbf3e981fcb69",
+        "identical": true
+      },
+      {
+        "file": "sol/result.json",
+        "sha256": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+        "productionSha256": "76aa3b58148d89cc797ae408eba304f008308b708476e2db124fcf4e5d1c7a2e",
+        "identical": true
+      },
+      {
+        "file": "sol/scene.json",
+        "sha256": "a17e7e6f8abf87bbd3dabd638aaf57159837964dffe2ffd3e1fedb35275a53e7",
+        "productionSha256": "a17e7e6f8abf87bbd3dabd638aaf57159837964dffe2ffd3e1fedb35275a53e7",
+        "identical": true
+      }
+    ]
+  },
+  "standingInvariants": [
+    "Original archived build blobs, native physics, damage, history, timing, randomness, materials, fog and dependencies remain unchanged.",
+    "Recording adapters are limited to presentation, complete native player-action dispatch and observation.",
+    "Target membership, identity and unobstructed raycasts require direct evidence; projection or charge count alone is insufficient.",
+    "Native UI/bookkeeping and history remain complete; standardized presentation must not contaminate native snapshots.",
+    "Safety and correctness gates cannot be weakened, and invalid actions cannot be silently accepted during take selection.",
+    "Capture and browser work remain isolated and sequential; only owned sessions are closed; no credentials, new dependencies or destructive actions are introduced.",
+    "Calibration approval is separate from complete film, timing, usefulness and publication approval."
+  ],
+  "conclusion": "All 37 calibration-directory artifacts other than the approval pointer are byte-identical to the approved directory. All 78 archived build blobs still match the pinned source. Camera/runtime/patches/motion traces/scenario/action validation/catalog remain exactly hash-identical. The only two changed fingerprinted implementation files match the passing fresh timing review. Existing live calibration evidence therefore transfers without another browser session.",
+  "blockers": [],
+  "limitations": [
+    "Fresh current-fingerprint rehearsals must supply the newly required six real clock probes and pass native-control and timing validation before freeze or official recording. Historical takes without those probes cannot be retroactively approved.",
+    "Actual official motion must remain framed and its native action outcomes preserved; the unchanged measured motion envelope is not a promise covering every possible native trajectory.",
+    "This transfers calibration approval only. It does not approve any new capture, full film, synchronized edit, interactive viewer, release or publication."
+  ]
+}

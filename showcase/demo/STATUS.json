@@ -1,43 +1,37 @@
 {
-  "status": "implementation-in-progress",
+  "schemaVersion": 2,
+  "status": "pre-recording-approved",
   "branch": "codex/comparison-recorder",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+  "recordingFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "run": "demolition-demo-v1",
+  "outputDirectory": ".demo-work/demolition-demo-v1-release",
   "officialTakes": 0,
   "publication": "not-started",
-  "blockers": [
-    "Astra column geometry is occluded by the native facade; explicit user clarification pending for accurate native facade hit recording"
-  ],
+  "blockers": [],
+  "verification": {
+    "originalFilesCompared": 78,
+    "unchanged": true,
+    "recorderTestsPassed": 13,
+    "preRecordingReport": "showcase/demo/evidence/pre-recording-review-2026-09-05.json",
+    "finalFilmsApproved": false
+  },
   "completed": [
-    "Temporary pinned source copies and hash-checked patches",
-    "Native adapter bridges",
-    "Bounded JPEG disk writer",
-    "Source timestamp to output frame mapping",
-    "Initial offline viewer implementation",
-    "Four queue/timing unit checks",
-    "1080p disk control pilot: 60.04 fps, 480 successful frame writes",
-    "One complete Site rehearsal: all three chapters captured",
-    "Fresh verifier confirms corrected Site marker visibility and separate-camera history preservation",
-    "Offline viewer fixture checks: shared play/pause, exact chapter seek, focus mode, 390px layout without overflow"
+    "Hash-pinned temporary copies and native action adapters",
+    "Independent camera/target/history verification",
+    "Bounded timestamped JPEG capture and clock-bracket verification",
+    "Startup, rendering-change and actual camera telemetry",
+    "Offline viewer verified with real metadata starvation, buffering, seeking and drift correction"
   ],
   "remaining": [
-    "Resolve three unexplained >100ms capture gaps in Site ball rehearsal; no technically valid official take selected",
-    "Complete and independently verify calibration",
-    "Pilot and rehearsals",
-    "Freeze capture inputs",
-    "Official sequential takes",
-    "Encode and verify all actual films",
-    "Verify viewer behavior and layouts",
-    "Fresh final verification",
-    "Commit and merge",
-    "Publish and verify release assets",
-    "Update showcase links"
+    "Run final disk pilot and all three build rehearsals",
+    "Freeze exact inputs after successful rehearsal timing checks",
+    "Record first technically valid official takes sequentially",
+    "Assemble and independently verify actual films and viewer",
+    "Package evidence and six release assets",
+    "Commit, merge and publish at verified revision",
+    "Verify public download checksums and update showcase links"
   ],
-  "rawOutputRoot": ".demo-work (ignored)",
-  "latestCalibrationRun": "calibration-v7",
-  "verification": {
-    "originalBuildFiles": 78,
-    "unchanged": true,
-    "unitTestsPassed": 5,
-    "independentApproval": false
-  }
+  "retention": "Every prior calibration, interrupted capture and rehearsal remains under .demo-work outside Git. Historical failed reviews are preserved in evidence/.",
+  "resumeCommand": "npm run demo -- pilot --run demolition-demo-v1 --output .demo-work/demolition-demo-v1-release"
 }
