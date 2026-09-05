@@ -44,3 +44,11 @@ The project has no sibling-project imports, external artwork, hosted services, a
 ## Continuing application and historical evidence
 
 This is the continuing Astra application. The owner accepted round two’s localized bank breaking and crumbling as a significant improvement, without declaring the bank complete or its physics perfect. The directory label records the original attempt’s settings, not later sessions. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee). Round-two captures and limitations are retained in [the round-two record](evidence/round2-bank/ROUND-TWO.md).
+
+## Banking-hall breach continuation
+
+The front ground floor now contains green teller stations, writing tables, banker lamps, chairs, deposit drawers, ledgers and loose paper/cash. Ground-floor glazing breaks into retained triangular shards. Solid-member contacts move reachable contents; settled objects and masonry fall when their support moves. Low bank targets can lower the ball to hall height. All of this participates in the existing rewind and rebuild.
+
+For a revealing approach, rotate the crane left for about 1.5 seconds, lengthen the cable for about 1.5 seconds, and let it settle over the street. Aim at the right ground-floor window, follow up through the opening toward the teller area, then try the left window. The ball, falling stone, and debris can each change which contents remain reachable. Use orbit/pan/zoom to inspect the opening; rewind the actual event before trying another target.
+
+This remains a custom coarse simulation: prepared glass fractures, approximate rotated bounds and central-footprint support, rigid furnishing assemblies, and persistent rubble that can obscure the hall after large failures. No full furniture breakage or arbitrary crack solver is claimed. [Round-three review packet](evidence/round3-hall/REVIEW.md) records the current evidence and limitations.

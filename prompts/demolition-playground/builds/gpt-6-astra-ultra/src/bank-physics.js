@@ -25,7 +25,7 @@ export class BankPhysics {
     const i=body.id*B,j=body.node*N;
     const get=(key)=>snapshot?snapshot.bodies[i+BODY_KEYS.indexOf(key)]:body[key];
     let x=get('x'),y=get('y'),z=get('z'),rx=get('rx'),ry=get('ry'),rz=get('rz');
-    if(get('state')===0&&!body.fixed) {
+    if(get('state')===0&&!body.fixed&&!body.content) {
       const n=this.nodes[body.node],drop=snapshot?snapshot.nodes[j+3]:n.drop;
       const nx=snapshot?snapshot.nodes[j+4]:n.rx,nz=snapshot?snapshot.nodes[j+5]:n.rz;
       // Small pre-failure deflection is shared by connected architecture.
@@ -38,7 +38,7 @@ export class BankPhysics {
   nearest(point, floorIndex=null) {
     let best=null,distance=Infinity;const bounds=new THREE.Box3();
     for(const b of this.bodies) {
-      if(b.fixed||b.state===2)continue;
+      if(b.fixed||b.state===2||b.content||b.role==='glass')continue;
       if(floorIndex!=null&&this.nodes[b.node].level!==floorIndex)continue;
       const d=this.bounds(b,bounds).distanceToPoint(point);
       if(d<distance){distance=d;best=b;}
@@ -46,14 +46,39 @@ export class BankPhysics {
     return distance<3?best:null;
   }
   sphereHit(center,radius) {
-    let best=null,distance=radius;const bounds=new THREE.Box3(),point=new THREE.Vector3();
+    let best=null,distance=radius;
+    const bounds=new THREE.Box3(),local=new THREE.Vector3(),closest=new THREE.Vector3(),transform=new THREE.Matrix4();
     for(const b of this.bodies) {
-      if(b.fixed||b.role==='glass'||b.role==='joinery')continue;
-      this.bounds(b,bounds);bounds.clampPoint(center,point);
-      const d=point.distanceTo(center);
-      if(d<distance){distance=d;best={point:point.clone(),body:b};}
+      if(b.fixed||b.role==='paper')continue;
+      if(this.bounds(b,bounds).distanceToPoint(center)>=distance)continue;
+      this.bodyMatrix(b,transform);local.copy(center).applyMatrix4(transform.clone().invert());
+      // Test individual solid members, not the empty rectangle enclosed by a
+      // window frame or the space between a table's legs.
+      for(const part of b.parts) {
+        part.collisionBounds.clampPoint(local,closest);closest.applyMatrix4(transform);
+        const d=closest.distanceTo(center);
+        if(d<distance){distance=d;best={point:closest.clone(),body:b};}
+      }
     }
     return best;
+  }
+  solidContact(a,b) {
+    const am=this.bodyMatrix(a),bm=this.bodyMatrix(b),ab=new THREE.Box3(),bb=new THREE.Box3();
+    for(const ap of a.parts){ab.copy(ap.collisionBounds).applyMatrix4(am);for(const bp of b.parts){bb.copy(bp.collisionBounds).applyMatrix4(bm);if(ab.intersectsBox(bb))return true;}}
+    return false;
+  }
+  hitContent(b,power,direction) {
+    if(!b.content||b.fixed||power<3)return false;
+    b.hp=Math.max(0,b.hp-power/(b.role==='counter'||b.role==='cabinet'?150:65));
+    const impulse=Math.min(7,power/(18+Math.sqrt(b.mass)*32));
+    if(b.state===0){this.release(b,direction,impulse);if(b.role!=='paper'){const torque=impulse/(2+b.mass*3);b.wx+=direction.z*torque;b.wz-=direction.x*torque;}}
+    else {b.state=1;b.sleep=0;b.vx+=direction.x*impulse;b.vy+=direction.y*impulse;b.vz+=direction.z*impulse;}
+    // Loose articles belong to a physical support. Contact with that support
+    // releases only its own contents, from their already-visible positions.
+    for(const child of this.bodies)if(child.restsOn===b.id&&child.state===0&&child.content) {
+      this.hitContent(child,power*.65,direction);
+    }
+    this.revision++;return true;
   }
   chargePoint(charge) {
     const b=this.bodies[charge.bankBody];return new THREE.Vector3(charge.x,charge.y,charge.z).applyMatrix4(this.bodyMatrix(b));
@@ -61,7 +86,7 @@ export class BankPhysics {
   damage(point,power,direction,blast=false) {
     const radius=blast?3.9:2.15;const bounds=new THREE.Box3();let changed=false;
     for(const b of this.bodies) {
-      if(b.fixed)continue;
+      if(b.fixed||b.content)continue;
       const distance=this.bounds(b,bounds).distanceToPoint(point);
       if(distance>=radius)continue;
       const influence=Math.pow(1-distance/radius,1.4),weak=b.role==='glass'?3.8:b.role==='joinery'?1.8:1;
@@ -88,6 +113,7 @@ export class BankPhysics {
     this.bodyMatrix(b,matrix).decompose(position,quaternion,scale);scale.set(1,1,1);
     b.x=position.x;b.y=position.y;b.z=position.z;euler.setFromQuaternion(quaternion);b.rx=euler.x;b.ry=euler.y;b.rz=euler.z;
     b.state=1;b.sleep=0;b.vx=direction.x*power;b.vz=direction.z*power;b.vy=Math.max(-.3,direction.y*power);
+    if(b.role==='paper'){b.vy+=1.2+this.sim.random();b.vx+=(this.sim.random()-.5)*2;b.vz+=(this.sim.random()-.5)*2;}
     const tall=topples(b);
     const sign=(b.origin.x-this.recipe.building.x)*.09;
     b.wx=direction.z*.28+(tall?.8:.15+this.sim.random()*.3);b.wz=-direction.x*.28+sign*.15+(this.sim.random()-.5)*.5;b.wy=(this.sim.random()-.5)*.35;
@@ -118,7 +144,7 @@ export class BankPhysics {
         if(n.strain>.36) {
           n.state=2;
           const direction=new THREE.Vector3((n.ix-1)*.23,-.2,(n.iz-1)*.23);
-          for(const id of n.bodies)this.release(this.bodies[id],direction,.55);
+          for(const id of n.bodies)if(!this.bodies[id].content)this.release(this.bodies[id],direction,.55);
           this.sim.lastImpact.set(this.recipe.building.x+n.x,.23+n.y+2,this.recipe.building.z+n.z);
           this.sim._emit('collapse',this.sim.lastImpact,{buildingId:this.recipe.building.id,floor:n.level,material:'stone'});
           this.sim.crowdReaction=1;
@@ -127,7 +153,8 @@ export class BankPhysics {
     }
     for(const b of this.bodies)if(b.state===0&&b.restsOn!=null&&this.bodies[b.restsOn].state>0) {
       const support=this.bodies[b.restsOn];
-      this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);
+      if(b.content)this.hitContent(b,12,new THREE.Vector3(support.vx*.2,.1,support.vz*.2));
+      else this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);
     }
     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
     // cost when the entire bank is moving; it is derived, never hidden state.
@@ -137,15 +164,46 @@ export class BankPhysics {
         const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push({b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,top:box.max.y});
       }
     };
-    for(const b of this.bodies)if(b.state===2||b.fixed||(b.state===0&&b.role==='slab'))put(b,this.bounds(b,bounds));
+    const putBody=b=>{
+      if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
+      if(b.content){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform));}
+      else put(b,this.bounds(b,bounds));
+    };
+    for(const b of this.bodies)if(b.state===2||b.fixed||(b.state===0&&(b.role==='slab'||b.content)))putBody(b);
+    // Resting support is derived from the actual current solid surfaces. A
+    // settled article must wake when any support moves, including a surface it
+    // landed on after leaving its original parent. No hidden attachment cache.
+    for(const b of this.bodies)if(b.state===2) {
+      const bottom=this.bounds(b,bounds).min.y;
+      if(bottom<=.25)continue;
+      const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
+      const supported=entries.some(e=>e.b!==b&&e.b.state!==1&&b.x>=e.minX&&b.x<=e.maxX&&b.z>=e.minZ&&b.z<=e.maxZ&&Math.abs(e.top-bottom)<.045);
+      if(!supported){b.state=1;b.sleep=0;if(b.role==='paper')b.hits=0;}
+    }
+    const contents=this.bodies.filter(b=>b.content&&b.role!=='paper').map(b=>({b,box:this.bounds(b)}));
     let active=false;
     for(const b of this.bodies) {
       if(b.state!==1)continue;active=true;
       const oldBottom=this.bounds(b,bounds).min.y;
-      b.vy-=dt*12.5;
+      b.vy-=dt*(b.role==='paper'?2.4:12.5);
+      if(b.role==='paper'&&!b.hits&&oldBottom>.5){b.vx+=Math.sin(this.sim.time*5+b.id)*dt*.7;b.wx=Math.sin(this.sim.time*4+b.id)*1.6;}
       b.x+=b.vx*dt;b.y+=b.vy*dt;b.z+=b.vz*dt;
       b.rx+=b.wx*dt;b.ry+=b.wy*dt;b.rz+=b.wz*dt;
       const box=this.bounds(b,bounds);let surface=.23,under=null;
+      // Incoming architectural pieces must actually overlap a furnishing.
+      // Regional wall damage does not teleport impulses through the room.
+      if(b.role!=='paper'&&b.role!=='glass')for(const target of contents) {
+        if(target.b===b||target.b.restsOn===b.id||b.restsOn===target.b.id)continue;
+        const key='content:'+b.id+':'+target.b.id;
+        const speed=Math.hypot(b.vx,b.vy,b.vz);
+        if(speed<1.2||this.contacts.has(key)||!box.intersectsBox(target.box)||!this.solidContact(b,target.b))continue;
+        this.contacts.add(key);
+        const direction=new THREE.Vector3(b.vx,Math.max(.2,b.vy*.08),b.vz);
+        if(direction.length()<.6)direction.set((target.b.x-b.x)*2,.3,(target.b.z-b.z)*2);
+        direction.normalize();this.hitContent(target.b,Math.min(160,speed*b.mass*8),direction);
+        b.vx*=.82;b.vz*=.82;
+      }
+
       const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
       for(const entry of entries) {
         if(entry.b===b)continue;
@@ -156,11 +214,12 @@ export class BankPhysics {
       }
       if(box.min.y<=surface+.012 && b.vy<.5) {
         const speed=Math.max(0,-b.vy);b.y+=surface-box.min.y;
-        b.vy=speed*(b.role==='glass'?.12:.08);
+        if(b.role==='paper')b.hits=1;
+        b.vy=speed*(b.role==='glass'?.24:b.role==='paper'?.015:.08);
         b.vx*=Math.exp(-dt*12);b.vz*=Math.exp(-dt*12);
         // Slabs stay broad and heavy; columns lose balance and roll onto a
         // side. Ground clearance follows the rotated geometry's full bounds.
-        if(topples(b)&&Math.abs(b.rx)<1.4) b.wx+=dt*.7;
+        if(topples(b)&&b.role!=='paper'&&Math.abs(b.rx)<1.4) b.wx+=dt*.7;
         else {b.wx*=Math.exp(-dt*9);b.wz*=Math.exp(-dt*9);}
         b.wy*=Math.exp(-dt*8);
         if(speed>2.5) {
@@ -184,10 +243,10 @@ export class BankPhysics {
         if(b.sleep>.45) {
           b.state=2;b.vx=b.vy=b.vz=b.wx=b.wy=b.wz=0;
           if(!b.scored){b.scored=1;this.tonnage+=b.mass;this.sim.tonnage+=b.mass;}
-          put(b,this.bounds(b,bounds));
+          putBody(b);
         }
       } else b.sleep=0;
-      b.vx*=Math.exp(-dt*.16);b.vz*=Math.exp(-dt*.16);
+      b.vx*=Math.exp(-dt*(b.role==='paper'?1.9:.16));b.vz*=Math.exp(-dt*(b.role==='paper'?1.9:.16));
     }
     if(active)this.revision++;
     if(!this.collapsed&&this.nodes.filter(n=>n.state===2).length>=18) {

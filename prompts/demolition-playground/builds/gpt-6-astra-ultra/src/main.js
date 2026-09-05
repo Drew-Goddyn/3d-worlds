@@ -120,7 +120,7 @@ canvas.addEventListener('pointerup',event=>{
   const hit=pick(event);if(!hit||!branch())return;
   if(tool==='charge'){
     if(simulation.placeCharge(hit.point,hit.building.id,hit.floor.index))sound(7);else toast('Six charges is a full set. Time to detonate.');
-  }else{crane.aimAt(hit.point);toast(`Taking a swing at ${hit.building.name}.`);}
+  }else{crane.aimAt(hit.point,hit.building.bank?2.1:3);toast(`Taking a swing at ${hit.building.name}.`);}
   $('target-label').hidden=true;record();updateUI();
 });
 canvas.addEventListener('contextmenu',e=>e.preventDefault());
@@ -205,6 +205,6 @@ window.demolition={
   pause(){paused=true;rewinding=false;},resume(){paused=false;rewinding=false;},seek(time){paused=true;rewinding=false;restoreSample(time);updateUI();},reset:resetCity,
   state(){return capture();},historySample(time){return history.sample(time);},
   impactBuilding(id,power=80){if(!branch())return;const b=city.buildings.find(b=>b.id===id);simulation.impact(new THREE.Vector3(b.x,2,b.z+b.depth/2),power,new THREE.Vector3(-.1,0,-1));record();},
-  aimBuilding(id){const b=city.buildings.find(b=>b.id===id);if(branch())crane.aimAt(new THREE.Vector3(b.x,5,b.z+b.depth/2));},
+  aimBuilding(id){const b=city.buildings.find(b=>b.id===id);if(branch())crane.aimAt(new THREE.Vector3(b.x,5,b.z+b.depth/2),b.bank?2.1:3);},
   placeCharge(id,floor=0){if(!branch())return false;const b=city.buildings.find(b=>b.id===id),f=b.floors[floor];const result=simulation.placeCharge(new THREE.Vector3(b.x-b.width*.4,f.y+1,b.z+b.depth*.4),id,floor);record();return result;},detonate,
 };
