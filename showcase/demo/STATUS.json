@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "status": "recording-continuity-replacement",
+  "status": "blocked-capture-continuity",
   "branch": "codex/comparison-recorder",
   "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
   "recordingFingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
   "run": "demolition-demo-v1",
   "outputDirectory": ".demo-work/demolition-demo-v1-release",
-  "officialTakes": 10,
+  "officialTakes": 11,
   "publication": "not-started",
   "blockers": [
-    "Independent review found seven repeated source frames in Astra charges without proven native stalls. The old100ms capture-gap threshold does not establish the full continuity requirement. Publication is paused while stricter output-frame freshness and one unchanged-input replacement are assessed."
+    "Both official Astra charges captures are inconclusive under the independently approved30fps freshness gate: original7 repeated output frames; one permitted replacement4. No further identical-input retry or release approval. User decision required between deeper recorder diagnostics and a clearly labeled preview with explicitly relaxed continuity criteria."
   ],
   "verification": {
     "originalFilesCompared": 78,
@@ -21,7 +21,8 @@
     "actualViewerChecksPassed": true,
     "retainedCaptures": 63,
     "retainedFrameHashesVerified": 85288,
-    "outputFreshnessGate": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583"
+    "outputFreshnessGate": "6604859a89e7ff2407511a46c50826bb0d5ff383ae46969b1f6c25a0d445f583",
+    "recordingsReview": "showcase/demo/evidence/recordings-review-inconclusive.json"
   },
   "completed": [
     "Hash-pinned temporary copies and native action adapters",
@@ -39,13 +40,13 @@
     "Independent strict30fps source-freshness gate frozen; known flawed take fails and eight chapters pass"
   ],
   "remaining": [
-    "Resolve independent capture-continuity finding, then complete final recording review",
+    "Resolve recurring recorder limitation without weakening the gate; no automatic identical-input retries",
     "Package evidence and six release assets",
     "Commit, merge and publish at verified revision",
     "Verify public download checksums and update showcase links"
   ],
   "retention": "Every prior calibration, interrupted capture, rehearsal and official take remains under .demo-work outside Git. One rehearsal clock failure and one official start-marker capture failure were independently invalidated and replaced once with unchanged inputs. Historical failed reviews are preserved in evidence/.",
-  "resumeCommand": "npm run demo -- record --run demolition-demo-v1 --output .demo-work/demolition-demo-v1-release --build astra --chapter charges-rewind",
+  "resumeCommand": "Read STATUS.json and independent recordings review; do not publish or retry unchanged captures while the continuity blocker remains",
   "selectedOfficialTakes": 9,
   "retainedTechnicalFailures": {
     "rehearsal": 1,

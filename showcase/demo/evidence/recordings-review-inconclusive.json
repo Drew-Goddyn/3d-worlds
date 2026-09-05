@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-09-05T03:47:09.971Z",
+  "independentVerifier": "final_verify",
+  "status": "inconclusive-capture-continuity",
+  "passed": false,
+  "releaseApproved": false,
+  "fingerprint": "46ce62bf06d989fe6e494458aff4122f18ef4407c639876d8111bec370c801e2",
+  "scope": "Independent actual footage, presentation, native receipt, mapping, source preservation and viewer review of the currently encoded films. Astra charges is invalid and a single identical-input replacement is separately permitted.",
+  "blockingFinding": {
+    "take": "official/astra/charges-rewind/take-1788577251681",
+    "reason": "Seven repeated output frames across five source holds have no established native stall explanation; maximum source metadata age is 94.441 ms.",
+    "decision": "official-continuity-decision.json",
+    "replacementRequired": true
+  },
+  "method": {
+    "playback": "Each complete 70-second film was actually played once from zero to ended at playbackRate 1, with no seeking or rate changes. The browser logged every presented video frame. Live screenshots were captured at 22 planned checkpoints per film with actual surrounding media times retained.",
+    "visual": "The verifier inspected live full-frame screenshot samples spanning every chapter and key actions, then all 70 integer-second timeline images for each of the four complete films, plus matched source JPEGs, calibration shots and five before/after capture-gap comparisons.",
+    "limits": "This is complete normal-speed browser playback with agent visual inspection of sampled frames and dense timelines. It is not a claim that a human or the model continuously visually watched every moving frame. Browser playback cadence does not establish original capture continuity."
+  },
+  "films": [
+    {
+      "file": "gpt-5.5-xhigh.mp4",
+      "sha256": "02d64d5bcf5596545924fa61af3b34d070f0030099cd2fa3e612121fd91305ef",
+      "completeOneTimesPlayback": true,
+      "wallDurationSeconds": 70.00509999999777,
+      "presentedFrames": 2100,
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "unexpectedEvents": [],
+      "liveScreenshotCount": 22,
+      "timelineSamplesViewed": 70,
+      "playbackLog": "viewer-check/independent/gpt-5.5-xhigh-playback.json",
+      "playbackLogSha256": "774dc0e1657d3f4f812b3f7791473cef00d25e62eddf631509685ddb6bf3608b",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "pixelFormat": "yuv420p",
+      "colorRange": "tv"
+    },
+    {
+      "file": "gpt-5.6-sol-ultra.mp4",
+      "sha256": "5551bed616aac6f51e4f006a7bec566f30e2051b7f7698cc0281d66dc4ef8875",
+      "completeOneTimesPlayback": true,
+      "wallDurationSeconds": 70.0061000000015,
+      "presentedFrames": 2100,
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "unexpectedEvents": [],
+      "liveScreenshotCount": 22,
+      "timelineSamplesViewed": 70,
+      "playbackLog": "viewer-check/independent/gpt-5.6-sol-ultra-playback.json",
+      "playbackLogSha256": "b0a91339f7bb10314885be143da188b74cb4ba9fb53e331f07aa7af7af62a930",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "pixelFormat": "yuv420p",
+      "colorRange": "tv"
+    },
+    {
+      "file": "gpt-6-astra-ultra.mp4",
+      "sha256": "d6bfea99d323196077000b2ae7031e190011ba6060a57840132cb8beb96a1f62",
+      "completeOneTimesPlayback": true,
+      "wallDurationSeconds": 70.0058999999985,
+      "presentedFrames": 2100,
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "unexpectedEvents": [],
+      "liveScreenshotCount": 22,
+      "timelineSamplesViewed": 70,
+      "playbackLog": "viewer-check/independent/gpt-6-astra-ultra-playback.json",
+      "playbackLogSha256": "ab3807d160aca32414f899616af6c1a90fe662c87059be8a94286b8605c3ecbb",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "pixelFormat": "yuv420p",
+      "colorRange": "tv"
+    },
+    {
+      "file": "demolition-comparison.mp4",
+      "sha256": "c1649f846953250af915371616594f593926dbddfbb3726103c858b1fb716e62",
+      "completeOneTimesPlayback": true,
+      "wallDurationSeconds": 70.00579999999702,
+      "presentedFrames": 2100,
+      "firstMediaTime": 0,
+      "lastMediaTime": 69.966667,
+      "maxMediaStepSeconds": 0.03333400000001063,
+      "unexpectedEvents": [],
+      "liveScreenshotCount": 22,
+      "timelineSamplesViewed": 70,
+      "playbackLog": "viewer-check/independent/demolition-comparison-playback.json",
+      "playbackLogSha256": "fde9ab615ccebc1b8aa3133519bcec1848ede9b79748d3989d80eb396c6ceb6e",
+      "dimensions": [
+        3840,
+        840
+      ],
+      "pixelFormat": "yuv420p",
+      "colorRange": "tv"
+    }
+  ],
+  "visualFindings": {
+    "framingUseful": true,
+    "labelsAndCaptions": "Permanent model/reasoning labels and shared intent captions remain outside native viewports. Target buildings and ball motion remain within the approved shared framing. The wide composite makes small native HUD text difficult at reduced sizes; individual films and viewer focus provide a larger view.",
+    "nativeOutcomes": [
+      "Site retains the weak ball swing and large native particle cloud, which temporarily obscures buildings during detonation and rewind. Automatic rewind visibly returns to the pristine district.",
+      "Sol retains passive ball contact during fresh-page startup, one requested kick, limited collapse, and held rewind ending at a partially restored Moment held state.",
+      "Astra retains its native bank collapse and adjacent effects from one launch, three visible charges, slow detonation, and toggle rewind returning to a paused pristine state. The invalid charges take is retained only as failed capture evidence."
+    ],
+    "color": "Native pale blue/fog and cream palettes remain intact. Independent source-JPEG-to-clean-H264 pixel comparisons across all nine chapters show p95 absolute RGB error no greater than 3/255; explicit full-to-limited-range conversion is visually consistent.",
+    "cuts": "Only the shared 8 s and 26 s chapter transitions are present in the reviewed films. Recorded native effects and rewind behavior are not replaced by video reversal."
+  },
+  "viewer": {
+    "status": "pass",
+    "passedChecks": 17,
+    "totalChecks": 17,
+    "actualFilmOffline": true,
+    "desktopAndFocusScreenshotsViewed": true,
+    "mobileWidthsViewed": [
+      320,
+      390
+    ],
+    "summary": "Independent checks cover shared play/pause, all chapters, arbitrary seeks, focus, mobile selection and layout, seek correction after induced drift, end/restart, metadata-load cancellation and real HTTP byte starvation. Playback rates remain 1. The exact viewer HTML and full check logs are retained.",
+    "evidence": "viewer-check/independent/viewer-review.json",
+    "harnessCorrection": "An initial viewer check read state separately for each player, adding CLI wall time to the comparison. That test harness error was retained in viewer-review-harness-cross-clock-failure.json and fixed using one atomic state snapshot; no product change was made for that result."
+  },
+  "sourceAndMapping": {
+    "preservationEvidence": "viewer-check/independent/source-and-tests.json",
+    "preservedOriginalFiles": 78,
+    "sourceCommit": "2d5c93339ee2cd938bebda777f413a8267140858",
+    "frozenInputsMatch": true,
+    "fullOutputMapsChecked": true,
+    "markerPairsIndependentlyDecoded": 18,
+    "encodingColorPairsCompared": 27,
+    "evidence": "viewer-check/independent/media-analysis.json"
+  },
+  "continuityEvidence": [
+    "viewer-check/independent/capture-continuity.json",
+    "viewer-check/independent/output-freshness-review.json",
+    "viewer-check/independent/gap-pixels.json",
+    "viewer-check/independent/backpressure-analysis.json"
+  ],
+  "remaining": [
+    "Stop and surface the recurrent capture continuity failure; no more identical-input retries are authorized.",
+    "If a revised capture method is authorized, independently review its changed inputs and evidence before new captures.",
+    "No release approval or asset certification is possible for the current invalid film set."
+  ],
+  "replacementResult": {
+    "status": "invalid-no-further-retry-authorized",
+    "take": "official/astra/charges-rewind/take-1788579827566",
+    "evidence": "official/astra/charges-rewind/take-1788579827566/independent-continuity-invalidation.json",
+    "repeatedOutputFrames": 4,
+    "maxSourceMetadataAgeSeconds": 0.0756216049194336
+  }
+}
