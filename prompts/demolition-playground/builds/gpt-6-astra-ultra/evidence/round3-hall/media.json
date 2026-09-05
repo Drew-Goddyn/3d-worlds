@@ -1,0 +1,66 @@
+{
+  "baseline-native.webm": {
+    "sha256": "258fa4309ea1a78f566e2b0f77406b49989649ab8f6685fac5b7686ba0b0b82e",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp9",
+        "width": 1440,
+        "height": 900,
+        "avg_frame_rate": "30/1"
+      }
+    ],
+    "format": {
+      "duration": "29.432162"
+    }
+  },
+  "candidate-collapse.webm": {
+    "sha256": "bd40f948be63683981faf8f02e345ca087501716bedf35cc08156e6b18d4447d",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp9",
+        "width": 1440,
+        "height": 900,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "17.470718"
+    }
+  },
+  "candidate-native.webm": {
+    "sha256": "67e6fc1652885e9857e0a4f4337ea7c802fa758b0ccd396bf51f68bd292e059f",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp9",
+        "width": 1440,
+        "height": 900,
+        "avg_frame_rate": "30000/1001"
+      }
+    ],
+    "format": {
+      "duration": "29.435277"
+    }
+  },
+  "candidate-time-controls.webm": {
+    "sha256": "5f0976feb1bc689b88dd4551f1c4b41b4b3f0f41bd5ee0d15946b332617ed060",
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "vp9",
+        "width": 1440,
+        "height": 900,
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "18.917423"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "radius": 1.7,
+  "duration": 20,
+  "input": "Aim at writing table center five times, four seconds apart, from pristine normal crane spawn; no body teleportation or forced damage",
+  "directCraneContentHits": 0,
+  "directlyHitRoles": [],
+  "firstDirectHits": [],
+  "finalBall": [
+    -14.792415665346862,
+    3.047832454075639,
+    16.899655995681616
+  ],
+  "bankStats": {
+    "bays": 27,
+    "failedBays": 24,
+    "loose": 184,
+    "settled": 1354,
+    "retained": 1828
+  }
+}

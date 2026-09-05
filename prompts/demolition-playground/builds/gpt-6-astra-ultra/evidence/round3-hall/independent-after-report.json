@@ -1,0 +1,91 @@
+{
+  "status": "BLOCKED",
+  "scope": "Astra banking hall changes relative to 6d583d11b73e337114f597a772a5924f769cd562, including untracked hall source and tests",
+  "verification_context": "fresh independent verifier, diff plus criteria; builder notes and visual reviews not read",
+  "suite": {
+    "command": "npm test",
+    "pass": 27,
+    "fail": 0,
+    "skipped": 0,
+    "evidence": "independent-after-tests.txt"
+  },
+  "findings": [
+    {
+      "severity": "P1",
+      "property": "Persistent major architectural rubble retains physically supported resting state",
+      "result": "FAIL",
+      "repro": "A masonry fragment gently settled on a writing table at bottom y=1.637 remains exactly frozen after six normal impulses move table 2.174 units away.",
+      "cause": "Support reassessment applies to content bodies only; new furniture can support architectural rubble which must also wake when its support moves.",
+      "evidence": [
+        "independent-rubble-support-probe.mjs",
+        "independent-rubble-support-probe.json"
+      ]
+    }
+  ],
+  "passed_properties": [
+    "Existing local support-loss tests retained and passing",
+    "Intact authored hall and finite pre-existing glazing/furnishing body inventory",
+    "Snapshot immutability during forward physics and exact deterministic resume",
+    "Charge and contact state capture, alternative future, rolling minute, pristine restoration",
+    "Finite state and bounded scoring under extensive collapse",
+    "Surrounding non-bank suite regressions",
+    "Local pinned Three runtime imports; no added external dependency",
+    "No weakened or removed existing test gates in scoped diff"
+  ],
+  "limitations": [
+    "Visual acceptance explicitly not certified",
+    "Actual radius gameplay probe enters through a substantial demolition path, not proof that the 3.4 diameter ball fits intact 2.6-wide stone opening after only glass removal."
+  ],
+  "source_sha256": {
+    "src/bank-physics.js": "1694fb3c93ccfca46b75e1c38afd56beaa8dbcef6e1f1374cf4f005cc1508112",
+    "src/bank-hall.js": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+    "src/bank.js": "d9a1bae7ebb1d0395c658c2481a4de0e1119fb7463adfe3fffce3663b348830a",
+    "src/crane.js": "55651b55ebfe91979afef2407af6e3765d61e022e82a42bf7a784007b105e688",
+    "tests/hall.test.mjs": "8291b76019a1bc4795918ab8a83b7b045677d60cf697bf16b27056ec5f559199"
+  },
+  "verification_round": 2,
+  "resolved_findings": [
+    {
+      "severity": "P1",
+      "property": "Furniture responds only to actual local solid contact",
+      "result": "PASS after correction",
+      "repro": "Masonry fragment centered at table.x, y=0.9, table.z, moving +x at 2, has zero solid-part intersections, but one simulation step releases table and reduces hp from 1 to 0.777262858239748.",
+      "cause": "Content impulse uses whole-body bounding boxes including empty space between table legs.",
+      "evidence": [
+        "independent-contact-probe.mjs",
+        "independent-contact-probe.json"
+      ]
+    },
+    {
+      "severity": "P1",
+      "property": "Persistent bodies retain physically supported resting state",
+      "result": "PASS after correction",
+      "repro": "Release a ledger gently; after 5 seconds it rests on table at bottom y=1.637. Apply six normal strength150 impulses moving supporting table left. Table moves 2.174 units; ledger stays exactly unchanged at its old midair position.",
+      "cause": "Settled bodies skip integration and existing support release only handles state0 children, not settled dependents.",
+      "evidence": [
+        "independent-support-probe.mjs",
+        "independent-support-probe.json"
+      ]
+    }
+  ],
+  "actual_radius_probe": {
+    "radius": 1.7,
+    "duration": 20,
+    "input": "Aim at writing table center five times, four seconds apart, from pristine normal crane spawn; no body teleportation or forced damage",
+    "directCraneContentHits": 0,
+    "directlyHitRoles": [],
+    "firstDirectHits": [],
+    "finalBall": [
+      -14.792415665346862,
+      3.047832454075639,
+      16.899655995681616
+    ],
+    "bankStats": {
+      "bays": 27,
+      "failedBays": 24,
+      "loose": 184,
+      "settled": 1354,
+      "retained": 1828
+    }
+  }
+}

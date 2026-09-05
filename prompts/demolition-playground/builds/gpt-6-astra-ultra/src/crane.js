@@ -60,11 +60,11 @@ export class Crane {
     this.initial=this.capture();this.render();
   }
   updateAnchor(){this.anchor.set(this.base.x+Math.cos(this.yaw)*this.reach,42,this.base.z+Math.sin(this.yaw)*this.reach);}
-  aimAt(point){
-    this.aim.copy(point);this.aim.y=THREE.MathUtils.clamp(point.y,3,32);
+  aimAt(point,minHeight=3){
+    this.aim.copy(point);this.aim.y=THREE.MathUtils.clamp(point.y,minHeight,32);
     this.goalYaw=Math.atan2(point.z-this.base.z,point.x-this.base.x);
     this.goalReach=THREE.MathUtils.clamp(Math.hypot(point.x-this.base.x,point.z-this.base.z)+2,14,51);
-    this.goalLength=THREE.MathUtils.clamp(42-this.aim.y,9,39);
+    this.goalLength=THREE.MathUtils.clamp(42-this.aim.y,9,42-minHeight);
     this.aimTime=4.5;
     const impulse=point.clone().sub(this.ballPosition);impulse.y=0;impulse.normalize().multiplyScalar(21);
     this.velocity.add(impulse);
@@ -73,7 +73,7 @@ export class Crane {
     if(action==='left')this.goalYaw-=dt*.58;
     if(action==='right')this.goalYaw+=dt*.58;
     if(action==='up')this.goalLength= Math.max(8,this.goalLength-dt*8);
-    if(action==='down')this.goalLength= Math.min(39,this.goalLength+dt*8);
+    if(action==='down')this.goalLength= Math.min(39.9,this.goalLength+dt*8);
     if(action==='swing')this.velocity.add(new THREE.Vector3(-Math.sin(this.yaw),0,Math.cos(this.yaw)).multiplyScalar(dt*42));
   }
   update(dt,city,simulation){
@@ -103,8 +103,21 @@ export class Crane {
             const hit=simulation.bank.sphereHit(this.ballPosition,1.7);
             if(hit){
               const speed=this.velocity.length();
-              simulation.impact(hit.point,Math.min(150,26+speed*5),this.velocity.clone().normalize());
-              this.velocity.multiplyScalar(-.34);this.velocity.y=Math.abs(this.velocity.y)+2;this.cooldown=.44;break outer;
+              const direction=this.velocity.clone().normalize(),power=Math.min(150,26+speed*5);
+              if(hit.body.content)simulation.bank.hitContent(hit.body,power,direction);
+              else {
+                // Breaking thin glazing is not the same energy transfer as
+                // striking its masonry surround. Subsequent physical contact
+                // with stone still applies the full architectural impact.
+                const transfer=hit.body.role==='glass'?.28:hit.body.role==='joinery'?.55:1;
+                simulation.impact(hit.point,power*transfer,direction);
+              }
+              const fragile=hit.body.role==='glass'||hit.body.role==='joinery'||hit.body.content;
+              // Thin glass and movable contents absorb energy without reflecting
+              // the ball from the vanished original facade.
+              this.velocity.multiplyScalar(fragile?.88:-.34);
+              if(!fragile)this.velocity.y=Math.abs(this.velocity.y)+2;
+              this.cooldown=fragile?.09:.44;break outer;
             }
             continue;
           }

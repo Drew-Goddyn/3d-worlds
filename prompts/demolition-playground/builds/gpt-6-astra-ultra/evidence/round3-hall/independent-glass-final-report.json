@@ -1,0 +1,149 @@
+{
+  "status": "PASS_TECHNICAL_WITH_DISCLOSED_VISUAL_LIMITS",
+  "scope": "Astra app changes relative to 6d583d11b73e337114f597a772a5924f769cd562, including untracked banking hall source and tests",
+  "verification_context": "Fresh independent verifier, scoped diff plus criteria and standing invariants; no builder notes or media reviews read",
+  "suite": {
+    "command": "npm test",
+    "pass": 29,
+    "fail": 0,
+    "skipped": 0,
+    "evidence": "independent-glass-tests.txt"
+  },
+  "findings": [],
+  "resolved_findings": [
+    {
+      "property": "Furniture responds only to actual local solid contact",
+      "original_result": "FAIL",
+      "current_result": "PASS"
+    },
+    {
+      "property": "Persistent bodies retain physically supported resting state",
+      "original_result": "FAIL",
+      "current_result": "PASS"
+    },
+    {
+      "property": "Persistent major architectural rubble retains physically supported resting state",
+      "original_result": "FAIL",
+      "current_result": "PASS"
+    }
+  ],
+  "before_after_evidence": {
+    "empty_space_contact": {
+      "before": "independent-contact-probe.json",
+      "after": "independent-contact-final.json",
+      "result": "Table state remains0 and hp1 when masonry overlaps no solid members"
+    },
+    "ledger_support": {
+      "before": "independent-support-probe.json",
+      "after": "independent-support-final.json",
+      "result": "Ledger falls from center y1.705459 to0.482959 after supporting table moves"
+    },
+    "masonry_support": {
+      "before": "independent-rubble-support-probe.json",
+      "after": "independent-rubble-support-after.json",
+      "result": "Masonry falls from center y1.939421 to0.716921 after supporting table moves"
+    }
+  },
+  "ball_collision": {
+    "actual_radius": 1.7,
+    "synthetic_cleared_breach": "PASS: normal Crane.update strikes table, releases its papers, and passes into hall; obstacles relocated to construct an explicitly synthetic cleared corridor",
+    "evidence": "independent-glass-cleared-breach.json",
+    "intact_low_target": "PASS suite verifies actual sphere hits table at reachable2.1 center height",
+    "native_20_second_route": "Enters damaged hall but no direct furniture contacts; masonry moves furnishings before ball arrives. This is missing direct-contact demonstration, not evidence of incorrect collision.",
+    "native_evidence": "independent-glass-native-ball.json"
+  },
+  "new_aim_and_rewind": {
+    "result": "PASS",
+    "normal_goal_length": 39,
+    "bank_goal_length": 39.9,
+    "snapshot_immutability": true,
+    "crane_plus_simulation_exact_replay": true,
+    "evidence": "independent-glass-rewind.json"
+  },
+  "passed_properties": [
+    "Existing local support-loss tests retained and passing",
+    "Intact authored hall and finite pre-existing glazing/furnishing body inventory",
+    "Snapshot immutability during forward physics and exact deterministic resume",
+    "Charge and contact state capture, alternative future, rolling minute, pristine restoration",
+    "Finite state and bounded scoring under extensive collapse",
+    "Surrounding non-bank suite regressions",
+    "Local pinned Three runtime imports; no added external dependency",
+    "No weakened or removed existing test gates in scoped diff",
+    "Solid-part contact rejects empty space between legs",
+    "Settled furniture and architectural rubble wake on loss of current support",
+    "Full-radius ball can reach current furniture through cleared geometry",
+    "Bank low-target adjustment preserves standard other-building aiming default and rewind capture"
+  ],
+  "limitations": [
+    "Human visual/taste acceptance not certified",
+    "Synthetic breach integration test verifies collision behavior, not user-facing ease of producing that breach",
+    "Rigid pieces use deliberately coarse bounds-based support/contact physics; not a full rigid-body solver"
+  ],
+  "source_sha256": {
+    "src/bank.js": "d9a1bae7ebb1d0395c658c2481a4de0e1119fb7463adfe3fffce3663b348830a",
+    "src/bank-hall.js": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+    "src/bank-physics.js": "1694fb3c93ccfca46b75e1c38afd56beaa8dbcef6e1f1374cf4f005cc1508112",
+    "src/crane.js": "27cdf880e49b75f9479ace113099e58d4616449698c54889376b085a69533d09",
+    "src/main.js": "acf5c518d78d61f9f8542471c7f94ad8618114dd8a3f29117814fc91d3d27f1f",
+    "tests/hall.test.mjs": "ac48f9ca1c7d654da19bad18e156702042974cd242346f8f165bd9381c5bb7bc"
+  },
+  "source_stable_through_final_suite": true,
+  "verification_round": "glass contact energy transfer final stable-source check",
+  "glass_energy_transfer": {
+    "result": "PASS",
+    "source_change_scope": "Only crane.js changed since previous verified source; existing tests and invariant thresholds unchanged",
+    "evidence": "independent-glass-transfer-probe.json",
+    "results": {
+      "setup": "Contact integration probe uses current native body geometry and actual sphere radius; sphere is positioned at an overlapping contact to isolate transfer, not a gameplay route.",
+      "rows": [
+        {
+          "role": "glass",
+          "radius": 1.7,
+          "contactCenter": [
+            -16.063333333333333,
+            2.11,
+            19.39
+          ],
+          "fullPower": 65.99519586537872,
+          "deliveredPower": 18.478654842306042,
+          "ratio": 0.28,
+          "detachedGlass": 2,
+          "failedBays": 0
+        },
+        {
+          "role": "joinery",
+          "radius": 1.7,
+          "contactCenter": [
+            -15,
+            2.11,
+            19.38
+          ],
+          "fullPower": 65.99519586537872,
+          "deliveredPower": 36.2973577259583,
+          "ratio": 0.55,
+          "detachedGlass": 16,
+          "failedBays": 0
+        },
+        {
+          "role": "masonry",
+          "radius": 1.7,
+          "contactCenter": [
+            -16.65,
+            2.11,
+            19.57
+          ],
+          "fullPower": 65.99519586537872,
+          "deliveredPower": 65.99519586537872,
+          "ratio": 1,
+          "detachedGlass": 14,
+          "failedBays": 0
+        }
+      ]
+    },
+    "classification": "Material-specific impact behavior preserves direct stone strength and direct content impulse. No test gate weakened."
+  },
+  "native_route_contact_audit": {
+    "evidence": "independent-glass-contact-route.json",
+    "finding": "Native 20-second aiming route exercises masonry contacts, enters hall, and moves furnishings through falling rubble. It does not exercise initial glass/frame contact or directly hit furnishings. Separate controlled actual-radius integration probes cover those collision paths."
+  }
+}

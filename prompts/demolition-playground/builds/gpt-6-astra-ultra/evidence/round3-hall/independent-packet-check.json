@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "Artifact consistency only; no application or runtime campaign rerun",
+  "sourceCommit": "9aee1cad532278b6672cc535fec8685d473a2eaa",
+  "sourceAndNamedCommitMatchVerifiedFingerprints": true,
+  "archive": {
+    "path": "/Users/Drew/Downloads/bank-breach-review.zip",
+    "sha256": "e3700c0d45d3188d96cda6bb8fe914360168d8e513d7f8bbc8f5f91839d05cfb",
+    "members": 41,
+    "duplicateNames": 0,
+    "selectedFilesMatchManifestAndWorkspace": true,
+    "applicationCheckoutOrDependenciesPresent": false
+  },
+  "media": "Four videos match recorded hashes, codec/dimensions and durations; monotonic PTS from0 to29.432,29.435,17.470,18.917 seconds. Event/contact timing claims match input logs.",
+  "materialErrors": [],
+  "limitations": "Artifact-only follow-up. No application/runtime campaign or visual review repeated. Prior media checks remain applicable because selected media hashes are unchanged.",
+  "resolvedFinding": "All12 referenced technical proof files are now included. Four omitted reproduction/close-angle artifacts are explicitly labeled repository-only and exist at linked commit9e16523.",
+  "pr": {
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/2",
+    "state": "OPEN",
+    "mergedAt": null,
+    "verifiedWith": "gh pr view"
+  }
+}

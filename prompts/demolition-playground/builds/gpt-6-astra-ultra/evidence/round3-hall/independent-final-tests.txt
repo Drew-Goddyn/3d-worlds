@@ -1,0 +1,40 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ a limited bank wound is local, remains standing, and changes with the hit location (1491.940708ms)
+✔ bank support loss can peel one bay while leaving an independently supported bay intact (2644.036959ms)
+✔ bank charges, support, fragment motion and impact contacts replay exactly without snapshot aliasing (4211.626833ms)
+✔ extensive bank destruction settles into finite persistent architecture and retains a full minute (46414.713417ms)
+✔ six normal bank charges can cause substantial failure without an easy-collapse override (5221.693292ms)
+✔ the intact hall contains supported furnishings and pre-existing triangular glazing (603.669375ms)
+✔ a window wound releases nearby triangular shards without broadcasting damage into the hall (40.259625ms)
+✔ a falling architectural fragment contacts a writing table and releases only its loose articles (481.289791ms)
+✔ ball contact uses current solid members and passes through a cleared window (30.162458ms)
+✔ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (1238.986583ms)
+✔ a fragment passing between table legs cannot impart a contact impulse (29.653583ms)
+✔ a ledger that has settled on a table falls when the table moves away (6436.056166ms)
+✔ settled masonry falls when its furniture support moves away (6033.185416ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (6.879459ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.4545ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (164.073833ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (159.573292ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (301.846125ms)
+✔ slow motion advances exactly the supplied simulation time (7.27875ms)
+✔ a falling assembly transfers impact into an adjacent building (74.137667ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (82.7055ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (3.554583ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (92.787292ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (6.691375ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (55.987375ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (20.022541ms)
+✔ six-charge limit and all staged detonation state survive rewind (54.42025ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (378.58825ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 60242.283416

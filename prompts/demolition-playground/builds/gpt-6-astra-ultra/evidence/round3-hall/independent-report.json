@@ -1,0 +1,57 @@
+{
+  "status": "BLOCKED",
+  "scope": "Astra banking hall changes relative to 6d583d11b73e337114f597a772a5924f769cd562, including untracked hall source and tests",
+  "verification_context": "fresh independent verifier, diff plus criteria; builder notes and visual reviews not read",
+  "suite": {
+    "command": "npm test",
+    "pass": 25,
+    "fail": 0,
+    "skipped": 0,
+    "evidence": "independent-tests.txt"
+  },
+  "findings": [
+    {
+      "severity": "P1",
+      "property": "Furniture responds only to actual local solid contact",
+      "result": "FAIL",
+      "repro": "Masonry fragment centered at table.x, y=0.9, table.z, moving +x at 2, has zero solid-part intersections, but one simulation step releases table and reduces hp from 1 to 0.777262858239748.",
+      "cause": "Content impulse uses whole-body bounding boxes including empty space between table legs.",
+      "evidence": [
+        "independent-contact-probe.mjs",
+        "independent-contact-probe.json"
+      ]
+    },
+    {
+      "severity": "P1",
+      "property": "Persistent bodies retain physically supported resting state",
+      "result": "FAIL",
+      "repro": "Release a ledger gently; after 5 seconds it rests on table at bottom y=1.637. Apply six normal strength150 impulses moving supporting table left. Table moves 2.174 units; ledger stays exactly unchanged at its old midair position.",
+      "cause": "Settled bodies skip integration and existing support release only handles state0 children, not settled dependents.",
+      "evidence": [
+        "independent-support-probe.mjs",
+        "independent-support-probe.json"
+      ]
+    }
+  ],
+  "passed_properties": [
+    "Existing local support-loss tests retained and passing",
+    "Intact authored hall and finite pre-existing glazing/furnishing body inventory",
+    "Snapshot immutability during forward physics and exact deterministic resume",
+    "Charge and contact state capture, alternative future, rolling minute, pristine restoration",
+    "Finite state and bounded scoring under extensive collapse",
+    "Surrounding non-bank suite regressions",
+    "Local pinned Three runtime imports; no added external dependency",
+    "No weakened or removed existing test gates in scoped diff"
+  ],
+  "limitations": [
+    "Visual acceptance explicitly not certified",
+    "Cleared-window unit test uses radius0.05; actual crane sphere radius1.7. Actual gameplay route remains parent browser verification scope."
+  ],
+  "source_sha256": {
+    "src/bank-physics.js": "23fa6cde2e256424995f6977c9331df3dcdbac350c8e40ddd60bc3f6c884393b",
+    "src/bank-hall.js": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+    "src/bank.js": "68d777fb370c6ef159d9e3c3248875dad034ad7c566769ee1521ae232f6dc8c4",
+    "src/crane.js": "55651b55ebfe91979afef2407af6e3765d61e022e82a42bf7a784007b105e688",
+    "tests/hall.test.mjs": "2739d185b480a61876948dd3fa444adb6bbade313e19e933d52564628ef1d2fe"
+  }
+}

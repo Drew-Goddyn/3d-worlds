@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { furnishHall } from './bank-hall.js';
 
 // The bank's recipe: nine load-bearing bays per level, with real masonry
 // openings. Each retained fragment owns all its ornament; instances share only
@@ -14,9 +15,15 @@ export function createBank(building, root) {
     floor: new THREE.MeshStandardMaterial({color:0xa79b87,roughness:.94}),
     plaster: new THREE.MeshStandardMaterial({color:0xd9c9a8,roughness:.94}),
     bronze: new THREE.MeshStandardMaterial({color:0x665437,roughness:.38,metalness:.72}),
-    glass: new THREE.MeshStandardMaterial({color:0x73a9ae,roughness:.13,metalness:.35,transparent:true,opacity:.48,depthWrite:false}),
+    glass: new THREE.MeshStandardMaterial({color:0x73a9ae,roughness:.13,metalness:.35,transparent:true,opacity:.24,depthWrite:false}),
     roof: new THREE.MeshStandardMaterial({color:0x487d78,roughness:.68,metalness:.25}),
-    timber: new THREE.MeshStandardMaterial({color:0x725035,roughness:.86}),
+    timber: new THREE.MeshStandardMaterial({color:0x694329,roughness:.74}),
+    green: new THREE.MeshStandardMaterial({color:0x22665b,roughness:.7}),
+    leather: new THREE.MeshStandardMaterial({color:0x995332,roughness:.8}),
+    paper: new THREE.MeshStandardMaterial({color:0xfff1cd,roughness:.95}),
+    cash: new THREE.MeshStandardMaterial({color:0x80a777,roughness:.9}),
+    ink: new THREE.MeshStandardMaterial({color:0x233b36,roughness:.65}),
+    brass: new THREE.MeshStandardMaterial({color:0xc49b47,roughness:.36,metalness:.65}),
   };
   const shapes = {
     box: new THREE.BoxGeometry(1,1,1),
@@ -40,6 +47,7 @@ export function createBank(building, root) {
     const transform=new THREE.Matrix4().compose(p.position,p.rotation,p.scale);
     const bounds=shapes[shape].boundingBox.clone().applyMatrix4(transform);
     body.bounds.union(bounds);
+    p.collisionBounds=bounds;
   };
   function body(node,role,x,y,z,options={}) {
     const b={id:bank.bodies.length,node:node.id,role,origin:new THREE.Vector3(building.x+x,.23+y,building.z+z),parts:[],bounds:new THREE.Box3(),...options};
@@ -78,12 +86,7 @@ export function createBank(building, root) {
       const b=body(n,'foundation',x,.08,z,{fixed:true});add(b,'floor',x,.08,z,W-.014,.16,D-.014);
       // A checker floor gives demolished openings a depth cue.
       for(let a=0;a<4;a++)for(let c=0;c<4;c++)add(b,(a+c)%2?'stone':'floor',x-1.5+a,.172,z-D/2+(c+.5)*D/4,.98,.025,D/4-.016);
-      if(n.iz===1) {
-        const desk=body(n,'interior',x,y+.7,z,{mass:.5});
-        add(desk,'timber',x,y+.7,z,2.9,1.2,.64);add(desk,'carved',x,y+1.35,z,3.1,.13,.85);
-        for(const dx of [-1,0,1])add(desk,'bronze',x+dx,y+1.8,z,.04,.8,.045);
-        add(desk,'bronze',x,y+2.2,z,2.9,.035,.045);
-      }
+
     }
     // Facades are composed in a local u/v basis. Front and side openings are
     // actual voids: paired rusticated piers, sill, arch voussoirs and glazing.
@@ -98,7 +101,7 @@ export function createBank(building, root) {
       const put=(b,m,u,yy,v,w,h,d,rz=0,shape='box')=>{const [xx,zz]=pos(u,v);add(b,m,xx,yy,zz,w,h,d,ry,rz,shape);};
       const chunk=(role,u,yy,v,opts={})=>{const [xx,zz]=pos(u,v);return body(n,role,xx,yy,zz,opts);};
       const entrance=face.front&&n.ix===1&&level===0;
-      const opening=entrance?2.12:level===2?1.9:1.8;
+      const opening=level===0&&face.front?2.6:entrance?2.12:level===2?1.9:1.8;
       const foot=entrance?.34:level===2?.64:.68;
       const archBase=level===2?2.15:2.44, radius=opening/2;
       // Blocks assembled in short closed fragments. Deep jamb reveals read
@@ -123,7 +126,7 @@ export function createBank(building, root) {
       for(let a=0;a<9;a++) {
         const angle=(a+.5)/9*Math.PI,u=Math.cos(angle)*(radius+.145),yy=y+archBase+Math.sin(angle)*(radius+.145);
         const b=chunk('arch',u,yy,-.1,{mass:.52});
-        put(b,'carved',u,yy,-.1,.32,.42,.66,angle-Math.PI/2);
+        put(b,'carved',u,yy,-.1,(radius+.145)*Math.PI/9*1.02,.42,.66,angle-Math.PI/2);
       }
       const keystone=chunk('arch',0,y+archBase+radius+.14,0,{mass:.55});
       put(keystone,'limestone',0,y+archBase+radius+.14,.04,.28,.55,.76);
@@ -145,19 +148,34 @@ export function createBank(building, root) {
       }
       const header=chunk('lintel',0,y+3.96,-.12,{mass:1.6});
       put(header,'limestone',0,y+3.96,-.12,span-.025,.62,.61);
-      // Glazing consists of short panels, including a fanlight. It breaks
-      // earlier than stone, revealing the floor and teller hall behind it.
+      // Ground-floor glazing is a bounded tessellation of real triangular
+      // prisms. Every shard exists before impact and remains in history.
       for(const side of [-1,1])for(let row=0;row<2;row++) {
         const height=(archBase-foot)/2-.04,yy=y+foot+(row+.5)*(archBase-foot)/2;
-        const b=chunk('glass',side*opening/4,yy,-.31,{mass:.07});
-        put(b,'glass',side*opening/4,yy,-.31,opening/2-.06,height,.035);
+        const width=opening/2-.06,center=side*opening/4;
+        if(level===0) {
+          for(let cell=0;cell<3;cell++)for(let half=0;half<2;half++) {
+            const w=width/3,h=height,key='shard-'+w+'-'+h+'-'+half;
+            if(!shapes[key]) {
+              const shape=new THREE.Shape();
+              if(half===0){shape.moveTo(-w/2,-h/2);shape.lineTo(w/2,-h/2);shape.lineTo(w/2,h/2);}
+              else{shape.moveTo(-w/2,-h/2);shape.lineTo(w/2,h/2);shape.lineTo(-w/2,h/2);}
+              shape.closePath();shapes[key]=new THREE.ExtrudeGeometry(shape,{depth:.024,bevelEnabled:false});shapes[key].translate(0,0,-.012);
+            }
+            const u=center+(cell-1)*width/3,b=chunk('glass',u,yy,-.31,{mass:.012,shard:true});
+            put(b,'glass',u,yy,-.31,1,1,1,0,key);
+          }
+        } else {
+          const b=chunk('glass',center,yy,-.31,{mass:.07});
+          put(b,'glass',center,yy,-.31,width,height,.035);
+        }
       }
       const frame=chunk('joinery',0,y+(archBase+foot)/2,-.32,{mass:.22});
       for(const u of [-opening/2,0,opening/2])put(frame,'bronze',u,y+(archBase+foot)/2,-.28,.052,archBase-foot,.07);
       for(const yy of [foot,(archBase+foot)/2,archBase])put(frame,'bronze',0,y+yy,-.28,opening,.055,.08);
       for(let a=0;a<9;a++) {
         const angle=(a+.5)/9*Math.PI,u=Math.cos(angle)*(radius-.06),yy=y+archBase+Math.sin(angle)*(radius-.06);
-        put(frame,'bronze',u,yy,-.3,.3,.045,.05,angle-Math.PI/2);
+        put(frame,'bronze',u,yy,-.3,(radius-.06)*Math.PI/9*1.02,.045,.05,angle-Math.PI/2);
       }
       for(const angle of [Math.PI/4,Math.PI/2,Math.PI*3/4]) {
         const u=Math.cos(angle)*radius*.47,yy=y+archBase+Math.sin(angle)*radius*.47;
@@ -209,6 +227,7 @@ export function createBank(building, root) {
       }
     }
   }
+  furnishHall({bank,body,add,nodeAt,material,shapes});
   // A central broken-pitch pediment and copper hipped lantern distinguish the
   // silhouette. All segments are physical parts owned by the roof's front bay.
   const top=nodeAt(2,1,2);
