@@ -11,7 +11,7 @@
     }
   },
   "baseline": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
-  "stage": "connected construction feasibility",
+  "stage": "verified; publishing unmerged review PR",
   "direction": "Support cuts release connected architectural sections; contact and subsequent charges fracture those sections into retained rubble.",
   "choices": {
     "runtime": "existing local Three.js 0.180.0 and bank simulation",
@@ -19,5 +19,18 @@
     "externalAssets": false
   },
   "sessionSettings": "unverified; inherited directory label is original provenance",
-  "next": "Validate connected movement, exact restored continuation and representative cost on actual bank geometry; complete integration and native comparison, fresh verification and one paired media review; one new unmerged PR and evidence-only ZIP."
+  "next": "Publish one unmerged PR against main. Owner creative judgment remains pending.",
+  "sourceCommit": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "verification": {
+    "independent": "verification/report.json",
+    "passed": 43,
+    "failed": 0,
+    "native": "native-summary.json"
+  },
+  "packageReview": "package-review.json",
+  "delivery": {
+    "zip": "/Users/Drew/Downloads/bank-demolition-round5-review.zip",
+    "bytes": 49281985,
+    "sha256": "c0807bed4e4cb0dcb7043d355a24291018d6ac7c2d5a476d82d6c34d88aeba95"
+  }
 }

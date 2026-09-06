@@ -1,0 +1,31 @@
+import assert from 'node:assert/strict';
+import {registerHooks} from 'node:module';
+import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
+const root=process.argv[2]??'/tmp/bank-round5-verify-bafd8e32/prompts/demolition-playground/builds/gpt-6-astra-ultra';
+registerHooks({resolve(s,c,n){if(s==='three')return {url:pathToFileURL(root+'/vendor/three-0.180.0/three.module.js').href,shortCircuit:true};return n(s,c);}});
+const THREE=await import('three');
+const {createBank}=await import(pathToFileURL(root+'/src/bank.js').href);
+const {Simulation}=await import(pathToFileURL(root+'/src/simulation.js').href);
+function fixture(){const scene=new THREE.Scene(),b={id:0,name:'Bank',kind:'stone',x:-11,z:14,width:12,depth:11,height:12.9,storeys:3,storeyHeight:4.3,floors:[]};createBank(b,scene);return new Simulation({buildings:[b],props:[],crowd:[],pigeons:[]},scene);}
+const advance=(s,n)=>{for(let i=0;i<n;i++)s.update(1/60);};
+const digest=s=>createHash('sha256').update(JSON.stringify(s,(_,v)=>ArrayBuffer.isView(v)?[...v]:v)).digest('hex');
+const a=fixture(),pristine=structuredClone(a.capture()),retained=a.bank.bodies.length;
+for(const [x,z] of [[-15.7,19.65],[-11,19.65],[-6.3,19.65],[-4.8,10],[-4.8,14],[-4.8,17.8]])assert.ok(a.placeCharge(new THREE.Vector3(x,1.3,z),0,0));
+a.detonate();
+let frame=0;while(a.bank.stats.connectedPieces<30&&frame<300){advance(a,1);frame++;}
+assert.ok(a.bank.stats.connectedPieces>=30);
+const mid=a.capture(),immutable=structuredClone(mid),moving=a.bank.stats.connectedPieces;
+advance(a,150);const future=a.capture();
+const b=fixture();b.restore(structuredClone(mid));advance(b,150);
+assert.deepEqual(b.capture(),future,'a fresh simulation restored from serialized state must reproduce the future');
+assert.deepEqual(mid,immutable,'continued physics must leave the source snapshot unchanged');
+b.restore(mid);const target=b.bank.bodies.find(p=>p.cluster>=0&&!p.content&&p.role!=='glass');assert.ok(target);
+assert.ok(b.placeCharge(b.bank.bounds(target).getCenter(new THREE.Vector3()),0,b.bank.nodes[target.node].level,target.id));b.detonate();advance(b,150);
+assert.notDeepEqual(b.capture(),future,'a new input on a current connected remnant changes the future');
+const alternate=b.capture();const c=fixture();c.restore(structuredClone(mid));const ct=c.bank.bodies[target.id];assert.ok(c.placeCharge(c.bank.bounds(ct).getCenter(new THREE.Vector3()),0,c.bank.nodes[ct.node].level,ct.id));c.detonate();advance(c,150);assert.deepEqual(c.capture(),alternate);
+assert.equal(a.bank.bodies.length,retained);assert.equal(b.bank.bodies.length,retained);assert.equal(c.bank.bodies.length,retained);
+for(const s of [a,b,c])assert.ok(s.bank.cohesion.sections.length<=retained);
+b.restore(pristine);assert.deepEqual(b.capture(),pristine);
+console.log(JSON.stringify({status:'pass',candidate:execFileSync('git',['-C',root,'rev-parse','HEAD'],{encoding:'utf8'}).trim(),captureFrame:frame,connectedPieces:moving,retained,sourceSnapshotSha256:digest(mid),futureSha256:digest(future),alternateFutureSha256:digest(alternate),freshInstancesChecked:2,savedSnapshotUnchanged:true,sourceSnapshotRebuildExact:true},null,2));

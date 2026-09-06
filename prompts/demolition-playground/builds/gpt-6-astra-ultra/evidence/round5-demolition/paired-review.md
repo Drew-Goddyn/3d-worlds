@@ -1,0 +1,9 @@
+The demolition comparison gives **alpha a narrow preference**: its connected collapse is easier to follow, while beta has the more convincingly broken aftermath. Neither clearly improves the whole experience.
+
+- **Damage remains readable in both.** The corner-charge sequences and seven-second stills show a small, localized ground-floor wound beneath a largely intact bank. Left and right hits produce visibly different openings. I see no substantial advantage here; preserve that distinction between a surgical hit and the six-charge collapse.
+- **Alpha makes the falling architecture the event.** In the collapse strips around 2.2–3.4 seconds, its window bays and cornice remain recognizable while the front facade tilts and descends. Beta starts with recognizable movement too, but around 2.2–2.8 seconds the facade becomes a crowded mixture of separately angled pieces sooner. That gives beta more breakup activity, but weakens my ability to follow a substantial part of the building falling together.
+- **Beta wins the settled rubble.** The aftermath views show a less orderly mixture of masonry, glazing, and exposed window frames. Alpha leaves more long, similarly oriented facade bands, especially along the right side; those read more like stacked building sections. Both retain a legible standing rear structure. The buried lower rooms are a consequence of the collapse, not a defect by themselves.
+
+**One recommended change:** give alpha's large facade bands more irregular breakup when they land, while preserving their connected descent. This targets the weaker aftermath without losing the strongest visible motion.
+
+**Viewing limit:** I inspected the supplied stills and 0.2-second collapse strips, plus frames extracted from all four corner-charge clips at 0.5-second intervals. I could not continuously view the videos; normal-speed smoothness, impact timing between samples, and input feel remain unverified. No code or version identity was inspected.

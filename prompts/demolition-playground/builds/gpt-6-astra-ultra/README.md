@@ -47,7 +47,7 @@ The project has no sibling-project imports, external artwork, hosted services, a
 
 ## Continuing application and historical evidence
 
-This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four is a new, unmerged commission, not a fresh one-shot attempt or owner-approved result. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
+This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four’s architecture was retained through the explicitly authorized PR #3 checkpoint merge. Round five’s demolition is a new review candidate; owner acceptance remains pending. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
 
 ## Banking-hall breach continuation
 

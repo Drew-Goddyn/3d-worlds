@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "candidate": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "captureFrame": 80,
+  "connectedPieces": 72,
+  "retained": 1864,
+  "sourceSnapshotSha256": "7133b478de16bc0a98f0fb7bfc205ee26fa90ccf00368163113388869bf2c4a0",
+  "futureSha256": "fddc54d0a9248ac969591b108c896a1cecd126b440ef729f8b484fbd522afc62",
+  "alternateFutureSha256": "370b13f14bd1191d9e840e660f7d94972994717bc2a47a743a5ccfda65b75b23",
+  "freshInstancesChecked": 2,
+  "savedSnapshotUnchanged": true,
+  "sourceSnapshotRebuildExact": true
+}

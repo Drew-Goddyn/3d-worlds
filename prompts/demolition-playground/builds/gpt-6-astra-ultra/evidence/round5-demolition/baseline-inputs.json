@@ -1,0 +1,1087 @@
+{
+  "camera": {
+    "position": [
+      16,
+      20,
+      47
+    ],
+    "target": [
+      -11,
+      6.8,
+      14
+    ]
+  },
+  "scenarios": [
+    {
+      "label": "left",
+      "inputs": [
+        {
+          "worldTarget": [
+            -15.7,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 515.9120193464521,
+            "y": 610.2921473301624
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            }
+          ]
+        }
+      ],
+      "detonateSeconds": 0.12365691599916318,
+      "2": {
+        "wallSeconds": 2.3423142909996386,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.23298880414143475,
+              15.002899586851717,
+              3.7615657489592302
+            ],
+            "reach": 30,
+            "time": 3.876499999999993,
+            "v": [
+              -0.4635787324262179,
+              0.006478716414286684,
+              -0.20212046639782777
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 3.876499999999991,
+          "drawCalls": 390,
+          "fps": 60,
+          "historyEnd": 3.859799999999991,
+          "historyFrames": 77,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 135832
+        }
+      },
+      "7": {
+        "wallSeconds": 7.318352333000803,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.92806832034095,
+              15.001733076196931,
+              3.776961494907754
+            ],
+            "reach": 30,
+            "time": 8.843000000000032,
+            "v": [
+              0.03362066415688837,
+              0.0004912648947900389,
+              0.05874345529408295
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 8.843000000000078,
+          "drawCalls": 378,
+          "fps": 60,
+          "historyEnd": 8.809600000000074,
+          "historyFrames": 176,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 134502
+        }
+      }
+    },
+    {
+      "label": "right",
+      "inputs": [
+        {
+          "worldTarget": [
+            -6.3,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 721.936735064799,
+            "y": 690.5258619007669
+          },
+          "charges": [
+            {
+              "bankBody": 690,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.025421909203735993,
+              "y": -0.1641999668977434,
+              "z": 0.3424591964888002
+            }
+          ]
+        }
+      ],
+      "detonateSeconds": 0.11467954200270469,
+      "2": {
+        "wallSeconds": 2.3297074170004635,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.4494558290994117,
+              15.000856261412832,
+              3.845102642827954
+            ],
+            "reach": 30,
+            "time": 3.476499999999995,
+            "v": [
+              -0.6154613322943262,
+              0.0030875232201904995,
+              -0.21244740472586585
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 3.476499999999992,
+          "drawCalls": 390,
+          "fps": 60,
+          "historyEnd": 3.476499999999992,
+          "historyFrames": 70,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 135830
+        }
+      },
+      "7": {
+        "wallSeconds": 7.365285957999731,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.908882906425246,
+              15.001493751853598,
+              3.75700145146393
+            ],
+            "reach": 30,
+            "time": 8.543000000000037,
+            "v": [
+              0.09596586312314707,
+              0.0010944321524834766,
+              0.07426497364147763
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 8.543000000000061,
+          "drawCalls": 378,
+          "fps": 60,
+          "historyEnd": 8.52630000000006,
+          "historyFrames": 171,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 134492
+        }
+      }
+    },
+    {
+      "label": "collapse",
+      "inputs": [
+        {
+          "worldTarget": [
+            -15.7,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 515.9120193464521,
+            "y": 610.2921473301624
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            }
+          ]
+        },
+        {
+          "worldTarget": [
+            -11,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 611.965083229226,
+            "y": 647.6987957719845
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            },
+            {
+              "bankBody": 606,
+              "floor": 0,
+              "id": 1,
+              "when": -1,
+              "x": -0.3146578474792481,
+              "y": -0.2595066502974952,
+              "z": 0.0600006873905663
+            }
+          ]
+        },
+        {
+          "worldTarget": [
+            -6.3,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 721.936735064799,
+            "y": 690.5258619007669
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            },
+            {
+              "bankBody": 606,
+              "floor": 0,
+              "id": 1,
+              "when": -1,
+              "x": -0.3146578474792481,
+              "y": -0.2595066502974952,
+              "z": 0.0600006873905663
+            },
+            {
+              "bankBody": 690,
+              "floor": 0,
+              "id": 2,
+              "when": -1,
+              "x": -0.025421909203735993,
+              "y": -0.1641999668977434,
+              "z": 0.3424591964888002
+            }
+          ]
+        },
+        {
+          "worldTarget": [
+            -4.8,
+            1.3,
+            10
+          ],
+          "screen": {
+            "x": 924.9040086855624,
+            "y": 603.7032329739376
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            },
+            {
+              "bankBody": 606,
+              "floor": 0,
+              "id": 1,
+              "when": -1,
+              "x": -0.3146578474792481,
+              "y": -0.2595066502974952,
+              "z": 0.0600006873905663
+            },
+            {
+              "bankBody": 690,
+              "floor": 0,
+              "id": 2,
+              "when": -1,
+              "x": -0.025421909203735993,
+              "y": -0.1641999668977434,
+              "z": 0.3424591964888002
+            },
+            {
+              "bankBody": 250,
+              "floor": 0,
+              "id": 3,
+              "when": -1,
+              "x": 0.008144721290568313,
+              "y": -0.1839061034188421,
+              "z": 0.4526662250359923
+            }
+          ]
+        },
+        {
+          "worldTarget": [
+            -4.8,
+            1.3,
+            14
+          ],
+          "screen": {
+            "x": 863.4416508729938,
+            "y": 641.7641979572472
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            },
+            {
+              "bankBody": 606,
+              "floor": 0,
+              "id": 1,
+              "when": -1,
+              "x": -0.3146578474792481,
+              "y": -0.2595066502974952,
+              "z": 0.0600006873905663
+            },
+            {
+              "bankBody": 690,
+              "floor": 0,
+              "id": 2,
+              "when": -1,
+              "x": -0.025421909203735993,
+              "y": -0.1641999668977434,
+              "z": 0.3424591964888002
+            },
+            {
+              "bankBody": 250,
+              "floor": 0,
+              "id": 3,
+              "when": -1,
+              "x": 0.008144721290568313,
+              "y": -0.1839061034188421,
+              "z": 0.4526662250359923
+            },
+            {
+              "bankBody": 382,
+              "floor": 0,
+              "id": 4,
+              "when": -1,
+              "x": -0.02197614903747258,
+              "y": 0.4150000292062759,
+              "z": -0.53102123938692
+            }
+          ]
+        },
+        {
+          "worldTarget": [
+            -4.8,
+            1.3,
+            17.8
+          ],
+          "screen": {
+            "x": 796.571005138596,
+            "y": 683.1742804254428
+          },
+          "charges": [
+            {
+              "bankBody": 459,
+              "floor": 0,
+              "id": 0,
+              "when": -1,
+              "x": -0.15033482177522473,
+              "y": -0.3432725310905469,
+              "z": 0.012000534161920484
+            },
+            {
+              "bankBody": 606,
+              "floor": 0,
+              "id": 1,
+              "when": -1,
+              "x": -0.3146578474792481,
+              "y": -0.2595066502974952,
+              "z": 0.0600006873905663
+            },
+            {
+              "bankBody": 690,
+              "floor": 0,
+              "id": 2,
+              "when": -1,
+              "x": -0.025421909203735993,
+              "y": -0.1641999668977434,
+              "z": 0.3424591964888002
+            },
+            {
+              "bankBody": 250,
+              "floor": 0,
+              "id": 3,
+              "when": -1,
+              "x": 0.008144721290568313,
+              "y": -0.1839061034188421,
+              "z": 0.4526662250359923
+            },
+            {
+              "bankBody": 382,
+              "floor": 0,
+              "id": 4,
+              "when": -1,
+              "x": -0.02197614903747258,
+              "y": 0.4150000292062759,
+              "z": -0.53102123938692
+            },
+            {
+              "bankBody": 705,
+              "floor": 0,
+              "id": 5,
+              "when": -1,
+              "x": -0.016745191841041063,
+              "y": 0.415000029206278,
+              "z": -0.37669927434267336
+            }
+          ]
+        }
+      ],
+      "detonateSeconds": 0.1429392080026446,
+      "1": {
+        "wallSeconds": 1.3494929160005995,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.08529263374658003,
+              15.005993112001896,
+              3.54948108028833
+            ],
+            "reach": 30,
+            "time": 5.67640000000001,
+            "v": [
+              0.2438361069374157,
+              -0.004796796118597943,
+              -0.014740827749048687
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 5.676400000000006,
+          "drawCalls": 389,
+          "fps": 60,
+          "historyEnd": 5.659800000000006,
+          "historyFrames": 113,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 138052
+        }
+      },
+      "4": {
+        "wallSeconds": 4.3465521250000165,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.9197007685798416,
+              15.001622262085585,
+              3.766440457886901
+            ],
+            "reach": 30,
+            "time": 8.676300000000035,
+            "v": [
+              0.0678808068425885,
+              0.0008436709838307022,
+              0.06762410479010995
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 8.676300000000062,
+          "drawCalls": 378,
+          "fps": 60,
+          "historyEnd": 8.659700000000061,
+          "historyFrames": 173,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 137624
+        }
+      },
+      "10": {
+        "wallSeconds": 10.369347957999707,
+        "diagnostics": {
+          "buildings": [
+            {
+              "floors": 3,
+              "height": 12.9,
+              "id": 0,
+              "name": "Mercantile Bank",
+              "x": -11,
+              "z": 14
+            },
+            {
+              "floors": 6,
+              "height": 19.200000000000003,
+              "id": 1,
+              "name": "Waterworks Lofts",
+              "x": -24,
+              "z": 14
+            },
+            {
+              "floors": 4,
+              "height": 12.4,
+              "id": 2,
+              "name": "Parkside Garage",
+              "x": 11,
+              "z": 14
+            },
+            {
+              "floors": 11,
+              "height": 34.65,
+              "id": 3,
+              "name": "Verdant Tower",
+              "x": 10,
+              "z": -13
+            },
+            {
+              "floors": 4,
+              "height": 13.4,
+              "id": 4,
+              "name": "Foundry Warehouse",
+              "x": -24,
+              "z": -13
+            },
+            {
+              "floors": 6,
+              "height": 19.5,
+              "id": 5,
+              "name": "Union House",
+              "x": -11,
+              "z": -13
+            },
+            {
+              "floors": 7,
+              "height": 22.4,
+              "id": 6,
+              "name": "Atlantic Building",
+              "x": 24,
+              "z": -13
+            },
+            {
+              "floors": 3,
+              "height": 10.8,
+              "id": 7,
+              "name": "Supply Exchange",
+              "x": -11,
+              "z": -26
+            }
+          ],
+          "crane": {
+            "aim": [
+              0,
+              0,
+              0
+            ],
+            "aimTime": 0,
+            "cooldown": 0,
+            "goalLength": 27,
+            "goalReach": 30,
+            "goalYaw": -2.72,
+            "length": 27,
+            "p": [
+              0.5680559512662258,
+              15.000084773263872,
+              3.690091960801584
+            ],
+            "reach": 30,
+            "time": 14.692799999999927,
+            "v": [
+              0.08325054381591787,
+              -0.0002003336329668426,
+              0.015363779732575371
+            ],
+            "yaw": -2.72
+          },
+          "cursor": 14.692800000000338,
+          "drawCalls": 378,
+          "fps": 60,
+          "historyEnd": 14.659400000000334,
+          "historyFrames": 293,
+          "historyStart": 0,
+          "mode": "live",
+          "tool": "charge",
+          "triangles": 137572
+        }
+      }
+    }
+  ]
+}
