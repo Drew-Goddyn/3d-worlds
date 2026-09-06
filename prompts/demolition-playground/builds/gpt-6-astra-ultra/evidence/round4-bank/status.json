@@ -1,5 +1,5 @@
 {
-  "phase": "ready-for-pr",
+  "phase": "awaiting-owner-review",
   "application": "prompts/demolition-playground/builds/gpt-6-astra-ultra",
   "branch": "round4/astra-bank-as-a-world",
   "baseline": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
@@ -9,9 +9,7 @@
   "idea": "A stone treasury enclosing a tall banking court, perimeter galleries and a copper-glass barrel vault. Damage reveals construction and opens different sections of the occupied volume.",
   "baselineMediaLocal": "/tmp/astra-round4/baseline",
   "requiredNext": [
-    "push branch",
-    "open one unmerged PR",
-    "record PR URL"
+    "Owner review; leave PR unmerged"
   ],
   "sessionSettings": "Model and reasoning unverified; directory name describes historical attempt",
   "deployment": false,
@@ -34,5 +32,12 @@
     "olderEvidenceIncluded": false,
     "mediaFiles": 24
   },
-  "packetVerification": "independent-packet-check.json"
+  "packetVerification": "independent-packet-check.json",
+  "pullRequest": {
+    "number": 3,
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/3",
+    "state": "OPEN",
+    "mergeAuthorized": false
+  },
+  "evidenceCommit": "5287b77dcee8649c3f8c222940f2c94b311f1642"
 }
