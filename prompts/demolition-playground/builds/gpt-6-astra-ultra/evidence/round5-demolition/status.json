@@ -1,0 +1,23 @@
+{
+  "commission": "round5 bank demolition",
+  "branch": "round5/astra-demolition-leap",
+  "checkpoint": {
+    "pr": 3,
+    "reviewedHead": "58ed7ec6915bd81f4111346a5dcf8c439d13a256",
+    "merge": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+    "suite": {
+      "pass": 36,
+      "fail": 0
+    }
+  },
+  "baseline": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+  "stage": "connected construction feasibility",
+  "direction": "Support cuts release connected architectural sections; contact and subsequent charges fracture those sections into retained rubble.",
+  "choices": {
+    "runtime": "existing local Three.js 0.180.0 and bank simulation",
+    "blender": "5.1.2 accessible; optional, not selected",
+    "externalAssets": false
+  },
+  "sessionSettings": "unverified; inherited directory label is original provenance",
+  "next": "Validate connected movement, exact restored continuation and representative cost on actual bank geometry; complete integration and native comparison, fresh verification and one paired media review; one new unmerged PR and evidence-only ZIP."
+}
