@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "provenance": "Compact excerpts from the original saved independent outputs; no physics was rerun or result altered during evidence reduction.",
+  "collision_fixes": [
+    {
+      "property": "Loose piece falling onto a connected slab",
+      "before_candidate": "bafd8e32cbe41528aec57d358af9432faf4092bb",
+      "before": {
+        "first_overlap": {
+          "frame": 7,
+          "sectionBottom": 3.7027777777777775,
+          "sectionTop": 4.102777777777778,
+          "looseBottom": 4.052777777777777,
+          "looseTop": 4.352777777777778,
+          "solidOverlap": true,
+          "section": 0,
+          "looseVy": -7.458333333333331
+        },
+        "complete_pass_through": {
+          "frame": 14,
+          "sectionBottom": 3.4354166666666663,
+          "sectionTop": 3.8354166666666667,
+          "looseBottom": 3.085416666666667,
+          "looseTop": 3.385416666666667,
+          "solidOverlap": false,
+          "section": 0,
+          "looseVy": -8.916666666666666
+        }
+      },
+      "after_candidate": "8535020890ad135f85fec68cebc009ddd89b1d54",
+      "after": {
+        "complete_pass_through": false,
+        "final_observation": {
+          "frame": 20,
+          "sectionBottom": 2.720083333333333,
+          "sectionTop": 3.1200833333333335,
+          "looseBottom": 3.1730833333333335,
+          "looseTop": 3.4730833333333333,
+          "solidOverlap": false,
+          "section": -1,
+          "looseVy": -5.486666666666665
+        }
+      },
+      "after_evidence": "contact-repro-85350208.json",
+      "unchanged_repro": "contact-repro.mjs"
+    },
+    {
+      "property": "Wide slab edge meeting an adjacent-cell obstacle",
+      "before_candidate": "bafd8e32cbe41528aec57d358af9432faf4092bb",
+      "before": {
+        "first_overlap": {
+          "frame": 7,
+          "overlappingMembers": [
+            2
+          ],
+          "section": 0,
+          "trailingEdge": 0.15000000000000024,
+          "obstacleFarEdge": 1.65,
+          "passed": false
+        },
+        "complete_pass_through": {
+          "frame": 37,
+          "overlappingMembers": [],
+          "section": 0,
+          "trailingEdge": 1.6500000000000006,
+          "obstacleFarEdge": 1.65,
+          "passed": true
+        }
+      },
+      "after_candidate": "8535020890ad135f85fec68cebc009ddd89b1d54",
+      "after": {
+        "complete_pass_through": false,
+        "final_observation": {
+          "frame": 40,
+          "overlappingMembers": [
+            2
+          ],
+          "section": -1,
+          "trailingEdge": 0.11068229050952974,
+          "obstacleFarEdge": 1.65,
+          "passed": false
+        }
+      },
+      "after_evidence": "contact-repro-85350208.json",
+      "unchanged_repro": "contact-repro.mjs"
+    },
+    {
+      "property": "Connected slab falling onto loose airborne rubble",
+      "before_candidate": "528d415e43ba6541b9f75f366cc6763735a9c153",
+      "before": {
+        "first_overlap": {
+          "frame": 7,
+          "sectionBottom": 3.0027777777777778,
+          "sectionTop": 3.402777777777778,
+          "looseBottom": 2.7527777777777778,
+          "looseTop": 3.0527777777777776,
+          "overlap": true,
+          "section": 0,
+          "sectionVy": -7.458333333333331,
+          "looseVy": -1.4583333333333333,
+          "passed": false
+        },
+        "complete_pass_through": {
+          "frame": 14,
+          "sectionBottom": 2.035416666666667,
+          "sectionTop": 2.4354166666666672,
+          "looseBottom": 2.4854166666666666,
+          "looseTop": 2.7854166666666664,
+          "overlap": false,
+          "section": 0,
+          "sectionVy": -8.916666666666666,
+          "looseVy": -2.916666666666667,
+          "passed": true
+        }
+      },
+      "after_candidate": "8535020890ad135f85fec68cebc009ddd89b1d54",
+      "after": {
+        "complete_pass_through": false,
+        "final_observation": {
+          "frame": 20,
+          "sectionBottom": 1.4215833333333345,
+          "sectionTop": 1.8215833333333344,
+          "looseBottom": 1.068583333333334,
+          "looseTop": 1.368583333333334,
+          "overlap": false,
+          "section": -1,
+          "sectionVy": -8.606666666666664,
+          "looseVy": -8.846666666666666,
+          "passed": false
+        }
+      },
+      "after_evidence": "reverse-contact-repro-85350208.json",
+      "unchanged_repro": "reverse-contact-repro.mjs"
+    }
+  ],
+  "settlement_and_table_regression": {
+    "before_candidate": "528d415e43ba6541b9f75f366cc6763735a9c153",
+    "before_suite": {
+      "passed": 38,
+      "failed": 3
+    },
+    "after_candidate": "8535020890ad135f85fec68cebc009ddd89b1d54",
+    "after_suite": {
+      "passed": 43,
+      "failed": 0
+    },
+    "after_evidence": "full-suite-85350208.log",
+    "tests": [
+      {
+        "test": "six normal bank charges can cause substantial failure without an easy-collapse override",
+        "before_log_excerpt": "\u2716 six normal bank charges can cause substantial failure without an easy-collapse override (41769.834166ms)",
+        "before_failure": "163 loose pieces remained; zero required.",
+        "after_log_excerpt": "\u2714 six normal bank charges can cause substantial failure without an easy-collapse override (9524.14025ms)"
+      },
+      {
+        "test": "ordinary charge strength carries connected architecture through a measurable fall before contact breakup",
+        "before_log_excerpt": "\u2716 ordinary charge strength carries connected architecture through a measurable fall before contact breakup (44767.466875ms)",
+        "before_failure": "130 loose pieces remained; zero required.",
+        "after_log_excerpt": "\u2714 ordinary charge strength carries connected architecture through a measurable fall before contact breakup (18437.598416ms)"
+      },
+      {
+        "test": "a falling architectural fragment contacts a writing table and releases only its loose articles",
+        "before_log_excerpt": "\u2716 a falling architectural fragment contacts a writing table and releases only its loose articles (1954.787042ms)",
+        "before_failure": "Falling stone did not move the writing table.",
+        "after_log_excerpt": "\u2714 a falling architectural fragment contacts a writing table and releases only its loose articles (1746.014958ms)"
+      }
+    ]
+  }
+}

@@ -47,7 +47,7 @@ The project has no sibling-project imports, external artwork, hosted services, a
 
 ## Continuing application and historical evidence
 
-This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four is a new, unmerged commission, not a fresh one-shot attempt or owner-approved result. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
+This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four’s architecture was retained through the explicitly authorized PR #3 checkpoint merge. Round five’s demolition is a new review candidate; owner acceptance remains pending. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
 
 ## Banking-hall breach continuation
 
@@ -56,3 +56,9 @@ The front ground floor now contains green teller stations, writing tables, banke
 For a revealing approach, rotate the crane left for about 1.5 seconds, lengthen the cable for about 1.5 seconds, and let it settle over the street. Aim at the right ground-floor window, follow up through the opening toward the teller area, then try the left window. The ball, falling stone, and debris can each change which contents remain reachable. Use orbit/pan/zoom to inspect the opening; rewind the actual event before trying another target.
 
 This remains a custom coarse simulation: prepared glass fractures, approximate rotated bounds and central-footprint support, rigid furnishing assemblies, and persistent rubble that can obscure the hall after large failures. No full furniture breakage or arbitrary crack solver is claimed. [Round-three review packet](evidence/round3-hall/REVIEW.md) records the current evidence and limitations.
+
+## Connected demolition continuation
+
+Charges now open localized wounds and remove bearings under the banking court. Construction rotates around surviving support, then travels in connected masonry/floor sections; real contact and later charges split those sections into the existing retained pieces. The direction of support loss affects the falling section and resulting rubble. Ground-level cuts remain bounded; try six front/right charges for the larger connected collapse, then rebuild and cut the roof followed by an upper side pier.
+
+`src/bank-cohesion.js` derives a finite connection graph from the recipe's actual solid members, handles moving sections and contact breakup, and captures their momentum/membership alongside the existing bank snapshots. `src/bank-physics.js` retains support assessment, individual rubble settlement, scoring and render ownership. The bank's existing geometry is the editable preparation recipe; no asset build, new dependency or Blender step is required. Section/fragment contacts use approximate bounds, and the surrounding buildings retain their coarse storey simulation. See [the round-five commission and evidence](evidence/round5-demolition/FOLLOW-UP.md).

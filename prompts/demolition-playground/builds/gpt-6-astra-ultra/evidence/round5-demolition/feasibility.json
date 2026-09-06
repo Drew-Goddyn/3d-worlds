@@ -1,0 +1,314 @@
+{
+  "sourceCommit": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "scope": "Isolated actual bank, no physical neighbors. Direct diagnostic charges. Repeated on final source; CPU timing collected concurrently with browser capture and independent suite, not browser performance.",
+  "result": {
+    "maxSections": 10,
+    "maxConnected": 218,
+    "exactRestoredContinuation": true,
+    "meanMs": 15.476026025555582,
+    "p95Ms": 42.81424999999945,
+    "bankSnapshotBytes": 271928,
+    "samples": [
+      {
+        "time": 0.016666666666666666,
+        "bays": 27,
+        "failedBays": 0,
+        "loose": 0,
+        "settled": 0,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 0.5166666666666666,
+        "bays": 27,
+        "failedBays": 0,
+        "loose": 214,
+        "settled": 0,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 1.016666666666668,
+        "bays": 27,
+        "failedBays": 1,
+        "loose": 374,
+        "settled": 13,
+        "retained": 1864,
+        "movingSections": 1,
+        "connectedPieces": 4
+      },
+      {
+        "time": 1.5166666666666662,
+        "bays": 27,
+        "failedBays": 4,
+        "loose": 490,
+        "settled": 64,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 2.0166666666666644,
+        "bays": 27,
+        "failedBays": 10,
+        "loose": 813,
+        "settled": 135,
+        "retained": 1864,
+        "movingSections": 6,
+        "connectedPieces": 125
+      },
+      {
+        "time": 2.5166666666666626,
+        "bays": 27,
+        "failedBays": 14,
+        "loose": 861,
+        "settled": 313,
+        "retained": 1864,
+        "movingSections": 9,
+        "connectedPieces": 111
+      },
+      {
+        "time": 3.016666666666661,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 716,
+        "settled": 521,
+        "retained": 1864,
+        "movingSections": 6,
+        "connectedPieces": 90
+      },
+      {
+        "time": 3.516666666666659,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 569,
+        "settled": 668,
+        "retained": 1864,
+        "movingSections": 1,
+        "connectedPieces": 4
+      },
+      {
+        "time": 4.016666666666658,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 468,
+        "settled": 769,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 4.516666666666656,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 339,
+        "settled": 898,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 5.016666666666654,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 219,
+        "settled": 1018,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 5.516666666666652,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 137,
+        "settled": 1100,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 6.016666666666651,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 88,
+        "settled": 1149,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 6.516666666666649,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 38,
+        "settled": 1199,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 7.016666666666647,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 17,
+        "settled": 1220,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 7.516666666666645,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 6,
+        "settled": 1231,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 8.016666666666644,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 2,
+        "settled": 1235,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 8.51666666666667,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 9.016666666666694,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 9.516666666666719,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 10.016666666666744,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 10.516666666666769,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 11.016666666666794,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 11.516666666666818,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 12.016666666666843,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 12.516666666666868,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 13.016666666666893,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 13.516666666666918,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 14.016666666666943,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      {
+        "time": 14.516666666666968,
+        "bays": 27,
+        "failedBays": 15,
+        "loose": 0,
+        "settled": 1237,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "sourceCommit": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "independentVerdict": "pass",
+  "independentScope": "Independent code and physics-invariant verification of the retained bank demolition candidate. Native player capture and human visual acceptance remain separate.",
+  "independentInputs": "actual implementation diffs, source, unchanged suite, supplied criteria and standing invariants; no builder reasoning or narrative evidence used",
+  "standingInvariants": [
+    "material retention and unique settlement scoring",
+    "finite bounded state and section allocation",
+    "current geometry controls physical contact and damage",
+    "complete immutable snapshots and deterministic continued physics",
+    "recorded timeline preserves history, exact past restore, alternate futures and pristine rebuild",
+    "existing controls, district and ball behavior remain valid",
+    "no weakened test or exception"
+  ],
+  "fullSuite": {
+    "name": "full unchanged current suite",
+    "result": "pass",
+    "passed": 43,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "duration_ms": 70073.299833,
+    "evidence": "verification/full-suite-85350208.log",
+    "command": "npm test"
+  },
+  "freshRestoration": {
+    "capture_frame": 80,
+    "connected_pieces": 72,
+    "retained_bodies": 1864,
+    "fresh_instances_checked": 2,
+    "saved_and_alternate_futures_exact": true,
+    "snapshot_unchanged": true,
+    "pristine_restore_exact": true
+  },
+  "resolvedFailures": [
+    {
+      "issue": "Moving loose pieces crossed a connected slab; wide section edges missed adjacent spatial cells.",
+      "failed_candidate": "bafd8e32cbe41528aec57d358af9432faf4092bb",
+      "failure_evidence": "verification/regression-proof.json",
+      "final_evidence": "verification/contact-repro-85350208.json"
+    },
+    {
+      "issue": "Connected slab crossed lower loose rubble.",
+      "failed_candidate": "528d415e43ba6541b9f75f366cc6763735a9c153",
+      "failure_evidence": "verification/regression-proof.json",
+      "final_evidence": "verification/reverse-contact-repro-85350208.json"
+    },
+    {
+      "issue": "Two collapse scenarios retained 163 and 130 loose pieces; falling stone failed to move the writing table.",
+      "failed_candidate": "528d415e43ba6541b9f75f366cc6763735a9c153",
+      "failure_evidence": "verification/regression-proof.json",
+      "final_evidence": "verification/full-suite-85350208.log"
+    }
+  ],
+  "limits": [
+    "This is a bounded independent technical audit, not exhaustive contact-space certification.",
+    "Native browser controls, actual playback appearance and human visual/taste acceptance were not claimed by these diagnostic fixtures.",
+    "Test durations are test-run wall time, not native browser performance measurements."
+  ],
+  "fullReportInRepository": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round5-demolition/verification/report.json",
+  "fullReportSha256": "35601c2ae19a2aad4e1eb3938dc45022a78a9e8d1d801efa0c2242b3d82067f0",
+  "note": "Reproduction scripts and full audit stay in the repository; the ZIP includes selected results only."
+}

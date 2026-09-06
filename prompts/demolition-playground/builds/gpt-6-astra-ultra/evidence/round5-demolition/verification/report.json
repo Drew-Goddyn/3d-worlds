@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "candidate": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "base": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+  "verdict": "pass",
+  "scope": "Independent code and physics-invariant verification of the retained bank demolition candidate. Native player capture and human visual acceptance remain separate.",
+  "independent_context": {
+    "inputs": "actual implementation diffs, source, unchanged suite, supplied criteria and standing invariants; no builder reasoning or narrative evidence used",
+    "clean_detached_worktree": "/tmp/bank-round5-verify-85350208",
+    "implementation_or_suite_edits": false,
+    "browser_or_server_started": false,
+    "source_status": ""
+  },
+  "standing_invariants": [
+    "material retention and unique settlement scoring",
+    "finite bounded state and section allocation",
+    "current geometry controls physical contact and damage",
+    "complete immutable snapshots and deterministic continued physics",
+    "recorded timeline preserves history, exact past restore, alternate futures and pristine rebuild",
+    "existing controls, district and ball behavior remain valid",
+    "no weakened test or exception"
+  ],
+  "checks": [
+    {
+      "name": "full unchanged current suite",
+      "result": "pass",
+      "passed": 43,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "duration_ms": 70073.299833,
+      "evidence": "full-suite-85350208.log",
+      "command": "npm test"
+    },
+    {
+      "name": "preserved initial collision repros",
+      "result": "pass",
+      "script": "contact-repro.mjs",
+      "evidence": "contact-repro-85350208.json",
+      "details": [
+        "Loose architecture lands on moving connected slab with momentum transfer and breakup.",
+        "Wide section edge detects a stationary solid across a grid boundary and does not pass entirely through it."
+      ]
+    },
+    {
+      "name": "preserved reverse collision repro",
+      "result": "pass",
+      "script": "reverse-contact-repro.mjs",
+      "evidence": "reverse-contact-repro-85350208.json",
+      "details": "A connected slab falling onto loose airborne rubble exchanges momentum and breaks instead of passing through."
+    },
+    {
+      "name": "fresh-instance restored continuation and alternate futures",
+      "result": "pass",
+      "script": "fresh-restore-check.mjs",
+      "evidence": "fresh-restore-check-85350208.json",
+      "details": {
+        "capture_frame": 80,
+        "connected_pieces": 72,
+        "retained_bodies": 1864,
+        "fresh_instances_checked": 2,
+        "saved_and_alternate_futures_exact": true,
+        "snapshot_unchanged": true,
+        "pristine_restore_exact": true
+      }
+    },
+    {
+      "name": "existing locality, substantial native-strength charge collapse, connected motion, final settlement, retention, scoring, one-minute history and pristine rebuild",
+      "result": "pass",
+      "evidence": "full-suite-85350208.log"
+    },
+    {
+      "name": "existing furnishing, ball-contact, district, water-tower and ordinary rubble behavior",
+      "result": "pass",
+      "evidence": "full-suite-85350208.log"
+    },
+    {
+      "name": "membership, integration order, contact lookup and captured hidden solver state code review",
+      "result": "pass",
+      "details": "Reviewed current section ownership, moved-body handoff, transient derived contact data, fixed-size retained bodies, reusable section allocation and serialized member/node/section state; no remaining proven blocker in the bounded review."
+    },
+    {
+      "name": "existing gates preserved",
+      "result": "pass",
+      "details": "No pre-existing test assertions were removed or relaxed. The preserved independent contact repros were not changed."
+    },
+    {
+      "name": "diff whitespace and clean candidate checkout",
+      "result": "pass"
+    }
+  ],
+  "resolved_failures": [
+    {
+      "issue": "Moving loose pieces crossed a connected slab; wide section edges missed adjacent spatial cells.",
+      "failed_candidate": "bafd8e32cbe41528aec57d358af9432faf4092bb",
+      "failure_evidence": "regression-proof.json",
+      "final_evidence": "contact-repro-85350208.json"
+    },
+    {
+      "issue": "Connected slab crossed lower loose rubble.",
+      "failed_candidate": "528d415e43ba6541b9f75f366cc6763735a9c153",
+      "failure_evidence": "regression-proof.json",
+      "final_evidence": "reverse-contact-repro-85350208.json"
+    },
+    {
+      "issue": "Two collapse scenarios retained 163 and 130 loose pieces; falling stone failed to move the writing table.",
+      "failed_candidate": "528d415e43ba6541b9f75f366cc6763735a9c153",
+      "failure_evidence": "regression-proof.json",
+      "final_evidence": "full-suite-85350208.log"
+    }
+  ],
+  "blockers": [],
+  "limitations": [
+    "This is a bounded independent technical audit, not exhaustive contact-space certification.",
+    "Native browser controls, actual playback appearance and human visual/taste acceptance were not claimed by these diagnostic fixtures.",
+    "Test durations are test-run wall time, not native browser performance measurements."
+  ],
+  "artifact_sha256": {
+    "contact-repro-85350208.json": "97b1dd31d713e5ec375778e6fa6cfb9f5fd9cdeb26283978b9cbd4c9104297da",
+    "contact-repro.mjs": "ffa1d0dfa1adeee944550847752183e95ae4f6a7cb25923179b1f167ef0a887f",
+    "fresh-restore-check-85350208.json": "442e35c1c9bf29239beca2ab8653e128ac8ec9a3b216c22c688a86101d06c845",
+    "fresh-restore-check.mjs": "769e329b9b4409ee13e0403828254a488214247e82414d53a081c87a4c728728",
+    "full-suite-85350208.log": "c908e2e195756bf7f1eb806744fc80c31f2743138e799a2ffec39450157faa8e",
+    "regression-proof.json": "d871989d70ad78959bf0a9ea2efa308d7f2dd8fd3bcd3e6288300438c8e5613c",
+    "reverse-contact-repro-85350208.json": "4dd6ef3cff4e1388fcbdeb381a328a68ac0c842516856500b4f8e88ffdc4e8a6",
+    "reverse-contact-repro.mjs": "247e3fa08587a4d7611a3b40e8c3253cfecb1dd78a496ceef68fce9f98faccee"
+  },
+  "reproduction": {
+    "instruction": "Pass the candidate build directory explicitly to each independent script; preserved defaults point to the original inspection worktree.",
+    "commands": [
+      "node contact-repro.mjs <candidate-build-directory>",
+      "node reverse-contact-repro.mjs <candidate-build-directory>",
+      "node fresh-restore-check.mjs <candidate-build-directory>"
+    ]
+  }
+}

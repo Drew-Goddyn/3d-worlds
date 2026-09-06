@@ -1,0 +1,48 @@
+{
+  "commission": "round5 bank demolition",
+  "branch": "round5/astra-demolition-leap",
+  "checkpoint": {
+    "pr": 3,
+    "reviewedHead": "58ed7ec6915bd81f4111346a5dcf8c439d13a256",
+    "merge": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+    "suite": {
+      "pass": 36,
+      "fail": 0
+    }
+  },
+  "baseline": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+  "stage": "delivered; owner review pending",
+  "direction": "Support cuts release connected architectural sections; contact and subsequent charges fracture those sections into retained rubble.",
+  "choices": {
+    "runtime": "existing local Three.js 0.180.0 and bank simulation",
+    "blender": "5.1.2 accessible; optional, not selected",
+    "externalAssets": false
+  },
+  "sessionSettings": "unverified; inherited directory label is original provenance",
+  "next": "Owner reviews the working bank demolition and evidence ZIP. No merge or deployment of this candidate is authorized.",
+  "sourceCommit": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "verification": {
+    "independent": "verification/report.json",
+    "passed": 43,
+    "failed": 0,
+    "native": "native-summary.json"
+  },
+  "packageReview": "package-review.json",
+  "delivery": {
+    "zip": "/Users/Drew/Downloads/bank-demolition-round5-review.zip",
+    "bytes": 49281985,
+    "sha256": "c0807bed4e4cb0dcb7043d355a24291018d6ac7c2d5a476d82d6c34d88aeba95"
+  },
+  "reviewPR": {
+    "number": 4,
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/4",
+    "base": "main",
+    "state": "open; leave unmerged"
+  },
+  "evidenceCommit": "ff0a86b795793b7e6f4a90cb4e9e98528a9e23f6",
+  "cleanup": {
+    "mainQaSession": "bank-round5 closed; tracked browser process absent",
+    "independentViewerSession": "closed by verifier",
+    "applicationServer": "stopped; port 4173 has no listener"
+  }
+}

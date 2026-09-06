@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "verdict": "pass",
+  "scope": "Bounded independent evidence-package integrity, provenance, claim-grounding and viewer review; no physics or artistic review rerun.",
+  "archive": "/Users/Drew/Downloads/bank-demolition-round5-review.zip",
+  "archive_sha256": "c0807bed4e4cb0dcb7043d355a24291018d6ac7c2d5a476d82d6c34d88aeba95",
+  "archive_bytes": 49281985,
+  "entries": 40,
+  "runtime_source": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "checks": [
+    {
+      "name": "ZIP integrity and manifest completeness",
+      "result": "pass",
+      "detail": "All 40 unique safe entries pass ZIP CRC inspection and equal the 39 manifest-listed files plus manifest.json; every listed byte count and SHA-256 matches both ZIP and repository."
+    },
+    {
+      "name": "selected evidence only",
+      "result": "pass",
+      "detail": "No application source, dependencies, capture/reproduction scripts or old-round evidence payloads; viewer contains only its local media controls."
+    },
+    {
+      "name": "media metadata",
+      "result": "pass",
+      "detail": "All 8 VP9 recordings match independent ffprobe dimensions, duration, reported frame rate and decoded frame count. PNG signatures and dimensions are valid. The final collapse has 247 frames over 10.564318 seconds as disclosed."
+    },
+    {
+      "name": "baseline and source identity",
+      "result": "pass",
+      "detail": "Reviewed baseline 58ed7ec6915bd81f4111346a5dcf8c439d13a256 is a parent of cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f and their application directories are identical. Current runtime remains 8535020890ad135f85fec68cebc009ddd89b1d54."
+    },
+    {
+      "name": "post-runtime scope",
+      "result": "pass",
+      "detail": "Only current-round evidence and continuation README; no runtime/test/dependency changes."
+    },
+    {
+      "name": "independent verification summary",
+      "result": "pass",
+      "detail": "CHECKS.json reproduces the independent report verdict, invariant set, 43/43 suite results and fresh-restoration results; its full-report hash matches the repository report."
+    },
+    {
+      "name": "native measurements and paired input provenance",
+      "result": "pass",
+      "detail": "Selected native summary values exactly match the raw native records. Baseline/final camera, native screen inputs, target points and accepted charge attachments are identical. Input timing differences remain explicitly disclosed."
+    },
+    {
+      "name": "claims and viewing limits",
+      "result": "pass",
+      "detail": "Notes identify the earlier candidate reviewed by the anonymous critic, do not claim a second final artistic verdict, and preserve the limits on continuous viewing, capture continuity, synchronization and hardware-specific performance. Native 1,865-body count and isolated 1,864-body count are correctly distinguished by the browser-only inscription."
+    },
+    {
+      "name": "extracted viewer and linked files",
+      "result": "pass",
+      "detail": "Fresh file-based browser session loaded all 8 clips through all 3 scenarios, displayed the progression strip, played both comparison clips at rate 1, reset both to paused time 0, played both supplementary clips and opened readable REVIEW.md. No browser console/page errors were reported."
+    },
+    {
+      "name": "cleanup",
+      "result": "pass",
+      "detail": "Only isolated agent-browser session bank-r5-package-verify was created; it was closed and disappeared from active-session/process checks. No server was started or other session changed."
+    }
+  ],
+  "viewer_observations": {
+    "imageLoaded": true,
+    "initialPlayback": [
+      {
+        "currentTime": 0.44761,
+        "error": null,
+        "playing": true,
+        "rate": 1,
+        "src": "baseline-collapse.webm"
+      },
+      {
+        "currentTime": 0.443582,
+        "error": null,
+        "playing": true,
+        "rate": 1,
+        "src": "final-collapse.webm"
+      }
+    ],
+    "leftLoaded": [
+      {
+        "duration": 7.500277,
+        "readyState": 4,
+        "src": "baseline-left.webm"
+      },
+      {
+        "duration": 7.966107,
+        "readyState": 4,
+        "src": "final-left.webm"
+      }
+    ],
+    "restart": [
+      {
+        "paused": true,
+        "time": 0
+      },
+      {
+        "paused": true,
+        "time": 0
+      }
+    ],
+    "rightLoaded": [
+      {
+        "duration": 7.60075,
+        "readyState": 4,
+        "src": "baseline-right.webm"
+      },
+      {
+        "duration": 7.692046,
+        "readyState": 4,
+        "src": "final-right.webm"
+      }
+    ],
+    "supplementary": [
+      {
+        "controls": true,
+        "currentTime": 0.335815,
+        "error": null,
+        "playing": true,
+        "src": "final-time-controls.webm"
+      },
+      {
+        "controls": true,
+        "currentTime": 0.331226,
+        "error": null,
+        "playing": true,
+        "src": "final-roof-progression.webm"
+      }
+    ]
+  },
+  "blockers": [],
+  "limits": [
+    "Viewer playback was sampled to verify functionality; it is not an artistic or full continuous-viewing verdict.",
+    "Native record consistency was checked against saved capture records, not by replaying the application or remeasuring performance."
+  ],
+  "archive_modified": false,
+  "physics_rerun": false,
+  "artistic_review_rerun": false
+}

@@ -1,0 +1,21 @@
+{
+  "head": "58ed7ec6915bd81f4111346a5dcf8c439d13a256",
+  "headAfter": "58ed7ec6915bd81f4111346a5dcf8c439d13a256",
+  "startedAt": "2026-09-06T02:00:28.737Z",
+  "finishedAt": "2026-09-06T02:01:13.352Z",
+  "command": "npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test",
+  "exitCode": 0,
+  "signal": null,
+  "worktreeClean": true,
+  "counts": {
+    "tests": 36,
+    "suites": 0,
+    "pass": 36,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "stdoutPath": "/tmp/astra-round5-checkpoint/suite.stdout.log",
+  "stderrPath": "/tmp/astra-round5-checkpoint/suite.stderr.log"
+}

@@ -1,0 +1,635 @@
+{
+  "movingContact": {
+    "case": "loose architectural piece falling onto a connected moving slab",
+    "solver": "unmodified BankPhysics and BankCohesion; minimal geometry fixture",
+    "initialSectionPieces": 3,
+    "rows": [
+      {
+        "frame": 0,
+        "sectionBottom": 3.8,
+        "sectionTop": 4.2,
+        "looseBottom": 4.85,
+        "looseTop": 5.15,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -6
+      },
+      {
+        "frame": 1,
+        "sectionBottom": 3.7965277777777775,
+        "sectionTop": 4.196527777777778,
+        "looseBottom": 4.746527777777778,
+        "looseTop": 5.046527777777778,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -6.208333333333333
+      },
+      {
+        "frame": 2,
+        "sectionBottom": 3.789583333333333,
+        "sectionTop": 4.189583333333333,
+        "looseBottom": 4.639583333333333,
+        "looseTop": 4.939583333333334,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -6.416666666666666
+      },
+      {
+        "frame": 3,
+        "sectionBottom": 3.7791666666666663,
+        "sectionTop": 4.179166666666666,
+        "looseBottom": 4.529166666666667,
+        "looseTop": 4.8291666666666675,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -6.624999999999999
+      },
+      {
+        "frame": 4,
+        "sectionBottom": 3.7652777777777775,
+        "sectionTop": 4.165277777777778,
+        "looseBottom": 4.415277777777778,
+        "looseTop": 4.715277777777779,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -6.833333333333332
+      },
+      {
+        "frame": 5,
+        "sectionBottom": 3.7479166666666663,
+        "sectionTop": 4.147916666666666,
+        "looseBottom": 4.297916666666667,
+        "looseTop": 4.597916666666667,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -7.041666666666665
+      },
+      {
+        "frame": 6,
+        "sectionBottom": 3.727083333333333,
+        "sectionTop": 4.127083333333333,
+        "looseBottom": 4.177083333333333,
+        "looseTop": 4.477083333333334,
+        "solidOverlap": false,
+        "section": 0,
+        "looseVy": -7.249999999999998
+      },
+      {
+        "frame": 7,
+        "sectionBottom": 3.6900277777777775,
+        "sectionTop": 4.090027777777777,
+        "looseBottom": 4.091027777777778,
+        "looseTop": 4.391027777777778,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -2.7783333333333324
+      },
+      {
+        "frame": 8,
+        "sectionBottom": 3.6362499999999995,
+        "sectionTop": 4.03625,
+        "looseBottom": 4.04125,
+        "looseTop": 4.3412500000000005,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -2.986666666666666
+      },
+      {
+        "frame": 9,
+        "sectionBottom": 3.5789999999999997,
+        "sectionTop": 3.979,
+        "looseBottom": 3.988,
+        "looseTop": 4.288,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -3.1949999999999994
+      },
+      {
+        "frame": 10,
+        "sectionBottom": 3.5182777777777776,
+        "sectionTop": 3.918277777777778,
+        "looseBottom": 3.9312777777777774,
+        "looseTop": 4.231277777777778,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -3.403333333333333
+      },
+      {
+        "frame": 11,
+        "sectionBottom": 3.454083333333333,
+        "sectionTop": 3.8540833333333335,
+        "looseBottom": 3.8710833333333334,
+        "looseTop": 4.171083333333334,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -3.6116666666666664
+      },
+      {
+        "frame": 12,
+        "sectionBottom": 3.3864166666666664,
+        "sectionTop": 3.7864166666666668,
+        "looseBottom": 3.8074166666666667,
+        "looseTop": 4.1074166666666665,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -3.82
+      },
+      {
+        "frame": 13,
+        "sectionBottom": 3.3152777777777773,
+        "sectionTop": 3.7152777777777777,
+        "looseBottom": 3.7402777777777776,
+        "looseTop": 4.040277777777778,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -4.028333333333333
+      },
+      {
+        "frame": 14,
+        "sectionBottom": 3.2406666666666664,
+        "sectionTop": 3.6406666666666667,
+        "looseBottom": 3.6696666666666666,
+        "looseTop": 3.9696666666666665,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -4.236666666666666
+      },
+      {
+        "frame": 15,
+        "sectionBottom": 3.162583333333333,
+        "sectionTop": 3.5625833333333334,
+        "looseBottom": 3.5955833333333334,
+        "looseTop": 3.895583333333333,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -4.444999999999999
+      },
+      {
+        "frame": 16,
+        "sectionBottom": 3.0810277777777775,
+        "sectionTop": 3.481027777777778,
+        "looseBottom": 3.5180277777777778,
+        "looseTop": 3.8180277777777776,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -4.653333333333332
+      },
+      {
+        "frame": 17,
+        "sectionBottom": 2.9959999999999996,
+        "sectionTop": 3.396,
+        "looseBottom": 3.437,
+        "looseTop": 3.7369999999999997,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -4.8616666666666655
+      },
+      {
+        "frame": 18,
+        "sectionBottom": 2.9074999999999998,
+        "sectionTop": 3.3075,
+        "looseBottom": 3.3525,
+        "looseTop": 3.6525,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -5.0699999999999985
+      },
+      {
+        "frame": 19,
+        "sectionBottom": 2.8155277777777776,
+        "sectionTop": 3.215527777777778,
+        "looseBottom": 3.264527777777778,
+        "looseTop": 3.5645277777777777,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -5.2783333333333315
+      },
+      {
+        "frame": 20,
+        "sectionBottom": 2.720083333333333,
+        "sectionTop": 3.1200833333333335,
+        "looseBottom": 3.1730833333333335,
+        "looseTop": 3.4730833333333333,
+        "solidOverlap": false,
+        "section": -1,
+        "looseVy": -5.486666666666665
+      }
+    ]
+  },
+  "broadphaseEdge": {
+    "case": "wide connected slab edge crosses a stationary solid in the adjacent spatial grid cell",
+    "movingCenterCell": [
+      0,
+      0
+    ],
+    "obstacleXCell": 1,
+    "firstOverlap": {
+      "frame": 7,
+      "overlappingMembers": [
+        2
+      ],
+      "section": 0,
+      "trailingEdge": 0.15000000000000024,
+      "obstacleFarEdge": 1.65,
+      "passed": false
+    },
+    "rows": [
+      {
+        "frame": 0,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": -0.2,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 1,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": -0.15000000000000002,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 2,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": -0.09999999999999998,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 3,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": -0.04999999999999993,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 4,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": 1.1102230246251565e-16,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 5,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": 0.050000000000000155,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 6,
+        "overlappingMembers": [],
+        "section": 0,
+        "trailingEdge": 0.1000000000000002,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 7,
+        "overlappingMembers": [
+          2
+        ],
+        "section": 0,
+        "trailingEdge": 0.15000000000000024,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 8,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.15000000000000002,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 9,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.1486597927671745,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 10,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.14732646545437425,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 11,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.14600005105110747,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 12,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.14468058235406897,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 13,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.14336809196605527,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 14,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.14206261229488568,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 15,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.1407641755523296,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 16,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13947281375304021,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 17,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13818855871349447,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 18,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13691144205093958,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 19,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13564149518234536,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 20,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13437874932336366,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 21,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13312323548729382,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 22,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13187498448405466,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 23,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.13063402691916315,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 24,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.1294003931927194,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 25,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.12817411349839836,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 26,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.126955217822448,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 27,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.12574373594269442,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 28,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.12453969742755316,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 29,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.12334313163504759,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 30,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.12215406771183379,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 31,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.1209725345922325,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 32,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11979856099726732,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 33,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11863217543371024,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 34,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11747340619313387,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 35,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11632228135097025,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 36,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11517882876557706,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 37,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11404307607731032,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 38,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11291505070760419,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 39,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11179477985805794,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      },
+      {
+        "frame": 40,
+        "overlappingMembers": [
+          2
+        ],
+        "section": -1,
+        "trailingEdge": 0.11068229050952974,
+        "obstacleFarEdge": 1.65,
+        "passed": false
+      }
+    ]
+  }
+}
