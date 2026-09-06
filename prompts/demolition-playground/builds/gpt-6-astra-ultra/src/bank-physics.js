@@ -1,8 +1,9 @@
 import * as THREE from 'three';
+import { BankCohesion } from './bank-cohesion.js';
 
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-const BODY_KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','hp','state','sleep','hits','scored'];
-const NODE_KEYS=['state','strain','support','drop','rx','rz'];
+const BODY_KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','hp','state','sleep','hits','scored','cluster'];
+const NODE_KEYS=['state','strain','support','drop','rx','rz','px','pz','wx','wz'];
 const B=BODY_KEYS.length,N=NODE_KEYS.length;
 const topples=b=>b.size.y>Math.max(b.size.x,b.size.z)*1.6||['joinery','glass','parapet'].includes(b.role);
 const dummy=new THREE.Object3D(),matrix=new THREE.Matrix4(),partMatrix=new THREE.Matrix4();
@@ -16,9 +17,10 @@ const p=new THREE.Vector3(),v=new THREE.Vector3(),size=new THREE.Vector3();
 export class BankPhysics {
   constructor(recipe,simulation) {
     this.recipe=recipe;this.sim=simulation;
-    this.nodes=recipe.nodes.map(n=>({...n,state:0,strain:0,support:1,drop:0,rx:0,rz:0}));
+    this.nodes=recipe.nodes.map(n=>({...n,state:0,strain:0,support:1,drop:0,rx:0,rz:0,px:this.recipe.building.x+n.x,pz:this.recipe.building.z+n.z,wx:0,wz:0}));
     this.bodies=recipe.bodies.map(b=>({...b,x:b.origin.x,y:b.origin.y,z:b.origin.z,rx:0,ry:0,rz:0,vx:0,vy:0,vz:0,wx:0,wy:0,wz:0,hp:1,state:0,sleep:0,hits:0,scored:0,mass:b.mass??.8}));
     this.contacts=new Set();this.tonnage=0;this.collapsed=false;this.revision=0;this.snapshot=null;this.snapshotRevision=-1;
+    this.cohesion=new BankCohesion(this);
     this.render();
   }
   bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {
@@ -28,9 +30,10 @@ export class BankPhysics {
     if(get('state')===0&&!body.fixed&&!body.content) {
       const n=this.nodes[body.node],drop=snapshot?snapshot.nodes[j+3]:n.drop;
       const nx=snapshot?snapshot.nodes[j+4]:n.rx,nz=snapshot?snapshot.nodes[j+5]:n.rz;
-      // Small pre-failure deflection is shared by connected architecture.
-      y-=drop;rx+=nx;rz+=nz;
-      x-=nz*(body.origin.y-(.23+n.y));z+=nx*(body.origin.y-(.23+n.y));
+      const px=snapshot?snapshot.nodes[j+6]:n.px,pz=snapshot?snapshot.nodes[j+7]:n.pz;
+      quaternion.setFromEuler(euler.set(nx,0,nz));
+      position.set(x-px,y-(.23+n.y),z-pz).applyQuaternion(quaternion);
+      x=px+position.x;y=.23+n.y+position.y-drop;z=pz+position.z;rx+=nx;rz+=nz;
     }
     quaternion.setFromEuler(euler.set(rx,ry,rz));return out.compose(position.set(x,y,z),quaternion,scale);
   }
@@ -95,9 +98,10 @@ export class BankPhysics {
       if(distance>=radius)continue;
       const influence=Math.pow(1-distance/radius,1.4),weak=b.role==='glass'?3.8:b.role==='joinery'?1.8:1;
       const loss=power/105*influence*weak;
+      const impulseDirection=blast?this.bounds(b,new THREE.Box3()).getCenter(new THREE.Vector3()).sub(point).normalize():direction;
       b.hp=Math.max(0,b.hp-loss);changed=true;
-      if(b.state===0&&b.hp<(b.role==='pier'?.2:b.role==='slab'?.12:.35))this.release(b,direction,Math.min(4,power*.022)*influence);
-      else if(b.state>0) {b.state=1;b.sleep=0;b.vx+=direction.x*loss*2;b.vz+=direction.z*loss*2;b.vy+=blast?loss:0;}
+      if(b.state===0&&b.hp<(b.role==='pier'?.2:b.role==='slab'?.12:.35))this.release(b,impulseDirection,Math.min(4,power*.022)*influence);
+      else if(b.state>0) {this.cohesion.detach(b);b.state=1;b.sleep=0;b.vx+=impulseDirection.x*loss*2;b.vz+=impulseDirection.z*loss*2;b.vy+=blast?impulseDirection.y*loss:0;}
     }
     if(changed) {
       this.revision++;
@@ -142,24 +146,32 @@ export class BankPhysics {
         // A supported neighbour holds a local wound indefinitely when capacity
         // remains adequate. Continued loss increases load and releases the bay.
         if(n.support<.60)n.strain+=dt*(.60-n.support)*3.5;
-        n.drop=Math.min(.24,deficit*.22+n.strain*.12);
-        n.rx=(n.iz-1)*deficit*.045;n.rz=-(n.ix-1)*deficit*.045;
+        let bearingX=0,bearingZ=0,weight=0,lostX=0,lostZ=0;
+        for(const id of n.supports){const b=this.bodies[id],hold=b.state===0?b.hp:0;weight+=hold;bearingX+=b.origin.x*hold;bearingZ+=b.origin.z*hold;lostX+=(b.origin.x-this.recipe.building.x-n.x)*(1-hold);lostZ+=(b.origin.z-this.recipe.building.z-n.z)*(1-hold);}
+        if(n.strain<dt*2&&weight>.05){n.px=bearingX/weight;n.pz=bearingZ/weight;}
+        const length=Math.hypot(lostX,lostZ),dx=length>.05?lostX/length:(n.ix-1)*.7,dz=length>.05?lostZ/length:(n.iz-1)*.7;
+        const angle=Math.min(.34,deficit*.045+n.strain*n.strain*1.9);
+        const rx=dz*angle,rz=-dx*angle;
+        n.wx=clamp((rx-n.rx)/dt,-1.6,1.6);n.wz=clamp((rz-n.rz)/dt,-1.6,1.6);n.rx=rx;n.rz=rz;
+        n.drop=Math.min(.48,deficit*.08+n.strain*.42);
         this.revision++;
-        if(n.strain>.36) {
+        if(n.strain>.46) {
           n.state=2;
-          const direction=new THREE.Vector3((n.ix-1)*.23,-.2,(n.iz-1)*.23);
-          for(const id of n.bodies)if(!this.bodies[id].content)this.release(this.bodies[id],direction,.55);
+          const direction=new THREE.Vector3(dx*.5,-.7,dz*.5);
+          this.cohesion.releaseBay(n,direction,.55);
           this.sim.lastImpact.set(this.recipe.building.x+n.x,.23+n.y+2,this.recipe.building.z+n.z);
           this.sim._emit('collapse',this.sim.lastImpact,{buildingId:this.recipe.building.id,floor:n.level,material:'stone'});
           this.sim.crowdReaction=1;
         }
       }
     }
+    const orphaned=[];
     for(const b of this.bodies)if(b.state===0&&b.restsOn!=null&&this.bodies[b.restsOn].state>0) {
       const support=this.bodies[b.restsOn];
       if(b.content)this.hitContent(b,12,new THREE.Vector3(support.vx*.2,.1,support.vz*.2));
-      else this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);
+      else {this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);if(support.cluster>=0&&b.role!=='glass'){b.cluster=support.cluster;b.vx=support.vx;b.vy=support.vy;b.vz=support.vz;}else orphaned.push(b.id);}
     }
+    this.cohesion.assemble(orphaned);
     // Roof skin is carried by real adjacent half-ribs. Deriving attachment
     // capacity from captured bodies keeps rewind and alternate futures exact.
     for(const b of this.bodies)if(b.state===0&&b.attachments) {
@@ -174,7 +186,7 @@ export class BankPhysics {
     const grid=new Map(),bounds=new THREE.Box3();
     const put=(b,box)=> {
       for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++) {
-        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push({b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,top:box.max.y});
+        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push({b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y});
       }
     };
     const putBody=b=>{
@@ -182,7 +194,8 @@ export class BankPhysics {
       if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform));}
       else put(b,this.bounds(b,bounds));
     };
-    for(const b of this.bodies)if(b.state===2||b.fixed||(b.state===0&&(b.role==='slab'||b.content)))putBody(b);
+    for(const b of this.bodies)putBody(b);
+    this.cohesion.step(dt,grid);
     // Resting support is derived from the actual current solid surfaces. A
     // settled article must wake when any support moves, including a surface it
     // landed on after leaving its original parent. No hidden attachment cache.
@@ -196,7 +209,7 @@ export class BankPhysics {
     const contents=this.bodies.filter(b=>b.content&&b.role!=='paper').map(b=>({b,box:this.bounds(b)}));
     let active=false;
     for(const b of this.bodies) {
-      if(b.state!==1)continue;active=true;
+      if(b.state!==1||b.cluster>=0||this.cohesion.moved.has(b.id))continue;active=true;
       const oldBottom=this.bounds(b,bounds).min.y;
       b.vy-=dt*(b.role==='paper'?2.4:12.5);
       if(b.role==='paper'&&!b.hits&&oldBottom>.5){b.vx+=Math.sin(this.sim.time*5+b.id)*dt*.7;b.wx=Math.sin(this.sim.time*4+b.id)*1.6;}
@@ -219,7 +232,7 @@ export class BankPhysics {
 
       const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
       for(const entry of entries) {
-        if(entry.b===b)continue;
+        if(entry.b===b||entry.b.state===1)continue;
         // Use a central contact footprint to avoid giant empty AABB bridges.
         if(b.x<entry.minX+.03||b.x>entry.maxX-.03||b.z<entry.minZ+.03||b.z>entry.maxZ-.03)continue;
         if(entry.top>oldBottom+.15||entry.top<surface)continue;
@@ -286,13 +299,14 @@ export class BankPhysics {
       const bodies=new Float64Array(this.bodies.length*B),nodes=new Float64Array(this.nodes.length*N);
       for(const b of this.bodies)for(let i=0;i<B;i++)bodies[b.id*B+i]=b[BODY_KEYS[i]];
       for(const n of this.nodes)for(let i=0;i<N;i++)nodes[n.id*N+i]=n[NODE_KEYS[i]];
-      this.snapshot={bodies,nodes,contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
+      this.snapshot={bodies,nodes,cohesion:this.cohesion.capture(),contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
     }
     return this.snapshot;
   }
   restore(state) {
     for(const b of this.bodies)for(let i=0;i<B;i++)b[BODY_KEYS[i]]=state.bodies[b.id*B+i];
     for(const n of this.nodes)for(let i=0;i<N;i++)n[NODE_KEYS[i]]=state.nodes[n.id*N+i];
+    this.cohesion.restore(state.cohesion);
     this.contacts=new Set(state.contacts);this.tonnage=state.tonnage;this.collapsed=state.collapsed;
     this.revision++;this.snapshot=state;this.snapshotRevision=this.revision;
   }
@@ -315,5 +329,5 @@ export class BankPhysics {
       batch.mesh.computeBoundingSphere();
     }
   }
-  get stats(){return {bays:this.nodes.length,failedBays:this.nodes.filter(n=>n.state===2).length,loose:this.bodies.filter(b=>b.state===1).length,settled:this.bodies.filter(b=>b.state===2).length,retained:this.bodies.length};}
+  get stats(){return {bays:this.nodes.length,failedBays:this.nodes.filter(n=>n.state===2).length,loose:this.bodies.filter(b=>b.state===1).length,settled:this.bodies.filter(b=>b.state===2).length,retained:this.bodies.length,...this.cohesion.stats};}
 }
