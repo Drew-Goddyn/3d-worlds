@@ -83,6 +83,13 @@ export class BankPhysics {
     }
     this.revision++;return true;
   }
+  eventMaterial(b) {
+    if(b.role==='glass'||b.role==='vault-glass')return 'glass';
+    if(['girder','vault-rib','vault-seam','gallery','joinery'].includes(b.role))return 'steel';
+    if(b.role==='paper')return 'paper';
+    if(b.content||b.role==='partition')return 'wood';
+    return 'stone';
+  }
   chargePoint(charge) {
     const b=this.bodies[charge.bankBody];return new THREE.Vector3(charge.x,charge.y,charge.z).applyMatrix4(this.bodyMatrix(b));
   }
@@ -125,6 +132,7 @@ export class BankPhysics {
     const tall=topples(b);
     const sign=(b.origin.x-this.recipe.building.x)*.09;
     b.wx=direction.z*.28+(tall?.8:.15+this.sim.random()*.3);b.wz=-direction.x*.28+sign*.15+(this.sim.random()-.5)*.5;b.wy=(this.sim.random()-.5)*.35;
+    this.sim._emit('release',new THREE.Vector3(b.x,b.y,b.z),{material:this.eventMaterial(b),mass:b.mass,power:Math.max(4,power*8)});
     this.revision++;
   }
   step(dt) {
@@ -249,6 +257,7 @@ export class BankPhysics {
         if(speed>2.5) {
           b.hits++;
           p.set(b.x,surface,b.z);
+          this.sim._emit('contact',p,{material:this.eventMaterial(b),mass:b.mass,speed,power:Math.min(140,speed*Math.sqrt(b.mass)*8)});
           if(b.hits===1&&b.mass>.8)this.sim._emitDust(p,1,Math.min(.9,b.size.length()*.16));
           const key=b.id+':'+(under?.id??'ground');
           if(!this.contacts.has(key)&&speed>4&&b.mass>.7) {
