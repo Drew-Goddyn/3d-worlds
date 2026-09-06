@@ -26,7 +26,8 @@ test('discarded future events cannot leak into restored alternate futures or pri
 });
 test('presentation admission and expiry bound sustained effects without evicting active births',()=>{
  const track=new EventTrack();for(let i=0;i<2000;i++)track.emit('contact',{x:i*3,y:2,z:1},1,{material:'glass'});
- assert.equal(track.events.length,EVENT_LIMIT);assert.equal(track.events[0].id,1);track.prune(10);assert.equal(track.events.length,0);
+ assert.equal(track.events.length,EVENT_LIMIT-16);assert.equal(track.events[0].id,1);
+ for(let i=0;i<16;i++)track.emit('blast',point,1+i*.01);assert.equal(track.events.length,EVENT_LIMIT);assert.equal(track.events.filter(e=>e.type==='blast').length,16);track.prune(10);assert.equal(track.events.length,0);
 });
 test('retained normal replay reproduces forward audio choices while pause seek and resume suppress backlog',()=>{
  const track=new EventTrack();track.emit('blast',point,1.1);track.emit('contact',point,1.4);const transport=new EventTransport();

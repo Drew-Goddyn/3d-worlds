@@ -30,7 +30,7 @@ export function synthesizeVoice(type,material,variant,sampleRate=24000) {
   return data;
 }
 export class EventAudio {
-  constructor(){this.transport=new EventTransport();this.enabled=false;this.level=.35;this.voices=new Set();this.cache=new Map();this.started=0;this.peakVoices=0;}
+  constructor(){this.transport=new EventTransport();this.bands=new Map();this.enabled=false;this.level=.35;this.voices=new Set();this.cache=new Map();this.started=0;this.peakVoices=0;}
   async enable(value){
     this.enabled=value;this.stop();this.transport.reset();
     if(!value)return;
@@ -44,7 +44,7 @@ export class EventAudio {
   }
   setLevel(value){this.level=Math.max(0,Math.min(1,value));if(this.master)this.master.gain.setTargetAtTime(this.level,this.context.currentTime,.02);if(!this.level)this.stop();}
   stop(){for(const v of this.voices){v.source.onended=null;try{v.source.stop();}catch{}v.source.disconnect();v.gain.disconnect();v.filter.disconnect();v.pan.disconnect();}this.voices.clear();}
-  discontinuity(){this.stop();this.transport.reset();this.previousEvents=[];}
+  discontinuity(){this.stop();this.transport.reset();this.previousEvents=[];this.bands.clear();}
   buffer(event,reverse){
     const variant=event.seed%8,key=`${event.type}:${event.material}:${variant}:${reverse}`;
     if(this.cache.has(key))return this.cache.get(key);
@@ -57,10 +57,14 @@ export class EventAudio {
   update(events,time,mode,rate,camera){
     const available=mode==='reverse'?[...new Map([...(this.previousEvents||[]),...events].map(e=>[e.id,e])).values()]:events;
     const batch=this.transport.advance(available,time,mode,rate);this.previousEvents=events;
-    if(batch.stop)this.stop();
+    if(batch.stop){this.stop();this.bands.clear();}
+    for(const [key,born] of this.bands)if(Math.abs(time-born)>2)this.bands.delete(key);
     if(!this.enabled||!this.level||!this.context||this.context.state!=='running')return;
     for(const e of batch.events){
-      if(e.type==='release'&&(e.seed%3!==0||e.material==='paper'))continue;
+      if(e.type==='release'&&!['glass','steel'].includes(e.material))continue;
+      const band=`${e.type}:${e.material}:${Math.floor(e.time/(e.type==='release'?.24:.12))}`;
+      if(e.type!=='blast'&&this.bands.has(band))continue;
+      this.bands.set(band,e.time);
       // A finite voice budget admits the important pressure/impact gestures.
       // Quiet releases never evict a blast or contact already sounding.
       if(this.voices.size>=MAX_VOICES){if(e.type==='release')continue;const first=[...this.voices].find(v=>v.type==='release')||this.voices.values().next().value;first.source.stop();this.remove(first);}
