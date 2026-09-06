@@ -402,45 +402,31 @@
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
-      "reference": "suite-final.log",
+      "reference": "suite-ad36dfe.log",
       "kind": "inline file reference",
       "disposition": "included",
-      "target": "verification/suite-final.log"
+      "target": "verification/suite-ad36dfe.log"
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
-      "reference": "targeted-final.log",
+      "reference": "targeted-ad36dfe.log",
       "kind": "inline file reference",
       "disposition": "included",
-      "target": "verification/targeted-final.log"
+      "target": "verification/targeted-ad36dfe.log"
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
-      "reference": "targeted.mjs",
+      "reference": "targeted-ad36dfe.mjs",
       "kind": "inline file reference",
       "disposition": "included",
-      "target": "verification/targeted.mjs"
+      "target": "verification/targeted-ad36dfe.mjs"
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
-      "reference": "structural-equivalence.log",
+      "reference": "structural-equivalence-ad36dfe.log",
       "kind": "inline file reference",
       "disposition": "included",
-      "target": "verification/structural-equivalence.log"
-    },
-    {
-      "from": "verification/REPORT-ad36dfe.md",
-      "reference": "structural-equivalence.mjs",
-      "kind": "inline file reference",
-      "disposition": "included",
-      "target": "verification/structural-equivalence.mjs"
-    },
-    {
-      "from": "verification/REPORT-ad36dfe.md",
-      "reference": "structural-equivalence.log",
-      "kind": "inline file reference",
-      "disposition": "included",
-      "target": "verification/structural-equivalence.log"
+      "target": "verification/structural-equivalence-ad36dfe.log"
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
@@ -451,6 +437,13 @@
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
+      "reference": "structural-equivalence-ad36dfe.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence-ad36dfe.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
       "reference": "structural-equivalence.mjs",
       "kind": "inline file reference",
       "disposition": "included",
@@ -458,10 +451,17 @@
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
-      "reference": "verification.json",
+      "reference": "structural-equivalence.mjs",
       "kind": "inline file reference",
       "disposition": "included",
-      "target": "verification/verification.json"
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "verification-ad36dfe.json",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/verification-ad36dfe.json"
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
@@ -479,10 +479,10 @@
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
-      "reference": "suite-final.log",
+      "reference": "suite-ad36dfe.log",
       "kind": "inline file reference",
       "disposition": "included",
-      "target": "verification/suite-final.log"
+      "target": "verification/suite-ad36dfe.log"
     },
     {
       "from": "verification/REPORT-ad36dfe.md",
@@ -723,11 +723,172 @@
       "target": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json"
     },
     {
-      "from": "verification/verification-ad36dfe.json",
+      "from": "verification/package-audit-initial.json",
+      "reference": "REPORT.md",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/REPORT.md"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "verification/REPORT-ad36dfe.md",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/REPORT-ad36dfe.md"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "suite-final.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "verification/suite-ad36dfe.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/suite-ad36dfe.log"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "targeted-final.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-final.log"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "verification/targeted-ad36dfe.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-ad36dfe.log"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "targeted.mjs",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted.mjs"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "verification/targeted-ad36dfe.mjs",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-ad36dfe.mjs"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "structural-equivalence.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/package-audit-initial.json",
+      "reference": "verification/structural-equivalence-ad36dfe.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/structural-equivalence-ad36dfe.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
       "reference": "REPORT.md",
       "kind": "metadata key",
       "disposition": "included",
       "target": "verification/REPORT.md"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "REPORT-ad36dfe.md",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/REPORT-ad36dfe.md"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "suite-final.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "suite-ad36dfe.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/suite-ad36dfe.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "targeted-final.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-final.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "targeted-ad36dfe.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-ad36dfe.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "targeted.mjs",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted.mjs"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "targeted-ad36dfe.mjs",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-ad36dfe.mjs"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "structural-equivalence.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "structural-equivalence-ad36dfe.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/structural-equivalence-ad36dfe.log"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "REPORT-ad36dfe.md",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/REPORT-ad36dfe.md"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "verification-ad36dfe.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/verification-ad36dfe.json"
+    },
+    {
+      "from": "verification/package-reference-correction.json",
+      "reference": "verification.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/verification.json"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "REPORT-ad36dfe.md",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/REPORT-ad36dfe.md"
     },
     {
       "from": "verification/verification-ad36dfe.json",
@@ -745,10 +906,10 @@
     },
     {
       "from": "verification/verification-ad36dfe.json",
-      "reference": "suite-final.log",
+      "reference": "suite-ad36dfe.log",
       "kind": "metadata key",
       "disposition": "included",
-      "target": "verification/suite-final.log"
+      "target": "verification/suite-ad36dfe.log"
     },
     {
       "from": "verification/verification-ad36dfe.json",
@@ -766,17 +927,17 @@
     },
     {
       "from": "verification/verification-ad36dfe.json",
-      "reference": "targeted-final.log",
+      "reference": "targeted-ad36dfe.log",
       "kind": "metadata key",
       "disposition": "included",
-      "target": "verification/targeted-final.log"
+      "target": "verification/targeted-ad36dfe.log"
     },
     {
       "from": "verification/verification-ad36dfe.json",
-      "reference": "targeted.mjs",
+      "reference": "targeted-ad36dfe.mjs",
       "kind": "metadata key",
       "disposition": "included",
-      "target": "verification/targeted.mjs"
+      "target": "verification/targeted-ad36dfe.mjs"
     },
     {
       "from": "verification/verification-ad36dfe.json",
@@ -787,10 +948,10 @@
     },
     {
       "from": "verification/verification-ad36dfe.json",
-      "reference": "structural-equivalence.log",
+      "reference": "structural-equivalence-ad36dfe.log",
       "kind": "metadata key",
       "disposition": "included",
-      "target": "verification/structural-equivalence.log"
+      "target": "verification/structural-equivalence-ad36dfe.log"
     },
     {
       "from": "verification/verification.json",

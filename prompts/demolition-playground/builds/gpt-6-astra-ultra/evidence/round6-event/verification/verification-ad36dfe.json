@@ -150,45 +150,45 @@
     "Six-charge route intentionally suppresses 294 minor presentation requests, all six blasts retained."
   ],
   "evidence": {
-    "REPORT.md": {
-      "sha256": "5d1baf00abf130441ccbf4808f0e3b3da09206d7d0ad92e601f401f57279f80d",
-      "bytes": 7513
+    "REPORT-ad36dfe.md": {
+      "bytes": 7551,
+      "sha256": "9078ca253cfdeafff191ce97edb07d3c4b61aea285cc8f2de41148348db807cf"
     },
     "suite.log": {
-      "sha256": "b8d61f65db6fec25dae30d1130b5d9b0df27038613a59c35c18473cd05e62da3",
-      "bytes": 9606
+      "bytes": 9606,
+      "sha256": "b8d61f65db6fec25dae30d1130b5d9b0df27038613a59c35c18473cd05e62da3"
     },
     "baseline-contacts.log": {
-      "sha256": "d3f8577747f9eb75cfa9d2083c2dd8261bdabbf646d6df1d175088d2ba643d6e",
-      "bytes": 453
+      "bytes": 453,
+      "sha256": "d3f8577747f9eb75cfa9d2083c2dd8261bdabbf646d6df1d175088d2ba643d6e"
     },
-    "suite-final.log": {
-      "sha256": "56a6fcedfd95f2de2d874efbfc56e090818a84526825625357201d8a631510ff",
-      "bytes": 5339
+    "suite-ad36dfe.log": {
+      "bytes": 5339,
+      "sha256": "56a6fcedfd95f2de2d874efbfc56e090818a84526825625357201d8a631510ff"
     },
     "targeted-incomplete-fixture.log": {
-      "sha256": "993e53c79c88555c93a08e29a9457a6b05c249a3235c18488b03ee70a9ef3bb2",
-      "bytes": 1500
+      "bytes": 1500,
+      "sha256": "993e53c79c88555c93a08e29a9457a6b05c249a3235c18488b03ee70a9ef3bb2"
     },
     "targeted-original.log": {
-      "sha256": "942d2bf63b8b221d952e007ff875cc7c54feea4f52cea659d58c4951bbcdf84a",
-      "bytes": 542
+      "bytes": 542,
+      "sha256": "942d2bf63b8b221d952e007ff875cc7c54feea4f52cea659d58c4951bbcdf84a"
     },
-    "targeted-final.log": {
-      "sha256": "812af013b9f34086d2f5dbee3092409ec310cd191a2e93002eeb641c1a4f7b7c",
-      "bytes": 647
+    "targeted-ad36dfe.log": {
+      "bytes": 647,
+      "sha256": "812af013b9f34086d2f5dbee3092409ec310cd191a2e93002eeb641c1a4f7b7c"
     },
-    "targeted.mjs": {
-      "sha256": "37dfba3da1bccb83de1a01f07655ae05f90e71d32b9792ff289a326c1da1b36e",
-      "bytes": 8192
+    "targeted-ad36dfe.mjs": {
+      "bytes": 8192,
+      "sha256": "37dfba3da1bccb83de1a01f07655ae05f90e71d32b9792ff289a326c1da1b36e"
     },
     "structural-equivalence.mjs": {
-      "sha256": "e770afeb36bd5704615ed2ea7088a6876e1ec415f7725973a85bd9036ac6c4f2",
-      "bytes": 2777
+      "bytes": 2777,
+      "sha256": "e770afeb36bd5704615ed2ea7088a6876e1ec415f7725973a85bd9036ac6c4f2"
     },
-    "structural-equivalence.log": {
-      "sha256": "1b8c9ac52150cb3b013cf7b41ac8593dcddd299c504e43abd2943399f062a123",
-      "bytes": 2129
+    "structural-equivalence-ad36dfe.log": {
+      "bytes": 2129,
+      "sha256": "1b8c9ac52150cb3b013cf7b41ac8593dcddd299c504e43abd2943399f062a123"
     }
   }
 }

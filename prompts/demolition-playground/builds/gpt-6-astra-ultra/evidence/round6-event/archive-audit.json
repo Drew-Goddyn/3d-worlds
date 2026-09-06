@@ -1,0 +1,251 @@
+{
+  "verdict": "PASS",
+  "archive": {
+    "path": "/Users/Drew/Downloads/bank-event-round6-review.zip",
+    "sha256": "6977536b565340f9880368a883dbcc60a6bcb8bc0ff705bb0b14c54132becbb7",
+    "bytes": 23291230,
+    "members": 60,
+    "manifestPayloads": 59
+  },
+  "checkedAt": "2026-09-06T16:15:09.478773+00:00",
+  "identities": {
+    "runtime": "e9ecb689ef97b9fd677903d5adea4bd38c36b062",
+    "checkpoint": "9a4b9a7713502488c712ed2a07afcd1dbcf80659",
+    "selectedMediaAndTechnicalEvidenceCommit": "08901eef7b98704497eaa7fcb9846f34c6fcdb47",
+    "repositoryHeadAtAudit": "565b31be61d6791c7a703f75a7dbc33da0ef4352",
+    "runtimeWorkingTreeMatchesVerifiedCommit": true,
+    "packagedPayloadsMatchWorkingEvidenceCopies": true,
+    "note": "Final reference-correction metadata commit/push is the parent task handoff; archive and runtime identities are fixed above."
+  },
+  "integrity": {
+    "crc": "pass",
+    "duplicateMembers": 0,
+    "caseCollisions": 0,
+    "unsafePathsOrSymlinks": 0,
+    "manifestSizesAndHashes": "59 of 59 exact",
+    "currentVerifierHashIndex": "all exact",
+    "historicalVerifierHashIndex": "all exact",
+    "cleanExtraction": "/tmp/astra-round6-verification/package-extracted-6977536b",
+    "extractedBytesMatchArchive": true,
+    "scope": "Selected review evidence, offline viewer and small audit probes only; no application checkout, vendor tree, dependencies or unrequested files."
+  },
+  "references": {
+    "indexed": 166,
+    "dispositions": {
+      "repository-only source or recipe": 7,
+      "included": 141,
+      "included generated package index": 3,
+      "original local provenance location, not a portable link": 15
+    },
+    "indexedTargets": "all included targets exist; repository-only targets exist at selected commit",
+    "independentMarkdownLinks": "all portable links resolve from containing file",
+    "independentJsonAndInlineScan": "All evidence filenames indexed; four archive-container identity/provenance mentions are not payload links and are explicitly contextualized.",
+    "viewerMediaVariants": "all seven reachable source combinations exist",
+    "missingPortableTargets": 0,
+    "historicalAbsolutePaths": "Explicit provenance only, not certified portable links."
+  },
+  "normalization": {
+    "artifactHashes": "match normalized payloads",
+    "priorMetadataHashes": "verified at selected evidence commit 08901ee",
+    "referenceCorrectionHashes": "all before values match rejected archive and all after values match corrected archive",
+    "runtimeAssertionsOutcomesMediaUnchanged": true
+  },
+  "media": {
+    "independentlyProbedFiles": 7,
+    "video": "H.264, 1440x900 in all seven",
+    "audio": "AAC, stereo, 48000 Hz in all seven",
+    "streamStartAndDurationFields": "match stored media.json exactly",
+    "sizesAndSha256": "match stored media.json exactly",
+    "streams": [
+      {
+        "file": "baseline-left.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.025000",
+            "duration": "9.366000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "9.412000"
+          }
+        ],
+        "duration": "9.412000",
+        "storedHashAndSizeMatch": true
+      },
+      {
+        "file": "baseline-right.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.031000",
+            "duration": "9.497000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "9.529000"
+          }
+        ],
+        "duration": "9.529000",
+        "storedHashAndSizeMatch": true
+      },
+      {
+        "file": "baseline-collapse.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.025000",
+            "duration": "22.001000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "22.062000"
+          }
+        ],
+        "duration": "22.062000",
+        "storedHashAndSizeMatch": true
+      },
+      {
+        "file": "candidate-left.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.028000",
+            "duration": "10.297000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "10.372000"
+          }
+        ],
+        "duration": "10.372000",
+        "storedHashAndSizeMatch": true
+      },
+      {
+        "file": "candidate-right.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.027000",
+            "duration": "10.127000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "10.189000"
+          }
+        ],
+        "duration": "10.189000",
+        "storedHashAndSizeMatch": true
+      },
+      {
+        "file": "candidate-collapse.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.024000",
+            "duration": "22.648000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "22.697000"
+          }
+        ],
+        "duration": "22.697000",
+        "storedHashAndSizeMatch": true
+      },
+      {
+        "file": "candidate-time-controls.mp4",
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1440,
+            "height": 900,
+            "start_time": "0.032000",
+            "duration": "26.268000"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "sample_rate": "48000",
+            "channels": 2,
+            "start_time": "0.000000",
+            "duration": "26.307000"
+          }
+        ],
+        "duration": "26.307000",
+        "storedHashAndSizeMatch": true
+      }
+    ],
+    "providedCleanExtractedViewerEvidence": {
+      "path": "/tmp/astra-round6-extracted-viewer-check.json",
+      "sha256": "63ca0f1ae3ce5fd20720fccd20a4e63508446b4bc3bb723c5f35c54b5ca5bed7",
+      "observedChecks": "Seven sources ready, seek/play with decoded video/audio counters; one player; initial/switch paused; switch preserves 3 seconds; no recorded errors."
+    },
+    "claimAudit": "REVIEW media numbers match stored measurements, including maximum gaps about 54-295 ms, zero clipped samples, zero drift from source video PTS, and three digital-silence intervals. Onset offsets recompute to 28.5-39.6 ms. This auditor verified streams/hashes and stored evidence, without repeating full stereo/PTS decoding or listening."
+  },
+  "reviewClaims": {
+    "result": "consistent_with_audited_evidence_and_stated_limits",
+    "nativeBranch": "Corrected accepted-action and shortened-future proof preserved.",
+    "performance": "Additional candidate lag is explicit: 12.8164 sim / 14.0018 wall seconds versus baseline 13.2895 / 14.0076, with active mean/p95 34.16/116.7 versus 26.31/100 ms.",
+    "scopeSeparation": "Isolated 897-record test and real-district 932-record film are distinguished; owner acceptance/listening/continuous-motion judgment is not claimed.",
+    "limits": [
+      "Timing environment details and absence of concurrent work are builder-recorded context, not independently logged inside timing JSON.",
+      "Camera/quality interaction response relies on separate visual/native inspection; two cleanup cycles are not a heap-leak or complete process-teardown proof.",
+      "Package integrity is not aesthetic acceptance, sound-quality acceptance, universal performance, or mechanical certification."
+    ]
+  },
+  "resolvedArchiveRegression": {
+    "rejectedSha256": "b310183b575def8cc73700f3a64d6ba119b743acf6bf521b0c54defee04b8adb",
+    "retainedLocalArchive": "/tmp/astra-round6-rejected-reference-map.zip",
+    "finding": "Five historical entries addressed current files whose contents did not match recorded hashes; a historical input directory was ambiguously relative.",
+    "correction": "Entries and prose now name preserved historical payloads, nested hashes agree, and the retained input directory is explicitly local-only.",
+    "proofMembers": [
+      "verification/package-audit-initial.json",
+      "verification/package-reference-correction.json"
+    ]
+  },
+  "workPerformed": "Read-only archive audit and clean extraction, stream metadata probes, source/history checks, and reports outside archive. No runtime suite, listening, runtime mutation, merge or push."
+}

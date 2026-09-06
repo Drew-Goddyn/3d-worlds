@@ -10,12 +10,12 @@ The verifier received source, the round-six commission, scope and invariant crit
 
 | Check | Result | Evidence |
 | --- | --- | --- |
-| Complete Astra regression suite | 51 pass, 0 fail/skip/cancel | `suite-final.log` |
-| Independent actual audio controller and actual visual reconstruction | 5 pass, 0 fail/skip | `targeted-final.log`, `targeted.mjs` |
-| Identical localized charge, 900 steps at 1/60 second | Exact complete structural snapshots and RNG at 7 checkpoints | `structural-equivalence.log`, `structural-equivalence.mjs` |
-| Identical six-charge front/right route, 900 steps at 1/60 second | Exact complete structural snapshots and RNG at 7 checkpoints | `structural-equivalence.log`, `structural-equivalence.mjs` |
+| Complete Astra regression suite | 51 pass, 0 fail/skip/cancel | `suite-ad36dfe.log` |
+| Independent actual audio controller and actual visual reconstruction | 5 pass, 0 fail/skip | `targeted-ad36dfe.log`, `targeted-ad36dfe.mjs` |
+| Identical localized charge, 900 steps at 1/60 second | Exact complete structural snapshots and RNG at 7 checkpoints | `structural-equivalence-ad36dfe.log`, `structural-equivalence.mjs` |
+| Identical six-charge front/right route, 900 steps at 1/60 second | Exact complete structural snapshots and RNG at 7 checkpoints | `structural-equivalence-ad36dfe.log`, `structural-equivalence.mjs` |
 | Pristine reset and restored final event state | Exact captured-state equality for both paired routes | `structural-equivalence.mjs` |
-| Source scope and whitespace | Only Astra continuation changes; clean checkout and diff check | `verification.json` |
+| Source scope and whitespace | Only Astra continuation changes; clean checkout and diff check | `verification-ad36dfe.json` |
 
 The paired comparison removes only the newly added event-track field before comparing complete snapshots. It compares structural bodies, supports, section membership/momentum, debris, legacy dust, charge timers, scoring and structural RNG. Both versions construct their bank from their own source. Each route retains all 1,864 diagnostic bank bodies. This is an isolated bank diagnostic, not the real district or browser, and does not establish native performance or visual acceptance.
 
@@ -25,7 +25,7 @@ The visual probe instantiates the real `EventVisuals`, restores a dust birth pre
 
 ## Findings and disposition
 
-1. **Resolved contact-check regression.** The initial candidate `5e5c77dacde3169b15228f348a69a4e323bb3e13` passed 47/51 tests. Four unchanged contact tests crashed because presentation callbacks became mandatory on their standalone simulation. All four passed on freshly fetched current main, so this was a candidate regression. The final correction makes presentation observers optional without changing any contact assertion. All four then pass within the full 51-test suite. Before/after evidence: `suite.log`, `baseline-contacts.log`, `suite-final.log`.
+1. **Resolved contact-check regression.** The initial candidate `5e5c77dacde3169b15228f348a69a4e323bb3e13` passed 47/51 tests. Four unchanged contact tests crashed because presentation callbacks became mandatory on their standalone simulation. All four passed on freshly fetched current main, so this was a candidate regression. The final correction makes presentation observers optional without changing any contact assertion. All four then pass within the full 51-test suite. Before/after evidence: `suite.log`, `baseline-contacts.log`, `suite-ad36dfe.log`.
 2. **Bounded admission remains visible as a limitation.** After coarser grouping, true visual expiry and reserved blast capacity, the localized route peaks at 39 recorded events with no suppression. The six-charge route peaks at 752 events and records 294 suppressed minor presentation requests. All six blast births survive, no active birth is evicted by admission, and the event list returns to zero by 15 simulation seconds. This protects bounded work and important blasts, but does not mean every release/contact request receives a visible or audible response. Native district inspection remains necessary to judge the creative consequence. Do not describe saturation as eliminated.
 3. **Verifier fixture corrected, implementation unchanged.** The first added visual probe supplied a synthetic event missing direction fields guaranteed by EventTrack, causing NaN matrices. The fixture was corrected to the real record contract; assertions were retained and then passed. The initial log remains in `targeted-incomplete-fixture.log`; the original-source pass is in `targeted-original.log`.
 

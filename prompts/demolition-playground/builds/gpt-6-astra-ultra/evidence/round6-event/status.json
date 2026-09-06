@@ -39,5 +39,11 @@
     "contents": "selected evidence only; no application checkout",
     "manifest": "manifest.json"
   },
-  "selectedMediaAndTechnicalEvidenceCommit": "08901eef7b98704497eaa7fcb9846f34c6fcdb47"
+  "selectedMediaAndTechnicalEvidenceCommit": "08901eef7b98704497eaa7fcb9846f34c6fcdb47",
+  "newPR": {
+    "number": 5,
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/5",
+    "state": "OPEN",
+    "merged": false
+  }
 }
