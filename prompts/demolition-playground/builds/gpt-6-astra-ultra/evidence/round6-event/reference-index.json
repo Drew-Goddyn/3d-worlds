@@ -1,0 +1,1006 @@
+{
+  "policy": "Relative evidence links resolve within this package. Original absolute worktree and temporary capture paths in third-party audit/provenance reports identify where verification occurred; they are not portable links. Application source and Python capture recipes are repository-only. Selected media and merged metadata are included.",
+  "references": [
+    {
+      "from": "FOLLOW-UP.md",
+      "reference": "src/main.js",
+      "kind": "inline file reference",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/main.js"
+    },
+    {
+      "from": "FOLLOW-UP.md",
+      "reference": "src/simulation.js",
+      "kind": "inline file reference",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/simulation.js"
+    },
+    {
+      "from": "FOLLOW-UP.md",
+      "reference": "src/history.js",
+      "kind": "inline file reference",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/history.js"
+    },
+    {
+      "from": "FOLLOW-UP.md",
+      "reference": "REVIEW.md",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "REVIEW.md"
+    },
+    {
+      "from": "FOLLOW-UP.md",
+      "reference": "FOLLOW-UP.md",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "FOLLOW-UP.md"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "manifest.json",
+      "kind": "markdown link",
+      "disposition": "included generated package index",
+      "target": "manifest.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "viewer.html",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "viewer.html"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "baseline-timing.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "baseline-timing.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "candidate-timing.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "candidate-timing.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "media.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "media.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "baseline-recordings.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "baseline-recordings.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "candidate-recordings.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "candidate-recordings.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "FOLLOW-UP.md",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "FOLLOW-UP.md"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "verification/verification.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "verification/verification.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "native-checks.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "native-checks.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "verification/native-evidence-review.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "verification/native-evidence-review.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "viewer-check.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "viewer-check.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "checkpoint/verification.json",
+      "kind": "markdown link",
+      "disposition": "included",
+      "target": "checkpoint/verification.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "reference": "reference-index.json",
+      "kind": "markdown link",
+      "disposition": "included generated package index",
+      "target": "reference-index.json"
+    },
+    {
+      "from": "checkpoint/scope-proof.json",
+      "reference": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js",
+      "kind": "metadata value",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js"
+    },
+    {
+      "from": "checkpoint/scope-proof.json",
+      "reference": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js",
+      "kind": "metadata value",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js"
+    },
+    {
+      "from": "checkpoint/timing-assessment.json",
+      "reference": "/tmp/astra-round6-checkpoint/reviewed-timing.json",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-checkpoint/reviewed-timing.json"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js",
+      "kind": "metadata value",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js",
+      "kind": "metadata value",
+      "disposition": "repository-only source or recipe",
+      "target": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "full-suite.stdout.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/full-suite.stdout.log"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "full-suite.stdout.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/full-suite.stdout.log"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "runtime-and-tests.diff",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/runtime-and-tests.diff"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "remote-pr.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/remote-pr.json"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "remote-refs.txt",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/remote-refs.txt"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "scope-proof.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/scope-proof.json"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "fresh-state-proof.mjs",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/fresh-state-proof.mjs"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "fresh-state-proof.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/fresh-state-proof.json"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "fresh-state-proof.stdout.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/fresh-state-proof.stdout.log"
+    },
+    {
+      "from": "checkpoint/verification.json",
+      "reference": "timing-assessment.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/timing-assessment.json"
+    },
+    {
+      "from": "media.json",
+      "reference": "baseline-left.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-left.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-checkpoint/baseline-pcm-left.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-checkpoint/baseline-pcm-left.webm"
+    },
+    {
+      "from": "media.json",
+      "reference": "baseline-right.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-right.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-checkpoint/baseline-pcm-right.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-checkpoint/baseline-pcm-right.webm"
+    },
+    {
+      "from": "media.json",
+      "reference": "baseline-collapse.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-collapse.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-checkpoint/baseline-pcm-collapse.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-checkpoint/baseline-pcm-collapse.webm"
+    },
+    {
+      "from": "media.json",
+      "reference": "candidate-left.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-left.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-final/candidate-left.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-final/candidate-left.webm"
+    },
+    {
+      "from": "media.json",
+      "reference": "candidate-right.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-right.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-final/candidate-right.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-final/candidate-right.webm"
+    },
+    {
+      "from": "media.json",
+      "reference": "candidate-collapse.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-collapse.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-final/candidate-collapse.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-final/candidate-collapse.webm"
+    },
+    {
+      "from": "media.json",
+      "reference": "candidate-time-controls.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-time-controls.mp4"
+    },
+    {
+      "from": "media.json",
+      "reference": "/tmp/astra-round6-controls-corrected/candidate-time-controls.webm",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-controls-corrected/candidate-time-controls.webm"
+    },
+    {
+      "from": "native-checks.json",
+      "reference": "candidate-time-controls.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-time-controls.mp4"
+    },
+    {
+      "from": "status.json",
+      "reference": "verification/verification.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/verification.json"
+    },
+    {
+      "from": "status.json",
+      "reference": "native-checks.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "native-checks.json"
+    },
+    {
+      "from": "status.json",
+      "reference": "media.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "media.json"
+    },
+    {
+      "from": "status.json",
+      "reference": "viewer-check.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "viewer-check.json"
+    },
+    {
+      "from": "status.json",
+      "reference": "verification/native-evidence-review.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/native-evidence-review.json"
+    },
+    {
+      "from": "status.json",
+      "reference": "manifest.json",
+      "kind": "metadata value",
+      "disposition": "included generated package index",
+      "target": "manifest.json"
+    },
+    {
+      "from": "verification/NATIVE-EVIDENCE-REVIEW.md",
+      "reference": "native-evidence-review.json",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/native-evidence-review.json"
+    },
+    {
+      "from": "verification/NATIVE-EVIDENCE-REVIEW.md",
+      "reference": "audit-native-evidence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/audit-native-evidence.mjs"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "suite-final.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "targeted-final.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted-final.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "targeted.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted.mjs"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "structural-equivalence.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "structural-equivalence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "structural-equivalence.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "structural-equivalence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "structural-equivalence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "verification.json",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/verification.json"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "suite.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/suite.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "baseline-contacts.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/baseline-contacts.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "suite-final.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "targeted-incomplete-fixture.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/REPORT-ad36dfe.md",
+      "reference": "targeted-original.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted-original.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "suite-final.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "targeted-final.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted-final.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "targeted.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted.mjs"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "structural-equivalence.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "structural-equivalence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "structural-equivalence.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "structural-equivalence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "structural-equivalence.mjs",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "verification.json",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/verification.json"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "suite.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/suite.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "baseline-contacts.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/baseline-contacts.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "suite-final.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "targeted-incomplete-fixture.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/REPORT.md",
+      "reference": "targeted-original.log",
+      "kind": "inline file reference",
+      "disposition": "included",
+      "target": "verification/targeted-original.log"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "checkpoint/runtime-and-tests.diff",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "checkpoint/runtime-and-tests.diff"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "verification/targeted-incomplete-fixture.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "verification/verification-ad36dfe.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/verification-ad36dfe.json"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "targeted-incomplete-fixture.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "verification/verification.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/verification.json"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "targeted-incomplete-fixture.log",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/evidence-normalization.json",
+      "reference": "verification-ad36dfe.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "verification/verification-ad36dfe.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/native-checks.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "native-checks.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/tmp/astra-round6-controls-corrected/native-checks.json",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-controls-corrected/native-checks.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/tmp/astra-round6-final/candidate-recordings.json",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-final/candidate-recordings.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/baseline-recordings.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-recordings.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/baseline-timing.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-timing.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/candidate-timing.json",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-timing.json"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/inspect-controls.py",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/inspect-controls.py"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/measure-timing.py",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/measure-timing.py"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/capture-audio.py",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/capture-audio.py"
+    },
+    {
+      "from": "verification/native-evidence-review.json",
+      "reference": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json",
+      "kind": "metadata value",
+      "disposition": "original local provenance location, not a portable link",
+      "target": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "REPORT.md",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/REPORT.md"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "suite.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/suite.log"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "baseline-contacts.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/baseline-contacts.log"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "suite-final.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "targeted-incomplete-fixture.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "targeted-original.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-original.log"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "targeted-final.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-final.log"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "targeted.mjs",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted.mjs"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "structural-equivalence.mjs",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/verification-ad36dfe.json",
+      "reference": "structural-equivalence.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "REPORT.md",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/REPORT.md"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "suite.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/suite.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "baseline-contacts.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/baseline-contacts.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "suite-final.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/suite-final.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "targeted-incomplete-fixture.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-incomplete-fixture.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "targeted-original.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-original.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "targeted-final.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-final.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "targeted.mjs",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted.mjs"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "structural-equivalence.mjs",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.mjs"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "structural-equivalence.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/structural-equivalence.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "REPORT-ad36dfe.md",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/REPORT-ad36dfe.md"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "verification-ad36dfe.json",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/verification-ad36dfe.json"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "suite-ad36dfe.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/suite-ad36dfe.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "targeted-ad36dfe.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-ad36dfe.log"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "targeted-ad36dfe.mjs",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/targeted-ad36dfe.mjs"
+    },
+    {
+      "from": "verification/verification.json",
+      "reference": "structural-equivalence-ad36dfe.log",
+      "kind": "metadata key",
+      "disposition": "included",
+      "target": "verification/structural-equivalence-ad36dfe.log"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "baseline-left.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-left.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "baseline-left.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-left.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "candidate-left.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-left.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "baseline-right.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-right.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "candidate-right.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-right.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "baseline-collapse.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "baseline-collapse.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "candidate-collapse.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-collapse.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "candidate-time-controls.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-time-controls.mp4"
+    },
+    {
+      "from": "viewer-check.json",
+      "reference": "candidate-left.mp4",
+      "kind": "metadata value",
+      "disposition": "included",
+      "target": "candidate-left.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "reference": "baseline-left.mp4",
+      "kind": "viewer link",
+      "disposition": "included",
+      "target": "baseline-left.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "reference": "REVIEW.md",
+      "kind": "viewer link",
+      "disposition": "included",
+      "target": "REVIEW.md"
+    },
+    {
+      "from": "viewer.html",
+      "reference": "media.json",
+      "kind": "viewer link",
+      "disposition": "included",
+      "target": "media.json"
+    },
+    {
+      "from": "viewer.html",
+      "reference": "baseline-strip.jpg",
+      "kind": "viewer link",
+      "disposition": "included",
+      "target": "baseline-strip.jpg"
+    },
+    {
+      "from": "viewer.html",
+      "reference": "candidate-strip.jpg",
+      "kind": "viewer link",
+      "disposition": "included",
+      "target": "candidate-strip.jpg"
+    }
+  ]
+}

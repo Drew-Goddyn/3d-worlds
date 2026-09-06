@@ -25,7 +25,9 @@
     },
     "report": "verification/verification.json",
     "nativeChecks": "native-checks.json",
-    "audioAndVideo": "media.json"
+    "audioAndVideo": "media.json",
+    "offlineViewer": "viewer-check.json",
+    "independentNativeAudit": "verification/native-evidence-review.json"
   },
   "knownLimitations": [
     "Added collapse frame cost and inherited simulation-time loss; separate unrecorded paired trace disclosed.",
@@ -36,5 +38,6 @@
     "intendedPath": "/Users/Drew/Downloads/bank-event-round6-review.zip",
     "contents": "selected evidence only; no application checkout",
     "manifest": "manifest.json"
-  }
+  },
+  "selectedMediaAndTechnicalEvidenceCommit": "08901eef7b98704497eaa7fcb9846f34c6fcdb47"
 }
