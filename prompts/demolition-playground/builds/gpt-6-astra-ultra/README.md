@@ -1,6 +1,6 @@
 # Demolition District
 
-> **Round-four continuation:** Mercantile Bank is now a tall banking court with monumental arched glazing, occupied galleries, an open stair and a copper-glass vault. The retained hall checkpoint was merged in PR #2. This round awaits owner review. The original attempt remains at `ac854cea3d554f34f39ca9f91a3197ad422b79ee`; current session model/reasoning are **unverified**. See [round-four review and evidence](evidence/round4-bank/REVIEW.md).
+> **Round-six continuation:** the connected demolition from PR #4 is retained as a merged checkpoint, with its transient timing limit disclosed. Recorded pressure plumes, moving masonry dust, material contact voices and reversible effects now express the actual event. This candidate awaits owner review. See [round-six review and evidence](evidence/round6-event/REVIEW.md).
 
 A standalone procedural Three.js demolition playground. Eight downtown buildings, a controllable wrecking crane, staged demolition charges, material-specific rubble, water, dust, slow motion, and a scrubbable one-minute destruction history.
 
@@ -29,7 +29,7 @@ Tests exercise support-loss propagation, neighboring collapse, snapshot ownershi
 - **Rewind** (`R`) reverses the recording. Drag the timeline to inspect any recorded moment; its play button replays the retained future. Taking a new demolition action in the past creates a new future.
 - **Rebuild city** plays a reverse reconstruction to the permanent pristine snapshot, including when the earliest damage is older than the rolling minute.
 - **Action camera** (`C`) follows impacts. **Reset camera** (`H`) restores the overview without changing the city. `P` pauses the simulation.
-- Quality and optional procedural sound are in the right-hand rail.
+- Quality, mute and sound level are in the right-hand rail. Sound starts muted; enable it explicitly. Pause and seeking stop voices, retained forward replay restores the recorded sound choices, slow motion stretches them, and rewind uses restrained reversed material grains.
 
 ## Architecture and boundaries
 
@@ -47,7 +47,7 @@ The project has no sibling-project imports, external artwork, hosted services, a
 
 ## Continuing application and historical evidence
 
-This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four’s architecture was retained through the explicitly authorized PR #3 checkpoint merge. Round five’s demolition is a new review candidate; owner acceptance remains pending. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
+This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four’s architecture was retained through the explicitly authorized PR #3 checkpoint merge. Round five’s connected descent was retained through the explicitly authorized PR #4 checkpoint. Round six is a new, unmerged continuation; owner acceptance remains pending. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
 
 ## Banking-hall breach continuation
 
@@ -62,3 +62,9 @@ This remains a custom coarse simulation: prepared glass fractures, approximate r
 Charges now open localized wounds and remove bearings under the banking court. Construction rotates around surviving support, then travels in connected masonry/floor sections; real contact and later charges split those sections into the existing retained pieces. The direction of support loss affects the falling section and resulting rubble. Ground-level cuts remain bounded; try six front/right charges for the larger connected collapse, then rebuild and cut the roof followed by an upper side pier.
 
 `src/bank-cohesion.js` derives a finite connection graph from the recipe's actual solid members, handles moving sections and contact breakup, and captures their momentum/membership alongside the existing bank snapshots. `src/bank-physics.js` retains support assessment, individual rubble settlement, scoring and render ownership. The bank's existing geometry is the editable preparation recipe; no asset build, new dependency or Blender step is required. Section/fragment contacts use approximate bounds, and the surrounding buildings retain their coarse storey simulation. See [the round-five commission and evidence](evidence/round5-demolition/FOLLOW-UP.md).
+
+## Demolition event continuation
+
+The event layer owns immutable, spatially grouped birth records with independent visual/audio randomness. Snapshots carry all still-visible births; scrubbing reconstructs clouds and grit analytically. Actual member release and contact hooks observe the existing solver. Its structural RNG, charge strengths, supports and fracture behavior remain intact; legacy dust generation is retained for structural random-stream compatibility while the new layer supplies the visible dust.
+
+Working entry points are `src/event-track.js` for ownership and transport, `src/event-visuals.js` for simulation-time reconstruction, and `src/event-audio.js` for editable procedural material voices and bounded Web Audio playback. The selected evidence folder retains the short audio-capture recipe. All synthesis and rendering work locally using the existing vendored runtime. No added dependency, external sample, asset tool, runtime service or account is needed.

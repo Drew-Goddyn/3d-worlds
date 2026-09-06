@@ -1,0 +1,12 @@
+✔ loose masonry transfers impact into a connected falling floor instead of crossing it (13.228ms)
+✔ a connected floor edge collides across a spatial-cell boundary (2.615375ms)
+✔ a connected falling floor transfers impact to loose airborne rubble (1.799375ms)
+✔ two connected sections exchange impact without crossing (3.527083ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 264.063667
