@@ -97,7 +97,11 @@ function pick(event){
       const body=simulation.bank.bodies[hit.object.userData.bodyIds[hit.instanceId]];
       if(body.fixed)continue;
       const building=hit.object.userData.bank.building;
-      return {...hit,building,floor:building.floors[simulation.bank.nodes[body.node].level]};
+      // Preserve the point in the selected piece's displayed coordinates.
+      // Branching a scrubbed frame restores an earlier snapshot before input;
+      // the same local point then follows that body's restored transform.
+      const bankCharge=simulation.bank.anchorCharge(body.id,hit.point);
+      return {...hit,bankCharge,building,floor:building.floors[simulation.bank.nodes[body.node].level]};
     }
     let object=hit.object;while(object&&!hitGroups.includes(object))object=object.parent;
     if(!object||!object.visible)continue;
@@ -120,7 +124,8 @@ canvas.addEventListener('pointerup',event=>{
   const hit=pick(event);if(!hit||!branch())return;
   if(tool==='charge'){
     const bankBodyId=hit.object.userData.bank?hit.object.userData.bodyIds[hit.instanceId]:null;
-    if(simulation.placeCharge(hit.point,hit.building.id,hit.floor.index,bankBodyId))sound(7);else toast('Six charges is a full set. Time to detonate.');
+    const point=hit.bankCharge?simulation.bank.chargePoint(hit.bankCharge):hit.point;
+    if(simulation.placeCharge(point,hit.building.id,hit.floor.index,bankBodyId))sound(7);else toast('Six charges is a full set. Time to detonate.');
   }else{crane.aimAt(hit.point,hit.building.bank?2.1:3);toast(`Taking a swing at ${hit.building.name}.`);}
   $('target-label').hidden=true;record();updateUI();
 });

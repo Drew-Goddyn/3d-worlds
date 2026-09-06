@@ -83,6 +83,10 @@ export class BankPhysics {
   chargePoint(charge) {
     const b=this.bodies[charge.bankBody];return new THREE.Vector3(charge.x,charge.y,charge.z).applyMatrix4(this.bodyMatrix(b));
   }
+  anchorCharge(bodyId,worldPoint) {
+    const local=worldPoint.clone().applyMatrix4(this.presentationMatrices[bodyId].clone().invert());
+    return {bankBody:bodyId,x:local.x,y:local.y,z:local.z};
+  }
   damage(point,power,direction,blast=false) {
     const radius=blast?3.9:2.15;const bounds=new THREE.Box3();let changed=false;
     for(const b of this.bodies) {

@@ -79,3 +79,19 @@ test('street-level roof debris remains chargeable outside its original storey vo
   }
   assert.equal(sim.placeCharge(b.bounds(rubble[0]).getCenter(new THREE.Vector3()),0,2,rubble[0].id),false,'six-charge limit remains enforced');
 });
+
+test('a charge keeps its selected piece and local point when branching an interpolated replay',()=>{
+  const sim=fixture(),b=sim.bank,pane=b.bodies.find(p=>p.role==='glass'&&p.attachments);
+  sim.placeCharge(pane.origin,0,2,pane.id);sim.detonate();advance(sim,60);
+  const earlier=sim.capture();advance(sim,3);const later=sim.capture();
+  const falling=b.bodies.filter(p=>p.state===1&&p.role==='glass');assert.ok(falling.length>10);
+  for(const part of falling) {
+    sim.restore(earlier,later,.8);
+    const displayed=part.bounds.getCenter(new THREE.Vector3()).applyMatrix4(b.presentationMatrices[part.id]);
+    const anchor=b.anchorCharge(part.id,displayed);
+    sim.restore(earlier);
+    assert.ok(sim.placeCharge(b.chargePoint(anchor),0,b.nodes[part.node].level,part.id));
+    const placed=sim.charges.at(-1);assert.equal(placed.bankBody,part.id);
+    assert.ok(Math.hypot(placed.x-anchor.x,placed.y-anchor.y,placed.z-anchor.z)<1e-8);
+  }
+});
