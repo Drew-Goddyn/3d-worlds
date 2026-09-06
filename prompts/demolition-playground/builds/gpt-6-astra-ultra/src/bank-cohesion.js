@@ -96,10 +96,56 @@ export class BankCohesion {
     for(let x=Math.floor(bounds.min.x/3);x<=Math.floor(bounds.max.x/3);x++)for(let z=Math.floor(bounds.min.z/3);z<=Math.floor(bounds.max.z/3);z++)for(const entry of grid.get(x+','+z)??[])entries.add(entry);
     return entries;
   }
-  receiveImpulse(body,impulse) {
-    if(body.cluster<0){body.vy-=impulse/body.mass;return;}
-    const members=this.bank.bodies.filter(b=>b.cluster===body.cluster),mass=members.reduce((sum,b)=>sum+b.mass,0),dv=impulse/mass;
-    this.sections[body.cluster].vy-=dv;for(const b of members)b.vy-=dv;
+  resolveMovingContacts(prior,priorSleep,grounded,dt) {
+    const bank=this.bank,grid=new Map(),bounds=new Map();
+    const moving=bank.bodies.filter(b=>b.state===1&&!['paper','glass'].includes(b.role));
+    if(!moving.some(b=>b.cluster>=0))return;
+    // This response owns the new section/piece boundary. Individual rubble
+    // retains the application's existing ground, resting-rubble and furnishing
+    // contact model; it is not run through a second free-piece solver.
+    for(const b of moving) {
+      const now=bank.bounds(b);bounds.set(b.id,now);const swept=now.clone().union(prior.get(b.id)??now),entry={b};
+      for(let x=Math.floor(swept.min.x/3);x<=Math.floor(swept.max.x/3);x++)for(let z=Math.floor(swept.min.z/3);z<=Math.floor(swept.max.z/3);z++){const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);}
+    }
+    const pairs=new Set();
+    const mass=b=>b.cluster<0?b.mass:bank.bodies.reduce((sum,p)=>sum+(p.cluster===b.cluster?p.mass:0),0);
+    const move=(b,axis,delta)=>{if(b.cluster<0)b[axis]+=delta;else{this.sections[b.cluster][axis]+=delta;for(const p of bank.bodies)if(p.cluster===b.cluster)p[axis]+=delta;}};
+    const impulse=(b,axis,dv)=>{if(b.cluster<0)b['v'+axis]+=dv;else{this.sections[b.cluster]['v'+axis]+=dv;for(const p of bank.bodies)if(p.cluster===b.cluster)p['v'+axis]+=dv;}};
+    // Resolve lower supports first, allowing actual grounded contacts to carry
+    // a quiet stack without treating two freely falling pieces as grounded.
+    moving.sort((a,b)=>bounds.get(a.id).min.y-bounds.get(b.id).min.y||a.id-b.id);
+    for(const first of moving) {
+      const swept=bank.bounds(first).union(prior.get(first.id)??bounds.get(first.id));
+      for(const {b:second} of this.candidates(grid,swept)) {
+        if(first===second||first.cluster<0&&second.cluster<0||first.cluster>=0&&first.cluster===second.cluster)continue;
+        const key=Math.min(first.id,second.id)+':'+Math.max(first.id,second.id);if(pairs.has(key))continue;pairs.add(key);
+        const a=bank.bounds(first),b=bank.bounds(second);
+        if(!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
+        const pa=prior.get(first.id)??a,pb=prior.get(second.id)??b;
+        let incoming,under,axis,depth;
+        for(const dim of ['y','x','z']) {
+          const tolerance=.025;
+          if(pa.min[dim]>=pb.max[dim]-tolerance&&a.min[dim]<b.max[dim]){incoming=first;under=second;axis=dim;depth=b.max[dim]-a.min[dim];break;}
+          if(pb.min[dim]>=pa.max[dim]-tolerance&&b.min[dim]<a.max[dim]){incoming=second;under=first;axis=dim;depth=a.max[dim]-b.min[dim];break;}
+        }
+        if(!incoming)continue;
+        const relative=under['v'+axis]-incoming['v'+axis];if(relative<-.01)continue;
+        const mi=mass(incoming),mu=mass(under),fixedUnder=axis==='y'&&(grounded.has(under.id)||under.state===2),ia=1/mi,ib=fixedUnder?0:1/mu;
+        move(incoming,axis,(depth+.001)*ia/(ia+ib));if(ib)move(under,axis,-(depth+.001)*ib/(ia+ib));
+        const j=Math.max(0,relative)*1.04/(ia+ib);impulse(incoming,axis,j*ia);if(ib)impulse(under,axis,-j*ib);
+        const impact=bank.bounds(incoming).getCenter(new THREE.Vector3());impact[axis]=bank.bounds(under).max[axis];
+        if(relative>2.5) {
+          const ci=incoming.cluster;if(ci>=0)this.fracture(ci,impact,relative);
+          const cu=under.cluster;if(cu>=0)this.fracture(cu,impact,relative);
+        }
+        if(fixedUnder&&incoming.cluster<0) {
+          bank.contactFriction(incoming,dt);
+          if(Math.abs(incoming.vy)<.5)grounded.add(incoming.id);
+          if(Math.hypot(incoming.vx,incoming.vz)<.14&&Math.abs(incoming.vy)<.5&&Math.abs(incoming.wx)+Math.abs(incoming.wz)<.18){incoming.sleep=(priorSleep.get(incoming.id)??0)+dt;if(incoming.sleep>.45)bank.settle(incoming);}
+        }
+        bank.revision++;
+      }
+    }
   }
   step(dt,solids) {
     const bank=this.bank;this.moved.clear();
@@ -131,7 +177,7 @@ export class BankCohesion {
         if(now.min.y<.23&&.23-now.min.y>penetration){penetration=.23-now.min.y;hit={b,point:new THREE.Vector3(b.x,.23,b.z),under:null};}
         for(const entry of this.candidates(solids,now.clone().union(prior))) {
           const other=entry.b;
-          if(other===b||other.cluster===id)continue;
+          if(other===b||other.cluster===id||other.state===1)continue;
           if(now.max.y>entry.bottom+.04&&now.min.y<entry.top-.04) {
             const walls=[['x','max','min',entry.minX,1],['x','min','max',entry.maxX,-1],['z','max','min',entry.minZ,1],['z','min','max',entry.maxZ,-1]];
             for(const [axis,edge,opposite,at,sign] of walls) {
@@ -167,7 +213,6 @@ export class BankCohesion {
         const axis=hit.axis??'y',sign=hit.axis?-hit.sign:1;
         for(const b of members)b[axis]+=penetration*sign;s[axis]+=penetration*sign;
         const speed=hit.axis?Math.abs(hit.b['v'+axis]):Math.max(0,-hit.b.vy),impact=hit.point;
-        if(hit.under?.state===1&&!hit.under.content&&speed>1.2){const other=hit.under;bank.cohesion.detach(other);other.sleep=0;other.vx+=s.vx*.18;other.vy+=s.vy*.08;other.vz+=s.vz*.18;}
         if(hit.under?.content&&speed>1.2)bank.hitContent(hit.under,Math.min(160,speed*18),new THREE.Vector3(s.vx*.2,.1,s.vz*.2));
         if(hit.external&&speed>1.2){const key='neighbor:'+hit.b.id+':'+hit.external.index;if(!bank.contacts.has(key)){bank.contacts.add(key);bank.sim._damageFloor(hit.external,impact,Math.min(130,speed*members.reduce((m,b)=>m+b.mass,0)*1.4),new THREE.Vector3(s.vx,0,s.vz).normalize(),false);}}
         if(speed>2.5) {

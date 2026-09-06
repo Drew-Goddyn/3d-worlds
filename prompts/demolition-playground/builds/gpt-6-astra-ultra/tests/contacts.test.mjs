@@ -30,3 +30,16 @@ test('a connected floor edge collides across a spatial-cell boundary',()=>{
   assert.ok(bank.bounds(bank.bodies[0]).min.z<bank.bounds(bank.bodies[3]).max.z,'the whole slab cannot pass through the obstacle');
   assert.ok(bank.bodies.slice(0,3).some(b=>b.cluster<0),'the real edge contact must fracture construction');
 });
+for(const lowerSection of [false,true])test(lowerSection?'two connected sections exchange impact without crossing':'a connected falling floor transfers impact to loose airborne rubble',()=>{
+  const specs=[{pos:[0,4,0],size:[1,.4,1]},{pos:[1,4,0],size:[1,.4,1]},{pos:[2,4,0],size:[1,.4,1]}];
+  if(lowerSection)for(let x=0;x<3;x++)specs.push({pos:[x,3,0],size:[1,.4,1],group:'lower'});
+  else specs.push({pos:[1,3,0],size:[.3,.3,.3],group:'loose'});
+  const bank=fixture(specs);bank.cohesion.assemble([0,1,2]);if(lowerSection)bank.cohesion.assemble([3,4,5]);bank.cohesion.sections[0].vy=-6;
+  const struck=bank.bodies[lowerSection?4:3];let impact=false;
+  for(let i=0;i<21;i++){
+    bank.sim.time+=1/60;bank.step(1/60);
+    assert.ok(bank.bounds(bank.bodies[1]).max.y>=bank.bounds(struck).min.y,'connected construction cannot pass completely through the struck piece');
+    if(struck.vy < -12.5*(i+1)/60-1)impact=true; // faster than gravity-only free fall
+  }
+  assert.ok(impact,'the receiving construction must take the contact impulse');
+});
