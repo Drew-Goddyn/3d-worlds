@@ -135,7 +135,7 @@ export class BankCohesion {
         const j=Math.max(0,relative)*1.04/(ia+ib);impulse(incoming,axis,j*ia);if(ib)impulse(under,axis,-j*ib);
         const impact=bank.bounds(incoming).getCenter(new THREE.Vector3());impact[axis]=bank.bounds(under).max[axis];
         if(relative>2.5) {
-          bank.sim._emit('contact',impact,{material:bank.eventMaterial(incoming),mass:mi,speed:relative,power:Math.min(180,relative*15)});
+          bank.sim._emit?.('contact',impact,{material:bank.eventMaterial(incoming),mass:mi,speed:relative,power:Math.min(180,relative*15)});
           const ci=incoming.cluster;if(ci>=0)this.fracture(ci,impact,relative);
           const cu=under.cluster;if(cu>=0)this.fracture(cu,impact,relative);
         }
@@ -176,7 +176,7 @@ export class BankCohesion {
       // simulation second. This event hook neither integrates nor changes motion.
       if(Math.floor(bank.sim.time*7)!==Math.floor((bank.sim.time-dt)*7)&&Math.abs(s.vy)>1.5){
         const carrier=members.reduce((a,b)=>a.mass>b.mass?a:b);
-        bank.sim._emit('motion',new THREE.Vector3(carrier.x,carrier.y,carrier.z),{material:bank.eventMaterial(carrier),mass:carrier.mass,power:Math.min(70,Math.abs(s.vy)*5),vx:carrier.vx,vy:carrier.vy,vz:carrier.vz});
+        bank.sim._emit?.('motion',new THREE.Vector3(carrier.x,carrier.y,carrier.z),{material:bank.eventMaterial(carrier),mass:carrier.mass,power:Math.min(70,Math.abs(s.vy)*5),vx:carrier.vx,vy:carrier.vy,vz:carrier.vz});
       }
       let hit=null,penetration=0;
       for(const {b,bounds:prior} of before) {
@@ -223,7 +223,7 @@ export class BankCohesion {
         if(hit.under?.content&&speed>1.2)bank.hitContent(hit.under,Math.min(160,speed*18),new THREE.Vector3(s.vx*.2,.1,s.vz*.2));
         if(hit.external&&speed>1.2){const key='neighbor:'+hit.b.id+':'+hit.external.index;if(!bank.contacts.has(key)){bank.contacts.add(key);bank.sim._damageFloor(hit.external,impact,Math.min(130,speed*members.reduce((m,b)=>m+b.mass,0)*1.4),new THREE.Vector3(s.vx,0,s.vz).normalize(),false);}}
         if(speed>2.5) {
-          bank.sim._emit('contact',impact,{material:bank.eventMaterial(hit.b),mass:members.reduce((m,b)=>m+b.mass,0),speed,power:Math.min(180,speed*15)});
+          bank.sim._emit?.('contact',impact,{material:bank.eventMaterial(hit.b),mass:members.reduce((m,b)=>m+b.mass,0),speed,power:Math.min(180,speed*15)});
           bank.sim._emitDust(impact,Math.min(5,Math.ceil(members.length/12)),Math.min(1.6,.3+speed*.08));
           bank.neighborImpact(hit.b,impact,speed);
         }
