@@ -1,0 +1,374 @@
+{
+  "savedTime": 1.0000000000000013,
+  "nextTime": 1.0500000000000012,
+  "alpha": 0.8,
+  "attempts": 20,
+  "mismatches": [
+    {
+      "selectedBody": 1708,
+      "selectedRole": "glass",
+      "point": [
+        -13.238267327869684,
+        6.859138195716371,
+        12.687372564951465
+      ],
+      "distanceToResumedBody": 0.503642491010658,
+      "accepted": true,
+      "chargedBody": 1409,
+      "chargedRole": "slab"
+    },
+    {
+      "selectedBody": 1710,
+      "selectedRole": "glass",
+      "point": [
+        -13.026359184229909,
+        7.455817929233721,
+        12.726644563287996
+      ],
+      "distanceToResumedBody": 0.5008107177680907,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1712,
+      "selectedRole": "glass",
+      "point": [
+        -12.43787737919777,
+        8.012616685871228,
+        12.820021641694119
+      ],
+      "distanceToResumedBody": 0.49776179812157473,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1714,
+      "selectedRole": "glass",
+      "point": [
+        -11.715922445278945,
+        8.4606490967279,
+        12.907289802962497
+      ],
+      "distanceToResumedBody": 0.4336892435541344,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1716,
+      "selectedRole": "glass",
+      "point": [
+        -10.910422482399893,
+        8.375197247672832,
+        12.840941374045507
+      ],
+      "distanceToResumedBody": 0.46775817284945775,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1736,
+      "selectedRole": "glass",
+      "point": [
+        -12.410491032985561,
+        8.020187968408658,
+        14.772118755201454
+      ],
+      "distanceToResumedBody": 0.49757766958520655,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1738,
+      "selectedRole": "glass",
+      "point": [
+        -11.615104754808879,
+        8.471816856732099,
+        14.813072919740895
+      ],
+      "distanceToResumedBody": 0.41550151589070516,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1740,
+      "selectedRole": "glass",
+      "point": [
+        -11.005889980674613,
+        8.424696951138685,
+        14.927647315939668
+      ],
+      "distanceToResumedBody": 0.39395521613909423,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    }
+  ],
+  "results": [
+    {
+      "selectedBody": 1706,
+      "selectedRole": "glass",
+      "point": [
+        -13.673420204703563,
+        6.758933627044074,
+        12.686754855714602
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1706,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1708,
+      "selectedRole": "glass",
+      "point": [
+        -13.238267327869684,
+        6.859138195716371,
+        12.687372564951465
+      ],
+      "distanceToResumedBody": 0.503642491010658,
+      "accepted": true,
+      "chargedBody": 1409,
+      "chargedRole": "slab"
+    },
+    {
+      "selectedBody": 1710,
+      "selectedRole": "glass",
+      "point": [
+        -13.026359184229909,
+        7.455817929233721,
+        12.726644563287996
+      ],
+      "distanceToResumedBody": 0.5008107177680907,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1712,
+      "selectedRole": "glass",
+      "point": [
+        -12.43787737919777,
+        8.012616685871228,
+        12.820021641694119
+      ],
+      "distanceToResumedBody": 0.49776179812157473,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1714,
+      "selectedRole": "glass",
+      "point": [
+        -11.715922445278945,
+        8.4606490967279,
+        12.907289802962497
+      ],
+      "distanceToResumedBody": 0.4336892435541344,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1716,
+      "selectedRole": "glass",
+      "point": [
+        -10.910422482399893,
+        8.375197247672832,
+        12.840941374045507
+      ],
+      "distanceToResumedBody": 0.46775817284945775,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1730,
+      "selectedRole": "glass",
+      "point": [
+        -13.555464759816225,
+        13.121844439099698,
+        14.331412253820352
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1730,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1732,
+      "selectedRole": "glass",
+      "point": [
+        -13.344611166912228,
+        13.127306552477036,
+        14.484992807187385
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1732,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1734,
+      "selectedRole": "glass",
+      "point": [
+        -12.892072584171084,
+        13.133156589011632,
+        14.59564109610598
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1734,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1736,
+      "selectedRole": "glass",
+      "point": [
+        -12.410491032985561,
+        8.020187968408658,
+        14.772118755201454
+      ],
+      "distanceToResumedBody": 0.49757766958520655,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1738,
+      "selectedRole": "glass",
+      "point": [
+        -11.615104754808879,
+        8.471816856732099,
+        14.813072919740895
+      ],
+      "distanceToResumedBody": 0.41550151589070516,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1740,
+      "selectedRole": "glass",
+      "point": [
+        -11.005889980674613,
+        8.424696951138685,
+        14.927647315939668
+      ],
+      "distanceToResumedBody": 0.39395521613909423,
+      "accepted": true,
+      "chargedBody": 1698,
+      "chargedRole": "vault-rib"
+    },
+    {
+      "selectedBody": 1802,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.2600116396627,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1802,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1803,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.151141041258644,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1803,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1804,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.28738902951404,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1804,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1805,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.151139234723097,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1805,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1806,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.151154974118509,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1806,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1807,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.151135528471833,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1807,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1808,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.153767181398058,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1808,
+      "chargedRole": "glass"
+    },
+    {
+      "selectedBody": 1809,
+      "selectedRole": "glass",
+      "point": [
+        -11,
+        13.212196591365249,
+        11.3
+      ],
+      "distanceToResumedBody": 0,
+      "accepted": true,
+      "chargedBody": 1809,
+      "chargedRole": "glass"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+time controls {"exactBank": true, "stats": {"bank": {"bays": 27, "failedBays": 0, "loose": 0, "retained": 1865, "settled": 0}, "chain": 1, "charges": 0, "collapsed": 0, "pieces": 0, "tonnage": 0}}
+roof progression {"bank": {"bays": 27, "failedBays": 3, "loose": 0, "retained": 1865, "settled": 344}, "chain": 1, "charges": 0, "collapsed": 0, "pieces": 78, "tonnage": 275}
+rolling minute restored
+repeat 0 {"bank": {"bays": 27, "failedBays": 15, "loose": 0, "retained": 1865, "settled": 1238}, "chain": 1, "charges": 0, "collapsed": 0, "pieces": 91, "tonnage": 1002}
+repeat 1 {"bank": {"bays": 27, "failedBays": 15, "loose": 0, "retained": 1865, "settled": 1238}, "chain": 1, "charges": 0, "collapsed": 0, "pieces": 91, "tonnage": 1002}
+complete {"bank": {"bays": 27, "failedBays": 0, "loose": 0, "retained": 1865, "settled": 0}, "chain": 1, "charges": 0, "collapsed": 0, "pieces": 0, "tonnage": 0}

@@ -1,0 +1,89 @@
+{
+  "kind": "independent-final-artifact-check",
+  "status": "pass",
+  "materialMismatches": [],
+  "archive": "/Users/Drew/Downloads/bank-world-round4-review.zip",
+  "archiveSha256": "43738f4f7758ac937b1d87dac714da0d84a33696ce28882c76c25c2f37757dae",
+  "archiveBytes": 45023440,
+  "archiveEntries": 55,
+  "zipIntegrity": "pass",
+  "allArchiveFilesMatchEvidenceDirectory": true,
+  "selectedMediaCount": 24,
+  "mediaHashesAndSizes": "24 of 24 match in directory and ZIP",
+  "videoMetadata": "8 of 8 independently probed codec, dimensions and duration match media.json",
+  "viewerResources": "All fixed links and all six scenario variants resolve inside the archive; no remote resources.",
+  "excludedContent": "No application source, dependencies, reproduction scripts, older-round evidence directories, nested ZIP, unsafe paths or symlinks. Historical failure outputs within this round are intentionally retained.",
+  "requiredNotesAndChecksPresent": true,
+  "sourceAndCheckpointReferences": {
+    "finalImplementation": "051ca436e6110955b53c572ee40d89eed46322ff",
+    "all21SourceHashesMatch": true,
+    "checkpointHead": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+    "checkpointMerge": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
+    "checkpointHeadAndMergeApplicationTreesIdentical": true,
+    "checkpointSuitePass": 29,
+    "checkpointAdditionalChecksPass": 3,
+    "finalSuitePass": 36,
+    "allNamedCommitsResolve": true,
+    "branch": "round4/astra-bank-as-a-world"
+  },
+  "reviewClaims": {
+    "technicalCountsAndResolvedFailures": "match independent reports",
+    "matchedInputsAndCamera": [
+      {
+        "scenario": "left",
+        "matchedAcceptedChargeCount": 1
+      },
+      {
+        "scenario": "right",
+        "matchedAcceptedChargeCount": 1
+      },
+      {
+        "scenario": "collapse",
+        "matchedAcceptedChargeCount": 6
+      }
+    ],
+    "nativeScrubsExact": 3,
+    "nativeSlowReplayRewindAndBranch": "recorded values confirm each action",
+    "nativePristineBeforeAndAfterEviction": true,
+    "rollingHistorySeconds": 60.04760000000049,
+    "repeatRuns": 2,
+    "repeatBankState": {
+      "bays": 27,
+      "failedBays": 15,
+      "loose": 0,
+      "retained": 1865,
+      "settled": 1238
+    },
+    "roofGalleryFailedBays": 3,
+    "neighborCollapseAndBallDamage": "recorded",
+    "browserErrorsAndConsoleMessages": 0,
+    "performance": [
+      {
+        "phase": "intactPerformance",
+        "meanMs": 16.65,
+        "p95Ms": 17.6,
+        "heapMiB": 51.8
+      },
+      {
+        "phase": "progressionPerformance",
+        "meanMs": 16.65,
+        "p95Ms": 18,
+        "heapMiB": 93.8
+      },
+      {
+        "phase": "finalPerformance",
+        "meanMs": 16.65,
+        "p95Ms": 17.7,
+        "heapMiB": 62.4
+      }
+    ],
+    "hardware": "Host inspection confirms Apple M2 Pro, 32 GiB RAM, macOS 14.5; recorded Chrome 152 / ANGLE Metal and 1440x900 DPR 1 match notes."
+  },
+  "limits": [
+    "Camera and quality browser evidence is a completed smoke sequence in the repository script, with no dedicated before/after state assertion; the review does not claim more precise measurements.",
+    "The repeated-collapse mean for the first sample is 16.664 ms (16.66 rounded); the review uses a shared 16.65 figure. This 0.014 ms summary rounding is immaterial.",
+    "Media source attribution is recorded in media.json and cross-referenced to verified source; capture was not rerun.",
+    "No browser runtime or application tests were started in this artifact-only check."
+  ],
+  "details": "/tmp/astra-round4/packet-integrity-details.json"
+}

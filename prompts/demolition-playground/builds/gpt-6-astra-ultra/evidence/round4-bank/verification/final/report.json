@@ -1,0 +1,96 @@
+{
+  "kind": "independent-technical-reverification",
+  "status": "fail",
+  "base": "308a4c1c59ee3b879d73661b5119f65dd7c438dc",
+  "target": "d7b525a793f95cc098bb40b879a4ecedb7801df6",
+  "previousEvidencePreserved": "../report.json",
+  "suite": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 35,
+    "pass": 35,
+    "fail": 0,
+    "skipped": 0,
+    "durationMilliseconds": 44498.876125,
+    "raw": "suite.txt"
+  },
+  "resolvedFinding": {
+    "property": "Selected roof rubble remains chargeable at ground level",
+    "formerlyRejected": 10,
+    "nowAcceptedIndividually": 10,
+    "sixChargeMaximum": "pass",
+    "sixRubbleChargesDetonateAndReplayExactly": "pass",
+    "snapshotUnchangedByFuture": "pass",
+    "bankQualityIndependence": "pass",
+    "evidence": "probe.json"
+  },
+  "remainingFindings": [
+    {
+      "severity": "blocking",
+      "property": "Charges remain attached to the selected current body when branching from replay",
+      "problem": "A charge placed on falling roof glass during interpolated replay silently attaches to a nearby slab or roof rib after branching.",
+      "cause": "The pointer handler selects interpolated rendered geometry, then restores the preceding resumable snapshot. The new 0.1-metre selected-body proximity check compares the displayed hit against the earlier transform and falls back to another structural body.",
+      "evidence": {
+        "source": "branch-target-probe.mjs",
+        "raw": "branch-target-probe.txt",
+        "data": "branch-target-probe.json",
+        "earlierSnapshotSeconds": 1.0,
+        "nextSnapshotSeconds": 1.05,
+        "displayedSeconds": 1.04,
+        "attemptedGlassSelections": 20,
+        "differentBodySelected": 8,
+        "example": {
+          "selectedBody": 1708,
+          "chargedBody": 1409,
+          "chargedRole": "slab",
+          "distanceToResumedSelectedBody": 0.503642491010658
+        }
+      },
+      "sourceLocations": [
+        {
+          "path": "src/main.js",
+          "lines": [
+            119,
+            123
+          ]
+        },
+        {
+          "path": "src/simulation.js",
+          "lines": [
+            393,
+            402
+          ]
+        }
+      ],
+      "recommendation": "Carry the selected body and its local hit point across branch restore, then derive the resumed world point from that same body. Add an interpolated replay-to-charge regression."
+    }
+  ],
+  "standingInvariants": {
+    "criteriaUnchanged": true,
+    "noTestWeakeningObserved": true,
+    "noNewDependencies": true,
+    "snapshotIsolation": "pass",
+    "sixChargeMaximum": "pass",
+    "allCriteriaSatisfied": false
+  },
+  "scope": {
+    "applicationEdited": false,
+    "existingTestsEdited": false,
+    "browserCampaignStarted": false,
+    "builderReasoningRead": false
+  },
+  "limitations": [
+    "Branch probe reproduces the native pointer handler order with exact rendered geometry; it does not synthesize a browser click.",
+    "Native UI and visual acceptance remain with the parent task."
+  ],
+  "artifacts": [
+    "suite.txt",
+    "probe.mjs",
+    "probe.txt",
+    "probe.json",
+    "branch-target-probe.mjs",
+    "branch-target-probe.txt",
+    "branch-target-probe.json",
+    "source-hashes.json"
+  ]
+}

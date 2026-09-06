@@ -1,0 +1,114 @@
+{
+  "base": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
+  "target": "308a4c1c59ee3b879d73661b5119f65dd7c438dc",
+  "head": "308a4c1c59ee3b879d73661b5119f65dd7c438dc",
+  "node": "v26.3.0",
+  "platform": "macOS-14.5-arm64-arm-64bit-Mach-O",
+  "files": [
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/index.html",
+      "sha256": "e408b5c2361a254c160e95bdd8e4b4a77a2151be23fb8ba91b8204c6b7599a6a",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/package.json",
+      "sha256": "79d21413b2be6ed1e0ee9fb0ad37ffbb82eeb89a535971bd1b07ed66bc39f26c",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-hall.js",
+      "sha256": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js",
+      "sha256": "e3a0e6475047e20a40aa3c8d32c57977aaeaa42b9da18bb92f18877848d52073",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-world.js",
+      "sha256": "cad94ea6fdd14ea7a63cd93fdb15a135b7b38c101cd9dbd511723259e4cb0ac8",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank.js",
+      "sha256": "fb4b41831da31c9eb0e3c621abd509f3e0d53e066c975089224e9a3400765ef5",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/city.js",
+      "sha256": "b266889c15da75766edc33bcecb0bafdeafcef5f170470f1de69fe549a0fd76d",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/crane.js",
+      "sha256": "27cdf880e49b75f9479ace113099e58d4616449698c54889376b085a69533d09",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/fracture.js",
+      "sha256": "3306d23d0819122b1f223a451b7100de701cfc6301012b0ab6b8d151bed9fe43",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/history.js",
+      "sha256": "2702269060626387d8a151f5a469755eef5d0951cf47acea1e0c6ee9f22cbede",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/icons.js",
+      "sha256": "d727c5daf35261b7a93141f4ddc41c03243103aec2af4f9d77a8c2bbbb3ce30b",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/main.js",
+      "sha256": "ff56b8a9f32fcdb6976d563ad7e4fc1d7d01e15b27321bda956c3eec198363d0",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/simulation.js",
+      "sha256": "831864440043e056afd9be1e127a49383dde8ea167a1bbe414ec27fb70658960",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/bank-world.test.mjs",
+      "sha256": "0c77c689c46bd888023a75b5bcca52fd8698cbe539ab6c9f6883d41a424fb901",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/bank.test.mjs",
+      "sha256": "765476d22f7d72b4dfefe06cb182b76ced0099c40ae16be90b4a7e554fab4a29",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/hall.test.mjs",
+      "sha256": "ac48f9ca1c7d654da19bad18e156702042974cd242346f8f165bd9381c5bb7bc",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/history.test.mjs",
+      "sha256": "e3d4c4a9fda1392986de18db265827c400d5b261c24b5fc01b2a657d040ff0ab",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/simulation.test.mjs",
+      "sha256": "30ac47902a5c64d7c088825f68da828223acb1256b2cdf32c3731a707a0287da",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/verification.test.mjs",
+      "sha256": "d4f63d07b473b3e674185f3ae44c7d8f188d621b84cceebf60c7b502c2776df3",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/three.core.js",
+      "sha256": "94337bbcde63e61eb954f00d2ad72d122d1cc3dc3e0de68e57277eca3d30af47",
+      "workingCopyMatchesTarget": true
+    },
+    {
+      "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/vendor/three-0.180.0/three.module.js",
+      "sha256": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a",
+      "workingCopyMatchesTarget": true
+    }
+  ]
+}

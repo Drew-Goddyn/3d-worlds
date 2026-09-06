@@ -1,0 +1,298 @@
+{
+  "viewport": [
+    1440,
+    900,
+    1
+  ],
+  "capture": "Existing canvas MediaRecorder helper; real timestamps; no frame-perfect continuity claim",
+  "media": [
+    {
+      "file": "baseline-collapse-10.png",
+      "bytes": 803229,
+      "sha256": "f37b17b1c506f42c32d850091e807833548d1db19ea4d3d41ab72de2e94b1946",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "baseline-collapse.webm",
+      "bytes": 4359463,
+      "sha256": "dad0e8c02e4b169a4cbd9dea1b1d0f61a41cfa6197ff73b3755c94d0b0de4729",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "10.504750"
+        }
+      }
+    },
+    {
+      "file": "baseline-intact.png",
+      "bytes": 742104,
+      "sha256": "2042475cf200d7dc960e53e485f54444fc858621bd4039fb70bd442a1723f4f7",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "baseline-left-7.png",
+      "bytes": 749131,
+      "sha256": "f9e203332d3821df26ffedb7af7982f83977159aa5737722e65ac6d4b368b907",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "baseline-left.webm",
+      "bytes": 2526520,
+      "sha256": "df251df54bade1e943e8d9cebf287b1d22e2f6ed92d3f4e25235a4f59b5a4d30",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "7.516200"
+        }
+      }
+    },
+    {
+      "file": "baseline-right-7.png",
+      "bytes": 756833,
+      "sha256": "56e7c559ea76202e3630675bda65af109553d6d93edf58aff399de93c79d2b8f",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "baseline-right.webm",
+      "bytes": 2989013,
+      "sha256": "74eb61b37e7d12968c1f17b3a4f0cedaf7ed188187296bcbe49e9dd0cd21733c",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "duration": "7.499767"
+        }
+      }
+    },
+    {
+      "file": "baseline-strip.png",
+      "bytes": 1092620,
+      "sha256": "e108b4e2ee2580f91da7c000df29daaa664fdeff69c11bd1109a258cf643e7b7",
+      "sourceCommit": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+      "type": "actual footage extract"
+    },
+    {
+      "file": "final-collapse-10.png",
+      "bytes": 851810,
+      "sha256": "9971e30d9145714c6cd19db3ee30482bd03d996284c4d5d7fe9ce861fffa8b9a",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-collapse-angle.png",
+      "bytes": 922134,
+      "sha256": "b019633f4e0f6447044b97604158ca3aaf59f1a3b633643311f712049aece2fa",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-collapse.webm",
+      "bytes": 4633590,
+      "sha256": "30d1078a5a350cb8a4c3d2b2b205e8cf3007d6b33acf0eb8d585da5edfc9e007",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "10.600347"
+        }
+      }
+    },
+    {
+      "file": "final-district.png",
+      "bytes": 446583,
+      "sha256": "1d9c8a303572991348a9e3e0a90368ef67d97f82ab97f61db897b219cb33527e",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-intact.png",
+      "bytes": 763639,
+      "sha256": "d92d300bc111a2be6bd575551531ce0dee85ff7bde99ee8c92239ebbb1536f22",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-left-7.png",
+      "bytes": 777261,
+      "sha256": "ffe95727e54f8799441a30f511b4b95d8f5c8505b8e17d5f54dd95c4b4922ca2",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-left.webm",
+      "bytes": 2596392,
+      "sha256": "145b42d3344ba763661516e63bf9f197b2421dce13f9a0049c46967ef483342c",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "7.634075"
+        }
+      }
+    },
+    {
+      "file": "final-progression-gallery.png",
+      "bytes": 848662,
+      "sha256": "19f5f73bef4d864037d829cf6ad038ffd8f72c9938980c99bb4139cf26beb524",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-progression-roof.png",
+      "bytes": 773783,
+      "sha256": "085bd1c5ad217e7050a6cc98fcb55d0850fe666ddba04e67207e9c7dcd2946d1",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-rebuilt.png",
+      "bytes": 763763,
+      "sha256": "189202bd4ec2fa7b5c2de4ce2823df90da867d6b9627f184006e337a99fec9d2",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-rewind.png",
+      "bytes": 758320,
+      "sha256": "f8f59aba31ff3930bb04fc4d7c5106a9d54fb3633cf038429f8758e796ae2862",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-right-7.png",
+      "bytes": 779598,
+      "sha256": "3fde149d2f76fa4675db48aa58670e8c71f5ff424194d110767ade5aabc9f37f",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual browser capture"
+    },
+    {
+      "file": "final-right.webm",
+      "bytes": 3010339,
+      "sha256": "be58c8f34767976d67c147ebc63cea0d5ed7591ceb6df9342c4b41c7aa55521a",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "7.850043"
+        }
+      }
+    },
+    {
+      "file": "final-roof-progression.webm",
+      "bytes": 5785601,
+      "sha256": "cfe18d44eb11f143e7c5a43dbc1ccabf285e5418f37e0bbcafa9cc0212ddf010",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "duration": "14.533552"
+        }
+      }
+    },
+    {
+      "file": "final-strip.png",
+      "bytes": 1143736,
+      "sha256": "be970c8d3d4179327f246590cc048320e1911080cdbf7b0d6d34dfa96c91513d",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "actual footage extract"
+    },
+    {
+      "file": "final-time-controls.webm",
+      "bytes": 6092624,
+      "sha256": "0120eef7a9eaff9a01a196593ef8bcd8001de035cd4d27d8e4474ee0a03eabcc",
+      "sourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+      "type": "native canvas recording",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "vp9",
+            "width": 1440,
+            "height": 900,
+            "avg_frame_rate": "30/1"
+          }
+        ],
+        "format": {
+          "duration": "17.966195"
+        }
+      }
+    }
+  ]
+}

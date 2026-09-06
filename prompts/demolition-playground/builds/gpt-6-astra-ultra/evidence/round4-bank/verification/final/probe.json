@@ -1,0 +1,152 @@
+{
+  "initialRoofCharge": {
+    "body": 1706,
+    "accepted": true
+  },
+  "roofRubble": [
+    {
+      "id": 1715,
+      "role": "vault-seam",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -12.22466821118504,
+        0.46379080797071853,
+        13.164903684061965
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1713,
+      "role": "vault-seam",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -12.705930640128534,
+        0.47311660439945397,
+        13.172166972917822
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1416,
+      "role": "pier",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -11.493923681376183,
+        0.7707800428780873,
+        14.072409321689156
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1711,
+      "role": "vault-seam",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -13.28052465336927,
+        0.4471068854752226,
+        13.109840203696727
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1709,
+      "role": "vault-seam",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -13.256739193358326,
+        0.46323590239642887,
+        13.1230619858286
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1414,
+      "role": "pier",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -13.386663567663597,
+        0.5624384322147477,
+        14.432301687583454
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1409,
+      "role": "slab",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -13.085480468003984,
+        0.9050799690223097,
+        12.87508699596053
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1717,
+      "role": "vault-seam",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -11.226023892192751,
+        0.4675664992064248,
+        13.039023184609876
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1386,
+      "role": "slab",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -13.125308522200703,
+        0.879335651593601,
+        11.143420457574665
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    },
+    {
+      "id": 1738,
+      "role": "glass",
+      "state": 2,
+      "level": 2,
+      "point": [
+        -11.525556224853784,
+        0.545597065794359,
+        13.846564967938232
+      ],
+      "nearestFloorFound": false,
+      "accepted": true
+    }
+  ],
+  "sixChargeLimitPreserved": true,
+  "rubbleChargeDetonationReplayAndImmutability": true,
+  "afterRoofCharge": {
+    "bodies": 1864,
+    "stats": {
+      "bays": 27,
+      "failedBays": 7,
+      "loose": 264,
+      "settled": 82,
+      "retained": 1864
+    }
+  },
+  "bankQualityIndependence": true,
+  "roofReplayAndImmutability": true
+}

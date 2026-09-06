@@ -1,5 +1,5 @@
 {
-  "phase": "implementation",
+  "phase": "ready-for-pr",
   "application": "prompts/demolition-playground/builds/gpt-6-astra-ultra",
   "branch": "round4/astra-bank-as-a-world",
   "baseline": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
@@ -8,8 +8,31 @@
   "checkpointDecision": "Merged to retain inhabited completeness; no perfect physics or major demolition leap acceptance",
   "idea": "A stone treasury enclosing a tall banking court, perimeter galleries and a copper-glass barrel vault. Damage reveals construction and opens different sections of the occupied volume.",
   "baselineMediaLocal": "/tmp/astra-round4/baseline",
-  "requiredNext": ["complete candidate", "native browser inspection and consequential revision", "one anonymous paired media review", "fresh independent verification", "selected evidence and ZIP", "one new unmerged PR"],
+  "requiredNext": [
+    "push branch",
+    "open one unmerged PR",
+    "record PR URL"
+  ],
   "sessionSettings": "Model and reasoning unverified; directory name describes historical attempt",
   "deployment": false,
-  "ownerAcceptance": "pending"
+  "ownerAcceptance": "pending",
+  "resultSourceCommit": "051ca436e6110955b53c572ee40d89eed46322ff",
+  "technicalVerification": "verification/third/report.json",
+  "nativeVerification": "native-checks.json",
+  "mediaReview": "paired-review.md",
+  "artisticRevision": "Replaced repeated upper storeys with a monumental arcade after native candidate inspection",
+  "externalArtisticCorrectionPasses": 0,
+  "evidenceZip": "/Users/Drew/Downloads/bank-world-round4-review.zip",
+  "packet": {
+    "archive": "/Users/Drew/Downloads/bank-world-round4-review.zip",
+    "bytes": 45023440,
+    "sha256": "43738f4f7758ac937b1d87dac714da0d84a33696ce28882c76c25c2f37757dae",
+    "files": 55,
+    "entryHashesMatch": true,
+    "zipIntegrity": "pass",
+    "applicationSourceIncluded": false,
+    "olderEvidenceIncluded": false,
+    "mediaFiles": 24
+  },
+  "packetVerification": "independent-packet-check.json"
 }

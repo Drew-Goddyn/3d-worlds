@@ -1,6 +1,6 @@
 # Demolition District
 
-> **Round-two continuation:** this branch rebuilds Mercantile Bank with carved masonry, open interiors, independently failing bays and retained architectural rubble. The original attempt is preserved at `ac854cea3d554f34f39ca9f91a3197ad422b79ee`. This continuation’s session model/reasoning are **unverified**; the directory name describes the original build. See [round-two evidence and reproduction](evidence/round2-bank/ROUND-TWO.md).
+> **Round-four continuation:** Mercantile Bank is now a tall banking court with monumental arched glazing, occupied galleries, an open stair and a copper-glass vault. The retained hall checkpoint was merged in PR #2. This round awaits owner review. The original attempt remains at `ac854cea3d554f34f39ca9f91a3197ad422b79ee`; current session model/reasoning are **unverified**. See [round-four review and evidence](evidence/round4-bank/REVIEW.md).
 
 A standalone procedural Three.js demolition playground. Eight downtown buildings, a controllable wrecking crane, staged demolition charges, material-specific rubble, water, dust, slow motion, and a scrubbable one-minute destruction history.
 
@@ -37,13 +37,17 @@ All geometry, building signs, brick textures, reflection lighting and audio are 
 
 The surrounding buildings are coarse storey assemblies with independently damaged column connections. Mercantile Bank uses a bank-specific support graph and individually retained masonry, glazing and frame fragments, rendered with instancing; its recipe and dynamics are in `src/bank.js` and `src/bank-physics.js`. Support loss, downward momentum and lateral collisions propagate collapse. Material fragments use a bounded pool; settled structural assemblies preserve their architectural detail as rubble. It is a playful custom structural simulation, not a validated civil-engineering model.
 
+For the next bank commission: start with `src/bank.js` for the masonry arcade, complementary floor fractures and support grid; `src/bank-world.js` builds the court, galleries, stair and attached roof ribs/panels; `src/bank-hall.js` retains the furnished teller hall. `src/bank-physics.js` owns damage, contacts, attachment release and snapshots. The charge handler preserves the clicked piece's local point across rewind branching; the simulation resolves fallen pieces through their current body rather than their original storey's location. No editor or generated asset pipeline is required.
+
+Try one charge low on either front corner, then rebuild and try the glazed roof followed by an upper side pier. Three low front charges and three on the right side produce a larger, open-section ruin. Rewind between the actions and choose another location. Major collapse may bury the teller hall.
+
 Simulation snapshots include structural transforms, support strengths, random-generator state, debris and dust state, staged charge timers, water tank state, prop damage, crowd/pigeon reaction state, score and crane momentum. A rolling history records at 20 Hz with interpolated presentation; the pristine snapshot is retained separately. Quality changes do not change the support graph or history sampling rate.
 
 The project has no sibling-project imports, external artwork, hosted services, analytics, credentials, persistence, or build pipeline.
 
 ## Continuing application and historical evidence
 
-This is the continuing Astra application. The owner accepted round two’s localized bank breaking and crumbling as a significant improvement, without declaring the bank complete or its physics perfect. The directory label records the original attempt’s settings, not later sessions. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee). Round-two captures and limitations are retained in [the round-two record](evidence/round2-bank/ROUND-TWO.md).
+This is the continuing Astra application. The owner accepted round two’s localized breaking as a significant improvement and retained round three’s banking hall for completeness, without accepting perfect physics or claiming another major demolition leap. Round four is a new, unmerged commission, not a fresh one-shot attempt or owner-approved result. The directory label records the original attempt’s settings. Original previews, films and verification remain historical evidence at the [original showcase checkpoint](https://github.com/Drew-Goddyn/3d-worlds/tree/ac854cea3d554f34f39ca9f91a3197ad422b79ee); earlier rounds' evidence remains untouched.
 
 ## Banking-hall breach continuation
 
