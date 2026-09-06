@@ -91,6 +91,16 @@ export class BankCohesion {
     this.assemble(keep);
     this.bank.revision++;
   }
+  candidates(grid,bounds) {
+    const entries=new Set();
+    for(let x=Math.floor(bounds.min.x/3);x<=Math.floor(bounds.max.x/3);x++)for(let z=Math.floor(bounds.min.z/3);z<=Math.floor(bounds.max.z/3);z++)for(const entry of grid.get(x+','+z)??[])entries.add(entry);
+    return entries;
+  }
+  receiveImpulse(body,impulse) {
+    if(body.cluster<0){body.vy-=impulse/body.mass;return;}
+    const members=this.bank.bodies.filter(b=>b.cluster===body.cluster),mass=members.reduce((sum,b)=>sum+b.mass,0),dv=impulse/mass;
+    this.sections[body.cluster].vy-=dv;for(const b of members)b.vy-=dv;
+  }
   step(dt,solids) {
     const bank=this.bank;this.moved.clear();
     const district=bank.sim.floors.filter(f=>!f.building.bank).map(f=>({f,minX:f.x-f.building.width/2,maxX:f.x+f.building.width/2,minZ:f.z-f.building.depth/2,maxZ:f.z+f.building.depth/2,bottom:f.y,top:f.y+f.floor.height*f.squash}));
@@ -119,7 +129,7 @@ export class BankCohesion {
       for(const {b,bounds:prior} of before) {
         const now=bank.bounds(b,box);
         if(now.min.y<.23&&.23-now.min.y>penetration){penetration=.23-now.min.y;hit={b,point:new THREE.Vector3(b.x,.23,b.z),under:null};}
-        for(const entry of solids.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))??[]) {
+        for(const entry of this.candidates(solids,now.clone().union(prior))) {
           const other=entry.b;
           if(other===b||other.cluster===id)continue;
           if(now.max.y>entry.bottom+.04&&now.min.y<entry.top-.04) {
@@ -166,7 +176,7 @@ export class BankCohesion {
         }
         // Contact dissipates energy at the surface; the unstruck upper part
         // retains momentum and may break at another real contact next step.
-        for(const b of members){b['v'+axis]*=.12;for(const a of ['x','y','z'])if(a!==axis)b['v'+a]*=.7;}
+        for(const b of members){const near=bank.bounds(b,new THREE.Box3()).distanceToPoint(impact)<1.45+Math.min(1,speed*.06);if(near){b['v'+axis]*=.12;for(const a of ['x','y','z'])if(a!==axis)b['v'+a]*=.7;}}
         this.fracture(id,impact,speed);
         if(hit.under?.state===0&&!hit.under.fixed&&speed>2.5)bank.damage(impact,Math.min(115,speed*members.reduce((m,b)=>m+b.mass,0)*.45),new THREE.Vector3(s.vx*.1,-.5,s.vz*.1),false);
         // Low energy contact still separates masonry into resting chunks, so

@@ -183,19 +183,25 @@ export class BankPhysics {
     }
     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
     // cost when the entire bank is moving; it is derived, never hidden state.
-    const grid=new Map(),bounds=new THREE.Box3();
-    const put=(b,box)=> {
+    const grid=new Map(),bounds=new THREE.Box3(),priorSurfaces=new Map();
+    const put=(b,box,part=null)=> {
+      const key=part??b;if(!priorSurfaces.has(key))priorSurfaces.set(key,box.max.y);
+      const entry={b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y,previousTop:priorSurfaces.get(key)};
       for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++) {
-        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push({b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y});
+        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);
       }
     };
     const putBody=b=>{
       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
-      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform));}
+      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform),part);}
       else put(b,this.bounds(b,bounds));
     };
     for(const b of this.bodies)putBody(b);
     this.cohesion.step(dt,grid);
+    // Sections have moved before individual pieces: contact uses their new
+    // solid surfaces and retains the old top for swept relative motion.
+    if(this.cohesion.moved.size){grid.clear();for(const b of this.bodies)putBody(b);}
+    const movingPairs=new Set();
     // Resting support is derived from the actual current solid surfaces. A
     // settled article must wake when any support moves, including a surface it
     // landed on after leaving its original parent. No hidden attachment cache.
@@ -210,7 +216,7 @@ export class BankPhysics {
     let active=false;
     for(const b of this.bodies) {
       if(b.state!==1||b.cluster>=0||this.cohesion.moved.has(b.id))continue;active=true;
-      const oldBottom=this.bounds(b,bounds).min.y;
+      const oldBounds=this.bounds(b,new THREE.Box3()),oldBottom=oldBounds.min.y;
       b.vy-=dt*(b.role==='paper'?2.4:12.5);
       if(b.role==='paper'&&!b.hits&&oldBottom>.5){b.vx+=Math.sin(this.sim.time*5+b.id)*dt*.7;b.wx=Math.sin(this.sim.time*4+b.id)*1.6;}
       b.x+=b.vx*dt;b.y+=b.vy*dt;b.z+=b.vz*dt;
@@ -228,6 +234,24 @@ export class BankPhysics {
         if(direction.length()<.6)direction.set((target.b.x-b.x)*2,.3,(target.b.z-b.z)*2);
         direction.normalize();this.hitContent(target.b,Math.min(160,speed*b.mass*8),direction);
         b.vx*=.82;b.vz*=.82;
+      }
+
+      // Incoming loose construction can land on a moving section. Resolve
+      // relative velocity and transfer an equal impulse before fracture; the
+      // receiving bodies retain it when ownership passes to piece motion.
+      for(const entry of this.cohesion.candidates(grid,box.clone().union(oldBounds))) {
+        const under=entry.b;if(under===b||under.state!==1||b.role==='paper'||b.role==='glass')continue;
+        const pair=Math.min(b.id,under.id)+':'+Math.max(b.id,under.id);
+        if(movingPairs.has(pair)||oldBottom<entry.previousTop-.02||box.min.y>entry.top+.012||box.max.x<entry.minX||box.min.x>entry.maxX||box.max.z<entry.minZ||box.min.z>entry.maxZ)continue;
+        const relative=under.vy-b.vy;if(relative<=.02||!this.solidContact(b,under))continue;
+        movingPairs.add(pair);
+        const mass=under.cluster>=0?this.bodies.reduce((sum,p)=>sum+(p.cluster===under.cluster?p.mass:0),0):under.mass;
+        const impulse=relative*1.08/(1/b.mass+1/mass),cluster=under.cluster;
+        b.y+=entry.top-box.min.y+.002;b.vy+=impulse/b.mass;b.sleep=0;
+        this.cohesion.receiveImpulse(under,impulse);
+        if(cluster>=0&&relative>2.5)this.cohesion.fracture(cluster,new THREE.Vector3(b.x,entry.top,b.z),relative);
+        this.bounds(b,box);this.revision++;
+        break;
       }
 
       const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
