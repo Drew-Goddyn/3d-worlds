@@ -1,0 +1,143 @@
+{
+  "method": "Offline extracted viewer in agent-browser; actual browser media decoding and UI selection. No listening claim.",
+  "initial": {
+    "duration": 9.412,
+    "error": null,
+    "paused": true,
+    "ready": 4,
+    "source": "baseline-left.mp4",
+    "videoElements": 1,
+    "volume": 0.8
+  },
+  "scenarios": [
+    {
+      "duration": 9.412,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "baseline-left.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "left",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 12007,
+        "decodedVideoFrames": 105,
+        "paused": false,
+        "time": 3.228396
+      }
+    },
+    {
+      "duration": 10.372,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "candidate-left.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "left",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 96020,
+        "decodedVideoFrames": 146,
+        "paused": false,
+        "time": 3.228267
+      }
+    },
+    {
+      "duration": 9.529,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "baseline-right.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "right",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 16899,
+        "decodedVideoFrames": 104,
+        "paused": false,
+        "time": 3.238632
+      }
+    },
+    {
+      "duration": 10.189,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "candidate-right.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "right",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 88656,
+        "decodedVideoFrames": 198,
+        "paused": false,
+        "time": 3.227887
+      }
+    },
+    {
+      "duration": 22.062,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "baseline-collapse.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "collapse",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 59750,
+        "decodedVideoFrames": 64,
+        "paused": false,
+        "time": 3.240789
+      }
+    },
+    {
+      "duration": 22.697,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "candidate-collapse.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "collapse",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 106091,
+        "decodedVideoFrames": 108,
+        "paused": false,
+        "time": 3.23813
+      }
+    },
+    {
+      "duration": 26.307,
+      "error": null,
+      "paused": true,
+      "ready": 4,
+      "source": "candidate-time-controls.mp4",
+      "videoElements": 1,
+      "volume": 0.8,
+      "case": "time-controls",
+      "seek": 3,
+      "playback": {
+        "decodedAudioBytes": 56431,
+        "decodedVideoFrames": 61,
+        "paused": false,
+        "time": 3.233395
+      }
+    }
+  ],
+  "switch": {
+    "paused": true,
+    "source": "candidate-left.mp4",
+    "time": 3,
+    "videos": 1,
+    "volume": 0.8
+  },
+  "errors": {
+    "errors": []
+  }
+}

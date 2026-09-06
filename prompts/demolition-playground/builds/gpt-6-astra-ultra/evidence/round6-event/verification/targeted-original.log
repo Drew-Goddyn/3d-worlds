@@ -1,0 +1,12 @@
+✔ real EventAudio owns forward pause slow seek reverse resume mute and zero-level lifecycles (26.261166ms)
+✔ real EventAudio retained replay has identical buffer choices and exact reversed samples (27.152417ms)
+✔ actual voice eviction, buffer caching and repeated cleanup stay bounded (389.27225ms)
+✔ actual visual buffers reproduce pre-cutoff births and remain bounded through repeated renders and reset (22.562333ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 664.387583

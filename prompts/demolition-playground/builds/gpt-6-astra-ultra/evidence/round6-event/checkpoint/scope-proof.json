@@ -1,0 +1,20 @@
+{
+  "head": "5df5068fe01d5a81f75c459bc553eda6671ec789",
+  "base": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+  "runtime": "8535020890ad135f85fec68cebc009ddd89b1d54",
+  "sourceTreeMatchesRuntime": true,
+  "allChangesInsideAstraBuild": true,
+  "runtimeChangedFiles": [
+    "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js",
+    "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js"
+  ],
+  "testChangedFiles": [
+    "A\tprompts/demolition-playground/builds/gpt-6-astra-ultra/tests/cohesion.test.mjs",
+    "A\tprompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs"
+  ],
+  "laterCommitsOnlyEvidenceAndBuildReadme": true,
+  "inheritedFrameLoopUnchanged": true,
+  "bankRecipeAndMaterialsUnchanged": true,
+  "surroundingWorldAndInputsAndHistoryUnchanged": true,
+  "dependencyManifestUnchanged": true
+}

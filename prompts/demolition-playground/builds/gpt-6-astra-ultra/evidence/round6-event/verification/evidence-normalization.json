@@ -1,0 +1,90 @@
+{
+  "operation": "trailing-whitespace-only normalization",
+  "scope": "Two copied proof artifacts; verifier indexes refreshed. Runtime, assertions, test outcomes and gates unchanged.",
+  "artifacts": [
+    {
+      "path": "checkpoint/runtime-and-tests.diff",
+      "operation": "trailing-whitespace-only normalization",
+      "originalSha256": "240560d742503f9ae1b6836820ed799cf476ba98c84e6b41621b14237b9f8c5e",
+      "copySha256": "61ef769dd1ae45d047f55784c1786331dcf1f63f2754c892fd7d004907b9d877",
+      "originalBytes": 37824,
+      "copyBytes": 37822,
+      "changedLines": [
+        257,
+        380
+      ],
+      "semanticProof": {
+        "nonTrailingBytesAndLineEndingsUnchanged": true,
+        "unifiedDiffParsesWithIdenticalNumstat": true,
+        "parsedNumstatSha256": "76560cf2fb414e25668c79539a3f5cd2118ecaad2b33674eed5f6edacc0bd7d4"
+      }
+    },
+    {
+      "path": "verification/targeted-incomplete-fixture.log",
+      "operation": "trailing-whitespace-only normalization",
+      "originalSha256": "1d674b181ccfc661350eea6433595083463247b502acf5e9f63ddf50a194dcc0",
+      "copySha256": "993e53c79c88555c93a08e29a9457a6b05c249a3235c18488b03ee70a9ef3bb2",
+      "originalBytes": 1504,
+      "copyBytes": 1500,
+      "changedLines": [
+        19,
+        21
+      ],
+      "semanticProof": {
+        "nonTrailingBytesAndLineEndingsUnchanged": true
+      }
+    }
+  ],
+  "metadataUpdates": [
+    {
+      "path": "verification/verification-ad36dfe.json",
+      "originalSha256": "2e5b0d04abf1e219ccf716ad9a5acdc08ab7932a247619615322b5184ef62123",
+      "copySha256": "a2783d5fad43ec45b278e2d225accb7caed9b20bdf957fa809fbc46e2e3d0c04",
+      "updates": [
+        {
+          "entry": "targeted-incomplete-fixture.log",
+          "original": {
+            "sha256": "1d674b181ccfc661350eea6433595083463247b502acf5e9f63ddf50a194dcc0",
+            "bytes": 1504
+          },
+          "copy": {
+            "sha256": "993e53c79c88555c93a08e29a9457a6b05c249a3235c18488b03ee70a9ef3bb2",
+            "bytes": 1500
+          }
+        }
+      ]
+    },
+    {
+      "path": "verification/verification.json",
+      "originalSha256": "3d0e917aec8737dbc649f545428ce0ef6971a0e9f969c2213ea1779a5e9e2d0a",
+      "copySha256": "77819f5985a9a709c165e29a7d31f1918209f512215d91d6a28bcaf4c2380f96",
+      "updates": [
+        {
+          "entry": "targeted-incomplete-fixture.log",
+          "original": {
+            "sha256": "1d674b181ccfc661350eea6433595083463247b502acf5e9f63ddf50a194dcc0",
+            "bytes": 1504
+          },
+          "copy": {
+            "sha256": "993e53c79c88555c93a08e29a9457a6b05c249a3235c18488b03ee70a9ef3bb2",
+            "bytes": 1500
+          }
+        },
+        {
+          "entry": "verification-ad36dfe.json",
+          "original": {
+            "sha256": "2e5b0d04abf1e219ccf716ad9a5acdc08ab7932a247619615322b5184ef62123",
+            "bytes": 5672
+          },
+          "copy": {
+            "sha256": "a2783d5fad43ec45b278e2d225accb7caed9b20bdf957fa809fbc46e2e3d0c04",
+            "bytes": 5672
+          }
+        }
+      ]
+    }
+  ],
+  "allAffectedEvidenceHashesVerified": true,
+  "originalFilesOutsideRepositoryUnmodified": true,
+  "pathsRelativeTo": ".."
+}

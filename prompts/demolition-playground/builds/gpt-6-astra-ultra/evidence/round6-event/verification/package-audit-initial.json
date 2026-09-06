@@ -1,0 +1,49 @@
+{
+  "status": "blocked_reference_hash_mismatch",
+  "archive": "/Users/Drew/Downloads/bank-event-round6-review.zip",
+  "archiveSha256": "b310183b575def8cc73700f3a64d6ba119b743acf6bf521b0c54defee04b8adb",
+  "finding": "Historical verifier index points at current report, logs and probe source instead of the preserved historical versions. Reference-index marks the mismatched current targets as included.",
+  "mismatches": [
+    {
+      "reference": "REPORT.md",
+      "expectedSha256": "5d1baf00abf130441ccbf4808f0e3b3da09206d7d0ad92e601f401f57279f80d",
+      "actualSha256": "8f5ac0d94709ac80c1c9bc72f9f080f26536be0168f2768ca9dbe422fc723497",
+      "matchingArchivedFiles": [
+        "verification/REPORT-ad36dfe.md"
+      ]
+    },
+    {
+      "reference": "suite-final.log",
+      "expectedSha256": "56a6fcedfd95f2de2d874efbfc56e090818a84526825625357201d8a631510ff",
+      "actualSha256": "fce038d80cabe12d69663ec7f446e9a3ee10642d0d7f60eb509209e99ad3a3aa",
+      "matchingArchivedFiles": [
+        "verification/suite-ad36dfe.log"
+      ]
+    },
+    {
+      "reference": "targeted-final.log",
+      "expectedSha256": "812af013b9f34086d2f5dbee3092409ec310cd191a2e93002eeb641c1a4f7b7c",
+      "actualSha256": "b3fa545ae5079e62aaee258ed44239bff198746612457a5c5d2eb55bcdfed03c",
+      "matchingArchivedFiles": [
+        "verification/targeted-ad36dfe.log"
+      ]
+    },
+    {
+      "reference": "targeted.mjs",
+      "expectedSha256": "37dfba3da1bccb83de1a01f07655ae05f90e71d32b9792ff289a326c1da1b36e",
+      "actualSha256": "a93bfa728903332126e2fa13d9e1deff0b33cf162612555fdf26b38927f02aff",
+      "matchingArchivedFiles": [
+        "verification/targeted-ad36dfe.mjs"
+      ]
+    },
+    {
+      "reference": "structural-equivalence.log",
+      "expectedSha256": "1b8c9ac52150cb3b013cf7b41ac8593dcddd299c504e43abd2943399f062a123",
+      "actualSha256": "e6dd55b24a38b5575f5bdb37386ebbdbf0e0701e9eb4cea865c2e49257c09cf0",
+      "matchingArchivedFiles": [
+        "verification/structural-equivalence-ad36dfe.log"
+      ]
+    }
+  ],
+  "requiredCorrection": "Map the five historical relative entries to their existing ad36dfe-named payloads; refresh nested hashes and mapping provenance, regenerate reference index/manifest/ZIP. Do not relabel mismatched portable hash references as valid."
+}

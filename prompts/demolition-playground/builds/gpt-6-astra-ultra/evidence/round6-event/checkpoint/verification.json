@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "createdAtUtc": "2026-09-06T15:00:25.551377+00:00",
+  "verdict": "PASS_WITH_DISCLOSED_LIMITATIONS",
+  "purpose": "Independent verification of the identified unmerged connected-bank-demolition checkpoint; no new creative acceptance or visual certification.",
+  "target": {
+    "head": "5df5068fe01d5a81f75c459bc553eda6671ec789",
+    "base": "cdeeb901cfe50361dc5bfcf63b48e3e0e8399e1f",
+    "runtime": "8535020890ad135f85fec68cebc009ddd89b1d54",
+    "sourceTreeMatchesRuntime": true,
+    "allChangesInsideAstraBuild": true,
+    "runtimeChangedFiles": [
+      "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js",
+      "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js"
+    ],
+    "testChangedFiles": [
+      "A\tprompts/demolition-playground/builds/gpt-6-astra-ultra/tests/cohesion.test.mjs",
+      "A\tprompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs"
+    ],
+    "laterCommitsOnlyEvidenceAndBuildReadme": true,
+    "inheritedFrameLoopUnchanged": true,
+    "bankRecipeAndMaterialsUnchanged": true,
+    "surroundingWorldAndInputsAndHistoryUnchanged": true,
+    "dependencyManifestUnchanged": true
+  },
+  "remote": {
+    "baseRefName": "main",
+    "headRefName": "round5/astra-demolition-leap",
+    "headRefOid": "5df5068fe01d5a81f75c459bc553eda6671ec789",
+    "isDraft": false,
+    "mergeable": "MERGEABLE",
+    "number": 4,
+    "state": "OPEN",
+    "title": "Make Mercantile Bank fall in connected, breakable sections",
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/4"
+  },
+  "verificationContext": {
+    "freshAgent": true,
+    "builderReasoningUnavailable": true,
+    "detachedWorktree": "/tmp/astra-round6-checkpoint/verification-worktree",
+    "cleanWorktreeAfterChecks": true,
+    "node": "v26.3.0",
+    "runtimeEdited": false,
+    "browserUsed": false,
+    "mergedOrPushed": false
+  },
+  "suite": {
+    "command": "npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test",
+    "exitCode": 0,
+    "tests": 43,
+    "passed": 43,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0,
+    "durationMs": 70742.327458,
+    "stdout": "full-suite.stdout.log",
+    "exemptions": []
+  },
+  "independentStateProof": {
+    "status": "PASS",
+    "scope": "Independent Node-only bank fixture; no native/browser claim",
+    "input": "Six ordinary-strength front/right charges, then mixed frame deltas",
+    "snapshotTime": 1.3333333333333335,
+    "midState": {
+      "bodyCount": 1864,
+      "renderedPartCount": 4985,
+      "sectionSlots": 2,
+      "connectedPieces": 72
+    },
+    "initial": {
+      "bodyCount": 1864,
+      "renderedPartCount": 4985,
+      "sectionSlots": 0,
+      "connectedPieces": 0
+    },
+    "restored": {
+      "bodyCount": 1864,
+      "renderedPartCount": 4985,
+      "sectionSlots": 0,
+      "connectedPieces": 0
+    },
+    "checks": {
+      "freshInstanceSnapshotRestore": true,
+      "exactFutureAcross180MixedDeltaFrames": true,
+      "immutableSnapshot": true,
+      "interpolatedPresentationDoesNotMutateResumeState": true,
+      "pristineRebuildExact": true,
+      "finiteMotion": true,
+      "uniqueSectionMembership": true,
+      "persistentRenderOwnership": true,
+      "boundedSectionAllocation": true
+    }
+  },
+  "standingInvariants": [
+    {
+      "property": "Scope isolation and existing gates",
+      "result": "PASS",
+      "evidence": "Only bank cohesion and bank physics runtime files changed; existing tests unchanged; two new suites added. All changed files remain inside Astra. No dependency change."
+    },
+    {
+      "property": "Persistent major material and single motion ownership",
+      "result": "PASS_WITH_MODEL_LIMITS",
+      "evidence": "1864 retained bodies and 4985 render parts preserved through fresh restore and pristine rebuild. Connected members bypass individual integration; fractured members are excluded until the next step. Contact tests exercise both section/piece directions, section/section transfer and spatial boundaries. Approximate bounds remain."
+    },
+    {
+      "property": "Replay, hidden state ownership and alternate futures",
+      "result": "PASS",
+      "evidence": "Full suite exercises snapshot immutability, charge timers, body-local targeting, branching, random state and scoring. Fresh-instance proof restores 72 connected pieces at simulation time 1.333 s and matches the exact full future across 180 mixed-delta steps."
+    },
+    {
+      "property": "History, pristine rebuild and bounded state",
+      "result": "PASS",
+      "evidence": "Full suite retains a rolling minute beyond eviction and rebuilds the pristine bank. Section allocation reuses inactive slots and is bounded by retained bodies; independent membership and finite-state checks passed."
+    },
+    {
+      "property": "Materials, input, camera, crane and district preservation",
+      "result": "PASS_WITH_BROWSER_LIMIT",
+      "evidence": "Recipe/material, main input loop, crane, city, simulation and history files byte-identical to base. Full suite verifies contents, glass, support, neighbor effects and material-specific contact safeguards. Native UI and visible quality were not re-run by this verifier."
+    },
+    {
+      "property": "Real-time pacing honesty",
+      "result": "DISCLOSED_LIMITATION",
+      "evidence": "Inherited 60 ms frame clamp remains; raw trace analysis finds 240 ms dropped over roughly 14 s and brief collapse stutter. See timing-assessment.json."
+    }
+  ],
+  "limitations": [
+    "DISCLOSED_LIMITATION: collapse stutter and transient simulation slowdown remain. 240 ms was discarded over about 14 s; collapse-window time deficit about 4.4%; worst approximately one second about 20.7%. Settled interval tracks wall time. This trace does not show sustained severe slowdown, but does not prove zero regression versus baseline or universal hardware performance.",
+    "Collision/contact model uses approximate rotated bounds and coarse surrounding storey envelopes; test success is not civil-engineering or universal nonpenetration certification.",
+    "This check does not certify artistic improvement, audio, visual acceptance, or every native player flow. The supplied timing trace was analyzed, not recollected; a baseline pacing comparison is outside this completed run."
+  ],
+  "checkpointRecommendation": "No technical blocker found to the explicitly authorized checkpoint merge if the inherited clamp and measured transient slowdown are disclosed. Do not describe it as strict real-time or newly accepted artistic success.",
+  "artifacts": [
+    "full-suite.stdout.log",
+    "runtime-and-tests.diff",
+    "remote-pr.json",
+    "remote-refs.txt",
+    "scope-proof.json",
+    "fresh-state-proof.mjs",
+    "fresh-state-proof.json",
+    "fresh-state-proof.stdout.log",
+    "timing-assessment.json"
+  ]
+}

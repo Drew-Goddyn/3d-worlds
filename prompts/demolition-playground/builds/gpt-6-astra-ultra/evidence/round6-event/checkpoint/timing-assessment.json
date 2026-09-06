@@ -1,0 +1,56 @@
+{
+  "source": "/tmp/astra-round6-checkpoint/reviewed-timing.json",
+  "sha256": "a77d72894e2f4dfe276586d66c562bc216de8a7f2df68496f36d034116747bbc",
+  "collection": "Supplied native charge trace; collection helper inspected and uses six projected mouse clicks plus native detonate. No browser or timing run by this verifier.",
+  "allSamples": 767,
+  "sampledWallSpanSeconds": 13.9995,
+  "sampledSimulationSpanSeconds": 13.759500000000367,
+  "discardedWallSeconds": 0.24,
+  "framesOver60ms": 16,
+  "maxClampModelErrorMs": 4.760636329592671e-12,
+  "worstApproxOneSecond": {
+    "simToWallRatio": 0.7932472287196123,
+    "wallStartMs": 2134.2999999940394,
+    "wallEndMs": 3117.5999999940395
+  },
+  "segments": {
+    "all": {
+      "wallWindowMs": [
+        0,
+        14000
+      ],
+      "frames": 766,
+      "meanFrameMs": 18.255352480406085,
+      "p95FrameMs": 16.800000000000182,
+      "maxFrameMs": 100,
+      "discardedBy60msClampMs": 240.0,
+      "simToWallRatioBetweenFirstAndLastSamples": 0.9828360557256319
+    },
+    "collapse": {
+      "wallWindowMs": [
+        500,
+        6000
+      ],
+      "frames": 256,
+      "meanFrameMs": 21.48359375,
+      "p95FrameMs": 66.69999999999982,
+      "maxFrameMs": 100,
+      "discardedBy60msClampMs": 240.0,
+      "simToWallRatioBetweenFirstAndLastSamples": 0.9562299387219262
+    },
+    "settled": {
+      "wallWindowMs": [
+        9000,
+        14000
+      ],
+      "frames": 300,
+      "meanFrameMs": 16.66566666666667,
+      "p95FrameMs": 16.700000000000728,
+      "maxFrameMs": 16.80000000000109,
+      "discardedBy60msClampMs": 0,
+      "simToWallRatioBetweenFirstAndLastSamples": 1.000000000000034
+    }
+  },
+  "disposition": "DISCLOSED_LIMITATION: collapse stutter and transient simulation slowdown remain. 240 ms was discarded over about 14 s; collapse-window time deficit about 4.4%; worst approximately one second about 20.7%. Settled interval tracks wall time. This trace does not show sustained severe slowdown, but does not prove zero regression versus baseline or universal hardware performance.",
+  "inheritedMechanism": "main animation loop clamps each visible frame to 60 ms with no catch-up; the UI FPS counter uses that clamped duration and can overstate presentation FPS. Loop is byte-identical to current main."
+}

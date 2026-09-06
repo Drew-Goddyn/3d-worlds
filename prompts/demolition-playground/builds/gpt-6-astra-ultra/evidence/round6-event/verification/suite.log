@@ -1,0 +1,115 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ the court is an actual full-height void and galleries retain occupied depth (10393.848458ms)
+✔ floor fracture plates tile their complete load-bearing bay without overlap or lost material (516.094375ms)
+✔ a removed vault rib releases its own glazing but leaves remote supported roof intact (641.011708ms)
+✔ roof attachment failure, retained ribs and new past actions restore exact independent futures (21282.341333ms)
+✔ a charge belongs to the selected roof pane and to settled rubble on a later intervention (26831.636125ms)
+✔ street-level roof debris remains chargeable outside its original storey volume (30946.506417ms)
+✔ a charge keeps its selected piece and local point when branching an interpolated replay (4302.705292ms)
+✔ a limited bank wound is local, remains standing, and changes with the hit location (25485.70575ms)
+✔ bank support loss can peel one bay while leaving an independently supported bay intact (27772.961833ms)
+✔ bank charges, support, fragment motion and impact contacts replay exactly without snapshot aliasing (46976.991958ms)
+✔ extensive bank destruction settles into finite persistent architecture and retains a full minute (123813.367792ms)
+✔ six normal bank charges can cause substantial failure without an easy-collapse override (13346.209542ms)
+✔ ordinary charge strength carries connected architecture through a measurable fall before contact breakup (71469.828375ms)
+✔ a new charge on moving connected construction splits the current remnant and restores its exact future (25762.63625ms)
+✔ compound motion hands a fractured piece to individual motion only on the following step (150.839125ms)
+✖ loose masonry transfers impact into a connected falling floor instead of crossing it (302.813667ms)
+✖ a connected floor edge collides across a spatial-cell boundary (12.78025ms)
+✖ a connected falling floor transfers impact to loose airborne rubble (58.344792ms)
+✖ two connected sections exchange impact without crossing (49.252166ms)
+✔ event aggregation cannot mutate an already recorded history frame (9.125125ms)
+✔ a dust birth preceding the oldest retained frame still renders and expires by simulation time (7.17175ms)
+✔ interpolated history births do not appear before their recorded time (0.62075ms)
+✔ discarded future events cannot leak into restored alternate futures or pristine rebuild (1.880417ms)
+✔ presentation admission and expiry bound sustained effects without evicting active births (679.925125ms)
+✔ retained normal replay reproduces forward audio choices while pause seek and resume suppress backlog (10.924417ms)
+✔ slow motion and reverse use explicit crossings and stop on every time-policy transition (5.832667ms)
+✔ procedural material choices are deterministic, distinct, finite and bounded with headroom (1216.145208ms)
+✔ the intact hall contains supported furnishings and pre-existing triangular glazing (7619.746625ms)
+✔ a window wound releases nearby triangular shards without broadcasting damage into the hall (744.277542ms)
+✔ a falling architectural fragment contacts a writing table and releases only its loose articles (6801.549875ms)
+✔ ball contact uses current solid members and passes through a cleared window (847.9415ms)
+✔ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (20047.89625ms)
+✔ a fragment passing between table legs cannot impart a contact impulse (150.604ms)
+✔ a ledger that has settled on a table falls when the table moves away (39419.347875ms)
+✔ settled masonry falls when its furniture support moves away (27781.971625ms)
+✔ the full-size ball can contact a writing table below the intact ceiling (88.586166ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (121.163833ms)
+✔ branching removes the abandoned disaster without losing earlier replay (6.677791ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (3176.696042ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (1901.162083ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (1659.576666ms)
+✔ slow motion advances exactly the supplied simulation time (8.136125ms)
+✔ a falling assembly transfers impact into an adjacent building (402.6345ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (486.998625ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (11.806125ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (410.658292ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (71.429334ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (1033.956125ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (642.458667ms)
+✔ six-charge limit and all staged detonation state survive rewind (635.735ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (2926.9815ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 47
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 241292.305125
+
+✖ failing tests:
+
+test at tests/contacts.test.mjs:16:1
+✖ loose masonry transfers impact into a connected falling floor instead of crossing it (302.813667ms)
+  TypeError: bank.sim._emit is not a function
+      at BankCohesion.resolveMovingContacts (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js:138:20)
+      at BankPhysics.step (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js:283:19)
+      at TestContext.<anonymous> (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs:20:30)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+
+test at tests/contacts.test.mjs:26:1
+✖ a connected floor edge collides across a spatial-cell boundary (12.78025ms)
+  TypeError: bank.sim._emit is not a function
+      at BankCohesion.step (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js:226:20)
+      at BankPhysics.step (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js:207:19)
+      at TestContext.<anonymous> (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs:29:50)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests/contacts.test.mjs:33:40
+✖ a connected falling floor transfers impact to loose airborne rubble (58.344792ms)
+  TypeError: bank.sim._emit is not a function
+      at BankCohesion.resolveMovingContacts (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js:138:20)
+      at BankPhysics.step (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js:283:19)
+      at TestContext.<anonymous> (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs:40:30)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/contacts.test.mjs:33:40
+✖ two connected sections exchange impact without crossing (49.252166ms)
+  TypeError: bank.sim._emit is not a function
+      at BankCohesion.resolveMovingContacts (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js:138:20)
+      at BankPhysics.step (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js:283:19)
+      at TestContext.<anonymous> (file:///private/tmp/astra-round6-verification/checkout/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs:40:30)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
