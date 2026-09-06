@@ -1,7 +1,8 @@
 // Presentation records own their randomness and never draw from structural RNG.
 // Each snapshot retains live births, including births before the history cutoff.
 export const EVENT_LIFE = 9;
-export const EVENT_LIMIT = 768;
+// Record capacity is distinct from the fixed visual and audio draw budgets.
+export const EVENT_LIMIT = 1536;
 export const eventLife=e=>e.type==='motion'?2.4:e.type==='release'?3.4:e.type==='contact'?5.6:e.type==='blast'?4.4:7.5;
 const soundTypes = new Set(['blast','impact','collapse','contact','release','water']);
 export function eventRandom(seed, channel=0) {
@@ -10,8 +11,8 @@ export function eventRandom(seed, channel=0) {
   return ((x^(x>>>15))>>>0)/4294967296;
 }
 export class EventTrack {
-  constructor(){this.events=[];this.serial=0;this.suppressed=0;}
-  prune(time){this.events=this.events.filter(e=>time-e.time<eventLife(e));}
+  constructor(){this.events=[];this.serial=0;this.suppressed=0;this.prunedAt=-Infinity;}
+  prune(time){if(time===this.prunedAt)return;this.prunedAt=time;this.events=this.events.filter(e=>time-e.time<eventLife(e));}
   emit(type,point,time,extras={}) {
     if(!soundTypes.has(type)&&type!=='dust'&&type!=='motion')return;
     this.prune(time);
@@ -31,7 +32,7 @@ export class EventTrack {
     this.events.push(event);return event;
   }
   capture(){return Object.freeze({serial:this.serial,suppressed:this.suppressed,events:Object.freeze(this.events.slice())});}
-  restore(state){this.serial=state?.serial??0;this.suppressed=state?.suppressed??0;this.events=state?.events.slice()||[];}
+  restore(state){this.prunedAt=-Infinity;this.serial=state?.serial??0;this.suppressed=state?.suppressed??0;this.events=state?.events.slice()||[];}
 }
 export function presentationEvents(a,b,time) {
   if(!b)return a.filter(e=>e.time<=time&&time-e.time<eventLife(e));
