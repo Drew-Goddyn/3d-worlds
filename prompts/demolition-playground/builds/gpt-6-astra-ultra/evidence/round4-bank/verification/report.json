@@ -1,0 +1,100 @@
+{
+  "kind": "independent-technical-verification",
+  "status": "fail",
+  "base": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
+  "target": "308a4c1c59ee3b879d73661b5119f65dd7c438dc",
+  "scope": {
+    "input": "diff, stated criteria, standing operating contract",
+    "builderReasoningRead": false,
+    "applicationEdited": false,
+    "existingTestsEdited": false,
+    "browserCampaignStarted": false
+  },
+  "suite": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 34,
+    "pass": 34,
+    "fail": 0,
+    "skip": 0,
+    "durationMilliseconds": 44772.236792,
+    "raw": "suite.txt"
+  },
+  "independentProbes": {
+    "source": "probe.mjs",
+    "raw": "probe.txt",
+    "data": "probe.json",
+    "qualityDoesNotAlterBankPhysics": "pass",
+    "roofReplayIncludesRandomStateAndMotion": "pass",
+    "futureDoesNotMutateSnapshot": "pass",
+    "currentGeometryChargeTargetingForSettledRoofRubble": "fail"
+  },
+  "findings": [
+    {
+      "severity": "blocking",
+      "property": "Later charges attach to selected retained rubble at its current location",
+      "problem": "Ground-level roof rubble rejects a new charge even though the inventory is empty and the exact visible body is selected.",
+      "cause": "Charge placement first requires proximity to the original storey volume; the selected current body is consulted only after that filter. Upper-storey bodies on the ground fail the seven-metre vertical-distance limit.",
+      "evidence": {
+        "initialRoofChargeAccepted": true,
+        "elapsedSimulationSeconds": 15,
+        "settledBodies": 82,
+        "movingBodies": 0,
+        "attemptedCurrentSurfaceTargets": 10,
+        "acceptedTargets": 0,
+        "inventoryDuringAttempts": 0,
+        "roles": [
+          "vault-seam",
+          "pier",
+          "slab",
+          "glass"
+        ],
+        "currentSurfaceHeightRangeMetres": [
+          0.4471068854752226,
+          0.9050799690223097
+        ]
+      },
+      "source": {
+        "path": "src/simulation.js",
+        "lines": [
+          390,
+          399
+        ]
+      },
+      "reproduction": "Run node /tmp/astra-round4-verification/probe.mjs; inspect roofRubble. Uses the same building, original-level, selected-body and current rendered-surface inputs as the native pointer handler.",
+      "recommendation": "Resolve selected bank bodies before the original-storey proximity filter and preserve the correct floor association for detonation. Add an upper-storey-to-ground regression case."
+    }
+  ],
+  "criteriaEvidence": {
+    "proceduralOfflineBankConstruction": "Diff uses existing locally vendored Three.js and procedural retained bodies; no dependency added.",
+    "intactCourtGalleriesRoof": "Suite passes court void, construction-role presence, slab-area and pristine no-drift checks; visual acceptance belongs to separate native QA.",
+    "localizedAndExtensiveDestruction": "Suite passes local-wound, isolated bay failure and six-normal-charge substantial-collapse cases.",
+    "actualAttachments": "Suite passes localized roof attachment loss and attachment-driven exact replay.",
+    "retainedRubbleAndSupport": "Suite passes finite grounded persistent bodies, support wake-up and no repeated tonnage awards.",
+    "snapshotsReplayBranchMinuteRebuild": "Suite passes exact snapshots, branching, full rolling minute and pristine restore after eviction.",
+    "existingScoreQualityBallDistrict": "Suite passes scoring, quality independence, ball solid contact, neighboring-building transfer and district replay; independent probe adds bank-specific quality parity."
+  },
+  "standingInvariants": {
+    "noTestGateWeakeningObserved": true,
+    "noArchitectureDisappearanceIntroduced": true,
+    "noProtectedRoomIntroduced": true,
+    "noFixedCollapseTimelineIntroduced": true,
+    "collisionNotDisabled": true,
+    "noNewExternalDependency": true,
+    "snapshotIsolation": "pass",
+    "finiteStateAndRetainedMass": "suite pass",
+    "allCriteriaSatisfied": false
+  },
+  "limitations": [
+    "No second browser campaign was started; native pointer/UI proof remains with the parent task.",
+    "Headless fixture excludes the canvas-rendered bank inscription.",
+    "Stylized collision/support approximations were assessed for criterion violations, not engineering structural accuracy."
+  ],
+  "artifacts": [
+    "suite.txt",
+    "probe.mjs",
+    "probe.txt",
+    "probe.json",
+    "source-hashes.json"
+  ]
+}

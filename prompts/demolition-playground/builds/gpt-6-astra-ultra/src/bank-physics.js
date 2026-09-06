@@ -38,7 +38,7 @@ export class BankPhysics {
   nearest(point, floorIndex=null) {
     let best=null,distance=Infinity;const bounds=new THREE.Box3();
     for(const b of this.bodies) {
-      if(b.fixed||b.state===2||b.content||b.role==='glass')continue;
+      if(b.fixed||b.content||b.role==='glass')continue;
       if(floorIndex!=null&&this.nodes[b.node].level!==floorIndex)continue;
       const d=this.bounds(b,bounds).distanceToPoint(point);
       if(d<distance){distance=d;best=b;}
@@ -82,6 +82,10 @@ export class BankPhysics {
   }
   chargePoint(charge) {
     const b=this.bodies[charge.bankBody];return new THREE.Vector3(charge.x,charge.y,charge.z).applyMatrix4(this.bodyMatrix(b));
+  }
+  anchorCharge(bodyId,worldPoint) {
+    const local=worldPoint.clone().applyMatrix4(this.presentationMatrices[bodyId].clone().invert());
+    return {bankBody:bodyId,x:local.x,y:local.y,z:local.z};
   }
   damage(point,power,direction,blast=false) {
     const radius=blast?3.9:2.15;const bounds=new THREE.Box3();let changed=false;
@@ -156,6 +160,15 @@ export class BankPhysics {
       if(b.content)this.hitContent(b,12,new THREE.Vector3(support.vx*.2,.1,support.vz*.2));
       else this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);
     }
+    // Roof skin is carried by real adjacent half-ribs. Deriving attachment
+    // capacity from captured bodies keeps rewind and alternate futures exact.
+    for(const b of this.bodies)if(b.state===0&&b.attachments) {
+      const held=b.attachments.filter(id=>this.bodies[id].state===0);
+      if(held.length<b.minimumAttachments) {
+        const lost=this.bodies[b.attachments.find(id=>this.bodies[id].state>0)];
+        this.release(b,new THREE.Vector3(lost.vx*.2,-.4,lost.vz*.2),.8);
+      }
+    }
     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
     // cost when the entire bank is moving; it is derived, never hidden state.
     const grid=new Map(),bounds=new THREE.Box3();
@@ -166,7 +179,7 @@ export class BankPhysics {
     };
     const putBody=b=>{
       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
-      if(b.content){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform));}
+      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform));}
       else put(b,this.bounds(b,bounds));
     };
     for(const b of this.bodies)if(b.state===2||b.fixed||(b.state===0&&(b.role==='slab'||b.content)))putBody(b);

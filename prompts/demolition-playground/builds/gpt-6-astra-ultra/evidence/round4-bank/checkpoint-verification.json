@@ -1,0 +1,66 @@
+{
+  "scope": "Independent read-only verification of PR 2 retained banking hall checkpoint",
+  "repository": "/Users/Drew/.codex/worktrees/80ca/3d-worlds",
+  "base": "6d583d11b73e337114f597a772a5924f769cd562",
+  "head": "de472e5ef4a3ffa69b39422858852bb721b8b1cb",
+  "decision": "No merge blocker found in the source diff or executed checks; ready for the requested retained-hall checkpoint, subject to the parent's separate visual review.",
+  "blockers": [],
+  "standing_instructions": "/Users/Drew/.codex/AGENTS.md",
+  "method": "Fresh context reviewed source diff and current implementation/tests; prior reviewer conclusions and historical test outputs were not used as proof. No browser was used.",
+  "tests": [
+    {
+      "command": "npm test",
+      "working_directory": "prompts/demolition-playground/builds/gpt-6-astra-ultra",
+      "runtime": "Node v26.3.0",
+      "passed": 29,
+      "failed": 0,
+      "skipped": 0,
+      "duration_ms": 38568.387959,
+      "raw_output": "checkpoint-astra-suite.txt"
+    },
+    {
+      "command": "node --test /tmp/astra-round4-checkpoint/independent-checks.test.mjs",
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "duration_ms": 487.380125,
+      "raw_output": "checkpoint-independent-checks.txt"
+    }
+  ],
+  "applicable_invariants": [
+    {
+      "property": "Retained identity and bounded ownership",
+      "evidence": "Independent inspection found 1828 unique retained bodies, including 50 contents. All parts reference their body; all support ownership chains are finite and acyclic. Inventory includes 3 counters, 2 tables, 5 chairs, 1 cabinet, 8 equipment items, 31 paper items and 384 glass bodies."
+    },
+    {
+      "property": "Snapshot ownership, deterministic continuation and rebuild",
+      "evidence": "Suite tests pass for bank/furniture/contacts/scoring, staged charges, water, props, geometry and pristine rebuild. Independent native crane-plus-bank contact sequence reproduces complete captured state exactly after restore, without mutating its saved snapshot."
+    },
+    {
+      "property": "History retention and branch isolation",
+      "evidence": "Suite passes full-minute retention, interpolation without resumable-state mutation, abandoned-future truncation, alternate hall continuation and rebuild after history eviction."
+    },
+    {
+      "property": "Localized damage and contact fidelity",
+      "evidence": "Suite passes local wounds, independent support bays, nearby glazing loss without broadcast content impulses, solid-member collision through cleared openings and table-leg gaps, direct falling-fragment contacts and loss of settled support. Independent native crane contact moves a writing table."
+    },
+    {
+      "property": "Finite state, bounded scoring and no duplicate restoration",
+      "evidence": "Suite passes extensive collapse with finite positions, ground clearance, retained rubble, one-time mass scoring and rebuild without body duplication. Independent native contact continuation contains only finite body values."
+    },
+    {
+      "property": "Surrounding district behavior",
+      "evidence": "All existing generic-district tests pass, including neighbor transfer, sequential floor failure, curtain-wall separation, water burst, props, quality-independent state and archived tank rebuild. Independent crane check preserves the default three-metre non-bank aiming limit while hall targeting reaches 2.1 metres."
+    },
+    {
+      "property": "Scope, dependencies, security and gate preservation",
+      "evidence": "Runtime changes are confined to the Astra bank/hall and crane targeting/contact integration. No manifests, lockfiles, server code, auth or credential surfaces changed. Existing tests were not modified or weakened; nine hall tests were added."
+    }
+  ],
+  "limits": [
+    "This is a coarse retained-body simulation with conservative rotated bounds, prepared glass shards and central-footprint support; passing checks do not establish perfect rigid-body physics.",
+    "No claim is made of a major demolition-quality improvement, a redesigned wrecking ball, or complete furniture fracture.",
+    "Visual quality, live presentation and the parent's browser comparison are outside this verifier's no-browser scope."
+  ],
+  "workspace_changes": "Only this report, raw test output and independent tests were written under /tmp/astra-round4-checkpoint. Source HEAD remained unchanged."
+}

@@ -1,0 +1,12 @@
+{"retained":1828,"contents":50,"counts":{"counter":3,"table":2,"chair":5,"cabinet":1,"equipment":8,"paper":31,"glass":384}}
+✔ retained furnishing identities and support ownership are finite, unique and acyclic (48.817666ms)
+✔ native crane contact and complete crane-plus-bank snapshot replay remain exact (273.6735ms)
+✔ ordinary district target height remains three metres while hall aim can reach two-point-one (3.53175ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 487.380125

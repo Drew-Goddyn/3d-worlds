@@ -1,0 +1,48 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ the court is an actual full-height void and galleries retain occupied depth (957.56775ms)
+✔ floor fracture plates tile their complete load-bearing bay without overlap or lost material (39.720541ms)
+✔ a removed vault rib releases its own glazing but leaves remote supported roof intact (62.783166ms)
+✔ roof attachment failure, retained ribs and new past actions restore exact independent futures (1449.687333ms)
+✔ a charge belongs to the selected roof pane and to settled rubble on a later intervention (3343.802042ms)
+✔ street-level roof debris remains chargeable outside its original storey volume (3230.943334ms)
+✔ a charge keeps its selected piece and local point when branching an interpolated replay (814.506584ms)
+✔ a limited bank wound is local, remains standing, and changes with the hit location (1752.956666ms)
+✔ bank support loss can peel one bay while leaving an independently supported bay intact (2111.4085ms)
+✔ bank charges, support, fragment motion and impact contacts replay exactly without snapshot aliasing (3753.17ms)
+✔ extensive bank destruction settles into finite persistent architecture and retains a full minute (37639.789667ms)
+✔ six normal bank charges can cause substantial failure without an easy-collapse override (4996.778875ms)
+✔ the intact hall contains supported furnishings and pre-existing triangular glazing (723.200917ms)
+✔ a window wound releases nearby triangular shards without broadcasting damage into the hall (44.950584ms)
+✔ a falling architectural fragment contacts a writing table and releases only its loose articles (492.152667ms)
+✔ ball contact uses current solid members and passes through a cleared window (28.674291ms)
+✔ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (1167.66825ms)
+✔ a fragment passing between table legs cannot impart a contact impulse (28.951292ms)
+✔ a ledger that has settled on a table falls when the table moves away (6285.04525ms)
+✔ settled masonry falls when its furniture support moves away (5981.385083ms)
+✔ the full-size ball can contact a writing table below the intact ceiling (23.730583ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (6.052959ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.422792ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (276.831208ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (169.815875ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (235.337167ms)
+✔ slow motion advances exactly the supplied simulation time (4.012167ms)
+✔ a falling assembly transfers impact into an adjacent building (110.195584ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (59.85775ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (6.740375ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (64.337542ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (29.849875ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (54.114083ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (13.78925ms)
+✔ six-charge limit and all staged detonation state survive rewind (99.528125ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (399.43425ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 50578.735875

@@ -1,0 +1,174 @@
+{
+  "source": "src/main.js",
+  "nativePickAndBranchAndPointerHandlerExecuted": true,
+  "raycastInput": "exact rendered mesh vertex supplied as a hit; no browser runtime",
+  "snippetSha256": "7d706eb5c42b1a8eca29afa5aef91166f8ab3f6df0f2da82d930b8d50100566d",
+  "savedTime": 1.0000000000000013,
+  "nextTime": 1.0500000000000012,
+  "alpha": 0.8,
+  "attempts": 20,
+  "wrongAttachments": 0,
+  "maximumLocalError": 1.2310591251107877e-14,
+  "results": [
+    {
+      "selectedBody": 1706,
+      "accepted": true,
+      "chargedBody": 1706,
+      "localError": 3.03133583600702e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1708,
+      "accepted": true,
+      "chargedBody": 1708,
+      "localError": 2.982142537036501e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1710,
+      "accepted": true,
+      "chargedBody": 1710,
+      "localError": 4.6460545430173486e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1712,
+      "accepted": true,
+      "chargedBody": 1712,
+      "localError": 6.060129777779625e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1714,
+      "accepted": true,
+      "chargedBody": 1714,
+      "localError": 3.3172557820049615e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1716,
+      "accepted": true,
+      "chargedBody": 1716,
+      "localError": 4.8285541063371295e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1730,
+      "accepted": true,
+      "chargedBody": 1730,
+      "localError": 8.421244728910599e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1732,
+      "accepted": true,
+      "chargedBody": 1732,
+      "localError": 4.96142074462569e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1734,
+      "accepted": true,
+      "chargedBody": 1734,
+      "localError": 1.2310591251107877e-14,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1736,
+      "accepted": true,
+      "chargedBody": 1736,
+      "localError": 3.950272747723015e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1738,
+      "accepted": true,
+      "chargedBody": 1738,
+      "localError": 3.9699449006131144e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1740,
+      "accepted": true,
+      "chargedBody": 1740,
+      "localError": 6.074383381842099e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1802,
+      "accepted": true,
+      "chargedBody": 1802,
+      "localError": 8.88178419700125e-16,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1803,
+      "accepted": true,
+      "chargedBody": 1803,
+      "localError": 8.881784197001252e-16,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1804,
+      "accepted": true,
+      "chargedBody": 1804,
+      "localError": 2.6645352591003765e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1805,
+      "accepted": true,
+      "chargedBody": 1805,
+      "localError": 4.3511678576336575e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1806,
+      "accepted": true,
+      "chargedBody": 1806,
+      "localError": 4.070144838902081e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1807,
+      "accepted": true,
+      "chargedBody": 1807,
+      "localError": 6.404745667978756e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1808,
+      "accepted": true,
+      "chargedBody": 1808,
+      "localError": 3.972054645195636e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    },
+    {
+      "selectedBody": 1809,
+      "accepted": true,
+      "chargedBody": 1809,
+      "localError": 3.662053438817791e-15,
+      "truncated": 1.0000000000000013,
+      "recorded": 1
+    }
+  ]
+}

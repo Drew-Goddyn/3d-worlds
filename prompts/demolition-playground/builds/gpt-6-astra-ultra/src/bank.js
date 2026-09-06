@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { furnishHall } from './bank-hall.js';
+import { buildBankCourt } from './bank-world.js';
 
 // The bank's recipe: nine load-bearing bays per level, with real masonry
 // openings. Each retained fragment owns all its ornament; instances share only
@@ -9,8 +10,8 @@ export function createBank(building, root) {
   bank.root.name = 'Mercantile Bank · masonry and frame';
   root.add(bank.root);
   const material = {
-    stone: new THREE.MeshStandardMaterial({color:0xd9c6a3,roughness:.86}),
-    limestone: new THREE.MeshStandardMaterial({color:0xf0dfbd,roughness:.72}),
+    stone: new THREE.MeshStandardMaterial({color:0xd3bb91,roughness:.86}),
+    limestone: new THREE.MeshStandardMaterial({color:0xe6d1a8,roughness:.72}),
     carved: new THREE.MeshStandardMaterial({color:0xf7e7ca,roughness:.67}),
     floor: new THREE.MeshStandardMaterial({color:0xa79b87,roughness:.94}),
     plaster: new THREE.MeshStandardMaterial({color:0xd9c9a8,roughness:.94}),
@@ -24,6 +25,9 @@ export function createBank(building, root) {
     cash: new THREE.MeshStandardMaterial({color:0x80a777,roughness:.9}),
     ink: new THREE.MeshStandardMaterial({color:0x233b36,roughness:.65}),
     brass: new THREE.MeshStandardMaterial({color:0xc49b47,roughness:.36,metalness:.65}),
+    core: new THREE.MeshStandardMaterial({color:0xa57050,roughness:.97}),
+    steel: new THREE.MeshStandardMaterial({color:0x354944,roughness:.58,metalness:.5}),
+    vaultGlass: new THREE.MeshStandardMaterial({color:0x9cd8cc,roughness:.22,metalness:.18,transparent:true,opacity:.46,depthWrite:false,side:THREE.DoubleSide}),
   };
   const shapes = {
     box: new THREE.BoxGeometry(1,1,1),
@@ -31,6 +35,19 @@ export function createBank(building, root) {
     torus: new THREE.TorusGeometry(.46,.065,6,24),
     sphere: new THREE.SphereGeometry(.5,12,8),
   };
+  material.cutFloor=[material.floor,material.core];
+  // Four complementary, non-rectangular fracture plates. The broken edges
+  // expose the warm structural core; the visible top retains its finish.
+  const corners=[[-2,-11/6],[2,-11/6],[2,11/6],[-2,11/6]];
+  const mids=[[.12,-11/6],[2,.09],[-.17,11/6],[-2,-.13]];
+  const seam=([x,z])=>[(x+.11)/2+.08,(z-.08)/2-.06];
+  for(let i=0;i<4;i++) {
+    const c=corners[i],a=mids[(i+3)%4],b=mids[i],cx=c[0]/2,cz=c[1]/2;
+    const points=[c,b,seam(b),[.11,-.08],seam(a),a];
+    const shape=new THREE.Shape(points.map(([x,z])=>new THREE.Vector2(x-cx,z-cz)));
+    const g=new THREE.ExtrudeGeometry(shape,{depth:.38,bevelEnabled:false});
+    g.rotateX(Math.PI/2);g.translate(0,.19,0);shapes['plate'+i]=g;
+  }
   // Fluted shafts have true silhouette relief, not a painted stripe.
   const shaft = new THREE.CylinderGeometry(.44,.49,1,64,1);
   const sp = shaft.attributes.position;
@@ -66,12 +83,12 @@ export function createBank(building, root) {
     const {x,z,y,level}=n;
     // Four finite slab quarters break separately on landing; beams and floor
     // finishes belong to each quarter, so both sides remain closed surfaces.
-    for(const dx of [-1,1])for(const dz of [-1,1]) {
-      const xx=x+dx*.998,zz=z+dz*D/4,b=body(n,'slab',xx,y+H-.2,zz,{mass:3.4});
-      add(b,'floor',xx,y+H-.23,zz,1.994,.38,D/2-.012);
-      add(b,level===2?'roof':'plaster',xx,y+H-.025,zz,1.99,.03,D/2-.02);
-      add(b,'bronze',xx,y+H-.48,zz,1.99,.16,.1);
-      if(level<2)for(let t=0;t<3;t++)add(b,'stone',xx+(-.65+t*.65),y+H+.004,zz,.59,.025,D/2-.08);
+    if(!(n.ix===1&&n.iz>=1)&&!(n.ix===0&&n.iz===1&&level<2))for(let q=0;q<4;q++) {
+      const [cx,cz]=corners[q],xx=x+cx/2,zz=z+cz/2,b=body(n,'slab',xx,y+H-.2,zz,{mass:3.4});
+      add(b,'cutFloor',xx,y+H-.23,zz,1,1,1,0,0,'plate'+q);
+      if(level===2)add(b,'roof',xx,y+H-.025,zz,1.8,.03,D/2-.17);
+      add(b,'steel',xx,y+H-.48,zz,1.86,.16,.12);
+      if(level<2)for(let t=0;t<3;t++)add(b,'stone',xx+(-.6+t*.6),y+H+.004,zz,.54,.025,D/2-.2);
     }
     // Independent pier cores: damage to a physical core changes its bay's
     // support capacity. Neighbour beams can bridge one missing support bay.
@@ -96,23 +113,29 @@ export function createBank(building, root) {
     if(n.ix===2)faces.push({ox:6,oz:z,ux:0,uz:-1,nx:1,nz:0,span:D});
     if(n.ix===0)faces.push({ox:-6,oz:z,ux:0,uz:1,nx:-1,nz:0,span:D});
     for(const face of faces) {
+      if(level===2)continue; // the upper arcade spans both gallery levels
+      // The central upper facade is one tall court window, not two rooms.
+      if(face.front&&n.ix===1&&level>0)continue;
       const {ox,oz,ux,uz,nx,nz,span}=face;
+      const faceHeight=level===1?H*2:H;
       const ry=Math.atan2(nx,nz),pos=(u,v)=>[ox+u*ux+v*nx,oz+u*uz+v*nz];
       const put=(b,m,u,yy,v,w,h,d,rz=0,shape='box')=>{const [xx,zz]=pos(u,v);add(b,m,xx,yy,zz,w,h,d,ry,rz,shape);};
-      const chunk=(role,u,yy,v,opts={})=>{const [xx,zz]=pos(u,v);return body(n,role,xx,yy,zz,opts);};
+      const chunk=(role,u,yy,v,opts={})=>{const [xx,zz]=pos(u,v);const owner=nodeAt(Math.min(2,Math.max(level,Math.floor(yy/H))),n.ix,n.iz);return body(owner,role,xx,yy,zz,opts);};
       const entrance=face.front&&n.ix===1&&level===0;
-      const opening=level===0&&face.front?2.6:entrance?2.12:level===2?1.9:1.8;
+      const opening=level===0&&face.front?2.6:entrance?2.12:level===1?2.55:1.8;
       const foot=entrance?.34:level===2?.64:.68;
-      const archBase=level===2?2.15:2.44, radius=opening/2;
+      const archBase=level===1?6.45:2.44, radius=opening/2;
       // Blocks assembled in short closed fragments. Deep jamb reveals read
       // from either angle and their thickness survives fracture.
       for(const side of [-1,1]) {
         const u=side*(opening/2+(span-opening)/4);
         let previousCourse=null;
-        for(let course=0;course<6;course++) {
+        for(let course=0;course<(level===1?13:6);course++) {
           const b=chunk('masonry',u,y+.36+course*.59,-.13,{mass:.9});
           if(previousCourse!=null)b.restsOn=previousCourse;previousCourse=b.id;
           put(b,course%3===0?'limestone':'stone',u,y+.36+course*.59,-.13,(span-opening)/2-.028,.555,.58);
+          put(b,'core',u,y+.36+course*.59,-.49,(span-opening)/2-.09,.50,.18);
+          put(b,'plaster',u,y+.36+course*.59,-.595,(span-opening)/2-.11,.47,.035);
           if(course===0)put(b,'carved',u,y+.12,.04,(span-opening)/2+.05,.18,.76);
         }
       }
@@ -134,7 +157,7 @@ export function createBank(building, root) {
         const key='spandrel'+opening+'-'+level+'-'+side;
         if(!shapes[key]) {
           const shape=new THREE.Shape();
-          const outer=radius,extent=radius,top=3.65-archBase;
+          const outer=radius,extent=radius,top=(level===1?7.95:3.65)-archBase;
           shape.moveTo(side*extent,0);shape.lineTo(side*extent,top);shape.lineTo(0,top);
           const limit=Math.asin(Math.min(1,top/outer));
           shape.lineTo(side*Math.cos(limit)*outer,top);
@@ -146,8 +169,8 @@ export function createBank(building, root) {
         const b=chunk('masonry',0,y+archBase,-.12,{mass:.8});
         put(b,'limestone',0,y+archBase,-.12,1,1,1,0,key);
       }
-      const header=chunk('lintel',0,y+3.96,-.12,{mass:1.6});
-      put(header,'limestone',0,y+3.96,-.12,span-.025,.62,.61);
+      const header=chunk('lintel',0,y+faceHeight-.34,-.12,{mass:1.6});
+      put(header,'limestone',0,y+faceHeight-.34,-.12,span-.025,.62,.61);
       // Ground-floor glazing is a bounded tessellation of real triangular
       // prisms. Every shard exists before impact and remains in history.
       for(const side of [-1,1])for(let row=0;row<2;row++) {
@@ -190,17 +213,17 @@ export function createBank(building, root) {
       }
       // Entablature: each bay owns three cornice stones, each with its dentils.
       for(let k=0;k<3;k++) {
-        const u=(k-1)*span/3,b=chunk('cornice',u,y+H-.04,.2,{mass:1.8});
-        put(b,'stone',u,y+H-.2,.16,span/3-.018,.19,.9);
-        put(b,'carved',u,y+H+.005,.23,span/3+.015,.2,1.08);
-        put(b,'limestone',u,y+H+.145,.21,span/3+.04,.1,1.19);
-        for(let j=0;j<3;j++)put(b,'carved',u+(j-1)*span/9,y+H-.39,.45,.16,.18,.28);
+        const u=(k-1)*span/3,b=chunk('cornice',u,y+faceHeight-.04,.2,{mass:1.8});
+        put(b,'stone',u,y+faceHeight-.2,.16,span/3-.018,.19,.9);
+        put(b,'carved',u,y+faceHeight+.005,.23,span/3+.015,.2,1.08);
+        put(b,'limestone',u,y+faceHeight+.145,.21,span/3+.04,.1,1.19);
+        for(let j=0;j<3;j++)put(b,'carved',u+(j-1)*span/9,y+faceHeight-.39,.45,.16,.18,.28);
       }
-      if(level===2)for(let k=0;k<3;k++) {
-        const u=(k-1)*span/3,b=chunk('parapet',u,y+H+.61,0,{mass:1.2});
-        put(b,'stone',u,y+H+.34,0,span/3-.025,.17,.42);
-        for(let j=0;j<3;j++)put(b,'carved',u+(j-1)*span/9,y+H+.62,0,.12,.49,.18);
-        put(b,'limestone',u,y+H+.94,0,span/3+.012,.19,.56);
+      if(level===1)for(let k=0;k<3;k++) {
+        const u=(k-1)*span/3,b=chunk('parapet',u,y+faceHeight+.61,0,{mass:1.2});
+        put(b,'stone',u,y+faceHeight+.34,0,span/3-.025,.17,.42);
+        for(let j=0;j<3;j++)put(b,'carved',u+(j-1)*span/9,y+faceHeight+.62,0,.12,.49,.18);
+        put(b,'limestone',u,y+faceHeight+.94,0,span/3+.012,.19,.56);
       }
       // Paired front columns frame three entrances/windows. The giant lower
       // order terminates in a distinct capital; upper floors use pilasters.
@@ -221,13 +244,16 @@ export function createBank(building, root) {
         for(const s of [-1,1]){put(cap,'stone',u+s*.34,y+3.5,.99,.23,.22,.23,0,'sphere');}
       }
       if(face.front&&level===1)for(const side of [-1,1]) {
-        const p=chunk('pilaster',side*1.49,y+2,.21,{mass:1.9});
-        put(p,'limestone',side*1.49,y+2,.23,.51,3.3,.39);
-        put(p,'carved',side*1.49,y+3.65,.28,.78,.28,.59);
+        for(let drum=0;drum<4;drum++) {
+          const p=chunk('pilaster',side*1.66,y+1+drum*1.8,.21,{mass:1.2});
+          put(p,'limestone',side*1.66,y+1+drum*1.8,.23,.38,1.77,.39);
+          if(drum===3)put(p,'carved',side*1.66,y+7.6,.28,.68,.28,.59);
+        }
       }
     }
   }
   furnishHall({bank,body,add,nodeAt,material,shapes});
+  buildBankCourt({bank,body,add,nodeAt,material,shapes});
   // A central broken-pitch pediment and copper hipped lantern distinguish the
   // silhouette. All segments are physical parts owned by the roof's front bay.
   const top=nodeAt(2,1,2);
@@ -242,12 +268,6 @@ export function createBank(building, root) {
   for(let step=0;step<3;step++) {
     const b=body(nodeAt(0,1,2),'foundation',0,.06+step*.12,6.35-step*.25,{fixed:true});
     add(b,'stone',0,.06+step*.12,6.35-step*.25,4.5-step*.35,.16,1.55-step*.27);
-  }
-  const roofNode=nodeAt(2,1,1);
-  for(const side of [-1,1]) {
-    const b=body(roofNode,'roof',side*.73,13.7,0,{mass:1});
-    add(b,'roof',side*.73,13.63,0,1.7,.16,3.1,0,-side*.35);
-    add(b,'bronze',side*1.5,13.32,0,.065,.16,3.16);
   }
   // Inscription is attached to its own stone, not left floating after collapse.
   if(typeof document!=='undefined') {

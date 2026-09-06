@@ -1,0 +1,104 @@
+{
+  "kind": "independent-technical-verification",
+  "status": "pass",
+  "initialBase": "08184ad5b20db59f7e2fe674e42cf9c42e7805b7",
+  "latestDiffBase": "d7b525a793f95cc098bb40b879a4ecedb7801df6",
+  "target": "051ca436e6110955b53c572ee40d89eed46322ff",
+  "previousFailureEvidencePreserved": [
+    "../report.json",
+    "../probe.json",
+    "../final/report.json",
+    "../final/branch-target-probe.json"
+  ],
+  "suite": {
+    "command": "npm test",
+    "exitCode": 0,
+    "tests": 36,
+    "pass": 36,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationMilliseconds": 50578.735875,
+    "raw": "suite.txt"
+  },
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "property": "Current-position charge targeting on retained upper-storey rubble",
+      "before": {
+        "accepted": 0,
+        "attempts": 10
+      },
+      "after": {
+        "acceptedIndividually": 10,
+        "attempts": 10
+      },
+      "evidence": "probe.json"
+    },
+    {
+      "property": "Selected-body identity and local attachment point across interpolated replay branching",
+      "before": {
+        "wrongAttachments": 8,
+        "attempts": 20
+      },
+      "after": {
+        "wrongAttachments": 0,
+        "attempts": 20,
+        "maximumLocalCoordinateError": 1.2310591251107877e-14
+      },
+      "evidence": "native-handler-probe.json",
+      "method": "Executed the actual current native pick, branch and pointer-up handler source with exact interpolated mesh vertices provided as raycast hits. The original source handles local anchoring, snapshot restore, charge placement and branch truncation."
+    }
+  ],
+  "independentChecks": {
+    "sixChargeMaximum": true,
+    "rubbleDetonationExactReplayAndImmutableSnapshot": true,
+    "bankQualityIndependence": true,
+    "roofExactReplayAndImmutableSnapshot": true,
+    "nativeBranchTruncationAndActionRecording": "20 of 20 pass"
+  },
+  "criteriaEvidence": {
+    "proceduralOfflineBankConstruction": "Source review confirms retained procedural geometry using existing locally vendored Three.js; no external dependency added.",
+    "intactCourtGalleriesRoof": "Suite passes full-height void, required structural roles, floor-area conservation and intact no-drift checks.",
+    "localizedAndExtensivePlayerDestruction": "Suite passes local wounds, independent bay survival, actual support loss and extensive destruction using six normal charges.",
+    "actualAttachmentsAndCurrentGeometryForLaterCharges": "Roof connection tests, ten current-ground-surface targets, and twenty actual-handler replay-branch targets pass.",
+    "retainedRubbleAndCoherentSupport": "Suite passes finite grounded retained architecture, moving-support wake-up, persistent body count and no double-awarded mass.",
+    "immutableSnapshotsAndExactReplay": "Full suite and independent probes preserve snapshots and replay RNG, velocities, attachments, contents, contacts and charges exactly.",
+    "branchMinuteAndPristineRebuild": "Suite passes independent branch futures, full rolling minute, exact pristine restoration after eviction and repeated rebuild without duplicates.",
+    "existingScoreQualityBallAndDistrict": "Suite passes scoring, quality, ball solid-contact behavior, district damage/neighbor effects and district replay; bank-specific quality parity also passes."
+  },
+  "standingInvariants": {
+    "criteriaNotShrunk": true,
+    "existingGatesNotWeakened": true,
+    "noArchitectureDisappearanceIntroduced": true,
+    "noProtectedRoomIntroduced": true,
+    "noFixedCollapseTimelineIntroduced": true,
+    "collisionNotDisabled": true,
+    "sixChargeLimitPreserved": true,
+    "noNewExternalDependencies": true,
+    "allTestsPass": true,
+    "criteriaSatisfiedWithinTechnicalScope": true
+  },
+  "scope": {
+    "builderReasoningRead": false,
+    "applicationEdited": false,
+    "existingTestsEdited": false,
+    "browserCampaignStarted": false
+  },
+  "limitations": [
+    "No browser was opened by this verifier. Parent native browser inspection and human visual acceptance remain separate.",
+    "The native-handler probe supplies exact geometry hits to the raycast boundary; browser pointer transport is covered by the parent campaign.",
+    "Headless fixtures omit the canvas-rendered inscription.",
+    "Support and collision are stylized approximations, not engineering structural analysis."
+  ],
+  "artifacts": [
+    "suite.txt",
+    "probe.mjs",
+    "probe.txt",
+    "probe.json",
+    "native-handler-probe.mjs",
+    "native-handler-probe.txt",
+    "native-handler-probe.json",
+    "source-hashes.json"
+  ]
+}

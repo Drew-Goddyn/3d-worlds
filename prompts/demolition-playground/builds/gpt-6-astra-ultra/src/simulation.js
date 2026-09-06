@@ -387,12 +387,19 @@ export class Simulation {
     this.chainTime = this.time;
   }
 
-  placeCharge(point, buildingId, floorIndex) {
+  placeCharge(point, buildingId, floorIndex, bankBodyId=null) {
     if (this.charges.length >= 6) return false;
-    const f = this._nearestFloor(point, buildingId, floorIndex);
+    const targetsBank=this.bank&&buildingId===this.bank.recipe.building.id;
+    const selected=targetsBank&&bankBodyId!=null?this.bank.bodies[bankBodyId]:null;
+    // Resolve the current bank body before its bookkeeping storey. Roof
+    // rubble is still roof-owned after it reaches street level.
+    let bankBody=targetsBank ? (selected&&!selected.fixed&&!selected.content&&this.bank.bounds(selected).distanceToPoint(point)<.1 ? selected : this.bank.nearest(point,floorIndex)) : null;
+    const f=bankBody ? this.floors.find(f=>f.building.bank&&f.floor.index===this.bank.nodes[bankBody.node].level) : this._nearestFloor(point, buildingId, floorIndex);
     if (!f || f.state === 3) return false;
     f.floor.group.updateWorldMatrix(true, false);
-    const bankBody = f.building.bank ? this.bank.nearest(point, floorIndex) : null;
+    // The rendered roof panel or retained rubble under the pointer carries
+    // its own charge, even if another structural member is nearby.
+    if(f.building.bank&&!bankBody)bankBody=this.bank.nearest(point,floorIndex);
     if (f.building.bank && !bankBody) return false;
     const local = bankBody ? point.clone().applyMatrix4(this.bank.bodyMatrix(bankBody).invert()) : f.floor.group.worldToLocal(point.clone());
     this.charges.push({ id: this.chargeId++, floor: f.index, x: local.x, y: local.y, z: local.z, when: -1, ...(bankBody ? {bankBody: bankBody.id} : {}) });
