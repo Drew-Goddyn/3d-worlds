@@ -21,11 +21,28 @@ export class BankPhysics {
     this.nodes=recipe.nodes.map(n=>({...n,state:0,strain:0,support:1,drop:0,rx:0,rz:0,px:this.recipe.building.x+n.x,pz:this.recipe.building.z+n.z,wx:0,wz:0}));
     this.bodies=recipe.bodies.map(b=>({...b,x:b.origin.x,y:b.origin.y,z:b.origin.z,rx:0,ry:0,rz:0,vx:0,vy:0,vz:0,wx:0,wy:0,wz:0,hp:1,state:0,sleep:0,hits:0,scored:0,mass:b.mass??.8}));
     this.contacts=new Set();this.tonnage=0;this.collapsed=false;this.revision=0;this.snapshot=null;this.snapshotRevision=-1;
+    this.geometryCache=[];
     this.cohesion=new BankCohesion(this);
     this.structure=new BankStructure(this);
     this.render();
   }
-  bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {
+  // Derived geometry is keyed by the exact current physical pose, including
+  // its carrier. Contacts can change a pose midway through a step, so a frame
+  // number or the history revision alone would be an unsafe invalidation key.
+  geometry(body) {
+    let row=this.geometryCache[body.id];
+    if(!row)row=this.geometryCache[body.id]={key:new Float64Array(14).fill(NaN),matrix:new THREE.Matrix4(),box:new THREE.Box3(),parts:null};
+    const f=body.state===0&&!body.fixed&&!body.content&&this.structure?this.structure.frames[this.structure.owner[body.id]]:null,k=row.key;
+    const px=f?.p.x??0,py=f?.p.y??0,pz=f?.p.z??0,qx=f?.q.x??0,qy=f?.q.y??0,qz=f?.q.z??0,qw=f?.q.w??1,carried=Number(!!f);
+    if(k[0]!==body.x||k[1]!==body.y||k[2]!==body.z||k[3]!==body.rx||k[4]!==body.ry||k[5]!==body.rz||k[6]!==px||k[7]!==py||k[8]!==pz||k[9]!==qx||k[10]!==qy||k[11]!==qz||k[12]!==qw||k[13]!==carried) {
+      k.set([body.x,body.y,body.z,body.rx,body.ry,body.rz,px,py,pz,qx,qy,qz,qw,carried]);
+      this.composeBody(body,row.matrix);row.box.copy(body.bounds).applyMatrix4(row.matrix);row.parts=null;
+    }
+    return row;
+  }
+  solidBounds(body) {const row=this.geometry(body);return row.parts??=body.parts.map(p=>p.collisionBounds.clone().applyMatrix4(row.matrix));}
+  bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {return snapshot?this.composeBody(body,out,snapshot):out.copy(this.geometry(body).matrix);}
+  composeBody(body,out=new THREE.Matrix4(),snapshot=null) {
     const i=body.id*B,j=body.node*N;
     const get=(key)=>snapshot?snapshot.bodies[i+BODY_KEYS.indexOf(key)]:body[key];
     let x=get('x'),y=get('y'),z=get('z'),rx=get('rx'),ry=get('ry'),rz=get('rz');
@@ -39,7 +56,7 @@ export class BankPhysics {
     }
     quaternion.setFromEuler(euler.set(rx,ry,rz));return out.compose(position.set(x,y,z),quaternion,scale);
   }
-  bounds(body,out=new THREE.Box3()) {return out.copy(body.bounds).applyMatrix4(this.bodyMatrix(body,matrix));}
+  bounds(body,out=new THREE.Box3()) {return out.copy(this.geometry(body).box);}
   nearest(point, floorIndex=null) {
     let best=null,distance=Infinity;const bounds=new THREE.Box3();
     for(const b of this.bodies) {
@@ -68,8 +85,8 @@ export class BankPhysics {
     return best;
   }
   solidContact(a,b) {
-    const am=this.bodyMatrix(a),bm=this.bodyMatrix(b),ab=new THREE.Box3(),bb=new THREE.Box3();
-    for(const ap of a.parts){ab.copy(ap.collisionBounds).applyMatrix4(am);for(const bp of b.parts){bb.copy(bp.collisionBounds).applyMatrix4(bm);if(ab.intersectsBox(bb))return true;}}
+    const ap=this.solidBounds(a),bp=this.solidBounds(b);
+    for(const x of ap)for(const y of bp)if(x.intersectsBox(y))return true;
     return false;
   }
   hitContent(b,power,direction) {
@@ -184,7 +201,7 @@ export class BankPhysics {
     };
     const putBody=b=>{
       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
-      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform),part);}
+      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){for(const box of this.solidBounds(b))put(b,box);}
       else put(b,this.bounds(b,bounds));
     };
     for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);}}

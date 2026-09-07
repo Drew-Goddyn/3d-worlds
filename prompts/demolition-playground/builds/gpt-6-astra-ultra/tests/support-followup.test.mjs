@@ -48,3 +48,15 @@ test('settled pieces need a path to ground and cannot keep each other asleep thr
   for(const b of bank.bodies)assert.ok(b.y<2,'an unsupported cycle falls under gravity');
   const fresh=small(specs);fresh.restore(past);for(let i=0;i<60;i++)fresh.step(1/60);assert.deepEqual(fresh.capture(),bank.capture());assert.deepEqual(past,copy);
 });
+
+test('cached collision geometry follows an in-step carrier correction, release and fresh restoration',()=>{
+  const specs=[{pos:[0,4.2,0],size:[2,1,1]}],bank=small(specs),body=bank.bodies[0],f=bank.structure.frames[0];
+  const pristine=bank.capture(),saved=bank.bounds(body);saved.min.x=-999;
+  assert.equal(bank.bounds(body).min.x,-1,'callers cannot mutate cached bounds');
+  bank.solidBounds(body);f.p.x+=3;f.q.setFromAxisAngle(new THREE.Vector3(0,1,0),Math.PI/2);
+  const box=bank.bounds(body);assert.ok(Math.abs(box.min.x-2.5)<1e-10&&Math.abs(box.max.x-3.5)<1e-10&&Math.abs(box.max.z-1)<1e-10);
+  assert.deepEqual(bank.solidBounds(body)[0],box,'solid contact surfaces update in the same step');
+  bank.release(body,new THREE.Vector3(),0);body.x+=2;assert.ok(Math.abs(bank.bounds(body).min.x-4.5)<1e-10);
+  const past=bank.capture(),fresh=small(specs);fresh.restore(past);assert.deepEqual(fresh.bounds(fresh.bodies[0]),bank.bounds(body));
+  bank.restore(pristine);assert.equal(bank.bounds(body).min.x,-1,'restoring an earlier pose invalidates the derived geometry');
+});

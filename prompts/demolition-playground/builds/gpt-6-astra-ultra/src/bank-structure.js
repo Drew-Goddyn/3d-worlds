@@ -94,9 +94,9 @@ export class BankStructure {
     this.joints.push({i,j,a:point.clone().sub(this.frames[i].rest),b:j<0?point.clone():point.clone().sub(this.frames[j].rest),body,other,kind,strength,broken:false,strain:0,lambda:new THREE.Vector3()});
   }
   detachIslands() {
-    const bank=this.bank,component=new Int32Array(bank.bodies.length).fill(-1),rooted=new Set(),parts=new Map();
+    const bank=this.bank,component=new Int32Array(bank.bodies.length).fill(-1),rooted=new Set();
     const solid=b=>b.state===0&&!b.content&&!['glass','paper'].includes(b.role);
-    const geometry=b=>{if(!parts.has(b.id)){const m=bank.bodyMatrix(b);parts.set(b.id,b.parts.map(p=>p.collisionBounds.clone().applyMatrix4(m)));}return parts.get(b.id);};
+    const geometry=b=>bank.solidBounds(b);
     for(const b of bank.bodies) {
       if(!solid(b)||component[b.id]>=0)continue;
       const group=[b.id];component[b.id]=b.id;let grounded=b.fixed;

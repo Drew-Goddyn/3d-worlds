@@ -108,9 +108,14 @@ export class BankCohesion {
       for(let x=Math.floor(swept.min.x/3);x<=Math.floor(swept.max.x/3);x++)for(let z=Math.floor(swept.min.z/3);z<=Math.floor(swept.max.z/3);z++){const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);}
     }
     const pairs=new Set();
-    const mass=b=>b.cluster<0?b.mass:bank.bodies.reduce((sum,p)=>sum+(p.cluster===b.cluster?p.mass:0),0);
-    const move=(b,axis,delta)=>{if(b.cluster<0)b[axis]+=delta;else{this.sections[b.cluster][axis]+=delta;for(const p of bank.bodies)if(p.cluster===b.cluster)p[axis]+=delta;}};
-    const impulse=(b,axis,dv)=>{if(b.cluster<0)b['v'+axis]+=dv;else{this.sections[b.cluster]['v'+axis]+=dv;for(const p of bank.bodies)if(p.cluster===b.cluster)p['v'+axis]+=dv;}};
+    let groups;
+    const rebuildGroups=()=>{
+      groups=new Map();for(const b of bank.bodies)if(b.cluster>=0){let g=groups.get(b.cluster);if(!g)groups.set(b.cluster,g={members:[],mass:0});g.members.push(b);g.mass+=b.mass;}
+    };
+    rebuildGroups();
+    const mass=b=>b.cluster<0?b.mass:groups.get(b.cluster).mass;
+    const move=(b,axis,delta)=>{if(b.cluster<0)b[axis]+=delta;else{this.sections[b.cluster][axis]+=delta;for(const p of groups.get(b.cluster).members)p[axis]+=delta;}};
+    const impulse=(b,axis,dv)=>{if(b.cluster<0)b['v'+axis]+=dv;else{this.sections[b.cluster]['v'+axis]+=dv;for(const p of groups.get(b.cluster).members)p['v'+axis]+=dv;}};
     // Resolve lower supports first, allowing actual grounded contacts to carry
     // a quiet stack without treating two freely falling pieces as grounded.
     moving.sort((a,b)=>bounds.get(a.id).min.y-bounds.get(b.id).min.y||a.id-b.id);
@@ -138,6 +143,7 @@ export class BankCohesion {
           bank.sim._emit?.('contact',impact,{material:bank.eventMaterial(incoming),mass:mi,speed:relative,power:Math.min(180,relative*15)});
           const ci=incoming.cluster;if(ci>=0)this.fracture(ci,impact,relative);
           const cu=under.cluster;if(cu>=0)this.fracture(cu,impact,relative);
+          if(ci>=0||cu>=0)rebuildGroups();
         }
         if(fixedUnder&&incoming.cluster<0) {
           bank.contactFriction(incoming,dt);
