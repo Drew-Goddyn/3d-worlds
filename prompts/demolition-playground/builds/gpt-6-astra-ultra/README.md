@@ -1,6 +1,6 @@
 # Demolition District
 
-> **Round-seven continuation:** Mercantile Bank now carries damaged wings through connected, load-driven motion, with an articulated vault that responds when its bearings separate. PR #5 was retained under explicit checkpoint authorization. This candidate is unfinished and has a failing construction-protection check. See [the directional-collapse review](evidence/round7-directional/REVIEW.md). Session model/reasoning remain **unverified**.
+> **Round-seven continuation:** Mercantile Bank now carries damaged wings through connected, load-driven motion, with an articulated vault that responds when its bearings separate. PR #5 was retained under explicit checkpoint authorization. The candidate passes 57 tests and awaits owner review, with significant busy-collapse cost. See [the directional-collapse review](evidence/round7-directional/REVIEW.md). Session model/reasoning remain **unverified**.
 
 A standalone procedural Three.js demolition playground. Eight downtown buildings, a controllable wrecking crane, staged demolition charges, material-specific rubble, water, dust, slow motion, and a scrubbable one-minute destruction history.
 
@@ -71,7 +71,7 @@ Working entry points are `src/event-track.js` for ownership and transport, `src/
 
 ## Shape the fall
 
-Try three low charges across the front, then rebuild and place three along the right side. Front damage can carry the tall arcade forward together; side damage can turn the gallery wing and draw the roof into the court. One low corner charge remains a useful local wound. Pause during the turn, rewind, and place another charge on the surviving construction. The six-charge budget and ordinary charge power are unchanged.
+Try three low charges across the front, then rebuild and place three along the right side. Front damage can carry the tall arcade forward together; side damage can turn the gallery wing and draw the roof into the court. One low front-right charge leaves a useful local wound; a front-left charge can trigger a larger partial failure. Pause during the turn, rewind, and place another charge on the surviving construction. The six-charge budget and ordinary charge power are unchanged.
 
 The bank now uses 27 articulated bearing bays and ten independently supported half-arches. Actual retained-member mass, inertia, pier health, touching masonry ties, vault feet and crown connections determine load transfer and rupture. Damaged bearings yield; intact neighboring bearings take real reactions. Contact hands construction to the existing finite section/rubble system with its carried momentum. Editable geometry remains in the bank construction recipes; the bank-local solver is `src/bank-structure.js`. It follows compliant position-constraint methods described in [XPBD (Macklin, Müller and Chentanez, 2016)](https://matthias-research.github.io/pages/publications/XPBD.pdf); no library, external asset, or runtime dependency was added.
 
