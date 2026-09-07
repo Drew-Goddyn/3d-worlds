@@ -54,3 +54,11 @@ test('supported construction transfers a contact impulse to a falling section ow
   bank.cohesion.step(1/60,new Map());assert.ok(Math.abs(section.vy-(velocity-12.5/60))<1e-10);assert.equal(bank.bodies[3].x-bank.bodies[1].x,separation);
   for(const b of bank.bodies.slice(1))assert.equal(b.vy,section.vy);
 });
+
+test('a roof-only cut wakes the surviving half-arch through its lost crown connection',()=>{
+  const s=fixture(),b=s.bank,left=b.bodies.find(b=>b.role==='vault-rib'&&b.origin.x< -11),right=b.bodies.find(b=>b.role==='vault-rib'&&b.origin.x> -11&&b.origin.z===left.origin.z);
+  b.release(left,new THREE.Vector3(),0);advance(s,30);
+  const f=b.structure.frames[b.structure.owner[right.id]];
+  assert.ok(f.active||right.state>0,'the surviving roof responds without a masonry cut');
+  assert.ok(f.p.distanceTo(f.rest)>.1,'loss of the crown must produce actual roof movement');
+});

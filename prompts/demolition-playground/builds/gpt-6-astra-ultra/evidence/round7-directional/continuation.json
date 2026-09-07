@@ -1,0 +1,54 @@
+{
+  "status": "awaiting_owner_direction_on_bounded_contact_repair",
+  "baseline": "e4dc0d032020417efc09b519722c4cfafa118ea4",
+  "last_independent_runtime": "c647db6",
+  "last_independent_suite": {
+    "pass": 54,
+    "total": 55,
+    "failure": "bank support loss can peel one bay while leaving an independently supported bay intact"
+  },
+  "roof_activation_fix": "local regression passes; full independent verification pending",
+  "next_action": "repair falling-piece contact damage only if authorized; otherwise preserve unfinished candidate and failure evidence",
+  "required_remaining": [
+    "full independent verification",
+    "final native controls and rolling-minute proof",
+    "paired quiet unrecorded performance",
+    "final matched media inspection",
+    "evidence-only ZIP validation",
+    "one new unmerged PR"
+  ],
+  "capture": {
+    "script": "reproduce.py",
+    "arguments": [
+      "output_directory",
+      "label",
+      "application_url",
+      "front,side,clean-side,collapse,left,right,perturbed"
+    ],
+    "viewport": [
+      1440,
+      900
+    ],
+    "camera": [
+      16,
+      20,
+      47
+    ],
+    "target": [
+      -11,
+      6.8,
+      14
+    ],
+    "charge_power": "unchanged native control"
+  },
+  "temporary_work": {
+    "accepted_baseline_checkout": "/tmp/astra-r7-baseline",
+    "verifier_checkout": "/tmp/astra-r7-verify",
+    "initial_complete_media": "/tmp/astra-r7-complete-media",
+    "matched_baseline_media": "/tmp/astra-r7-paired-baseline",
+    "latest_builder_inspection_media": "/tmp/astra-r7-inspection-media",
+    "neutral_review": "/tmp/astra-r7-neutral/review.md",
+    "corner_contact_trace": "/tmp/astra-r7-corner-trace.mjs",
+    "independent_report": "/tmp/astra-r7-revised-independent-review.md"
+  }
+}

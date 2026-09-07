@@ -119,7 +119,7 @@ export class BankStructure {
     this.refreshMass();
     for(const n of this.carriers) {
       if(n.state===2)continue;
-      if(n.roof)continue;
+      if(n.roof){if(this.joints.some(j=>(j.i===n.id||j.j===n.id)&&!this.held(j)))this.wake(n.id);continue;}
       const capacity=n.supports.reduce((s,id)=>s+(bank.bodies[id].state===0?bank.bodies[id].hp**2:0),0)/4;
       n.support=capacity;
       if(capacity<.68)this.wake(n.id);
