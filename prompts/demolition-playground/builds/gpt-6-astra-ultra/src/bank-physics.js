@@ -193,13 +193,18 @@ export class BankPhysics {
     // Resting support is derived from the actual current solid surfaces. A
     // settled article must wake when any support moves, including a surface it
     // landed on after leaving its original parent. No hidden attachment cache.
+    const rooted=new Set(this.bodies.filter(b=>b.fixed||b.state===0).map(b=>b.id)),dependents=new Map(),pending=[];
     for(const b of this.bodies)if(b.state===2) {
       const bottom=this.bounds(b,bounds).min.y;
-      if(bottom<=.25)continue;
+      if(bottom<=.25){rooted.add(b.id);continue;}
+      pending.push(b);
       const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
-      const supported=entries.some(e=>e.b!==b&&e.b.state!==1&&b.x>=e.minX&&b.x<=e.maxX&&b.z>=e.minZ&&b.z<=e.maxZ&&Math.abs(e.top-bottom)<.045);
-      if(!supported){b.state=1;b.sleep=0;if(b.role==='paper')b.hits=0;}
+      for(const e of entries)if(e.b!==b&&e.b.state!==1&&b.x>=e.minX&&b.x<=e.maxX&&b.z>=e.minZ&&b.z<=e.maxZ&&Math.abs(e.top-bottom)<.045) {
+        if(!dependents.has(e.b.id))dependents.set(e.b.id,[]);dependents.get(e.b.id).push(b.id);
+      }
     }
+    const queue=[...rooted];for(let i=0;i<queue.length;i++)for(const id of dependents.get(queue[i])??[])if(!rooted.has(id)){rooted.add(id);queue.push(id);}
+    for(const b of pending)if(!rooted.has(b.id)){b.state=1;b.sleep=0;if(b.role==='paper')b.hits=0;}
     const contents=this.bodies.filter(b=>b.content&&b.role!=='paper').map(b=>({b,box:this.bounds(b)}));
     let active=false;
     for(const b of this.bodies) {

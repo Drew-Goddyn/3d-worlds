@@ -29,21 +29,39 @@ export class BankStructure {
       for(const b of members){const r=b.origin.clone().sub(rest),s=b.size;inertia.x+=b.mass*(r.y*r.y+r.z*r.z+(s.y*s.y+s.z*s.z)/12);inertia.y+=b.mass*(r.x*r.x+r.z*r.z+(s.x*s.x+s.z*s.z)/12);inertia.z+=b.mass*(r.x*r.x+r.y*r.y+(s.x*s.x+s.y*s.y)/12);}
       return {rest,p:rest.clone(),q:new THREE.Quaternion(),v:new THREE.Vector3(),w:new THREE.Vector3(),mass,inv:1/mass,inertia:new THREE.Vector3(1/inertia.x,1/inertia.y,1/inertia.z),com:new THREE.Vector3(),active:false,oldP:rest.clone(),oldQ:new THREE.Quaternion()};
     });
+    // Original touching solids define possible connections. Crossing a room
+    // or merely sharing a carrier is not a mortar connection.
+    this.links=bank.bodies.map(()=>[]);
+    const parts=bank.bodies.map(b=>b.parts.map(p=>p.collisionBounds.clone().translate(b.origin)));
+    const boxes=bank.bodies.map(b=>bank.bounds(b)),grid=new Map(),pairs=new Set();
+    for(const b of bank.bodies)if(!b.content&&!['glass','paper'].includes(b.role)) {
+      const box=boxes[b.id].clone().expandByScalar(.18);
+      for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++){
+        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(b.id);
+      }
+    }
+    for(const ids of grid.values())for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++) {
+      const x=Math.min(ids[i],ids[j]),y=Math.max(ids[i],ids[j]),key=x+':'+y;if(pairs.has(key))continue;pairs.add(key);
+      if(!boxes[x].clone().expandByScalar(.18).intersectsBox(boxes[y]))continue;
+      if(parts[x].some(p=>parts[y].some(q=>p.clone().expandByScalar(.18).intersectsBox(q)))){this.links[x].push(y);this.links[y].push(x);}
+    }
+    this.components=null;this.rooted=null;
     this.joints=[];
     for(const n of bank.nodes)for(const id of n.supports) {
       const body=bank.bodies[id],point=new THREE.Vector3(body.origin.x,.23+n.y,body.origin.z);
       let load=0;for(let k=n.id;k<bank.nodes.length;k+=9)load+=this.frames[k].mass*G;
-      this.addJoint(n.id,n.below,point,id,null,'bearing',load/1.12);
+      const below=n.below<0?null:bank.nodes[n.below].supports.map(id=>bank.bodies[id]).find(b=>b.origin.x===body.origin.x&&b.origin.z===body.origin.z);
+      this.addJoint(n.id,n.below,point,id,below?.id??null,'bearing',load/1.12);
     }
     // Only solid construction spanning adjacent bays can transfer lateral load.
     // Keep up to two widely separated physical welds per bay boundary. A court
     // void cannot acquire a fictional diaphragm from the node grid alone.
     const solid=bank.bodies.filter(b=>this.owner[b.id]===b.node&&!b.fixed&&!b.content&&!['glass','joinery','vault-seam','paper','pier'].includes(b.role));
-    const boxes=new Map(solid.map(b=>[b.id,bank.bounds(b)]));
+    const solidBoxes=new Map(solid.map(b=>[b.id,bank.bounds(b)]));
     for(const n of bank.nodes)for(const other of n.neighbors)if(other>n.id) {
       const candidates=[];
       for(const x of solid.filter(b=>b.node===n.id))for(const y of solid.filter(b=>b.node===other)) {
-        const xb=boxes.get(x.id),yb=boxes.get(y.id);
+        const xb=solidBoxes.get(x.id),yb=solidBoxes.get(y.id);
         if(!xb.clone().expandByScalar(.12).intersectsBox(yb))continue;
         const overlap=xb.clone().expandByScalar(.06).intersect(yb.clone().expandByScalar(.06));
         if(overlap.isEmpty())continue;
@@ -75,6 +93,34 @@ export class BankStructure {
   addJoint(i,j,point,body,other,kind,strength) {
     this.joints.push({i,j,a:point.clone().sub(this.frames[i].rest),b:j<0?point.clone():point.clone().sub(this.frames[j].rest),body,other,kind,strength,broken:false,strain:0,lambda:new THREE.Vector3()});
   }
+  detachIslands() {
+    const bank=this.bank,component=new Int32Array(bank.bodies.length).fill(-1),rooted=new Set(),parts=new Map();
+    const solid=b=>b.state===0&&!b.content&&!['glass','paper'].includes(b.role);
+    const geometry=b=>{if(!parts.has(b.id)){const m=bank.bodyMatrix(b);parts.set(b.id,b.parts.map(p=>p.collisionBounds.clone().applyMatrix4(m)));}return parts.get(b.id);};
+    for(const b of bank.bodies) {
+      if(!solid(b)||component[b.id]>=0)continue;
+      const group=[b.id];component[b.id]=b.id;let grounded=b.fixed;
+      for(let k=0;k<group.length;k++)for(const id of this.links[group[k]]) {
+        const x=bank.bodies[group[k]],y=bank.bodies[id];if(!solid(y)||component[id]>=0)continue;
+        if(!x.fixed&&!y.fixed&&this.owner[x.id]===this.owner[y.id]||geometry(x).some(p=>geometry(y).some(q=>p.clone().expandByScalar(.18).intersectsBox(q)))) {
+          component[id]=b.id;group.push(id);grounded||=y.fixed;
+        }
+      }
+      if(grounded)rooted.add(b.id);
+    }
+    this.components=component;this.rooted=rooted;
+    for(const n of this.carriers) {
+      if(n.state===2)continue;
+      const ids=this.members[n.id].filter(id=>solid(bank.bodies[id])&&!bank.bodies[id].fixed);
+      const held=ids.some(id=>rooted.has(component[id]));
+      // A whole detached carrier still falls coherently. A disconnected island
+      // cannot borrow another island's foundation merely by sharing a bay ID.
+      if(!held){this.wake(n.id);continue;}
+      const released=[];
+      for(const id of ids)if(!rooted.has(component[id])){this.releasePiece(bank.bodies[id],this.frames[n.id]);released.push(id);}
+      bank.cohesion.assemble(released);
+    }
+  }
   refreshMass() {
     for(const n of this.carriers) {
       if(n.state===2)continue;
@@ -93,7 +139,7 @@ export class BankStructure {
   rotate(f,v) {const angle=v.length();if(angle>1e-12){delta.setFromAxisAngle(a.copy(v).multiplyScalar(1/angle),angle);f.q.premultiply(delta).normalize();}}
   weight(f,r,axis) {if(!f?.active)return 0;cross.crossVectors(r,axis);return f.inv+cross.dot(this.inverseInertia(f,cross));}
   correct(f,r,axis,amount) {if(!f?.active)return;f.p.addScaledVector(axis,amount*f.inv);const angular=this.inverseInertia(f,new THREE.Vector3().crossVectors(r,axis)).multiplyScalar(amount);this.rotate(f,angular);}
-  held(j) {const bank=this.bank,x=bank.bodies[j.body],y=j.other==null?null:bank.bodies[j.other];return !j.broken&&this.carriers[j.i].state!==2&&(j.j<0||this.carriers[j.j].state!==2)&&x.state===0&&(!y||y.state===0);}
+  held(j) {const bank=this.bank,x=bank.bodies[j.body],y=j.other==null?null:bank.bodies[j.other];return !j.broken&&(j.kind!=='bearing'||!this.components||(j.other==null?this.rooted.has(this.components[x.id]):this.components[x.id]>=0&&this.components[x.id]===this.components[y.id]))&&this.carriers[j.i].state!==2&&(j.j<0||this.carriers[j.j].state!==2)&&x.state===0&&(!y||y.state===0);}
   solve(j,dt) {
     const f=this.frames[j.i],g=j.j<0?null:this.frames[j.j];
     if(!this.held(j)||!f.active&&!g?.active)return;
@@ -116,6 +162,7 @@ export class BankStructure {
       if(bank.bodies.every((b,i)=>this.signature[i*2]===b.state&&this.signature[i*2+1]===b.hp))return;
       this.sleeping=false;this.quiet=0;
     }
+    this.detachIslands();
     this.refreshMass();
     for(const n of this.carriers) {
       if(n.state===2)continue;
@@ -152,7 +199,7 @@ export class BankStructure {
         // wounds stop accumulating when neighboring construction carries them.
         if(force>capacity)overloaded=true;
         j.strain=Math.max(0,j.strain+h*(force/capacity-1)*1.8);
-        if(j.strain>1||gap>(j.kind==='bearing'?.34:.20)) {j.broken=true;bank.bodies[j.body].hp=Math.min(bank.bodies[j.body].hp,.18);if(j.kind==='bearing')this.wake(j.i);}
+        if(j.strain>1||gap>(j.kind==='bearing'?.34:.20)) {j.broken=true;if(j.kind==='bearing'){bank.bodies[j.body].hp=Math.min(bank.bodies[j.body].hp,.18);this.wake(j.i);}}
       }
       for(const n of this.carriers) {
         const f=this.frames[n.id];if(!f.active||n.state===2)continue;
@@ -243,9 +290,13 @@ export class BankStructure {
         if(g)for(const id of this.members[this.owner[other.id]])bounds.set(id,bank.bounds(bank.bodies[id]));else for(const b of members)bounds.set(b.id,bank.bounds(b));
         dealt.add(n.id);if(g)dealt.add(this.owner[other.id]);
         if(speed>2.5) {
-          this.breakBay(n,piece,speed);dealt.add(n.id);
-          if(g&&this.carriers[this.owner[other.id]].state!==2&&impulse>other.mass*5){this.breakBay(this.carriers[this.owner[other.id]],other,speed);dealt.add(this.owner[other.id]);}
-          else if(other.state===0&&!other.fixed&&!other.content)bank.damageContact(other,Math.min(110,impulse*.35),normal.clone().negate());
+          // Contact fractures the two struck members, not every member of a
+          // supported carrier. The impulse already went to both actual masses;
+          // surviving joints now decide whether the rest can carry the load.
+          const connected=this.joints.some(j=>(j.i===n.id||j.j===n.id)&&this.held(j));
+          if(!connected)this.breakBay(n,piece,speed);
+          else bank.damageContact(piece,Math.min(110,impulse*.35),normal);
+          if(other.state===0&&!other.fixed&&!other.content)bank.damageContact(other,Math.min(110,impulse*.35),normal.clone().negate());
           break;
         }
         break;
@@ -285,5 +336,5 @@ export class BankStructure {
   capture() {
     return {roofStates:this.carriers.filter(n=>n.roof).map(n=>n.state),quiet:this.quiet,sleeping:this.sleeping,signature:this.signature?.slice()??null,frames:this.frames.map(f=>[...f.p,...f.q,...f.v,...f.w,Number(f.active)]),joints:this.joints.map(j=>[Number(j.broken),j.strain])};
   }
-  restore(s) {this.carriers.filter(n=>n.roof).forEach((n,i)=>n.state=s.roofStates[i]);this.quiet=s.quiet;this.sleeping=s.sleeping;this.signature=s.signature;s.frames.forEach((v,i)=>{const f=this.frames[i];f.p.fromArray(v);f.q.fromArray(v,3);f.v.fromArray(v,7);f.w.fromArray(v,10);f.active=!!v[13];});s.joints.forEach((v,i)=>{this.joints[i].broken=!!v[0];this.joints[i].strain=v[1];});}
+  restore(s) {this.components=null;this.rooted=null;this.carriers.filter(n=>n.roof).forEach((n,i)=>n.state=s.roofStates[i]);this.quiet=s.quiet;this.sleeping=s.sleeping;this.signature=s.signature;s.frames.forEach((v,i)=>{const f=this.frames[i];f.p.fromArray(v);f.q.fromArray(v,3);f.v.fromArray(v,7);f.w.fromArray(v,10);f.active=!!v[13];});s.joints.forEach((v,i)=>{this.joints[i].broken=!!v[0];this.joints[i].strain=v[1];});}
 }

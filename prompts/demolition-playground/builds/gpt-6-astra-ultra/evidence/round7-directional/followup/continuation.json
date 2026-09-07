@@ -1,0 +1,26 @@
+{
+  "baseline": "bdfde0a8930a17e190e12e93c5481e97fea3b6a3",
+  "branch": "round7/astra-shape-the-fall",
+  "pr": 6,
+  "stage": "Behavior correction; native inspection in progress; performance work pending",
+  "limits": [
+    "No new branch or PR; no merge, ready, or deployment",
+    "Preserve original Round Seven evidence"
+  ],
+  "focusedTests": {
+    "existingStructure": {
+      "passed": 5,
+      "failed": 0
+    },
+    "newSupport": {
+      "before": {
+        "passed": 0,
+        "failed": 3
+      },
+      "after": {
+        "passed": 3,
+        "failed": 0
+      }
+    }
+  }
+}
