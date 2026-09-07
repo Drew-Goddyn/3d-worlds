@@ -43,3 +43,14 @@ for(const lowerSection of [false,true])test(lowerSection?'two connected sections
   }
   assert.ok(impact,'the receiving construction must take the contact impulse');
 });
+
+test('falling masonry damages the member it strikes without a blast through neighboring air',()=>{
+  const bank=fixture([{pos:[0,1.2,0],size:[.6,2,.6]},{pos:[1.2,1.2,0],size:[.6,2,.6]},{pos:[0,3.2,0],size:[.3,.3,.3],group:'loose'}]);
+  // Two independently supported members and one incoming piece. Their carrier
+  // is already inactive; this fixture isolates the retained-piece contact path.
+  const [struck,neighbor,incoming]=bank.bodies;struck.state=neighbor.state=0;incoming.vy=-8;
+  for(let i=0;i<9;i++){bank.sim.time+=1/60;bank.step(1/60);}
+  assert.ok(struck.hp<1,'the actual collision must damage its receiving member');
+  assert.equal(neighbor.hp,1,'a nearby member with no contact cannot take radial collision damage');
+  assert.equal(neighbor.state,0);
+});

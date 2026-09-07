@@ -245,7 +245,7 @@ export class BankStructure {
         if(speed>2.5) {
           this.breakBay(n,piece,speed);dealt.add(n.id);
           if(g&&this.carriers[this.owner[other.id]].state!==2&&impulse>other.mass*5){this.breakBay(this.carriers[this.owner[other.id]],other,speed);dealt.add(this.owner[other.id]);}
-          else if(other.state===0&&!other.fixed&&!other.content)bank.damage(point,Math.min(110,impulse*.35),normal.clone().negate(),false);
+          else if(other.state===0&&!other.fixed&&!other.content)bank.damageContact(other,Math.min(110,impulse*.35),normal.clone().negate());
           break;
         }
         break;

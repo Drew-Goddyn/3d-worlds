@@ -125,6 +125,17 @@ export class BankPhysics {
     }
     return changed;
   }
+  damageContact(body,power,direction) {
+    if(body.fixed||body.state!==0)return false;
+    if(body.content)return this.hitContent(body,power,direction);
+    // A collision loads the member actually struck. It is not another radial
+    // blast: adjacent piers take subsequent load through their connections,
+    // rather than losing health through empty space around each falling chip.
+    const weak=body.role==='glass'?3.8:body.role==='joinery'?1.8:1;
+    body.hp=Math.max(0,body.hp-power/105*weak);
+    if(body.hp<(body.role==='pier'?.2:body.role==='slab'?.12:.35))this.release(body,direction,0);
+    this.revision++;return true;
+  }
   release(b,direction,power=0) {
     if(b.state!==0||b.fixed)return;
     this.bodyMatrix(b,matrix).decompose(position,quaternion,scale);scale.set(1,1,1);
@@ -239,7 +250,7 @@ export class BankPhysics {
               // Impact fractures the struck floor locally, then the graph
               // reassesses load on the next step. It cannot topple all storeys
               // just because one unrelated corner is falling.
-              this.damage(p,Math.min(110,speed*b.mass*2.8),new THREE.Vector3(b.vx*.08,-.4,b.vz*.08),false);
+              this.damageContact(under,Math.min(110,speed*b.mass*2.8),new THREE.Vector3(b.vx*.08,-.4,b.vz*.08));
             }
             this.sim._affectProps(p,Math.min(2,b.size.length()*.4),speed*b.mass*8,new THREE.Vector3(b.vx||.2,0,b.vz||.3).normalize());
             this.neighborImpact(b,p,speed);

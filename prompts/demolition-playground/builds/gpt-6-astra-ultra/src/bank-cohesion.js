@@ -231,7 +231,7 @@ export class BankCohesion {
         // retains momentum and may break at another real contact next step.
         for(const b of members){const near=bank.bounds(b,new THREE.Box3()).distanceToPoint(impact)<1.45+Math.min(1,speed*.06);if(near){b['v'+axis]*=.12;for(const a of ['x','y','z'])if(a!==axis)b['v'+a]*=.7;}}
         this.fracture(id,impact,speed);
-        if(hit.under?.state===0&&!hit.under.fixed&&speed>2.5)bank.damage(impact,Math.min(115,speed*members.reduce((m,b)=>m+b.mass,0)*.45),new THREE.Vector3(s.vx*.1,-.5,s.vz*.1),false);
+        if(hit.under?.state===0&&!hit.under.fixed&&speed>2.5)bank.damageContact(hit.under,Math.min(115,speed*members.reduce((m,b)=>m+b.mass,0)*.45),new THREE.Vector3(s.vx*.1,-.5,s.vz*.1));
         // Low energy contact still separates masonry into resting chunks, so
         // the legacy piece contact solver owns final settlement and scoring.
         if(speed<2.5)for(const b of members)if(b.cluster>=0){const cluster=b.cluster;this.sections[cluster].state=0;for(const p of bank.bodies)if(p.cluster===cluster)p.cluster=-1;}
