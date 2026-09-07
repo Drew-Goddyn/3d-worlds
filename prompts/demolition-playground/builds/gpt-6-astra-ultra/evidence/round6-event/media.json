@@ -1,0 +1,771 @@
+{
+  "runtimeCommit": "e9ecb689ef97b9fd677903d5adea4bd38c36b062",
+  "checkpointCommit": "9a4b9a7713502488c712ed2a07afcd1dbcf80659",
+  "provenance": "Actual application destination output duplicated to MediaStream; silent zero-valued source keeps PCM track continuous. No microphone, added score, normalization, cut, or retiming. Raw capture hashes below identify repository-external original WebM files retained locally; selected delivery files are ZIP members.",
+  "transcode": "ffmpeg -i INPUT -map 0:v:0 -map 0:a:0 -c:v libx264 -threads 2 -preset fast -crf 21 -enc_time_base:v 1:1000 -fps_mode passthrough -c:a aac -b:a 128k -movflags +faststart OUTPUT",
+  "levelPolicy": {
+    "baseline": "existing fixed application output",
+    "candidate": 0.35,
+    "commonViewer": 0.8,
+    "postproductionGain": null
+  },
+  "inspectionLimits": "Decoded tracks, waveform signal and extracted image frames inspected; no listening or continuous-motion perceptual verdict. Frames and audio share the original browser MediaRecorder clock; capture gaps remain visible. Initial RAF entries can precede performance.now by one scheduling boundary and are not positive elapsed intervals.",
+  "recordings": [
+    {
+      "file": "baseline-left.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-checkpoint/baseline-pcm-left.webm",
+        "sha256": "2d648d65533cafe31052d149bfc63110fd7c6f5e0b0a1ab1d2efe5ec7c0f189e",
+        "bytes": 6508023,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.025000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "7663a60ea9c755b4ea4371d31d818f18cde8512f0ac80edac49cf835653b5ec6",
+      "bytes": 1229244,
+      "durationSeconds": 9.412,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.025000",
+          "duration": "9.366000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "9.412000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 9.429333333333334,
+        "rmsDbfs": -42.43963615161814,
+        "peakDbfs": -13.926872104014718,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.19
+      },
+      "capturedVideo": {
+        "frames": 282,
+        "firstPts": 0.025,
+        "lastPts": 9.391,
+        "meanIntervalMs": 33.330960854092524,
+        "p95IntervalMs": 36.00000000000003,
+        "maxIntervalMs": 53.99999999999999,
+        "gapsAbove100ms": []
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0
+    },
+    {
+      "file": "baseline-right.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-checkpoint/baseline-pcm-right.webm",
+        "sha256": "4bacc19ed5c23dfcd269abe1f17777443d4f12cf8b60c7f835184334676e617a",
+        "bytes": 7219805,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.031000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "0c4f5f55b871974b901ef84b3a1148c50dea9d2e9bb6c416c7f772f8c05f5411",
+      "bytes": 1386985,
+      "durationSeconds": 9.529,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.031000",
+          "duration": "9.497000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "9.529000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 9.536,
+        "rmsDbfs": -43.059854322779636,
+        "peakDbfs": -14.53772518678836,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.0
+      },
+      "capturedVideo": {
+        "frames": 284,
+        "firstPts": 0.031,
+        "lastPts": 9.495,
+        "meanIntervalMs": 33.4416961130742,
+        "p95IntervalMs": 36.00000000000003,
+        "maxIntervalMs": 67.00000000000017,
+        "gapsAbove100ms": []
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0
+    },
+    {
+      "file": "baseline-collapse.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-checkpoint/baseline-pcm-collapse.webm",
+        "sha256": "3ae050963f3908b818dc95014307634804fabb695b4ce025ffc93d48626ba41e",
+        "bytes": 15517137,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.025000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "8da08584706c4771db240a2834080fbb42a2d7b36fcc570ef9cb4de9c645f862",
+      "bytes": 3335783,
+      "durationSeconds": 22.062,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.025000",
+          "duration": "22.001000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "22.062000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 22.08,
+        "rmsDbfs": -33.75422001081613,
+        "peakDbfs": -11.43956922061225,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.0
+      },
+      "capturedVideo": {
+        "frames": 587,
+        "firstPts": 0.025,
+        "lastPts": 22.025,
+        "meanIntervalMs": 37.54266211604095,
+        "p95IntervalMs": 53.000000000000824,
+        "maxIntervalMs": 262.9999999999999,
+        "gapsAbove100ms": [
+          {
+            "after": 1.743,
+            "duration": 0.1359999999999999
+          },
+          {
+            "after": 2.158,
+            "duration": 0.21899999999999986
+          },
+          {
+            "after": 2.377,
+            "duration": 0.18100000000000005
+          },
+          {
+            "after": 2.558,
+            "duration": 0.21399999999999997
+          },
+          {
+            "after": 2.772,
+            "duration": 0.2230000000000003
+          },
+          {
+            "after": 2.995,
+            "duration": 0.21300000000000008
+          },
+          {
+            "after": 3.208,
+            "duration": 0.2629999999999999
+          },
+          {
+            "after": 3.471,
+            "duration": 0.20999999999999996
+          },
+          {
+            "after": 3.681,
+            "duration": 0.20199999999999996
+          },
+          {
+            "after": 3.883,
+            "duration": 0.1849999999999996
+          },
+          {
+            "after": 4.068,
+            "duration": 0.18100000000000005
+          },
+          {
+            "after": 4.249,
+            "duration": 0.125
+          }
+        ]
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0
+    },
+    {
+      "file": "candidate-left.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-final/candidate-left.webm",
+        "sha256": "e838607759ae0933e5f03202a52376a5197a9882ba43f22cc8ba7ff8102f6ed9",
+        "bytes": 6463894,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.028000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "a9b01ec39e809a7680d830c1c23d04f3a9fb11dd29377d50e728a74acaf1c86a",
+      "bytes": 1035672,
+      "durationSeconds": 10.372,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.028000",
+          "duration": "10.297000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "10.372000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 10.389333333333333,
+        "rmsDbfs": -41.345306827379105,
+        "peakDbfs": -12.754904362640026,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.63
+      },
+      "capturedVideo": {
+        "frames": 247,
+        "firstPts": 0.028,
+        "lastPts": 10.324,
+        "meanIntervalMs": 41.85365853658537,
+        "p95IntervalMs": 92.99999999999997,
+        "maxIntervalMs": 131.99999999999966,
+        "gapsAbove100ms": [
+          {
+            "after": 0.335,
+            "duration": 0.10399999999999998
+          },
+          {
+            "after": 0.72,
+            "duration": 0.11499999999999999
+          },
+          {
+            "after": 1.252,
+            "duration": 0.1100000000000001
+          },
+          {
+            "after": 2.085,
+            "duration": 0.13100000000000023
+          },
+          {
+            "after": 3.401,
+            "duration": 0.11699999999999999
+          },
+          {
+            "after": 5.971,
+            "duration": 0.13199999999999967
+          },
+          {
+            "after": 7.22,
+            "duration": 0.1120000000000001
+          },
+          {
+            "after": 7.332,
+            "duration": 0.12600000000000033
+          },
+          {
+            "after": 7.914,
+            "duration": 0.10500000000000043
+          }
+        ]
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0,
+      "synchronizationCheck": {
+        "firstEffectAndVoiceRafWallSeconds": 0.5991000000059603,
+        "capturedAudioOnsetSeconds": 0.63,
+        "onsetLagMs": 30.899999994039696,
+        "qualification": "Approximate first-onset cross-check using a 10 ms signal threshold and rAF sampling; shared browser clock, not sample-perfect perceptual certification."
+      }
+    },
+    {
+      "file": "candidate-right.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-final/candidate-right.webm",
+        "sha256": "2bcc16d230d862d9da28bf73125b2e33b66ad8a7655a7aa2b930092ae0c6ea23",
+        "bytes": 6749790,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.027000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "2523d2471fccf145decefaf0e2fde9fd9dc5d3dc5920be3d7e065e95420c5bb4",
+      "bytes": 1425716,
+      "durationSeconds": 10.189,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.027000",
+          "duration": "10.127000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "10.189000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 10.197333333333333,
+        "rmsDbfs": -39.71330962539295,
+        "peakDbfs": -12.736917533144434,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.3
+      },
+      "capturedVideo": {
+        "frames": 304,
+        "firstPts": 0.027,
+        "lastPts": 10.157,
+        "meanIntervalMs": 33.43234323432343,
+        "p95IntervalMs": 38.9999999999997,
+        "maxIntervalMs": 56.00000000000005,
+        "gapsAbove100ms": []
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0,
+      "synchronizationCheck": {
+        "firstEffectAndVoiceRafWallSeconds": 0.27150000001192076,
+        "capturedAudioOnsetSeconds": 0.3,
+        "onsetLagMs": 28.499999988079228,
+        "qualification": "Approximate first-onset cross-check using a 10 ms signal threshold and rAF sampling; shared browser clock, not sample-perfect perceptual certification."
+      }
+    },
+    {
+      "file": "candidate-collapse.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-final/candidate-collapse.webm",
+        "sha256": "393121253f3b1dfbab28d9e473d778fe0bc9eb6912b0ba8ed40fcc299ff0d515",
+        "bytes": 15534474,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.024000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "23cbc32290a242719839b3d929ee2c7b536492488ed20b7f0f6a4c59bbecdfaa",
+      "bytes": 4193798,
+      "durationSeconds": 22.697,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.024000",
+          "duration": "22.648000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "22.697000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 22.72,
+        "rmsDbfs": -36.23669550424578,
+        "peakDbfs": -11.46986527130081,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.28
+      },
+      "capturedVideo": {
+        "frames": 595,
+        "firstPts": 0.024,
+        "lastPts": 22.671,
+        "meanIntervalMs": 38.12626262626262,
+        "p95IntervalMs": 51.000000000000156,
+        "maxIntervalMs": 251.00000000000034,
+        "gapsAbove100ms": [
+          {
+            "after": 1.679,
+            "duration": 0.11399999999999988
+          },
+          {
+            "after": 1.793,
+            "duration": 0.1280000000000001
+          },
+          {
+            "after": 1.921,
+            "duration": 0.15100000000000002
+          },
+          {
+            "after": 2.072,
+            "duration": 0.15200000000000014
+          },
+          {
+            "after": 2.224,
+            "duration": 0.21099999999999985
+          },
+          {
+            "after": 2.435,
+            "duration": 0.24399999999999977
+          },
+          {
+            "after": 2.679,
+            "duration": 0.22599999999999998
+          },
+          {
+            "after": 2.905,
+            "duration": 0.25100000000000033
+          },
+          {
+            "after": 3.156,
+            "duration": 0.22699999999999987
+          },
+          {
+            "after": 3.383,
+            "duration": 0.21399999999999997
+          },
+          {
+            "after": 3.597,
+            "duration": 0.20999999999999996
+          },
+          {
+            "after": 3.807,
+            "duration": 0.1990000000000003
+          },
+          {
+            "after": 4.006,
+            "duration": 0.1689999999999996
+          },
+          {
+            "after": 4.175,
+            "duration": 0.133
+          },
+          {
+            "after": 4.308,
+            "duration": 0.10200000000000031
+          }
+        ]
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0,
+      "synchronizationCheck": {
+        "firstEffectAndVoiceRafWallSeconds": 0.2479999999970196,
+        "capturedAudioOnsetSeconds": 0.28,
+        "onsetLagMs": 32.00000000298042,
+        "qualification": "Approximate first-onset cross-check using a 10 ms signal threshold and rAF sampling; shared browser clock, not sample-perfect perceptual certification."
+      }
+    },
+    {
+      "file": "candidate-time-controls.mp4",
+      "source": {
+        "localOnly": "/tmp/astra-round6-controls-corrected/candidate-time-controls.webm",
+        "sha256": "f91c90d037c20f0bef312612f1b9577c8d704487baa907fc4664dbe3994bf427",
+        "bytes": 18224033,
+        "streams": [
+          {
+            "type": "audio",
+            "codec": "pcm_f32le",
+            "start": "0.000000",
+            "sampleRate": "48000",
+            "channels": 2
+          },
+          {
+            "type": "video",
+            "codec": "vp9",
+            "start": "0.032000",
+            "sampleRate": null,
+            "channels": null
+          }
+        ]
+      },
+      "sha256": "98f0b9c17219c6320885e0fde0e71e255c0f1829fb185dd85776452ae1eb7a24",
+      "bytes": 7494394,
+      "durationSeconds": 26.307,
+      "streams": [
+        {
+          "type": "video",
+          "codec": "h264",
+          "start": "0.032000",
+          "duration": "26.268000",
+          "sampleRate": null,
+          "channels": null,
+          "width": 1440,
+          "height": 900
+        },
+        {
+          "type": "audio",
+          "codec": "aac",
+          "start": "0.000000",
+          "duration": "26.307000",
+          "sampleRate": "48000",
+          "channels": 2,
+          "width": null,
+          "height": null
+        }
+      ],
+      "decodedWithoutErrors": true,
+      "audio": {
+        "measurement": "both decoded stereo channels; no downmix gain",
+        "decodedSeconds": 26.325333333333333,
+        "rmsDbfs": -33.5778797369869,
+        "peakDbfs": -11.61579023175767,
+        "clippedSamples": 0,
+        "first10msBlockAboveMinus60Dbfs": 0.23
+      },
+      "capturedVideo": {
+        "frames": 596,
+        "firstPts": 0.032,
+        "lastPts": 26.299,
+        "meanIntervalMs": 44.14621848739496,
+        "p95IntervalMs": 87.99999999999997,
+        "maxIntervalMs": 294.99999999999994,
+        "gapsAbove100ms": [
+          {
+            "after": 1.714,
+            "duration": 0.10400000000000009
+          },
+          {
+            "after": 1.917,
+            "duration": 0.10299999999999998
+          },
+          {
+            "after": 2.02,
+            "duration": 0.11499999999999977
+          },
+          {
+            "after": 2.135,
+            "duration": 0.24800000000000022
+          },
+          {
+            "after": 2.383,
+            "duration": 0.18400000000000016
+          },
+          {
+            "after": 2.567,
+            "duration": 0.21399999999999997
+          },
+          {
+            "after": 2.781,
+            "duration": 0.23499999999999988
+          },
+          {
+            "after": 3.016,
+            "duration": 0.29499999999999993
+          },
+          {
+            "after": 14.314,
+            "duration": 0.14199999999999946
+          },
+          {
+            "after": 14.456,
+            "duration": 0.1330000000000009
+          },
+          {
+            "after": 14.589,
+            "duration": 0.1169999999999991
+          },
+          {
+            "after": 17.378,
+            "duration": 0.18100000000000094
+          },
+          {
+            "after": 17.559,
+            "duration": 0.14899999999999736
+          },
+          {
+            "after": 17.708,
+            "duration": 0.1960000000000015
+          },
+          {
+            "after": 17.904,
+            "duration": 0.18900000000000006
+          },
+          {
+            "after": 18.093,
+            "duration": 0.18900000000000006
+          },
+          {
+            "after": 18.282,
+            "duration": 0.20899999999999963
+          },
+          {
+            "after": 18.491,
+            "duration": 0.17600000000000193
+          },
+          {
+            "after": 18.667,
+            "duration": 0.17499999999999716
+          },
+          {
+            "after": 18.842,
+            "duration": 0.15500000000000114
+          },
+          {
+            "after": 18.997,
+            "duration": 0.12300000000000111
+          }
+        ]
+      },
+      "deliveryPreservesEveryFramePtsWithinMs": 0.0,
+      "synchronizationCheck": {
+        "firstEffectAndVoiceRafWallSeconds": 0.19039999999999965,
+        "capturedAudioOnsetSeconds": 0.23,
+        "onsetLagMs": 39.60000000000036,
+        "qualification": "Approximate first-onset cross-check using a 10 ms signal threshold and rAF sampling; shared browser clock, not sample-perfect perceptual certification."
+      }
+    }
+  ],
+  "pausedAudioSamples": [
+    {
+      "start": 8,
+      "end": 8.4,
+      "peakDbfs": "-inf",
+      "zeroSamples": 38400,
+      "samples": 38400
+    },
+    {
+      "start": 10.3,
+      "end": 10.6,
+      "peakDbfs": "-inf",
+      "zeroSamples": 28800,
+      "samples": 28800
+    },
+    {
+      "start": 15.8,
+      "end": 16.1,
+      "peakDbfs": "-inf",
+      "zeroSamples": 28800,
+      "samples": 28800
+    }
+  ],
+  "captureNotes": "Recordings are uninterrupted native canvas captures; their rAF metadata is diagnostic, not the encoded frame list. All encoded source frame PTS values are retained exactly (1 ms source precision). Source-versus-delivery video timestamp and full stereo decoding checks are below. Brief holds up to 295 ms are retained. Switching to the second angle and district uses native application camera controls; no surrounding collision or visibility exclusion."
+}

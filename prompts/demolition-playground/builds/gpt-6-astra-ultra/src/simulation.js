@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { BankPhysics } from './bank-physics.js';
+import { EventTrack } from './event-track.js';
 
 const MATERIALS = ['brick', 'stone', 'glass', 'concrete', 'steel', 'water'];
 const MATERIAL_INDEX = Object.fromEntries(MATERIALS.map((name, i) => [name, i]));
@@ -27,6 +28,7 @@ export class Simulation {
     this.seed = 0x47a38b19;
     this.lastImpact = new THREE.Vector3(0, 4, 0);
     this.onEvent = null;
+    this.eventTrack = new EventTrack();
     this.quality = 'high';
     this.camera = null;
     this.debrisBudget = MAX_DEBRIS;
@@ -286,6 +288,9 @@ export class Simulation {
   }
 
   _emit(type, point, extras = {}) {
+    const building=this.city.buildings.find(b=>b.id===extras.buildingId);
+    if(building){const dx=point.x-building.x,dz=point.z-building.z,length=Math.hypot(dx,dz)||1;extras={nx:dx/length,nz:dz/length,...extras};}
+    this.eventTrack.emit(type,point,this.time,extras);
     this.onEvent?.({ type, point: point.clone(), ...extras });
   }
 
@@ -468,6 +473,7 @@ export class Simulation {
   }
 
   _emitDust(point, count = 8, spread = 2) {
+    this.eventTrack.emit('dust',point,this.time,{power:count*5,spread});
     count = Math.ceil(count);
     for (let n = 0; n < count; n++) {
       const i = this.dustCursor++ % MAX_DUST, p = i * U, d = this.dust;
@@ -516,6 +522,7 @@ export class Simulation {
 
   _step(dt) {
     this.time += dt;
+    this.eventTrack.prune(this.time);
     this.crowdReaction = Math.max(0, this.crowdReaction - dt * .7);
     for (let i = this.charges.length - 1; i >= 0; i--) {
       const c = this.charges[i];
@@ -525,7 +532,7 @@ export class Simulation {
       const point = c.bankBody != null ? this.bank.chargePoint(c) : f.floor.group.localToWorld(new THREE.Vector3(c.x, c.y, c.z));
       this.lastImpact.copy(point);
       this._damageFloor(f, point, 118, new THREE.Vector3(), true);
-      this._emit('blast', point, { power: 118, buildingId: f.building.id });
+      this._emit('blast', point, { power: 118, buildingId: f.building.id, material:f.building.kind });
       this.crowdReaction = 1;
       if (this.flockStart < 0) this.flockStart = this.time;
       this.charges.splice(i, 1);
@@ -759,6 +766,7 @@ export class Simulation {
     }
     return {
       version: 1, time: this.time, seed: this.seed,
+      eventTrack:this.eventTrack.capture(),
       ...(this.bank ? {bank: this.bank.capture()} : {}),
       floors, strengths, debris: this.debris.slice(0, this.debrisExtent * D), dust: this.dust.slice(0, this.dustExtent * U),
       debrisCursor: this.debrisCursor, dustCursor: this.dustCursor,
@@ -778,6 +786,7 @@ export class Simulation {
     if (!a) return;
     const t = b ? clamp(alpha, 0, 1) : 0;
     this.time = a.time;
+    this.eventTrack.restore(a.eventTrack);
     this.seed = a.seed;
     this.debrisCursor = a.debrisCursor; this.dustCursor = a.dustCursor;
     this.debrisExtent = a.debris.length / D; this.dustExtent = a.dust.length / U;

@@ -1,0 +1,562 @@
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js
+new file mode 100644
+index 0000000..808b567
+--- /dev/null
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js
+@@ -0,0 +1,243 @@
++import * as THREE from 'three';
++
++// Finite compound sections assembled from the bank's actual retained pieces.
++// This is a bank-local rigid approximation: supported masonry hinges around
++// surviving bearings, then bonded sections fly, strike and split. No animation
++// clock controls release or fracture. All persistent solver state is captured.
++const KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','state'];
++const STRIDE=KEYS.length;
++const vector=new THREE.Vector3(),old=new THREE.Vector3(),next=new THREE.Vector3();
++const q0=new THREE.Quaternion(),q1=new THREE.Quaternion(),dq=new THREE.Quaternion(),bq=new THREE.Quaternion();
++const euler=new THREE.Euler(),box=new THREE.Box3(),otherBox=new THREE.Box3();
++export class BankCohesion {
++  constructor(bank) {
++    this.bank=bank;
++    // At most one active section per original structural body. Fracturing can
++    // split an island but can never allocate unbounded bodies or history.
++    this.sections=[];this.moved=new Set();
++    const byKey=new Map();
++    for(const b of bank.bodies) {
++      b.cluster=-1;
++      if(b.fixed||b.content||['glass','joinery','vault-seam'].includes(b.role))continue;
++      const key=b.cohesion??`bay:${b.node}`;
++      if(!byKey.has(key))byKey.set(key,[]);byKey.get(key).push(b.id);
++    }
++    this.neighbors=bank.bodies.map(()=>[]);
++    // The recipe's solid members define mortar/metal connections. Empty space
++    // enclosed by a window frame never becomes a solid contact rectangle.
++    for(const ids of byKey.values())for(let i=0;i<ids.length;i++)for(let j=i+1;j<ids.length;j++) {
++      const a=bank.bodies[ids[i]],b=bank.bodies[ids[j]];
++      if(a.node!==b.node)continue;
++      let joined=false;
++      for(const ap of a.parts) {
++        box.copy(ap.collisionBounds).translate(a.origin).expandByScalar(.17);
++        for(const bp of b.parts)if(box.intersectsBox(otherBox.copy(bp.collisionBounds).translate(b.origin))){joined=true;break;}
++        if(joined)break;
++      }
++      if(joined){this.neighbors[a.id].push(b.id);this.neighbors[b.id].push(a.id);}
++    }
++  }
++  components(ids) {
++    const available=new Set(ids),out=[];
++    for(const id of ids) {
++      if(!available.delete(id))continue;
++      const group=[id];
++      for(let i=0;i<group.length;i++)for(const next of this.neighbors[group[i]])if(available.delete(next))group.push(next);
++      out.push(group);
++    }
++    return out;
++  }
++  assemble(ids) {
++    for(const members of this.components(ids)) {
++      if(members.length<3)continue;
++      const bodies=members.map(id=>this.bank.bodies[id]);
++      let mass=0,x=0,y=0,z=0,vx=0,vy=0,vz=0,wx=0,wy=0,wz=0;
++      for(const b of bodies){mass+=b.mass;x+=b.x*b.mass;y+=b.y*b.mass;z+=b.z*b.mass;vx+=b.vx*b.mass;vy+=b.vy*b.mass;vz+=b.vz*b.mass;wx+=b.wx*b.mass;wy+=b.wy*b.mass;wz+=b.wz*b.mass;}
++      let id=this.sections.findIndex(s=>s.state===0);if(id<0)id=this.sections.length;
++      this.sections[id]={x:x/mass,y:y/mass,z:z/mass,rx:0,ry:0,rz:0,vx:vx/mass,vy:vy/mass,vz:vz/mass,wx:wx/mass,wy:wy/mass,wz:wz/mass,state:1};
++      for(const b of bodies)b.cluster=id;
++    }
++  }
++  detach(b) {
++    const id=b.cluster;if(id<0)return;
++    b.cluster=-1;
++    const members=this.bank.bodies.filter(p=>p.cluster===id);
++    this.sections[id].state=0;
++    for(const p of members)p.cluster=-1;
++    this.assemble(members.map(p=>p.id));
++  }
++  releaseBay(node,direction,power) {
++    const ids=node.bodies.filter(id=>{const b=this.bank.bodies[id];return b.state===0&&!b.content&&!b.fixed;});
++    for(const id of ids){const b=this.bank.bodies[id];this.bank.release(b,direction,power);b.wx=node.wx;b.wz=node.wz;b.wy=0;const dy=b.y-(.23+node.y);b.vx+=-node.wz*dy;b.vz+=node.wx*dy;b.vy-=Math.abs(node.wx*(b.z-node.pz))+Math.abs(node.wz*(b.x-node.px));}
++    this.assemble(ids.filter(id=>this.neighbors[id].length));
++  }
++  // A struck part loses its mortar connections; the surviving components keep
++  // their own linear/angular momentum. Breakup depends on the impact position.
++  fracture(id,point,speed) {
++    const members=this.bank.bodies.filter(b=>b.cluster===id);
++    if(!members.length)return;
++    this.sections[id].state=0;
++    const keep=[];
++    for(const b of members) {
++      b.cluster=-1;
++      const d=this.bank.bounds(b,box).distanceToPoint(point);
++      if(d<1.45+Math.min(1,speed*.06)) {
++        b.hp=Math.min(b.hp,.28);
++        const kick=Math.min(1.8,speed*.13);
++        vector.set(b.x-point.x,.3,b.z-point.z).normalize();
++        b.vx+=vector.x*kick;b.vz+=vector.z*kick;b.wx+=vector.z*.35;b.wz-=vector.x*.35;
++      } else keep.push(b.id);
++    }
++    this.assemble(keep);
++    this.bank.revision++;
++  }
++  candidates(grid,bounds) {
++    const entries=new Set();
++    for(let x=Math.floor(bounds.min.x/3);x<=Math.floor(bounds.max.x/3);x++)for(let z=Math.floor(bounds.min.z/3);z<=Math.floor(bounds.max.z/3);z++)for(const entry of grid.get(x+','+z)??[])entries.add(entry);
++    return entries;
++  }
++  resolveMovingContacts(prior,priorSleep,grounded,dt) {
++    const bank=this.bank,grid=new Map(),bounds=new Map();
++    const moving=bank.bodies.filter(b=>b.state===1&&!['paper','glass'].includes(b.role));
++    if(!moving.some(b=>b.cluster>=0))return;
++    // This response owns the new section/piece boundary. Individual rubble
++    // retains the application's existing ground, resting-rubble and furnishing
++    // contact model; it is not run through a second free-piece solver.
++    for(const b of moving) {
++      const now=bank.bounds(b);bounds.set(b.id,now);const swept=now.clone().union(prior.get(b.id)??now),entry={b};
++      for(let x=Math.floor(swept.min.x/3);x<=Math.floor(swept.max.x/3);x++)for(let z=Math.floor(swept.min.z/3);z<=Math.floor(swept.max.z/3);z++){const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);}
++    }
++    const pairs=new Set();
++    const mass=b=>b.cluster<0?b.mass:bank.bodies.reduce((sum,p)=>sum+(p.cluster===b.cluster?p.mass:0),0);
++    const move=(b,axis,delta)=>{if(b.cluster<0)b[axis]+=delta;else{this.sections[b.cluster][axis]+=delta;for(const p of bank.bodies)if(p.cluster===b.cluster)p[axis]+=delta;}};
++    const impulse=(b,axis,dv)=>{if(b.cluster<0)b['v'+axis]+=dv;else{this.sections[b.cluster]['v'+axis]+=dv;for(const p of bank.bodies)if(p.cluster===b.cluster)p['v'+axis]+=dv;}};
++    // Resolve lower supports first, allowing actual grounded contacts to carry
++    // a quiet stack without treating two freely falling pieces as grounded.
++    moving.sort((a,b)=>bounds.get(a.id).min.y-bounds.get(b.id).min.y||a.id-b.id);
++    for(const first of moving) {
++      const swept=bank.bounds(first).union(prior.get(first.id)??bounds.get(first.id));
++      for(const {b:second} of this.candidates(grid,swept)) {
++        if(first===second||first.cluster<0&&second.cluster<0||first.cluster>=0&&first.cluster===second.cluster)continue;
++        const key=Math.min(first.id,second.id)+':'+Math.max(first.id,second.id);if(pairs.has(key))continue;pairs.add(key);
++        const a=bank.bounds(first),b=bank.bounds(second);
++        if(!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
++        const pa=prior.get(first.id)??a,pb=prior.get(second.id)??b;
++        let incoming,under,axis,depth;
++        for(const dim of ['y','x','z']) {
++          const tolerance=.025;
++          if(pa.min[dim]>=pb.max[dim]-tolerance&&a.min[dim]<b.max[dim]){incoming=first;under=second;axis=dim;depth=b.max[dim]-a.min[dim];break;}
++          if(pb.min[dim]>=pa.max[dim]-tolerance&&b.min[dim]<a.max[dim]){incoming=second;under=first;axis=dim;depth=a.max[dim]-b.min[dim];break;}
++        }
++        if(!incoming)continue;
++        const relative=under['v'+axis]-incoming['v'+axis];if(relative<-.01)continue;
++        const mi=mass(incoming),mu=mass(under),fixedUnder=axis==='y'&&(grounded.has(under.id)||under.state===2),ia=1/mi,ib=fixedUnder?0:1/mu;
++        move(incoming,axis,(depth+.001)*ia/(ia+ib));if(ib)move(under,axis,-(depth+.001)*ib/(ia+ib));
++        const j=Math.max(0,relative)*1.04/(ia+ib);impulse(incoming,axis,j*ia);if(ib)impulse(under,axis,-j*ib);
++        const impact=bank.bounds(incoming).getCenter(new THREE.Vector3());impact[axis]=bank.bounds(under).max[axis];
++        if(relative>2.5) {
++          const ci=incoming.cluster;if(ci>=0)this.fracture(ci,impact,relative);
++          const cu=under.cluster;if(cu>=0)this.fracture(cu,impact,relative);
++        }
++        if(fixedUnder&&incoming.cluster<0) {
++          bank.contactFriction(incoming,dt);
++          if(Math.abs(incoming.vy)<.5)grounded.add(incoming.id);
++          if(Math.hypot(incoming.vx,incoming.vz)<.14&&Math.abs(incoming.vy)<.5&&Math.abs(incoming.wx)+Math.abs(incoming.wz)<.18){incoming.sleep=(priorSleep.get(incoming.id)??0)+dt;if(incoming.sleep>.45)bank.settle(incoming);}
++        }
++        bank.revision++;
++      }
++    }
++  }
++  step(dt,solids) {
++    const bank=this.bank;this.moved.clear();
++    const district=bank.sim.floors.filter(f=>!f.building.bank).map(f=>({f,minX:f.x-f.building.width/2,maxX:f.x+f.building.width/2,minZ:f.z-f.building.depth/2,maxZ:f.z+f.building.depth/2,bottom:f.y,top:f.y+f.floor.height*f.squash}));
++    const active=this.sections.map((s,id)=>({s,id})).filter(({s})=>s.state===1);
++    for(const {s,id} of active) {
++      // Earlier contact in this step may have split/reused this slot.
++      if(this.sections[id]!==s||s.state!==1)continue;
++      const members=bank.bodies.filter(b=>b.cluster===id);
++      if(members.length<3){s.state=0;for(const b of members)b.cluster=-1;continue;}
++      const before=members.map(b=>({b,bounds:bank.bounds(b)}));
++      old.set(s.x,s.y,s.z);s.vy-=12.5*dt;
++      s.x+=s.vx*dt;s.y+=s.vy*dt;s.z+=s.vz*dt;
++      q0.setFromEuler(euler.set(s.rx,s.ry,s.rz));
++      s.rx+=s.wx*dt;s.ry+=s.wy*dt;s.rz+=s.wz*dt;
++      q1.setFromEuler(euler.set(s.rx,s.ry,s.rz));dq.copy(q1).multiply(q0.invert());next.set(s.x,s.y,s.z);
++      for(const b of members) {
++        this.moved.add(b.id);
++        vector.set(b.x,b.y,b.z).sub(old).applyQuaternion(dq).add(next);
++        b.x=vector.x;b.y=vector.y;b.z=vector.z;
++        bq.setFromEuler(euler.set(b.rx,b.ry,b.rz)).premultiply(dq);euler.setFromQuaternion(bq);b.rx=euler.x;b.ry=euler.y;b.rz=euler.z;
++        const dx=b.x-s.x,dy=b.y-s.y,dz=b.z-s.z;
++        b.vx=s.vx+s.wy*dz-s.wz*dy;b.vy=s.vy+s.wz*dx-s.wx*dz;b.vz=s.vz+s.wx*dy-s.wy*dx;
++        b.wx=s.wx;b.wy=s.wy;b.wz=s.wz;
++      }
++      let hit=null,penetration=0;
++      for(const {b,bounds:prior} of before) {
++        const now=bank.bounds(b,box);
++        if(now.min.y<.23&&.23-now.min.y>penetration){penetration=.23-now.min.y;hit={b,point:new THREE.Vector3(b.x,.23,b.z),under:null};}
++        for(const entry of this.candidates(solids,now.clone().union(prior))) {
++          const other=entry.b;
++          if(other===b||other.cluster===id||other.state===1)continue;
++          if(now.max.y>entry.bottom+.04&&now.min.y<entry.top-.04) {
++            const walls=[['x','max','min',entry.minX,1],['x','min','max',entry.maxX,-1],['z','max','min',entry.minZ,1],['z','min','max',entry.maxZ,-1]];
++            for(const [axis,edge,opposite,at,sign] of walls) {
++              const across=axis==='x'?now.max.z>entry.minZ+.03&&now.min.z<entry.maxZ-.03:now.max.x>entry.minX+.03&&now.min.x<entry.maxX-.03;
++              if(across&&(prior[edge][axis]-at)*sign<=.015&&(now[edge][axis]-at)*sign>.015&&bank.solidContact(b,other)) {
++                const depth=(now[edge][axis]-at)*sign;
++                if(!hit){penetration=depth;hit={b,under:other,point:now.getCenter(new THREE.Vector3()),axis,sign};hit.point[axis]=at;}
++              }
++            }
++          }
++          if(other.state===1)continue;
++          if(entry.top>prior.min.y+.08||entry.top<now.min.y||entry.top<.25)continue;
++          if(b.x<entry.minX||b.x>entry.maxX||b.z<entry.minZ||b.z>entry.maxZ)continue;
++          if(entry.top-now.min.y>penetration){penetration=entry.top-now.min.y;hit={b,point:new THREE.Vector3(b.x,entry.top,b.z),under:other};}
++        }
++      }
++      // The neighboring district keeps its original coarse storey solver.
++      // Its current envelopes stop an incoming bank section and receive the
++      // same contact impulse; no second solver owns the neighboring storey.
++      for(const {b,bounds:prior} of before) {
++        if(hit)break;
++        const now=bank.bounds(b,box);
++        for(const f of district) {
++          if(now.max.y<f.bottom||now.min.y>f.top||now.max.x<f.minX||now.min.x>f.maxX||now.max.z<f.minZ||now.min.z>f.maxZ)continue;
++          const walls=[['x','max',f.minX,1],['x','min',f.maxX,-1],['z','max',f.minZ,1],['z','min',f.maxZ,-1],['y','min',f.top,-1]];
++          for(const [axis,edge,at,sign] of walls)if((prior[edge][axis]-at)*sign<=.015&&(now[edge][axis]-at)*sign>.015) {
++            penetration=(now[edge][axis]-at)*sign;hit={b,external:f.f,axis,sign,point:now.getCenter(new THREE.Vector3())};hit.point[axis]=at;break;
++          }
++          if(hit)break;
++        }
++      }
++      if(hit) {
++        const axis=hit.axis??'y',sign=hit.axis?-hit.sign:1;
++        for(const b of members)b[axis]+=penetration*sign;s[axis]+=penetration*sign;
++        const speed=hit.axis?Math.abs(hit.b['v'+axis]):Math.max(0,-hit.b.vy),impact=hit.point;
++        if(hit.under?.content&&speed>1.2)bank.hitContent(hit.under,Math.min(160,speed*18),new THREE.Vector3(s.vx*.2,.1,s.vz*.2));
++        if(hit.external&&speed>1.2){const key='neighbor:'+hit.b.id+':'+hit.external.index;if(!bank.contacts.has(key)){bank.contacts.add(key);bank.sim._damageFloor(hit.external,impact,Math.min(130,speed*members.reduce((m,b)=>m+b.mass,0)*1.4),new THREE.Vector3(s.vx,0,s.vz).normalize(),false);}}
++        if(speed>2.5) {
++          bank.sim._emitDust(impact,Math.min(5,Math.ceil(members.length/12)),Math.min(1.6,.3+speed*.08));
++          bank.neighborImpact(hit.b,impact,speed);
++        }
++        // Contact dissipates energy at the surface; the unstruck upper part
++        // retains momentum and may break at another real contact next step.
++        for(const b of members){const near=bank.bounds(b,new THREE.Box3()).distanceToPoint(impact)<1.45+Math.min(1,speed*.06);if(near){b['v'+axis]*=.12;for(const a of ['x','y','z'])if(a!==axis)b['v'+a]*=.7;}}
++        this.fracture(id,impact,speed);
++        if(hit.under?.state===0&&!hit.under.fixed&&speed>2.5)bank.damage(impact,Math.min(115,speed*members.reduce((m,b)=>m+b.mass,0)*.45),new THREE.Vector3(s.vx*.1,-.5,s.vz*.1),false);
++        // Low energy contact still separates masonry into resting chunks, so
++        // the legacy piece contact solver owns final settlement and scoring.
++        if(speed<2.5)for(const b of members)if(b.cluster>=0){const cluster=b.cluster;this.sections[cluster].state=0;for(const p of bank.bodies)if(p.cluster===cluster)p.cluster=-1;}
++      }
++      bank.revision++;
++    }
++  }
++  capture() {
++    const data=new Float64Array(this.sections.length*STRIDE);
++    this.sections.forEach((s,id)=>KEYS.forEach((k,i)=>data[id*STRIDE+i]=s[k]));return data;
++  }
++  restore(data) {
++    this.sections=[];
++    for(let i=0;i<data.length;i+=STRIDE){const s={};KEYS.forEach((k,j)=>s[k]=data[i+j]);this.sections.push(s);}
++  }
++  get stats(){return {movingSections:this.sections.filter(s=>s.state===1).length,connectedPieces:this.bank.bodies.filter(b=>b.cluster>=0).length};}
++}
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js
+index 04f718d..ee975eb 100644
+--- a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js
+@@ -1,8 +1,9 @@
+ import * as THREE from 'three';
++import { BankCohesion } from './bank-cohesion.js';
+
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+-const BODY_KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','hp','state','sleep','hits','scored'];
+-const NODE_KEYS=['state','strain','support','drop','rx','rz'];
++const BODY_KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','hp','state','sleep','hits','scored','cluster'];
++const NODE_KEYS=['state','strain','support','drop','rx','rz','px','pz','wx','wz'];
+ const B=BODY_KEYS.length,N=NODE_KEYS.length;
+ const topples=b=>b.size.y>Math.max(b.size.x,b.size.z)*1.6||['joinery','glass','parapet'].includes(b.role);
+ const dummy=new THREE.Object3D(),matrix=new THREE.Matrix4(),partMatrix=new THREE.Matrix4();
+@@ -16,9 +17,10 @@ const p=new THREE.Vector3(),v=new THREE.Vector3(),size=new THREE.Vector3();
+ export class BankPhysics {
+   constructor(recipe,simulation) {
+     this.recipe=recipe;this.sim=simulation;
+-    this.nodes=recipe.nodes.map(n=>({...n,state:0,strain:0,support:1,drop:0,rx:0,rz:0}));
++    this.nodes=recipe.nodes.map(n=>({...n,state:0,strain:0,support:1,drop:0,rx:0,rz:0,px:this.recipe.building.x+n.x,pz:this.recipe.building.z+n.z,wx:0,wz:0}));
+     this.bodies=recipe.bodies.map(b=>({...b,x:b.origin.x,y:b.origin.y,z:b.origin.z,rx:0,ry:0,rz:0,vx:0,vy:0,vz:0,wx:0,wy:0,wz:0,hp:1,state:0,sleep:0,hits:0,scored:0,mass:b.mass??.8}));
+     this.contacts=new Set();this.tonnage=0;this.collapsed=false;this.revision=0;this.snapshot=null;this.snapshotRevision=-1;
++    this.cohesion=new BankCohesion(this);
+     this.render();
+   }
+   bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {
+@@ -28,9 +30,10 @@ export class BankPhysics {
+     if(get('state')===0&&!body.fixed&&!body.content) {
+       const n=this.nodes[body.node],drop=snapshot?snapshot.nodes[j+3]:n.drop;
+       const nx=snapshot?snapshot.nodes[j+4]:n.rx,nz=snapshot?snapshot.nodes[j+5]:n.rz;
+-      // Small pre-failure deflection is shared by connected architecture.
+-      y-=drop;rx+=nx;rz+=nz;
+-      x-=nz*(body.origin.y-(.23+n.y));z+=nx*(body.origin.y-(.23+n.y));
++      const px=snapshot?snapshot.nodes[j+6]:n.px,pz=snapshot?snapshot.nodes[j+7]:n.pz;
++      quaternion.setFromEuler(euler.set(nx,0,nz));
++      position.set(x-px,y-(.23+n.y),z-pz).applyQuaternion(quaternion);
++      x=px+position.x;y=.23+n.y+position.y-drop;z=pz+position.z;rx+=nx;rz+=nz;
+     }
+     quaternion.setFromEuler(euler.set(rx,ry,rz));return out.compose(position.set(x,y,z),quaternion,scale);
+   }
+@@ -95,9 +98,10 @@ export class BankPhysics {
+       if(distance>=radius)continue;
+       const influence=Math.pow(1-distance/radius,1.4),weak=b.role==='glass'?3.8:b.role==='joinery'?1.8:1;
+       const loss=power/105*influence*weak;
++      const impulseDirection=blast?this.bounds(b,new THREE.Box3()).getCenter(new THREE.Vector3()).sub(point).normalize():direction;
+       b.hp=Math.max(0,b.hp-loss);changed=true;
+-      if(b.state===0&&b.hp<(b.role==='pier'?.2:b.role==='slab'?.12:.35))this.release(b,direction,Math.min(4,power*.022)*influence);
+-      else if(b.state>0) {b.state=1;b.sleep=0;b.vx+=direction.x*loss*2;b.vz+=direction.z*loss*2;b.vy+=blast?loss:0;}
++      if(b.state===0&&b.hp<(b.role==='pier'?.2:b.role==='slab'?.12:.35))this.release(b,impulseDirection,Math.min(4,power*.022)*influence);
++      else if(b.state>0) {this.cohesion.detach(b);b.state=1;b.sleep=0;b.vx+=impulseDirection.x*loss*2;b.vz+=impulseDirection.z*loss*2;b.vy+=blast?impulseDirection.y*loss:0;}
+     }
+     if(changed) {
+       this.revision++;
+@@ -142,24 +146,32 @@ export class BankPhysics {
+         // A supported neighbour holds a local wound indefinitely when capacity
+         // remains adequate. Continued loss increases load and releases the bay.
+         if(n.support<.60)n.strain+=dt*(.60-n.support)*3.5;
+-        n.drop=Math.min(.24,deficit*.22+n.strain*.12);
+-        n.rx=(n.iz-1)*deficit*.045;n.rz=-(n.ix-1)*deficit*.045;
++        let bearingX=0,bearingZ=0,weight=0,lostX=0,lostZ=0;
++        for(const id of n.supports){const b=this.bodies[id],hold=b.state===0?b.hp:0;weight+=hold;bearingX+=b.origin.x*hold;bearingZ+=b.origin.z*hold;lostX+=(b.origin.x-this.recipe.building.x-n.x)*(1-hold);lostZ+=(b.origin.z-this.recipe.building.z-n.z)*(1-hold);}
++        if(n.strain<dt*2&&weight>.05){n.px=bearingX/weight;n.pz=bearingZ/weight;}
++        const length=Math.hypot(lostX,lostZ),dx=length>.05?lostX/length:(n.ix-1)*.7,dz=length>.05?lostZ/length:(n.iz-1)*.7;
++        const angle=Math.min(.34,deficit*.045+n.strain*n.strain*1.9);
++        const rx=dz*angle,rz=-dx*angle;
++        n.wx=clamp((rx-n.rx)/dt,-1.6,1.6);n.wz=clamp((rz-n.rz)/dt,-1.6,1.6);n.rx=rx;n.rz=rz;
++        n.drop=Math.min(.48,deficit*.08+n.strain*.42);
+         this.revision++;
+-        if(n.strain>.36) {
++        if(n.strain>.46) {
+           n.state=2;
+-          const direction=new THREE.Vector3((n.ix-1)*.23,-.2,(n.iz-1)*.23);
+-          for(const id of n.bodies)if(!this.bodies[id].content)this.release(this.bodies[id],direction,.55);
++          const direction=new THREE.Vector3(dx*.5,-.7,dz*.5);
++          this.cohesion.releaseBay(n,direction,.55);
+           this.sim.lastImpact.set(this.recipe.building.x+n.x,.23+n.y+2,this.recipe.building.z+n.z);
+           this.sim._emit('collapse',this.sim.lastImpact,{buildingId:this.recipe.building.id,floor:n.level,material:'stone'});
+           this.sim.crowdReaction=1;
+         }
+       }
+     }
++    const orphaned=[];
+     for(const b of this.bodies)if(b.state===0&&b.restsOn!=null&&this.bodies[b.restsOn].state>0) {
+       const support=this.bodies[b.restsOn];
+       if(b.content)this.hitContent(b,12,new THREE.Vector3(support.vx*.2,.1,support.vz*.2));
+-      else this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);
++      else {this.release(b,new THREE.Vector3(support.vx*.12,-.25,support.vz*.12),.6);if(support.cluster>=0&&b.role!=='glass'){b.cluster=support.cluster;b.vx=support.vx;b.vy=support.vy;b.vz=support.vz;}else orphaned.push(b.id);}
+     }
++    this.cohesion.assemble(orphaned);
+     // Roof skin is carried by real adjacent half-ribs. Deriving attachment
+     // capacity from captured bodies keeps rewind and alternate futures exact.
+     for(const b of this.bodies)if(b.state===0&&b.attachments) {
+@@ -171,18 +183,21 @@ export class BankPhysics {
+     }
+     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
+     // cost when the entire bank is moving; it is derived, never hidden state.
+-    const grid=new Map(),bounds=new THREE.Box3();
++    const grid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),grounded=new Set();
+     const put=(b,box)=> {
++      const entry={b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y};
+       for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++) {
+-        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push({b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,top:box.max.y});
++        const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);
+       }
+     };
+     const putBody=b=>{
+       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
+-      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform));}
++      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform),part);}
+       else put(b,this.bounds(b,bounds));
+     };
+-    for(const b of this.bodies)if(b.state===2||b.fixed||(b.state===0&&(b.role==='slab'||b.content)))putBody(b);
++    for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);}}
++    this.cohesion.step(dt,grid);
++
+     // Resting support is derived from the actual current solid surfaces. A
+     // settled article must wake when any support moves, including a surface it
+     // landed on after leaving its original parent. No hidden attachment cache.
+@@ -196,7 +211,7 @@ export class BankPhysics {
+     const contents=this.bodies.filter(b=>b.content&&b.role!=='paper').map(b=>({b,box:this.bounds(b)}));
+     let active=false;
+     for(const b of this.bodies) {
+-      if(b.state!==1)continue;active=true;
++      if(b.state!==1||b.cluster>=0||this.cohesion.moved.has(b.id))continue;active=true;
+       const oldBottom=this.bounds(b,bounds).min.y;
+       b.vy-=dt*(b.role==='paper'?2.4:12.5);
+       if(b.role==='paper'&&!b.hits&&oldBottom>.5){b.vx+=Math.sin(this.sim.time*5+b.id)*dt*.7;b.wx=Math.sin(this.sim.time*4+b.id)*1.6;}
+@@ -219,7 +234,7 @@ export class BankPhysics {
+
+       const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
+       for(const entry of entries) {
+-        if(entry.b===b)continue;
++        if(entry.b===b||entry.b.state===1)continue;
+         // Use a central contact footprint to avoid giant empty AABB bridges.
+         if(b.x<entry.minX+.03||b.x>entry.maxX-.03||b.z<entry.minZ+.03||b.z>entry.maxZ-.03)continue;
+         if(entry.top>oldBottom+.15||entry.top<surface)continue;
+@@ -229,12 +244,8 @@ export class BankPhysics {
+         const speed=Math.max(0,-b.vy);b.y+=surface-box.min.y;
+         if(b.role==='paper')b.hits=1;
+         b.vy=speed*(b.role==='glass'?.24:b.role==='paper'?.015:.08);
+-        b.vx*=Math.exp(-dt*12);b.vz*=Math.exp(-dt*12);
+-        // Slabs stay broad and heavy; columns lose balance and roll onto a
+-        // side. Ground clearance follows the rotated geometry's full bounds.
+-        if(topples(b)&&b.role!=='paper'&&Math.abs(b.rx)<1.4) b.wx+=dt*.7;
+-        else {b.wx*=Math.exp(-dt*9);b.wz*=Math.exp(-dt*9);}
+-        b.wy*=Math.exp(-dt*8);
++        this.contactFriction(b,dt);
++        if(speed<.5)grounded.add(b.id);
+         if(speed>2.5) {
+           b.hits++;
+           p.set(b.x,surface,b.z);
+@@ -254,13 +265,13 @@ export class BankPhysics {
+         }
+         if(Math.hypot(b.vx,b.vz)<.14&&speed<.5&&Math.abs(b.wx)+Math.abs(b.wz)<.18)b.sleep+=dt;else b.sleep=0;
+         if(b.sleep>.45) {
+-          b.state=2;b.vx=b.vy=b.vz=b.wx=b.wy=b.wz=0;
+-          if(!b.scored){b.scored=1;this.tonnage+=b.mass;this.sim.tonnage+=b.mass;}
++          this.settle(b);
+           putBody(b);
+         }
+       } else b.sleep=0;
+       b.vx*=Math.exp(-dt*(b.role==='paper'?1.9:.16));b.vz*=Math.exp(-dt*(b.role==='paper'?1.9:.16));
+     }
++    this.cohesion.resolveMovingContacts(priorBounds,priorSleep,grounded,dt);
+     if(active)this.revision++;
+     if(!this.collapsed&&this.nodes.filter(n=>n.state===2).length>=18) {
+       this.collapsed=true;this.sim.collapsedCount++;this.sim.cheerUntil=this.sim.time+4;
+@@ -269,6 +280,17 @@ export class BankPhysics {
+       this.sim.lastCollapseBuilding=id;this.sim.chainTime=this.sim.time;
+     }
+   }
++  contactFriction(b,dt) {
++    b.vx*=Math.exp(-dt*12);b.vz*=Math.exp(-dt*12);
++    if(topples(b)&&b.role!=='paper'&&Math.abs(b.rx)<1.4)b.wx+=dt*.7;
++    else{b.wx*=Math.exp(-dt*9);b.wz*=Math.exp(-dt*9);}
++    b.wy*=Math.exp(-dt*8);
++  }
++  settle(b) {
++    b.state=2;b.vx=b.vy=b.vz=b.wx=b.wy=b.wz=0;
++    if(!b.scored){b.scored=1;this.tonnage+=b.mass;this.sim.tonnage+=b.mass;}
++    this.revision++;
++  }
+   neighborImpact(body,point,speed) {
+     if(body.mass<1||speed<4)return;
+     for(const bs of this.sim.buildingStates) {
+@@ -286,13 +308,14 @@ export class BankPhysics {
+       const bodies=new Float64Array(this.bodies.length*B),nodes=new Float64Array(this.nodes.length*N);
+       for(const b of this.bodies)for(let i=0;i<B;i++)bodies[b.id*B+i]=b[BODY_KEYS[i]];
+       for(const n of this.nodes)for(let i=0;i<N;i++)nodes[n.id*N+i]=n[NODE_KEYS[i]];
+-      this.snapshot={bodies,nodes,contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
++      this.snapshot={bodies,nodes,cohesion:this.cohesion.capture(),contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
+     }
+     return this.snapshot;
+   }
+   restore(state) {
+     for(const b of this.bodies)for(let i=0;i<B;i++)b[BODY_KEYS[i]]=state.bodies[b.id*B+i];
+     for(const n of this.nodes)for(let i=0;i<N;i++)n[NODE_KEYS[i]]=state.nodes[n.id*N+i];
++    this.cohesion.restore(state.cohesion);
+     this.contacts=new Set(state.contacts);this.tonnage=state.tonnage;this.collapsed=state.collapsed;
+     this.revision++;this.snapshot=state;this.snapshotRevision=this.revision;
+   }
+@@ -315,5 +338,5 @@ export class BankPhysics {
+       batch.mesh.computeBoundingSphere();
+     }
+   }
+-  get stats(){return {bays:this.nodes.length,failedBays:this.nodes.filter(n=>n.state===2).length,loose:this.bodies.filter(b=>b.state===1).length,settled:this.bodies.filter(b=>b.state===2).length,retained:this.bodies.length};}
++  get stats(){return {bays:this.nodes.length,failedBays:this.nodes.filter(n=>n.state===2).length,loose:this.bodies.filter(b=>b.state===1).length,settled:this.bodies.filter(b=>b.state===2).length,retained:this.bodies.length,...this.cohesion.stats};}
+ }
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/cohesion.test.mjs b/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/cohesion.test.mjs
+new file mode 100644
+index 0000000..0c032ec
+--- /dev/null
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/cohesion.test.mjs
+@@ -0,0 +1,46 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {registerHooks} from 'node:module';
++registerHooks({resolve(s,c,n){if(s==='three')return {url:new URL('../vendor/three-0.180.0/three.module.js',import.meta.url).href,shortCircuit:true};return n(s,c);}});
++const THREE=await import('three');
++const {createBank}=await import('../src/bank.js');
++const {Simulation}=await import('../src/simulation.js');
++function fixture(){const scene=new THREE.Scene(),b={id:0,name:'Bank',kind:'stone',x:-11,z:14,width:12,depth:11,height:12.9,storeys:3,storeyHeight:4.3,floors:[]};createBank(b,scene);return new Simulation({buildings:[b],props:[],crowd:[],pigeons:[]},scene);}
++function charges(sim){for(const [x,z]of [[-15.7,19.65],[-11,19.65],[-6.3,19.65],[-4.8,10],[-4.8,14],[-4.8,17.8]])assert.ok(sim.placeCharge(new THREE.Vector3(x,1.3,z),0,0));sim.detonate();}
++const advance=(sim,n)=>{for(let i=0;i<n;i++)sim.update(1/60);};
++const position=b=>new THREE.Vector3(b.x,b.y,b.z);
++
++test('ordinary charge strength carries connected architecture through a measurable fall before contact breakup',()=>{
++  const sim=fixture(),retained=sim.bank.bodies.length;charges(sim);let witnessed=0,maxPieces=0;
++  for(let frame=0;frame<300;frame++) {
++    const bodies=sim.bank.bodies,groups=new Map();
++    for(const b of bodies)if(b.cluster>=0){if(!groups.has(b.cluster))groups.set(b.cluster,[]);groups.get(b.cluster).push(b);}
++    const before=[...groups.values()].filter(g=>g.length>=8).map(g=>({a:g[0],b:g.at(-1),id:g[0].cluster,d:position(g[0]).distanceTo(position(g.at(-1))),y:g[0].y}));
++    sim.update(1/60);maxPieces=Math.max(maxPieces,sim.bank.stats.connectedPieces);
++    for(const pair of before)if(pair.a.cluster===pair.id&&pair.b.cluster===pair.id&&Math.abs(pair.a.y-pair.y)>.002){assert.ok(Math.abs(position(pair.a).distanceTo(position(pair.b))-pair.d)<1e-8,'a connected section must not stretch');witnessed++;}
++  }
++  assert.ok(maxPieces>50,'a substantial amount of real construction remains connected in motion');assert.ok(witnessed>10,'connected fall persists across frames');
++  advance(sim,600);assert.equal(sim.bank.stats.connectedPieces,0,'contacts break the moving sections into retained resting construction');assert.equal(sim.bank.stats.loose,0);assert.equal(sim.bank.bodies.length,retained);
++});
++
++test('a new charge on moving connected construction splits the current remnant and restores its exact future',()=>{
++  const sim=fixture();charges(sim);const bank=sim.bank;
++  // Intervene when construction is actually in connected flight, after its
++  // bearings have failed; this fixture does not prescribe an animation time.
++  let part;for(let frame=0;frame<300&&!part;frame++){sim.update(1/60);part=bank.bodies.find(b=>b.cluster>=0&&b.role!=='glass');}assert.ok(part,'ordinary charges must create a moving section within five seconds');
++  const mid=sim.capture(),copy=structuredClone(mid);advance(sim,120);const oldFuture=sim.capture();sim.restore(mid);
++  const point=bank.bounds(part).getCenter(new THREE.Vector3());assert.ok(sim.placeCharge(point,0,bank.nodes[part.node].level,part.id));sim.detonate();
++  const charged=sim.capture();advance(sim,120);const changed=sim.capture();assert.notDeepEqual(changed,oldFuture);
++  sim.restore(charged);advance(sim,120);assert.deepEqual(sim.capture(),changed,'solver membership, momentum, contacts and random state must restore');assert.deepEqual(mid,copy);
++});
++
++test('compound motion hands a fractured piece to individual motion only on the following step',()=>{
++  const sim=fixture(),bank=sim.bank;
++  const n=bank.nodes[8];bank.cohesion.releaseBay(n,new THREE.Vector3(1,-1,0),2);
++  const section=bank.cohesion.sections.find(s=>s.state===1);assert.ok(section);
++  const members=bank.bodies.filter(b=>b.cluster>=0);for(const b of members)b.y-=1.5;
++  for(const s of bank.cohesion.sections)s.y-=1.5;
++  sim.update(1/60);
++  for(const b of members)if(bank.cohesion.moved.has(b.id)&&b.cluster<0)assert.ok(bank.bounds(b).min.y>=.22999,'contact correction holds for the entire transition frame');
++  assert.ok(bank.cohesion.sections.length<bank.bodies.length,'section allocation remains bounded by retained construction');
++});
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs b/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs
+new file mode 100644
+index 0000000..60186de
+--- /dev/null
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/contacts.test.mjs
+@@ -0,0 +1,45 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {registerHooks} from 'node:module';
++registerHooks({resolve(s,c,n){if(s==='three')return {url:new URL('../vendor/three-0.180.0/three.module.js',import.meta.url).href,shortCircuit:true};return n(s,c);}});
++const THREE=await import('three');
++const {BankPhysics}=await import('../src/bank-physics.js');
++function fixture(specs) {
++  const body=(s,id)=>{const size=new THREE.Vector3(...s.size),bounds=new THREE.Box3(size.clone().multiplyScalar(-.5),size.clone().multiplyScalar(.5));return {id,node:0,role:s.role??'stone',origin:new THREE.Vector3(...s.pos),mass:1,size,bounds,parts:[{collisionBounds:bounds.clone()}],fixed:s.fixed??false,cohesion:s.group??'section'};};
++  const recipe={building:{x:0,z:0,id:0},batches:[],nodes:[{id:0,x:0,z:0,y:0,level:0,ix:0,iz:0,bodies:specs.map((_,i)=>i),supports:[],neighbors:[]}],bodies:specs.map(body)};
++  const sim={floors:[],buildingStates:[],time:0,tonnage:0,random:()=>.5,_emitDust(){},_affectProps(){}};
++  const bank=new BankPhysics(recipe,sim);sim.bank=bank;bank.nodes[0].state=2;
++  for(const b of bank.bodies)if(!b.fixed){b.state=1;b.vx=b.vy=b.vz=b.wx=b.wy=b.wz=0;}
++  return bank;
++}
++
++test('loose masonry transfers impact into a connected falling floor instead of crossing it',()=>{
++  const bank=fixture([{pos:[0,4,0],size:[1,.4,1]},{pos:[1,4,0],size:[1,.4,1]},{pos:[2,4,0],size:[1,.4,1]},{pos:[1,5,0],size:[.3,.3,.3],group:'loose'}]);
++  bank.cohesion.assemble([0,1,2]);bank.bodies[3].vy=-6;let transferred=false;
++  for(let i=0;i<21;i++){
++    bank.sim.time+=1/60;bank.step(1/60);
++    assert.ok(bank.bounds(bank.bodies[3]).min.y>=bank.bounds(bank.bodies[1]).max.y-.01,'the incoming piece cannot pass through the moving floor');
++    if(bank.bodies[3].vy-bank.bodies[1].vy>-3)transferred=true;
++  }
++  assert.ok(transferred,'contact must exchange momentum');
++});
++test('a connected floor edge collides across a spatial-cell boundary',()=>{
++  const bank=fixture([{pos:[2.9,6,0],size:[4,.4,.4]},{pos:[2.9,6,.4],size:[4,.4,.4]},{pos:[2.9,6,.8],size:[4,.4,.4]},{pos:[4.6,5,1.5],size:[.4,10,.3],fixed:true}]);
++  bank.cohesion.assemble([0,1,2]);bank.cohesion.sections[0].vz=3;
++  for(let i=0;i<40;i++){bank.sim.time+=1/60;bank.step(1/60);}
++  assert.ok(bank.bounds(bank.bodies[0]).min.z<bank.bounds(bank.bodies[3]).max.z,'the whole slab cannot pass through the obstacle');
++  assert.ok(bank.bodies.slice(0,3).some(b=>b.cluster<0),'the real edge contact must fracture construction');
++});
++for(const lowerSection of [false,true])test(lowerSection?'two connected sections exchange impact without crossing':'a connected falling floor transfers impact to loose airborne rubble',()=>{
++  const specs=[{pos:[0,4,0],size:[1,.4,1]},{pos:[1,4,0],size:[1,.4,1]},{pos:[2,4,0],size:[1,.4,1]}];
++  if(lowerSection)for(let x=0;x<3;x++)specs.push({pos:[x,3,0],size:[1,.4,1],group:'lower'});
++  else specs.push({pos:[1,3,0],size:[.3,.3,.3],group:'loose'});
++  const bank=fixture(specs);bank.cohesion.assemble([0,1,2]);if(lowerSection)bank.cohesion.assemble([3,4,5]);bank.cohesion.sections[0].vy=-6;
++  const struck=bank.bodies[lowerSection?4:3];let impact=false;
++  for(let i=0;i<21;i++){
++    bank.sim.time+=1/60;bank.step(1/60);
++    assert.ok(bank.bounds(bank.bodies[1]).max.y>=bank.bounds(struck).min.y,'connected construction cannot pass completely through the struck piece');
++    if(struck.vy < -12.5*(i+1)/60-1)impact=true; // faster than gravity-only free fall
++  }
++  assert.ok(impact,'the receiving construction must take the contact impulse');
++});

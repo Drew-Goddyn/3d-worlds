@@ -1,0 +1,229 @@
+{
+  "status": "native_evidence_pass_with_explicit_scope_limits",
+  "runtime": "e9ecb689ef97b9fd677903d5adea4bd38c36b062",
+  "reviewedAt": "2026-09-06T15:57:57.129Z",
+  "method": "Read-only source and recorded-JSON audit; no runtime execution, heavy jobs, video playback or listening.",
+  "inputs": {
+    "native": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/native-checks.json",
+      "sha256": "0f1002ae196f9bdd3a3677084f45dc71d2a18a9f52a5d3c898bb783aa5201201"
+    },
+    "correctedTransport": {
+      "path": "/tmp/astra-round6-controls-corrected/native-checks.json",
+      "sha256": "15ed4e69538f2b283a1be660eec567b0821604b378c5a994137087aab0fb7c56"
+    },
+    "originalNative": {
+      "path": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json",
+      "sha256": "c8d32caff7327f7d26048ab8f02edea3c9f2c9ec7742a3e2e8231a5a1368d570"
+    },
+    "candidateRecordings": {
+      "path": "/tmp/astra-round6-final/candidate-recordings.json",
+      "sha256": "f98708620bb9b2eab655eca5d529d5e54ec41beae01ff6b3e933314fdcdbb675"
+    },
+    "baselineRecordings": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/baseline-recordings.json",
+      "sha256": "137852d8c26ce23eb9ead845302eea2bf08f597941259c70af6e91463a66bd64"
+    },
+    "baselineTiming": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/baseline-timing.json",
+      "sha256": "e2614eb1b91f8027d51a04601d4aeb5663f1700593f3ff5d7b89fe5d9ca454f5"
+    },
+    "candidateTiming": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/candidate-timing.json",
+      "sha256": "e12119478ccbf5b0e6b11744cfe614e4d46bab241dd13d7df03eba52e4e3a26a"
+    },
+    "controlScript": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/inspect-controls.py",
+      "sha256": "1d20db93bf541b7fe4270cd479b5e864419ced38ea7e444610e043e2fe09bd36"
+    },
+    "timingScript": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/measure-timing.py",
+      "sha256": "62bb41dd5e38a30e47b44b9507c9e2a9a079b01a9df12287c24990331bcc072f"
+    },
+    "captureScript": {
+      "path": "/Users/Drew/.codex/worktrees/dd46/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round6-event/capture-audio.py",
+      "sha256": "d9a50b70d3f6fe719c6b4100bbcccdf9d2704bb1c4c6c6fc3d85c5c3070c0b91"
+    }
+  },
+  "provenanceMerge": "Corrected actions, recording and rebuild match corrected source exactly; unaffected resource, ball, eviction, mute and log fields match original source exactly.",
+  "normalInputs": {
+    "sameCamera": true,
+    "exactMatchingAcceptedChargesAndProjectedTargets": true,
+    "scenarios": [
+      "left",
+      "right",
+      "six-charge collapse"
+    ],
+    "ballRecordedTonnage": 83
+  },
+  "transport": {
+    "slow": {
+      "wallSeconds": 3.666499999999999,
+      "simSeconds": 0.3666500000000008,
+      "simToWall": 0.10000000000000024,
+      "peakVoices": 12
+    },
+    "pause": {
+      "wallSeconds": 0.3833000000000002,
+      "simSeconds": 0,
+      "simToWall": 0,
+      "peakVoices": 0
+    },
+    "reverse": {
+      "wallSeconds": 0.5832999999999995,
+      "simSeconds": -1.7499000000000016,
+      "simToWall": -3.0000000000000053,
+      "peakVoices": 12
+    },
+    "retainedReplay": {
+      "wallSeconds": 2.9164999999999974,
+      "simSeconds": 2.8957500000000076,
+      "simToWall": 0.9928853077318739,
+      "peakVoices": 12
+    },
+    "pausedSamples": 208,
+    "pausedPeakVoices": 0,
+    "branch": {
+      "previousChargeCount": 0,
+      "acceptedCharge": {
+        "bankBody": 1770,
+        "floor": 2,
+        "id": 6,
+        "when": -1,
+        "x": -0.013170722145529725,
+        "y": -0.04673271413512481,
+        "z": 0.7166993488621358
+      },
+      "discardedHistoryEnd": 8.319150000000027,
+      "newHistoryEnd": 5.976400000000015
+    }
+  },
+  "resetAndResources": {
+    "exactBankRebuild": true,
+    "exactBankAfterEviction": true,
+    "retainedSeconds": 60.047599999994866,
+    "historyFrames": 1202,
+    "historyStart": 5.833099999999966,
+    "bankBodies": 1865,
+    "completedCleanupCycles": 2,
+    "cycleTailsZero": true,
+    "maximumObservedCache": 131,
+    "muteEnabled": false,
+    "errors": [],
+    "console": []
+  },
+  "clips": [
+    {
+      "scenario": "left",
+      "acceptedCharges": 1,
+      "wallSeconds": 10.3845,
+      "simSeconds": 10.246200000000355,
+      "rafSamples": 507,
+      "edgeSamplesOutsideRecording": 1,
+      "peakRecords": 39,
+      "peakSuppression": 0,
+      "peakClouds": 118,
+      "peakGrains": 361,
+      "peakVoices": 12,
+      "finalRecords": 0
+    },
+    {
+      "scenario": "right",
+      "acceptedCharges": 1,
+      "wallSeconds": 10.198500000000001,
+      "simSeconds": 10.19960000000034,
+      "rafSamples": 612,
+      "edgeSamplesOutsideRecording": 1,
+      "peakRecords": 35,
+      "peakSuppression": 0,
+      "peakClouds": 97,
+      "peakGrains": 342,
+      "peakVoices": 12,
+      "finalRecords": 0
+    },
+    {
+      "scenario": "collapse",
+      "acceptedCharges": 6,
+      "wallSeconds": 22.71290000000596,
+      "simSeconds": 21.74260000000011,
+      "rafSamples": 1211,
+      "edgeSamplesOutsideRecording": 2,
+      "peakRecords": 932,
+      "peakSuppression": 0,
+      "peakClouds": 480,
+      "peakGrains": 960,
+      "peakVoices": 12,
+      "finalRecords": 0
+    }
+  ],
+  "timings": {
+    "baseline": {
+      "wallSeconds": 14.007600000002984,
+      "simSeconds": 13.289500000000317,
+      "simToWall": 0.9487349724433511,
+      "unadvancedSeconds": 0.7181000000026678,
+      "frameCapExcessSeconds": 0.7266999999999998,
+      "all": {
+        "meanMs": 19.458414464534073,
+        "p95Ms": 33.30000000000018,
+        "maxMs": 133.40000000000057,
+        "frames": 719
+      },
+      "activeWindow": {
+        "meanMs": 26.31483253588517,
+        "p95Ms": 100,
+        "maxMs": 133.40000000000057,
+        "frames": 209
+      },
+      "settledWindow": {
+        "meanMs": 16.665666666666663,
+        "p95Ms": 16.799999999999272,
+        "maxMs": 16.80000000000291,
+        "frames": 300
+      }
+    },
+    "candidate": {
+      "wallSeconds": 14.00180000001192,
+      "simSeconds": 12.816400000000304,
+      "simToWall": 0.9153394563548538,
+      "unadvancedSeconds": 1.185400000011617,
+      "frameCapExcessSeconds": 1.1997999999999993,
+      "all": {
+        "meanMs": 20.841728763040237,
+        "p95Ms": 33.399999999999636,
+        "maxMs": 166.59999999999943,
+        "frames": 671
+      },
+      "activeWindow": {
+        "meanMs": 34.16024844720497,
+        "p95Ms": 116.70000000000071,
+        "maxMs": 166.59999999999943,
+        "frames": 161
+      },
+      "settledWindow": {
+        "meanMs": 16.665999999999997,
+        "p95Ms": 16.700000000000728,
+        "maxMs": 16.80000000000291,
+        "frames": 300
+      }
+    }
+  },
+  "resolvedFinding": {
+    "claim": "A new roof charge created the alternate future in the original control demonstration.",
+    "problem": "Original seek was before the first blast with all six charges still placed; no accepted new charge was recorded.",
+    "correction": "Replacement run seeks after all initial charges fire, records an empty retained charge list, one accepted charge and a shortened history end before detonation.",
+    "runtimeChanged": false,
+    "originalEvidence": "/tmp/astra-round6-verification/native-inputs-original/native-checks.json"
+  },
+  "claimLimits": [
+    "Candidate active-window mean/p95 34.160/116.7 ms versus baseline 26.315/100 ms. Candidate advances 12.8164 simulated seconds in 14.0018 wall seconds; the extra lag must be disclosed as runtime lag, not artistic pacing.",
+    "Timing is a single local sample; files do not independently record viewport, DPR, quality, browser version or process-isolation telemetry. Same screen targets/camera are evidenced; broader hardware or benchmark claims are unsupported.",
+    "frames arrays contain requestAnimationFrame diagnostic samples, not encoded video frames. Initial/last callbacks can lie just outside recording boundaries. Actual media PTS/decoding must substantiate capture continuity.",
+    "One audio stream is recorded and the script taps application output; track count alone proves neither non-silence nor loudness, alignment or sound quality. Media analysis and listening remain separate.",
+    "Native exact reset compares bank state plus event count and zero score; it is not a native byte-for-byte comparison of the whole district and crane. Full-state deterministic/reset proof remains attributed to the prior automated tests.",
+    "Two native cleanup cycles show zero tracked active tails and cache below its bound, not an allocation or heap-leak audit. Browser/server teardown is not evidenced by these files.",
+    "Orbit/zoom and quality controls were issued successfully by the script, but these JSON files do not capture before/after camera or quality response. Visual screenshots or other inspection are needed for those claims.",
+    "Empty error/console collections belong to the original resource run, identified by merged provenance; the corrected transport-only file does not contain its own console collection.",
+    "897 records and expiry by 15 simulated seconds are isolated-bank test results. The native district collapse film peaks at 932 records and is clear at its final sample; do not conflate those scopes."
+  ]
+}

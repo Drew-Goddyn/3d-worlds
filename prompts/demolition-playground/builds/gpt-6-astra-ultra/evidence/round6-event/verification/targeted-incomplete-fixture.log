@@ -1,0 +1,35 @@
+✔ real EventAudio owns forward pause slow seek reverse resume mute and zero-level lifecycles (320.240458ms)
+✔ real EventAudio retained replay has identical buffer choices and exact reversed samples (133.675542ms)
+✔ actual voice eviction, buffer caching and repeated cleanup stay bounded (2692.421125ms)
+✖ actual visual buffers reproduce pre-cutoff births and remain bounded through repeated renders and reset (64.563625ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4710.257542
+
+✖ failing tests:
+
+test at ../targeted.mjs:65:1
+✖ actual visual buffers reproduce pre-cutoff births and remain bounded through repeated renders and reset (64.563625ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+    assert.ok(v.clouds.instanceMatrix.array.every(Number.isFinite))
+
+      at TestContext.<anonymous> (file:///private/tmp/astra-round6-verification/targeted.mjs:73:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

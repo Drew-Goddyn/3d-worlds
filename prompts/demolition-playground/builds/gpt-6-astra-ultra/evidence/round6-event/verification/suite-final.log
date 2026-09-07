@@ -1,0 +1,63 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ the court is an actual full-height void and galleries retain occupied depth (1108.8275ms)
+✔ floor fracture plates tile their complete load-bearing bay without overlap or lost material (47.224666ms)
+✔ a removed vault rib releases its own glazing but leaves remote supported roof intact (70.288708ms)
+✔ roof attachment failure, retained ribs and new past actions restore exact independent futures (2153.864542ms)
+✔ a charge belongs to the selected roof pane and to settled rubble on a later intervention (4933.253166ms)
+✔ street-level roof debris remains chargeable outside its original storey volume (8111.666542ms)
+✔ a charge keeps its selected piece and local point when branching an interpolated replay (849.344667ms)
+✔ a limited bank wound is local, remains standing, and changes with the hit location (2479.625375ms)
+✔ bank support loss can peel one bay while leaving an independently supported bay intact (4019.798583ms)
+✔ bank charges, support, fragment motion and impact contacts replay exactly without snapshot aliasing (12985.967291ms)
+✔ extensive bank destruction settles into finite persistent architecture and retains a full minute (38779.836208ms)
+✔ six normal bank charges can cause substantial failure without an easy-collapse override (9112.8275ms)
+✔ ordinary charge strength carries connected architecture through a measurable fall before contact breakup (11082.393709ms)
+✔ a new charge on moving connected construction splits the current remnant and restores its exact future (8531.756625ms)
+✔ compound motion hands a fractured piece to individual motion only on the following step (80.743875ms)
+✔ loose masonry transfers impact into a connected falling floor instead of crossing it (73.58675ms)
+✔ a connected floor edge collides across a spatial-cell boundary (3.588916ms)
+✔ a connected falling floor transfers impact to loose airborne rubble (2.8ms)
+✔ two connected sections exchange impact without crossing (9.643708ms)
+✔ event aggregation cannot mutate an already recorded history frame (4.283375ms)
+✔ a dust birth preceding the oldest retained frame still renders and expires by simulation time (2.240625ms)
+✔ interpolated history births do not appear before their recorded time (0.150042ms)
+✔ discarded future events cannot leak into restored alternate futures or pristine rebuild (0.217084ms)
+✔ presentation admission and expiry bound sustained effects without evicting active births (111.676125ms)
+✔ retained normal replay reproduces forward audio choices while pause seek and resume suppress backlog (0.317583ms)
+✔ slow motion and reverse use explicit crossings and stop on every time-policy transition (0.123209ms)
+✔ procedural material choices are deterministic, distinct, finite and bounded with headroom (139.195083ms)
+✔ the intact hall contains supported furnishings and pre-existing triangular glazing (830.646875ms)
+✔ a window wound releases nearby triangular shards without broadcasting damage into the hall (69.168708ms)
+✔ a falling architectural fragment contacts a writing table and releases only its loose articles (719.147834ms)
+✔ ball contact uses current solid members and passes through a cleared window (80.813375ms)
+✔ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (1859.088875ms)
+✔ a fragment passing between table legs cannot impart a contact impulse (58.167375ms)
+✔ a ledger that has settled on a table falls when the table moves away (8003.742792ms)
+✔ settled masonry falls when its furniture support moves away (10246.096417ms)
+✔ the full-size ball can contact a writing table below the intact ceiling (51.959ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (16.414875ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.290833ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (221.383ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (198.953084ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (224.555167ms)
+✔ slow motion advances exactly the supplied simulation time (4.931833ms)
+✔ a falling assembly transfers impact into an adjacent building (60.577083ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (62.632041ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (11.178917ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (67.625875ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (5.132292ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (156.329209ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (14.513958ms)
+✔ six-charge limit and all staged detonation state survive rewind (61.249791ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (334.871375ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 51
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 67646.222541

@@ -1,0 +1,52 @@
+{
+  "operation": "Remap historical report references to their preserved historical payloads",
+  "runtimeAndMediaChanged": false,
+  "originalRejectedArchive": {
+    "localOnly": "/tmp/astra-round6-rejected-reference-map.zip",
+    "sha256": "b310183b575def8cc73700f3a64d6ba119b743acf6bf521b0c54defee04b8adb"
+  },
+  "reason": "Five historical hash references pointed to current files with different contents. Historical report prose also used the unsuffixed names.",
+  "referenceRemapping": {
+    "REPORT.md": "REPORT-ad36dfe.md",
+    "suite-final.log": "suite-ad36dfe.log",
+    "targeted-final.log": "targeted-ad36dfe.log",
+    "targeted.mjs": "targeted-ad36dfe.mjs",
+    "structural-equivalence.log": "structural-equivalence-ad36dfe.log"
+  },
+  "artifactEdits": [
+    {
+      "file": "REPORT-ad36dfe.md",
+      "before": {
+        "bytes": 7513,
+        "sha256": "5d1baf00abf130441ccbf4808f0e3b3da09206d7d0ad92e601f401f57279f80d"
+      },
+      "after": {
+        "bytes": 7551,
+        "sha256": "9078ca253cfdeafff191ce97edb07d3c4b61aea285cc8f2de41148348db807cf"
+      }
+    },
+    {
+      "file": "verification-ad36dfe.json",
+      "before": {
+        "bytes": 5672,
+        "sha256": "a2783d5fad43ec45b278e2d225accb7caed9b20bdf957fa809fbc46e2e3d0c04"
+      },
+      "after": {
+        "bytes": 5700,
+        "sha256": "f3d31f628738ee0234e7c014b72573a665685eb8c65a3b04453e80ee19152b9b"
+      }
+    },
+    {
+      "file": "verification.json",
+      "before": {
+        "bytes": 6602,
+        "sha256": "77819f5985a9a709c165e29a7d31f1918209f512215d91d6a28bcaf4c2380f96"
+      },
+      "after": {
+        "bytes": 6602,
+        "sha256": "0d0cdb994aa7378ac9fd0ee5ed74cd64eb86e790863c0b6db69640da25108567"
+      }
+    }
+  ],
+  "semanticChange": "Only relative evidence names and affected metadata hashes changed. Test outcomes, assertions and recorded media remain unchanged. Prior trailing-whitespace normalization is separately preserved as its earlier operation in evidence-normalization.json."
+}
