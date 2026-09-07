@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { BankCohesion } from './bank-cohesion.js';
+import { BankStructure } from './bank-structure.js';
 
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const BODY_KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','hp','state','sleep','hits','scored','cluster'];
@@ -21,6 +22,7 @@ export class BankPhysics {
     this.bodies=recipe.bodies.map(b=>({...b,x:b.origin.x,y:b.origin.y,z:b.origin.z,rx:0,ry:0,rz:0,vx:0,vy:0,vz:0,wx:0,wy:0,wz:0,hp:1,state:0,sleep:0,hits:0,scored:0,mass:b.mass??.8}));
     this.contacts=new Set();this.tonnage=0;this.collapsed=false;this.revision=0;this.snapshot=null;this.snapshotRevision=-1;
     this.cohesion=new BankCohesion(this);
+    this.structure=new BankStructure(this);
     this.render();
   }
   bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {
@@ -28,12 +30,12 @@ export class BankPhysics {
     const get=(key)=>snapshot?snapshot.bodies[i+BODY_KEYS.indexOf(key)]:body[key];
     let x=get('x'),y=get('y'),z=get('z'),rx=get('rx'),ry=get('ry'),rz=get('rz');
     if(get('state')===0&&!body.fixed&&!body.content) {
-      const n=this.nodes[body.node],drop=snapshot?snapshot.nodes[j+3]:n.drop;
-      const nx=snapshot?snapshot.nodes[j+4]:n.rx,nz=snapshot?snapshot.nodes[j+5]:n.rz;
-      const px=snapshot?snapshot.nodes[j+6]:n.px,pz=snapshot?snapshot.nodes[j+7]:n.pz;
-      quaternion.setFromEuler(euler.set(nx,0,nz));
-      position.set(x-px,y-(.23+n.y),z-pz).applyQuaternion(quaternion);
-      x=px+position.x;y=.23+n.y+position.y-drop;z=pz+position.z;rx+=nx;rz+=nz;
+      if(this.structure) {
+        const f=this.structure.frames[body.node],data=snapshot?.structure?.frames[body.node];
+        const np=data?new THREE.Vector3().fromArray(data):f.p,nq=data?new THREE.Quaternion().fromArray(data,3):f.q;
+        position.set(x,y,z).sub(f.rest).applyQuaternion(nq).add(np);x=position.x;y=position.y;z=position.z;
+        quaternion.setFromEuler(euler.set(rx,ry,rz)).premultiply(nq);euler.setFromQuaternion(quaternion);rx=euler.x;ry=euler.y;rz=euler.z;
+      }
     }
     quaternion.setFromEuler(euler.set(rx,ry,rz));return out.compose(position.set(x,y,z),quaternion,scale);
   }
@@ -136,43 +138,7 @@ export class BankPhysics {
     this.revision++;
   }
   step(dt) {
-    // Direct support propagates vertically. Lateral bridging uses only direct
-    // support, so an unsupported island cannot hold itself up in a cycle.
-    const direct=new Float64Array(this.nodes.length);
-    for(const n of this.nodes) {
-      if(n.state===2)continue;
-      const own=n.supports.reduce((sum,id)=>sum+(this.bodies[id].state===0?this.bodies[id].hp:0),0)/n.supports.length;
-      const below=n.below<0?1:this.nodes[n.below].state===2?0:Math.max(0,1-this.nodes[n.below].drop*3);direct[n.id]=own*own*below;
-    }
-    for(const n of this.nodes) {
-      if(n.state===2)continue;
-      const bridge=n.neighbors.reduce((sum,id)=>sum+direct[id],0)*.16;
-      n.support=Math.min(1,direct[n.id]+bridge);
-      if(n.support<.72) {
-        n.state=1;
-        const deficit=.72-n.support;
-        // A supported neighbour holds a local wound indefinitely when capacity
-        // remains adequate. Continued loss increases load and releases the bay.
-        if(n.support<.60)n.strain+=dt*(.60-n.support)*3.5;
-        let bearingX=0,bearingZ=0,weight=0,lostX=0,lostZ=0;
-        for(const id of n.supports){const b=this.bodies[id],hold=b.state===0?b.hp:0;weight+=hold;bearingX+=b.origin.x*hold;bearingZ+=b.origin.z*hold;lostX+=(b.origin.x-this.recipe.building.x-n.x)*(1-hold);lostZ+=(b.origin.z-this.recipe.building.z-n.z)*(1-hold);}
-        if(n.strain<dt*2&&weight>.05){n.px=bearingX/weight;n.pz=bearingZ/weight;}
-        const length=Math.hypot(lostX,lostZ),dx=length>.05?lostX/length:(n.ix-1)*.7,dz=length>.05?lostZ/length:(n.iz-1)*.7;
-        const angle=Math.min(.34,deficit*.045+n.strain*n.strain*1.9);
-        const rx=dz*angle,rz=-dx*angle;
-        n.wx=clamp((rx-n.rx)/dt,-1.6,1.6);n.wz=clamp((rz-n.rz)/dt,-1.6,1.6);n.rx=rx;n.rz=rz;
-        n.drop=Math.min(.48,deficit*.08+n.strain*.42);
-        this.revision++;
-        if(n.strain>.46) {
-          n.state=2;
-          const direction=new THREE.Vector3(dx*.5,-.7,dz*.5);
-          this.cohesion.releaseBay(n,direction,.55);
-          this.sim.lastImpact.set(this.recipe.building.x+n.x,.23+n.y+2,this.recipe.building.z+n.z);
-          this.sim._emit('collapse',this.sim.lastImpact,{buildingId:this.recipe.building.id,floor:n.level,material:'stone'});
-          this.sim.crowdReaction=1;
-        }
-      }
-    }
+    this.structure.step(dt);
     const orphaned=[];
     for(const b of this.bodies)if(b.state===0&&b.restsOn!=null&&this.bodies[b.restsOn].state>0) {
       const support=this.bodies[b.restsOn];
@@ -317,7 +283,7 @@ export class BankPhysics {
       const bodies=new Float64Array(this.bodies.length*B),nodes=new Float64Array(this.nodes.length*N);
       for(const b of this.bodies)for(let i=0;i<B;i++)bodies[b.id*B+i]=b[BODY_KEYS[i]];
       for(const n of this.nodes)for(let i=0;i<N;i++)nodes[n.id*N+i]=n[NODE_KEYS[i]];
-      this.snapshot={bodies,nodes,cohesion:this.cohesion.capture(),contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
+      this.snapshot={bodies,nodes,cohesion:this.cohesion.capture(),structure:this.structure.capture(),contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
     }
     return this.snapshot;
   }
@@ -325,6 +291,7 @@ export class BankPhysics {
     for(const b of this.bodies)for(let i=0;i<B;i++)b[BODY_KEYS[i]]=state.bodies[b.id*B+i];
     for(const n of this.nodes)for(let i=0;i<N;i++)n[NODE_KEYS[i]]=state.nodes[n.id*N+i];
     this.cohesion.restore(state.cohesion);
+    this.structure.restore(state.structure);
     this.contacts=new Set(state.contacts);this.tonnage=state.tonnage;this.collapsed=state.collapsed;
     this.revision++;this.snapshot=state;this.snapshotRevision=this.revision;
   }
