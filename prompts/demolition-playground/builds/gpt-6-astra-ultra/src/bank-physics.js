@@ -31,7 +31,7 @@ export class BankPhysics {
     let x=get('x'),y=get('y'),z=get('z'),rx=get('rx'),ry=get('ry'),rz=get('rz');
     if(get('state')===0&&!body.fixed&&!body.content) {
       if(this.structure) {
-        const f=this.structure.frames[body.node],data=snapshot?.structure?.frames[body.node];
+        const owner=this.structure.owner[body.id],f=this.structure.frames[owner],data=snapshot?.structure?.frames[owner];
         const np=data?new THREE.Vector3().fromArray(data):f.p,nq=data?new THREE.Quaternion().fromArray(data,3):f.q;
         position.set(x,y,z).sub(f.rest).applyQuaternion(nq).add(np);x=position.x;y=position.y;z=position.z;
         quaternion.setFromEuler(euler.set(rx,ry,rz)).premultiply(nq);euler.setFromQuaternion(quaternion);rx=euler.x;ry=euler.y;rz=euler.z;
@@ -134,6 +134,13 @@ export class BankPhysics {
     const tall=topples(b);
     const sign=(b.origin.x-this.recipe.building.x)*.09;
     b.wx=direction.z*.28+(tall?.8:.15+this.sim.random()*.3);b.wz=-direction.x*.28+sign*.15+(this.sim.random()-.5)*.5;b.wy=(this.sim.random()-.5)*.35;
+    const carrier=!b.content&&this.structure?.frames[this.structure.owner[b.id]];
+    if(carrier?.active) {
+      const r=new THREE.Vector3(b.x,b.y,b.z).sub(carrier.p),inherited=new THREE.Vector3().crossVectors(carrier.w,r).add(carrier.v);
+      b.vx+=inherited.x;b.vy+=inherited.y;b.vz+=inherited.z;
+      b.wx=carrier.w.x+direction.z*.28;b.wy=carrier.w.y;b.wz=carrier.w.z-direction.x*.28;
+    }
+
     this.sim._emit?.('release',new THREE.Vector3(b.x,b.y,b.z),{material:this.eventMaterial(b),mass:b.mass,power:Math.max(4,power*8)});
     this.revision++;
   }
