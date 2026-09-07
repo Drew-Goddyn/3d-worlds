@@ -10,7 +10,7 @@ const a=new THREE.Vector3(),b=new THREE.Vector3(),ra=new THREE.Vector3(),rb=new 
 const turn=new THREE.Quaternion(),delta=new THREE.Quaternion();
 export class BankStructure {
   constructor(bank) {
-    this.bank=bank;
+    this.bank=bank;this.quiet=0;this.sleeping=false;this.signature=null;
     this.frames=bank.nodes.map(n=>{
       const members=n.bodies.map(id=>bank.bodies[id]).filter(b=>!b.fixed&&!b.content);
       const mass=members.reduce((s,b)=>s+b.mass,0);
@@ -88,6 +88,10 @@ export class BankStructure {
   wake(id) {const n=this.bank.nodes[id],f=this.frames[id];if(n.state===2)return;f.active=true;n.state=1;}
   step(dt) {
     const bank=this.bank;
+    const signature=bank.bodies.reduce((sum,b)=>sum+(b.id+1)*(b.state*2+b.hp),0);
+    if(this.sleeping&&signature===this.signature)return;
+    if(signature!==this.signature){this.sleeping=false;this.quiet=0;}
+    this.signature=signature;
     this.refreshMass();
     for(const n of bank.nodes) {
       if(n.state===2)continue;
@@ -104,7 +108,7 @@ export class BankStructure {
     // Four small solves keep stiff masonry bearings stable without unbounded
     // iterations. Multipliers are local to each substep; accumulated rupture
     // strain and rigid state are the persistent, captured quantities.
-    const steps=4,h=dt/steps;
+    const steps=4,h=dt/steps;let overloaded=false;
     for(let sub=0;sub<steps;sub++) {
       for(const n of bank.nodes) {
         const f=this.frames[n.id];if(!f.active||n.state===2)continue;
@@ -120,6 +124,7 @@ export class BankStructure {
         const force=j.lambda.length()/(h*h),capacity=j.strength*Math.max(.03,hp*hp);
         // Damage integrates overload, not elapsed collapse age. Quiet partial
         // wounds stop accumulating when neighboring construction carries them.
+        if(force>capacity)overloaded=true;
         j.strain=Math.max(0,j.strain+h*(force/capacity-1)*1.8);
         if(j.strain>1) {j.broken=true;bank.bodies[j.body].hp=Math.min(bank.bodies[j.body].hp,.18);if(j.kind==='bearing')this.wake(j.i);}
       }
@@ -147,7 +152,8 @@ export class BankStructure {
           const corner=new THREE.Vector3(x,y,z).applyMatrix4(m);if(corner.y<low){low=corner.y;point.copy(corner);}
         }
         const r=point.clone().sub(f.p),speed=-new THREE.Vector3().crossVectors(f.w,r).add(f.v).y;
-        if(speed>2.5) {f.p.y+=.23-bottom;breaking.push({n,hit,speed});}
+        const connected=this.joints.some(j=>(j.i===n.id||j.j===n.id)&&this.held(j));
+        if(speed>2.5||!connected) {f.p.y+=.23-bottom;breaking.push({n,hit,speed});}
         else {
           const w=this.weight(f,r,axes[1]),lambda=(.23-bottom)/w;
           this.correct(f,r,axes[1],lambda);
@@ -161,6 +167,9 @@ export class BankStructure {
     }
     for(const {n,hit,speed} of breaking)this.breakBay(n,hit,speed);
     this.contacts(prior,dt);
+    const moving=this.frames.some((f,i)=>bank.nodes[i].state!==2&&(f.v.lengthSq()>.0004||f.w.lengthSq()>.0001));
+    this.quiet=overloaded||moving?0:this.quiet+dt;
+    if(this.quiet>.5){this.sleeping=true;for(const f of this.frames){f.v.set(0,0,0);f.w.set(0,0,0);}}
     bank.revision++;
   }
   contacts(prior,dt) {
@@ -176,11 +185,11 @@ export class BankStructure {
     for(const piece of solid) {
       const n=bank.nodes[piece.node],f=this.frames[piece.node];
       if(piece.state!==0||piece.fixed||piece.content||n.state===2||!f.active||dealt.has(n.id)||f.v.lengthSq()+f.w.lengthSq()<.09)continue;
-      const before=prior.get(piece.id),now=bank.bounds(piece);if(!before)continue;
+      const before=prior.get(piece.id),now=bounds.get(piece.id);if(!before)continue;
       const entries=new Set();for(let x=Math.floor(now.min.x/3);x<=Math.floor(now.max.x/3);x++)for(let z=Math.floor(now.min.z/3);z<=Math.floor(now.max.z/3);z++)for(const b of grid.get(x+','+z)??[])entries.add(b);
       for(const other of entries) {
         if(other===piece||other.state===0&&!other.content&&!other.fixed&&other.node===piece.node||other.restsOn===piece.id||piece.restsOn===other.id)continue;
-        const ob=bank.bounds(other),op=prior.get(other.id)??ob;
+        const ob=bounds.get(other.id),op=prior.get(other.id)??ob;
         if(!now.intersectsBox(ob)||!bank.solidContact(piece,other))continue;
         let axis=null,sign=0,depth=0;
         for(const k of [1,0,2]) {
@@ -202,6 +211,8 @@ export class BankStructure {
         f.v.addScaledVector(normal,impulse*f.inv);f.w.add(this.inverseInertia(f,new THREE.Vector3().crossVectors(r,normal)).multiplyScalar(impulse));
         if(g){g.v.addScaledVector(normal,-impulse*g.inv);g.w.add(this.inverseInertia(g,new THREE.Vector3().crossVectors(rg,normal)).multiplyScalar(-impulse));}
         else if(other.state===1){other.vx-=normal.x*impulse/other.mass;other.vy-=normal.y*impulse/other.mass;other.vz-=normal.z*impulse/other.mass;}
+        for(const id of n.bodies)bounds.set(id,bank.bounds(bank.bodies[id]));
+        if(g)for(const id of bank.nodes[other.node].bodies)bounds.set(id,bank.bounds(bank.bodies[id]));else bounds.set(other.id,bank.bounds(other));
         if(speed>2.5) {
           this.breakBay(n,piece,speed);dealt.add(n.id);
           if(g&&bank.nodes[other.node].state!==2&&impulse>other.mass*5){this.breakBay(bank.nodes[other.node],other,speed);dealt.add(other.node);}
@@ -242,7 +253,7 @@ export class BankStructure {
     body.vx=velocity.x;body.vy=velocity.y;body.vz=velocity.z;body.wx=f.w.x;body.wy=f.w.y;body.wz=f.w.z;
   }
   capture() {
-    return {frames:this.frames.map(f=>[...f.p,...f.q,...f.v,...f.w,Number(f.active)]),joints:this.joints.map(j=>[Number(j.broken),j.strain])};
+    return {quiet:this.quiet,sleeping:this.sleeping,signature:this.signature,frames:this.frames.map(f=>[...f.p,...f.q,...f.v,...f.w,Number(f.active)]),joints:this.joints.map(j=>[Number(j.broken),j.strain])};
   }
-  restore(s) {s.frames.forEach((v,i)=>{const f=this.frames[i];f.p.fromArray(v);f.q.fromArray(v,3);f.v.fromArray(v,7);f.w.fromArray(v,10);f.active=!!v[13];});s.joints.forEach((v,i)=>{this.joints[i].broken=!!v[0];this.joints[i].strain=v[1];});}
+  restore(s) {this.quiet=s.quiet;this.sleeping=s.sleeping;this.signature=s.signature;s.frames.forEach((v,i)=>{const f=this.frames[i];f.p.fromArray(v);f.q.fromArray(v,3);f.v.fromArray(v,7);f.w.fromArray(v,10);f.active=!!v[13];});s.joints.forEach((v,i)=>{this.joints[i].broken=!!v[0];this.joints[i].strain=v[1];});}
 }
