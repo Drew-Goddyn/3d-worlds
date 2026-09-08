@@ -89,12 +89,14 @@ export class BankPhysics {
     for(const x of ap)for(const y of bp)if(x.intersectsBox(y))return true;
     return false;
   }
-  restingContacts(body,grid,parts=this.solidBounds(body)) {
+  restingContacts(body,grid,parts=this.solidBounds(body),prior=null) {
     const contacts=[];
-    for(const part of parts) {
+    for(let i=0;i<parts.length;i++) {
+      const part=parts[i],low=part.min.y-(prior ? .012 : .045),high=prior?prior[i].min.y+.15:part.min.y+.045;
       const seen=new Set();
-      for(let x=Math.floor(part.min.x/3);x<=Math.floor(part.max.x/3);x++)for(let z=Math.floor(part.min.z/3);z<=Math.floor(part.max.z/3);z++)for(const e of grid.get(x+','+z)??[]) {
+      for(let x=Math.floor(part.min.x/3);x<=Math.floor(part.max.x/3);x++)for(let z=Math.floor(part.min.z/3);z<=Math.floor(part.max.z/3);z++)for(let y=Math.floor(low/.5);y<=Math.floor(high/.5);y++)for(const e of grid.get(x+','+z+','+y)??[]) {
         if(seen.has(e)||e.b===body||e.b.state===1)continue;seen.add(e);
+        if(e.top<low||e.top>high)continue;
         if(part.max.x<=e.minX||part.min.x>=e.maxX||part.max.z<=e.minZ||part.min.z>=e.maxZ)continue;
         contacts.push({part,e});
       }
@@ -204,15 +206,19 @@ export class BankPhysics {
     }
     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
     // cost when the entire bank is moving; it is derived, never hidden state.
-    const grid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),grounded=new Set();
+    const grid=new Map(),restGrid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),grounded=new Set();
     const put=(b,box)=> {
       const entry={b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y};
       for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++) {
         const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);
+        // Resting contact can only reach a current surface near the swept foot
+        // height. Index those heights without reducing the contact footprint.
+        const resting=key+','+Math.floor(entry.top/.5);if(!restGrid.has(resting))restGrid.set(resting,[]);restGrid.get(resting).push(entry);
       }
     };
     const putBody=b=>{
       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
+      if(b.state===1)return; // moving contacts are owned by the section solver
       for(const box of this.solidBounds(b))put(b,box);
     };
     for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);}}
@@ -226,7 +232,7 @@ export class BankPhysics {
       const bottom=this.bounds(b,bounds).min.y;
       if(bottom<=.25){rooted.add(b.id);continue;}
       pending.push(b);
-      for(const {part,e} of this.restingContacts(b,grid))if(Math.abs(e.top-part.min.y)<.045) {
+      for(const {part,e} of this.restingContacts(b,restGrid))if(Math.abs(e.top-part.min.y)<.045) {
         if(!dependents.has(e.b.id))dependents.set(e.b.id,[]);dependents.get(e.b.id).push(b.id);
       }
     }
@@ -258,7 +264,7 @@ export class BankPhysics {
       }
 
       const parts=this.solidBounds(b);
-      for(const {part,e:entry} of this.restingContacts(b,grid,parts)) {
+      for(const {part,e:entry} of this.restingContacts(b,restGrid,parts,oldParts)) {
         // A narrow seam still supports glass that overlaps it when its center
         // shifts slightly. Empty window frames cannot supply a solid platform.
         const i=parts.indexOf(part),height=entry.top-(part.min.y-box.min.y);
