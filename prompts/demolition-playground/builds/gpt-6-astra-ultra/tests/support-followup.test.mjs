@@ -60,3 +60,23 @@ test('cached collision geometry follows an in-step carrier correction, release a
   const past=bank.capture(),fresh=small(specs);fresh.restore(past);assert.deepEqual(fresh.bounds(fresh.bodies[0]),bank.bounds(body));
   bank.restore(pristine);assert.equal(bank.bounds(body).min.x,-1,'restoring an earlier pose invalidates the derived geometry');
 });
+
+test('glass settles on a real narrow seam even when the seam is away from its center',()=>{
+  const bank=small([{pos:[.4,1,0],size:[.08,.1,2]},{pos:[0,1.075,0],size:[1,.05,1]}]);
+  const [seam,glass]=bank.bodies;seam.fixed=true;seam.role='vault-seam';glass.role='glass';glass.rx=Math.PI;glass.state=1;bank.nodes[0].state=2;
+  for(let i=0;i<120;i++)bank.step(1/60);
+  assert.equal(glass.state,2,'overlapping glass must settle instead of falling through a center-only contact test');
+  assert.ok(Math.abs(bank.solidBounds(glass)[0].min.y-bank.solidBounds(seam)[0].max.y)<1e-9);
+  const past=bank.capture(),copy=structuredClone(past);seam.x+=3;
+  for(let i=0;i<30;i++)bank.step(1/60);
+  assert.ok(glass.y<.7,'removing the actual seam must wake the resting glass');assert.deepEqual(past,copy);
+});
+
+test('the empty center of a window frame cannot hold a settled piece aloft',()=>{
+  const bank=small([{pos:[0,4,0],size:[3,.2,1]},{pos:[0,4.35,0],size:[.4,.5,.4]}]);
+  const [frame,piece]=bank.bodies;frame.role='joinery';frame.fixed=true;
+  frame.parts=[-1.4,1.4].map(x=>({collisionBounds:new THREE.Box3(new THREE.Vector3(x-.1,-.1,-.5),new THREE.Vector3(x+.1,.1,.5))}));
+  bank.geometryCache=[];piece.state=2;bank.nodes[0].state=2;
+  for(let i=0;i<60;i++)bank.step(1/60);
+  assert.ok(piece.y<1,'a framed opening is empty space, including during settled-support revalidation');
+});

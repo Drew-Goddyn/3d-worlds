@@ -89,6 +89,18 @@ export class BankPhysics {
     for(const x of ap)for(const y of bp)if(x.intersectsBox(y))return true;
     return false;
   }
+  restingContacts(body,grid,parts=this.solidBounds(body)) {
+    const contacts=[];
+    for(const part of parts) {
+      const seen=new Set();
+      for(let x=Math.floor(part.min.x/3);x<=Math.floor(part.max.x/3);x++)for(let z=Math.floor(part.min.z/3);z<=Math.floor(part.max.z/3);z++)for(const e of grid.get(x+','+z)??[]) {
+        if(seen.has(e)||e.b===body||e.b.state===1)continue;seen.add(e);
+        if(part.max.x<=e.minX||part.min.x>=e.maxX||part.max.z<=e.minZ||part.min.z>=e.maxZ)continue;
+        contacts.push({part,e});
+      }
+    }
+    return contacts;
+  }
   hitContent(b,power,direction) {
     if(!b.content||b.fixed||power<3)return false;
     b.hp=Math.max(0,b.hp-power/(b.role==='counter'||b.role==='cabinet'?150:65));
@@ -201,8 +213,7 @@ export class BankPhysics {
     };
     const putBody=b=>{
       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
-      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){for(const box of this.solidBounds(b))put(b,box);}
-      else put(b,this.bounds(b,bounds));
+      for(const box of this.solidBounds(b))put(b,box);
     };
     for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);}}
     this.cohesion.step(dt,grid);
@@ -215,8 +226,7 @@ export class BankPhysics {
       const bottom=this.bounds(b,bounds).min.y;
       if(bottom<=.25){rooted.add(b.id);continue;}
       pending.push(b);
-      const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
-      for(const e of entries)if(e.b!==b&&e.b.state!==1&&b.x>=e.minX&&b.x<=e.maxX&&b.z>=e.minZ&&b.z<=e.maxZ&&Math.abs(e.top-bottom)<.045) {
+      for(const {part,e} of this.restingContacts(b,grid))if(Math.abs(e.top-part.min.y)<.045) {
         if(!dependents.has(e.b.id))dependents.set(e.b.id,[]);dependents.get(e.b.id).push(b.id);
       }
     }
@@ -227,11 +237,12 @@ export class BankPhysics {
     for(const b of this.bodies) {
       if(b.state!==1||b.cluster>=0||this.cohesion.moved.has(b.id))continue;active=true;
       const oldBottom=this.bounds(b,bounds).min.y;
+      const oldParts=this.solidBounds(b);
       b.vy-=dt*(b.role==='paper'?2.4:12.5);
       if(b.role==='paper'&&!b.hits&&oldBottom>.5){b.vx+=Math.sin(this.sim.time*5+b.id)*dt*.7;b.wx=Math.sin(this.sim.time*4+b.id)*1.6;}
       b.x+=b.vx*dt;b.y+=b.vy*dt;b.z+=b.vz*dt;
       b.rx+=b.wx*dt;b.ry+=b.wy*dt;b.rz+=b.wz*dt;
-      const box=this.bounds(b,bounds);let surface=.23,under=null;
+      const box=this.bounds(b,bounds);let surface=.23,under=null,contactPoint=null;
       // Incoming architectural pieces must actually overlap a furnishing.
       // Regional wall damage does not teleport impulses through the room.
       if(b.role!=='paper'&&b.role!=='glass')for(const target of contents) {
@@ -246,13 +257,13 @@ export class BankPhysics {
         b.vx*=.82;b.vz*=.82;
       }
 
-      const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
-      for(const entry of entries) {
-        if(entry.b===b||entry.b.state===1)continue;
-        // Use a central contact footprint to avoid giant empty AABB bridges.
-        if(b.x<entry.minX+.03||b.x>entry.maxX-.03||b.z<entry.minZ+.03||b.z>entry.maxZ-.03)continue;
-        if(entry.top>oldBottom+.15||entry.top<surface)continue;
-        surface=entry.top;under=entry.b;
+      const parts=this.solidBounds(b);
+      for(const {part,e:entry} of this.restingContacts(b,grid,parts)) {
+        // A narrow seam still supports glass that overlaps it when its center
+        // shifts slightly. Empty window frames cannot supply a solid platform.
+        const i=parts.indexOf(part),height=entry.top-(part.min.y-box.min.y);
+        if(entry.top>oldParts[i].min.y+.15||height<surface)continue;
+        surface=height;under=entry.b;contactPoint=new THREE.Vector3((Math.max(part.min.x,entry.minX)+Math.min(part.max.x,entry.maxX))*.5,entry.top,(Math.max(part.min.z,entry.minZ)+Math.min(part.max.z,entry.maxZ))*.5);
       }
       if(box.min.y<=surface+.012 && b.vy<.5) {
         const speed=Math.max(0,-b.vy);b.y+=surface-box.min.y;
@@ -262,7 +273,7 @@ export class BankPhysics {
         if(speed<.5)grounded.add(b.id);
         if(speed>2.5) {
           b.hits++;
-          p.set(b.x,surface,b.z);
+          if(contactPoint)p.copy(contactPoint);else p.set(b.x,surface,b.z);
           this.sim._emit?.('contact',p,{material:this.eventMaterial(b),mass:b.mass,speed,power:Math.min(140,speed*Math.sqrt(b.mass)*8)});
           if(b.hits===1&&b.mass>.8)this.sim._emitDust(p,1,Math.min(.9,b.size.length()*.16));
           const key=b.id+':'+(under?.id??'ground');
