@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { surfaceContacts } from './bank-contact.js';
+import { surfaceContacts, contactView, contactVector } from './bank-contact.js';
 
 // Finite compound sections assembled from the bank's actual retained pieces.
 // This is a bank-local rigid approximation: supported masonry hinges around
@@ -102,7 +102,8 @@ export class BankCohesion {
     const moving=bank.bodies.filter(b=>(b.state===1||priorGeometry.has(b.id))&&b.role!=='paper');
     // Falling loose pieces also collide. Waiting until one piece sleeps lets
     // two shafts pass through each other and find a ledge inside the other.
-    for(const b of moving) {
+    for(const b of bank.bodies) {
+      if(b.role==='paper')continue;
       const now=bank.bounds(b);bounds.set(b.id,now);const swept=now.clone().union(prior.get(b.id)??now),entry={b};
       for(let x=Math.floor(swept.min.x/3);x<=Math.floor(swept.max.x/3);x++)for(let z=Math.floor(swept.min.z/3);z<=Math.floor(swept.max.z/3);z++){const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);}
     }
@@ -124,30 +125,37 @@ export class BankCohesion {
         if(first===second||first.cluster>=0&&first.cluster===second.cluster)continue;
         const key=Math.min(first.id,second.id)+':'+Math.max(first.id,second.id);if(pairs.has(key))continue;pairs.add(key);
         const a=bank.bounds(first),b=bank.bounds(second);
-        if(!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
         if(first.cluster<0&&second.cluster<0) {
+          if(!a.clone().union(prior.get(first.id)??a).intersectsBox(b.clone().union(prior.get(second.id)??b)))continue;
           let hit=null;
           for(const [incoming,under] of [[first,second],[second,first]]) {
             if(under.role==='glass')continue;
-            const old=priorGeometry.get(incoming.id),oldUnder=priorGeometry.get(under.id);if(!old||!oldUnder)continue;
+            const old=priorGeometry.get(incoming.id)??{meshes:bank.solidMeshes(incoming),matrix:bank.bodyMatrix(incoming)},oldUnder=priorGeometry.get(under.id)??{meshes:bank.solidMeshes(under),matrix:bank.bodyMatrix(under)};
             // Evaluate the incoming material's previous position relative to
             // the other moving solid, including the support's rotation.
             const relative=bank.bodyMatrix(under).multiply(oldUnder.matrix.clone().invert());
             const parts=bank.solidMeshes(incoming),supports=bank.solidMeshes(under);
-            for(let i=0;i<parts.length;i++)for(const support of supports) {
-              if(!parts[i].box.intersectsBox(support.box))continue;
-              const previous={vertices:old.meshes[i].vertices.map(p=>p.clone().applyMatrix4(relative))};
-              for(const c of surfaceContacts(parts[i],support,previous))if(c.depth>0&&(!hit||c.depth>hit.depth))hit={...c,incoming,under};
+            for(let i=0;i<parts.length;i++) {
+              const previousVertices=old.meshes[i].vertices.map(p=>p.clone().applyMatrix4(relative)),sweptPart=parts[i].box.clone().union(new THREE.Box3().setFromPoints(previousVertices));
+              for(const support of supports) {
+                if(!sweptPart.intersectsBox(support.box))continue;
+                for(const axis of ['y','x','z']) {
+                  const previous={vertices:previousVertices.map(p=>contactVector(p,axis))};
+                  for(const c of surfaceContacts(contactView(parts[i],axis),contactView(support,axis),previous))if(c.depth>1e-8&&(!hit||c.fraction<hit.fraction))hit={...c,normal:contactVector(c.normal,axis,true),point:contactVector(c.point,axis,true),axis,incoming,under};
+                }
+              }
             }
           }
           if(!hit)continue;
-          const {incoming,under,depth,normal}=hit,ia=1/incoming.mass,ib=under.state===2||grounded.has(under.id)?0:1/under.mass;
-          incoming.y+=depth*ia/(ia+ib);if(ib)under.y-=depth*ib/(ia+ib);
+          const {incoming,under,depth,normal,axis}=hit;
+          const inverse=b=>b.fixed||b.state===0||b.state===2||axis==='y'&&grounded.has(b.id)?0:1/b.mass,ia=inverse(incoming),ib=inverse(under);if(!ia&&!ib)continue;
+          incoming[axis]+=depth*ia/(ia+ib);if(ib)under[axis]-=depth*ib/(ia+ib);
           const relative=(under.vx-incoming.vx)*normal.x+(under.vy-incoming.vy)*normal.y+(under.vz-incoming.vz)*normal.z,j=Math.max(0,relative)*1.04/(ia+ib);
           for(const axis of ['x','y','z']){incoming['v'+axis]+=normal[axis]*j*ia;if(ib)under['v'+axis]-=normal[axis]*j*ib;}
-          incoming.state=1;incoming.sleep=0;if(ib){under.state=1;under.sleep=0;}
+          if(ia){incoming.state=1;incoming.sleep=0;}if(ib){under.state=1;under.sleep=0;}
           bank.revision++;continue;
         }
+        if(first.state!==1||second.state!==1||!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
         if(first.role==='glass'||second.role==='glass')continue;
         const pa=prior.get(first.id)??a,pb=prior.get(second.id)??b;
         let incoming,under,axis,depth;

@@ -53,7 +53,22 @@ export function worldMesh(mesh,matrix) {
     return {ids,p,n,d:-n.dot(p[0]),box:new THREE.Box3().setFromPoints(p)};
   });
   let up=null,down=null;
-  return {vertices,box,get up(){return up??=getSurfaces().filter(f=>f.n.y>.05);},get down(){return down??=getSurfaces().filter(f=>f.n.y< -.05);}};
+  return {vertices,box,get faces(){return getSurfaces();},get up(){return up??=getSurfaces().filter(f=>f.n.y>.05);},get down(){return down??=getSurfaces().filter(f=>f.n.y< -.05);}};
+}
+// The same real-face crossing test can look along any world axis. These are
+// coordinate rotations, not new collision hulls; holes stay empty in each view.
+const views=new WeakMap();
+export function contactVector(p,axis,inverse=false) {
+  if(axis==='y')return p.clone();
+  return (axis==='x')!==inverse?new THREE.Vector3(p.z,p.x,p.y):new THREE.Vector3(p.y,p.z,p.x);
+}
+export function contactView(mesh,axis) {
+  if(axis==='y')return mesh;
+  let cached=views.get(mesh);if(!cached)views.set(mesh,cached={});if(cached[axis])return cached[axis];
+  const vertices=mesh.vertices.map(p=>contactVector(p,axis)),faces=mesh.faces.map(f=>{
+    const p=f.ids.map(id=>vertices[id]),n=contactVector(f.n,axis);return {ids:f.ids,p,n,d:-n.dot(p[0]),box:new THREE.Box3().setFromPoints(p)};
+  });
+  return cached[axis]={vertices,box:new THREE.Box3().setFromPoints(vertices),up:faces.filter(f=>f.n.y>.05),down:faces.filter(f=>f.n.y<-.05)};
 }
 const cross=(a,b,c)=>(b.x-a.x)*(c.z-a.z)-(b.z-a.z)*(c.x-a.x);
 const height=(f,x,z)=>-(f.n.x*x+f.n.z*z+f.d)/f.n.y;
@@ -94,16 +109,19 @@ export function surfaceContacts(moving,support,previous=null) {
     for(const p of overlap(a.p,b.p)) {
       const y=height(b,p.x,p.z),depth=y-height(a,p.x,p.z);
       if(depth<-.012||(!previous&&depth>.012))continue;
+      let fraction=0;
       if(previous) {
         const old=previousPoint(a,previous,p),gap=old.y-height(b,old.x,old.z);
         if(gap<-.002)continue;
-        // Entering the side of a sloping/near-vertical face is not a landing.
-        // Require an actual crossing at the old projected material point too.
+        // Test the material point where it crosses the face. Its previous
+        // projection may be outside a face during a valid corner/edge strike.
+        fraction=Math.max(0,gap)/Math.max(1e-12,gap+depth);
+        const crossing=old.clone().lerp(new THREE.Vector3(p.x,height(a,p.x,p.z),p.z),Math.min(1,fraction));
         const sign=Math.sign(cross(...b.p));
-        if(b.p.some((v,i)=>cross(v,b.p[(i+1)%b.p.length],old)*sign< -1e-8))continue;
+        if(b.p.some((v,i)=>cross(v,b.p[(i+1)%b.p.length],crossing)*sign< -1e-8))continue;
         if(depth>Math.max(.002,old.y-height(a,p.x,p.z))+.002)continue;
       }
-      contacts.push({point:new THREE.Vector3(p.x,y,p.z),depth,normal:b.n});
+      contacts.push({point:new THREE.Vector3(p.x,y,p.z),depth,normal:b.n,fraction});
     }
   }
   if(cache)cache.set(support,contacts);

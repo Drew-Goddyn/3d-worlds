@@ -144,6 +144,40 @@ test('two falling columns exchange momentum instead of passing through one anoth
   assert.deepEqual(fresh.capture(),bank.capture());assert.deepEqual(past,copy);
 });
 
+test('loose solids collide sideways with moving and stationary solids along both horizontal axes',()=>{
+  for(const axis of ['x','z'])for(const stationary of [false,true]) {
+    const bank=small([{pos:[-.6,20,0],size:[1,1,1]},{pos:[.6,20,0],size:[1,1,1]}]),[a,b]=bank.bodies;
+    bank.nodes[0].state=2;a.state=b.state=1;if(stationary){a.fixed=true;a.state=0;}
+    if(axis==='z'){a.z=a.x;b.z=b.x;a.x=b.x=0;}
+    a['v'+axis]=stationary?0:1;b['v'+axis]=-1;
+    for(let i=0;i<90;i++) {
+      bank.step(1/60);
+      const ab=bank.bounds(a),bb=bank.bounds(b),overlap=['x','y','z'].map(k=>Math.max(0,Math.min(ab.max[k],bb.max[k])-Math.max(ab.min[k],bb.min[k]))).reduce((a,b)=>a*b,1);
+      assert.ok(overlap<1e-8,'real cube interiors cannot cross through each other');
+    }
+    assert.ok(a[axis]<b[axis],'the two solids retain their contact ordering');
+  }
+});
+
+test('a fast fragment transfers momentum to a falling thin plate even when their final bounds would be disjoint',()=>{
+  const bank=small([{pos:[0,10,0],size:[2,.02,2]},{pos:[0,10.08,0],size:[.06,.06,.06]}]),[plate,piece]=bank.bodies;
+  bank.nodes[0].state=2;plate.state=piece.state=1;plate.vy=-1;piece.vy=-20;
+  bank.step(1/60);
+  assert.ok(bank.bounds(piece).min.y>=bank.bounds(plate).max.y-1e-8,'the swept face stops the fragment above the plate');
+  assert.ok(plate.vy<-1.3&&piece.vy>-20,'both finite masses receive the contact impulse');
+  assert.ok(Math.abs(plate.vy+piece.vy-(-21-25/60))<1e-8,'the two moving solids conserve vertical contact momentum');
+});
+
+test('a diagonal corner strike contacts the real face at the crossing point',()=>{
+  const bank=small([{pos:[0,3,0],size:[1,1,1]},{pos:[.72,3,.72],size:[.2,.2,.2]}]),[wall,piece]=bank.bodies;
+  bank.nodes[0].state=2;wall.fixed=true;piece.state=1;piece.vx=piece.vz=-6;
+  for(let i=0;i<12;i++) {
+    bank.step(1/60);
+    const a=bank.bounds(wall),b=bank.bounds(piece),overlap=['x','y','z'].map(k=>Math.max(0,Math.min(a.max[k],b.max[k])-Math.max(a.min[k],b.min[k]))).reduce((a,b)=>a*b,1);
+    assert.ok(overlap<1e-8,'approaching through a face edge must not tunnel inside the wall');
+  }
+});
+
 test('loose rubble slides off a steep real face instead of sleeping on an impossible friction hold',()=>{
   for(const angle of [Math.PI/4,Math.PI/3]) {
     const bank=small([{pos:[0,3,0],size:[2,.1,2]},{pos:[-.1*Math.sin(angle),3+.1*Math.cos(angle),0],size:[.4,.1,.4]}]),[slope,piece]=bank.bodies;
