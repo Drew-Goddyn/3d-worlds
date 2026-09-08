@@ -2,7 +2,7 @@
   "baseline": "bdfde0a8930a17e190e12e93c5481e97fea3b6a3",
   "branch": "round7/astra-shape-the-fall",
   "pr": 6,
-  "stage": "Behavior correction; native inspection in progress; performance work pending",
+  "stage": "Application and native verification complete; evidence ZIP built. Independent packet review and authorized existing-branch PR update remain.",
   "limits": [
     "No new branch or PR; no merge, ready, or deployment",
     "Preserve original Round Seven evidence"
@@ -22,5 +22,68 @@
         "failed": 0
       }
     }
+  },
+  "runtimeHead": "a1c75deba4e1e07361f92807badc515f8e20a571",
+  "correctedReference": "4cebb5d5371d634015ee765103651a6eec453ea0",
+  "optimizationReference": "1286eff",
+  "evidenceTemporaryDirectories": [
+    "/tmp/astra-followup-native-final",
+    "/tmp/astra-followup-inspection",
+    "/tmp/astra-followup-controls",
+    "/tmp/astra-followup-profile",
+    "/tmp/astra-followup-timing",
+    "/tmp/astra-pr6-followup-native-baseline-verified"
+  ],
+  "correctedContactReference": "2a8f4ae9b533f9615280ae6c366dd4ab88dd7846",
+  "independentPriorResult": {
+    "head": "0799b75",
+    "passed": 60,
+    "failed": 1,
+    "reason": "One glass fragment failed the unchanged six-charge settling check"
+  },
+  "pending": [
+    "Independent packet verification",
+    "Normal push of round7/astra-shape-the-fall and update existing draft PR #6"
+  ],
+  "testHead": "02e3fb29b9c39642709bab1433c2e959372bce73",
+  "runtimeSourceTree": "7f5353d10273a06158b711ec354cfbb0f9286103",
+  "independentVerification": {
+    "suite": {
+      "passed": 63,
+      "failed": 0,
+      "skipped": 0
+    },
+    "focused": {
+      "passed": 4,
+      "failed": 0
+    },
+    "naturallySleepingRestoration": "not exercised; selected fixtures remained awake"
+  },
+  "nativeVerification": {
+    "pauseReplayAlternateFuture": true,
+    "pristineRebuildAfterRollingMinute": true,
+    "historySeconds": 60.0475,
+    "consoleErrors": 0
+  },
+  "packet": {
+    "archive": "/Users/Drew/Downloads/bank-direction-round7-followup-review.zip",
+    "bytes": 11654907,
+    "sha256": "a2e6573041b50c1b89bff8e614ac4bba74689b1db497e246cdf0bdec12de8e64",
+    "members": 37,
+    "referenceChecks": 32,
+    "cleanExtraction": "/var/folders/11/pycgkz793bd91ptwdp8_w1sh0000gp/T/astra-r7-followup-clean-extract-31jgs68p"
+  },
+  "originalPacket": {
+    "path": "/Users/Drew/Downloads/bank-direction-round7-review.zip",
+    "sha256": "7c1f62ade0c1639b8fdfa9b68f82ed584fc6146745ea9c523b08d99ed9751cbd"
+  },
+  "reproduction": {
+    "application": "node prompts/demolition-playground/builds/gpt-6-astra-ultra/server.mjs",
+    "suite": "npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test",
+    "nativeCapture": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/reproduce.py /tmp/astra-followup-native-release final http://127.0.0.1:4173 left,right,front,side,collapse",
+    "inspection": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/inspect-native.py /tmp/astra-followup-inspection-release final http://127.0.0.1:4173 ROUTE (left, right, single-side, side)",
+    "controls": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/check-native.py /tmp/astra-followup-controls-release final http://127.0.0.1:4173",
+    "timing": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/measure.py /tmp/astra-followup-timing LABEL http://127.0.0.1:4173",
+    "packetFromCommittedPayload": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/package-review.py /Users/Drew/Downloads/bank-direction-round7-followup-review.zip"
   }
 }

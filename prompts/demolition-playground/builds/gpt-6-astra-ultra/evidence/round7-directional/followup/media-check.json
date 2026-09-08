@@ -1,0 +1,68 @@
+{
+  "method": "Every captured video frame and wall-time timestamp is preserved. No speed changes or stall trimming. Raw recording intermediates remain outside the packet; hashes identify them. PNGs are unchanged browser screenshots.",
+  "media": [
+    {
+      "file": "baseline-left.mp4",
+      "frames": 209,
+      "firstPTS": 0.0,
+      "lastPTS": 14.054,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "66f8d07300b5ca55002a47f47c8dcaa49bbd25ef555234b865eb3642a1f66be6",
+      "mp4SHA256": "e610755701bdf06c3af0acc7d2637ebae78a918655f2558c8c7db3d370d82e47"
+    },
+    {
+      "file": "final-left.mp4",
+      "frames": 217,
+      "firstPTS": 0.0,
+      "lastPTS": 13.124,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "befb72aa742dee349e5ad943db9241807855c3776c70135cab4ee1059ba694e3",
+      "mp4SHA256": "996173daab069de964801753c70d170df4da9646033f7b4c28af5e4e80cfd4e9"
+    },
+    {
+      "file": "final-front.mp4",
+      "frames": 220,
+      "firstPTS": 0.0,
+      "lastPTS": 13.137,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "51936d2ba0b1d4acd7ed3b4ea412dfa185f043ae709a33f3c1cd77e207611d80",
+      "mp4SHA256": "b674dbff823c51f6fe441607e76404126dcddeb6641cdc00f9ba1532dfead552"
+    },
+    {
+      "file": "final-side.mp4",
+      "frames": 212,
+      "firstPTS": 0.0,
+      "lastPTS": 13.158,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "bed919ba9200159e80f90feaa95fc1ab34ecf2b73e00911ef10a0cf088bf0755",
+      "mp4SHA256": "1426932a4642aa28f8e6f3edcc937621dcc59c63b1af9a6d51460d636313eb53"
+    },
+    {
+      "file": "final-collapse.mp4",
+      "frames": 207,
+      "firstPTS": 0.0,
+      "lastPTS": 13.582,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "c82c799997a17a9dff6a748cdf79687ba5500eda014a5832ff6bb14c13cb2645",
+      "mp4SHA256": "db3463f96bb6a7ed882727437982b379732079d020abf9d87bbe8a872eb79351"
+    },
+    {
+      "file": "final-left-later-cut.mp4",
+      "frames": 300,
+      "firstPTS": 0.0,
+      "lastPTS": 15.466,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "217ffa1c10de964f79439220d03db27bd9d792f7b76d3a83d1f5c3ba1d6b9d3d",
+      "mp4SHA256": "64b874571d2113930b826d9412641b99176a0d7a418de8d9c7d7e9ddfe5bc4c3"
+    },
+    {
+      "file": "final-time-controls.mp4",
+      "frames": 471,
+      "firstPTS": 0.0,
+      "lastPTS": 22.648,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "842548ade0e3c115d52f23d29a0131c7d97443077c06d9971be38086632f3313",
+      "mp4SHA256": "47a2fa95a345a214bcaf3696f112626fd6907d1ab573c636523351d90795148d"
+    }
+  ]
+}
