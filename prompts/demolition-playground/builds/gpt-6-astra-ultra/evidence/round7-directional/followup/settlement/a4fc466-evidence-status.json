@@ -1,0 +1,17 @@
+{
+  "rejected_source": "a4fc466b3fa900376c69df42ce6ed2688f1f8a95",
+  "original_verdict_sha256": "810aaba9bbfbcb3c219389e74f4c7948af55c18faf03f129267ab5829bbb81a7",
+  "authoritative_failure_summary": {
+    "path": "/tmp/astra-contact-acceptance-adversarial.log",
+    "sha256": "71c5002fe99ffd0e02b9ca1ed56e389e7a309a021f3c4ad408f4baf82216002d"
+  },
+  "unavailable_original_raw": {
+    "file": "astra-contact-acceptance-adversarial.json",
+    "path": "/tmp/astra-contact-acceptance-adversarial.json",
+    "sha256": "84de592c1fe48820935715ed086b78bcf1f3e45dfaafadda72b34dfb33bc4b58",
+    "bytes": 113727
+  },
+  "current_path_is_original": false,
+  "current_path_sha256": "8cbf4aff02321c601ac1fd90398aa719af66bc5b36c62e0492fe835a9d153dae",
+  "cause": "Coordinator replayed original fixed-output script against a later uncommitted source and reported overwriting the original raw JSON. Original log and original verdict remain unchanged. The overwritten path must not be packaged as rejected-source evidence."
+}

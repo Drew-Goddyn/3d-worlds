@@ -1,0 +1,776 @@
+{
+  "status": "FAIL_DIAGNOSTIC",
+  "declaredCaptureSourceHead": "a4fc466b3fa900376c69df42ce6ed2688f1f8a95",
+  "sourceHashes": {
+    "bank-physics.js": "062578b0bd658d6cb9b71dad9b9c4044bdaf162276f6786f967a7cad73e17dfb",
+    "bank-contact.js": "e6a76b6549a001c3bf0161e5eacb24525baf255625639e5afdca080d421ad51d",
+    "bank-cohesion.js": "168743aee1bd0225e6e2dbdd70a18385a9f2e6a44ff4ff8b0baf72d2d119e731"
+  },
+  "oracleSha256": "2d6e4975a0f6d06b5c796f90301c7587d00066fc935ef02d4472f6f07bb1e331",
+  "method": "Diagnostic of supplied a4fc466 captures; original offending pairs and all released pier first-part rendered convex stone cores. No stepping, no acceptance claim, no assessment of other materials or unreleased carrier geometry.",
+  "summary": {
+    "originalTwoOffendingPairsSeparated": true,
+    "persistentSettledPierCoreOverlapCount": 22,
+    "persistentPairs": [
+      [
+        185,
+        1084
+      ],
+      [
+        185,
+        1419
+      ],
+      [
+        185,
+        1438
+      ],
+      [
+        187,
+        367
+      ],
+      [
+        187,
+        1419
+      ],
+      [
+        365,
+        921
+      ],
+      [
+        365,
+        1089
+      ],
+      [
+        366,
+        1270
+      ],
+      [
+        366,
+        1425
+      ],
+      [
+        368,
+        626
+      ],
+      [
+        368,
+        1272
+      ],
+      [
+        624,
+        1425
+      ],
+      [
+        626,
+        1092
+      ],
+      [
+        1089,
+        1419
+      ],
+      [
+        1089,
+        1438
+      ],
+      [
+        1090,
+        1092
+      ],
+      [
+        1090,
+        1272
+      ],
+      [
+        1091,
+        1407
+      ],
+      [
+        1091,
+        1426
+      ],
+      [
+        1272,
+        1427
+      ],
+      [
+        1407,
+        1426
+      ],
+      [
+        1445,
+        1447
+      ]
+    ],
+    "simulationInterval": 1.0532999999999362,
+    "noFinalAcceptanceClaim": true,
+    "screenshotLimitation": "Matching screenshot viewed, but heavy dust obscures individual rubble pieces. Exact raw geometry determines this finding."
+  },
+  "captures": [
+    {
+      "filename": "moving-side-25s-bank.json",
+      "sha256": "340ccc804cdcd08a23d2621cad072011a2236fde2516633e61a5163d3d13692a",
+      "included_in_packet": false,
+      "simulationTime": 29.556599999999978
+    },
+    {
+      "filename": "moving-side-replayed-bank.json",
+      "sha256": "696fac1e5cc4e59f0b0bd66cc3640a812a1516a4ff9ebf8c8dafa62811a91ad0",
+      "included_in_packet": false,
+      "simulationTime": 30.609899999999914
+    }
+  ],
+  "examples": [
+    {
+      "first": {
+        "id": 185,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -8.104000999142043,
+          0.981261103594893,
+          11.253122759795227
+        ],
+        "rotation": [
+          0.03579996311553071,
+          -0.12333199535657893,
+          -1.6972802195117898
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "second": {
+        "id": 1438,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -8.101448735773559,
+          2.3846415943388157,
+          11.240108823213527
+        ],
+        "rotation": [
+          -0.00044263097287951524,
+          -6.164324312413724e-05,
+          -1.4775478760617014e-05
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "geometry": {
+        "interpenetrating": true,
+        "separatingGap": 0,
+        "minimumTranslationToSeparate": 0.43824860975484903,
+        "axis": [
+          -0.1183978640893942,
+          0.00044126607726155864,
+          0.9929661379238058
+        ],
+        "firstInterval": [
+          11.916420465275365,
+          12.3513780397067
+        ],
+        "secondInterval": [
+          11.887918796603685,
+          12.354669075030214
+        ]
+      },
+      "interiorProof": {
+        "intersectionVertexCount": 12,
+        "commonInteriorPoint": [
+          -8.136976602262166,
+          0.9858479438272197,
+          11.244957287773062
+        ],
+        "allFaceInteriorMargins": [
+          0.2099999999999993,
+          0.21000000000000052,
+          1.9940209683942314,
+          1.9259790316057694,
+          0.21420453889460767,
+          0.20579546110539226,
+          0.24550693783299504,
+          0.174493062167004,
+          3.358796184349458,
+          0.5612038156505414,
+          0.2057684952447172,
+          0.21423150475528097
+        ],
+        "commonInscribedSphereRadius": 0.174493062167004,
+        "intersectionVolumeLowerBound": 0.02225476955866981
+      }
+    },
+    {
+      "first": {
+        "id": 187,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -5.937094935277606,
+          1.7182351027671698,
+          11.623718882513483
+        ],
+        "rotation": [
+          0.08399964048934111,
+          -0.7022031182654219,
+          1.7384098016377165
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "second": {
+        "id": 367,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -5.369075641418892,
+          2.3895708716819444,
+          12.20540517640287
+        ],
+        "rotation": [
+          -0.029087472402259354,
+          -0.0003044458579748297,
+          0.009731635819368905
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "geometry": {
+        "interpenetrating": true,
+        "separatingGap": 0,
+        "minimumTranslationToSeparate": 0.44342849492026026,
+        "axis": [
+          0.6540321452466209,
+          -0.01563975438668021,
+          -0.7563050648163262
+        ],
+        "firstInterval": [
+          -12.927159518854694,
+          -12.474842830914156
+        ],
+        "secondInterval": [
+          -13.07612920470585,
+          -12.483731023934434
+        ]
+      },
+      "interiorProof": {
+        "intersectionVertexCount": 12,
+        "commonInteriorPoint": [
+          -5.3244241616912245,
+          1.820281852831621,
+          12.188175510021681
+        ],
+        "allFaceInteriorMargins": [
+          0.2007602572775995,
+          0.21923974272240043,
+          2.7987898870977315,
+          1.1212101129022676,
+          0.1828623361252646,
+          0.23713766387473534,
+          0.17089372619253762,
+          0.2491062738074623,
+          2.528954609870956,
+          1.3910453901290443,
+          0.2437928140959862,
+          0.17620718590401374
+        ],
+        "commonInscribedSphereRadius": 0.17089372619253762,
+        "intersectionVolumeLowerBound": 0.020905808467792518
+      }
+    },
+    {
+      "first": {
+        "id": 1272,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -3.4184034529299754,
+          1.5771587824309665,
+          15.444881618901768
+        ],
+        "rotation": [
+          1.7177771490050875,
+          -0.11111006358319442,
+          -1.414116172985527
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "second": {
+        "id": 1427,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -1.5628862926093297,
+          1.4239901203375667,
+          14.171406280253356
+        ],
+        "rotation": [
+          0.9727536100180851,
+          0.797189978170935,
+          -2.4316510483145604
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "geometry": {
+        "interpenetrating": true,
+        "separatingGap": 0,
+        "minimumTranslationToSeparate": 0.45588829354365834,
+        "axis": [
+          0.12967426564585732,
+          0.9913551700938429,
+          0.019987785205354106
+        ],
+        "firstInterval": [
+          1.1939906140695316,
+          1.663918449735712
+        ],
+        "secondInterval": [
+          1.2080301561920537,
+          1.7765075647371849
+        ]
+      },
+      "interiorProof": {
+        "intersectionVertexCount": 12,
+        "commonInteriorPoint": [
+          -2.2705768387038248,
+          1.4475328108182408,
+          15.600301726265819
+        ],
+        "allFaceInteriorMargins": [
+          0.2007854622498879,
+          0.21921453775011024,
+          0.7947210474934114,
+          3.1252789525065885,
+          0.23245648580399658,
+          0.18754351419600335,
+          0.18739026743467058,
+          0.2326097325653298,
+          3.553996885193582,
+          0.366003114806416,
+          0.16774963990410763,
+          0.25225036009589363
+        ],
+        "commonInscribedSphereRadius": 0.16774963990410763,
+        "intersectionVolumeLowerBound": 0.019773037910408804
+      }
+    }
+  ],
+  "originalPairs": [
+    [
+      {
+        "first": {
+          "id": 1084,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -9.830248965642113,
+            2.5605378134086005,
+            11.504924266563282
+          ],
+          "rotation": [
+            0.06105719997011381,
+            1.281554010948971e-05,
+            0.001212528319520043
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "second": {
+          "id": 1419,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -7.192736923087579,
+            2.384560817595982,
+            11.000234841413157
+          ],
+          "rotation": [
+            -0.00014272456614031678,
+            1.4362748829065617e-05,
+            5.353710982082114e-05
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "geometry": {
+          "interpenetrating": false,
+          "separatingGap": 2.215235464062701,
+          "minimumTranslationToSeparate": 0,
+          "axis": [
+            -0.9999999984637448,
+            -5.353505933276285e-05,
+            1.4370389723291448e-05
+          ],
+          "firstInterval": [
+            9.618002796157267,
+            10.042551608326782
+          ],
+          "secondInterval": [
+            6.982767332094564,
+            7.402767332094566
+          ]
+        }
+      },
+      {
+        "first": {
+          "id": 1264,
+          "role": "pier",
+          "state": 1,
+          "position": [
+            -9.621319361539571,
+            2.2626163781379645,
+            16.08441980460237
+          ],
+          "rotation": [
+            -1.0103095109710019,
+            -0.33696054996351943,
+            0.6643500556002467
+          ],
+          "velocity": [
+            -1.0565150865717658,
+            -0.32643206477565834,
+            0.32809178175701226
+          ],
+          "angularVelocity": [
+            0.3917214771645504,
+            0,
+            0.5490855011450921
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "second": {
+          "id": 1438,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -8.101448735773559,
+            2.3846415943388157,
+            11.240108823213527
+          ],
+          "rotation": [
+            -0.00044263097287951524,
+            -6.164324312413724e-05,
+            -1.4775478760617014e-05
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "geometry": {
+          "interpenetrating": false,
+          "separatingGap": 3.5377915359141596,
+          "minimumTranslationToSeparate": 0,
+          "axis": [
+            0.7997289066755789,
+            -0.00027755432162836745,
+            -0.6003612235904996
+          ],
+          "firstInterval": [
+            -17.643511183805906,
+            -17.0595631509319
+          ],
+          "secondInterval": [
+            -13.521771615017741,
+            -12.933728572828912
+          ]
+        }
+      }
+    ],
+    [
+      {
+        "first": {
+          "id": 1084,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -9.830248965642113,
+            2.5605378134086005,
+            11.504924266563282
+          ],
+          "rotation": [
+            0.06105719997011381,
+            1.281554010948971e-05,
+            0.001212528319520043
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "second": {
+          "id": 1419,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -7.192736923087579,
+            2.384560817595982,
+            11.000234841413157
+          ],
+          "rotation": [
+            -0.00014272456614031678,
+            1.4362748829065617e-05,
+            5.353710982082114e-05
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "geometry": {
+          "interpenetrating": false,
+          "separatingGap": 2.215235464062701,
+          "minimumTranslationToSeparate": 0,
+          "axis": [
+            -0.9999999984637448,
+            -5.353505933276285e-05,
+            1.4370389723291448e-05
+          ],
+          "firstInterval": [
+            9.618002796157267,
+            10.042551608326782
+          ],
+          "secondInterval": [
+            6.982767332094564,
+            7.402767332094566
+          ]
+        }
+      },
+      {
+        "first": {
+          "id": 1264,
+          "role": "pier",
+          "state": 1,
+          "position": [
+            -9.814832624921156,
+            2.209488150025421,
+            16.18653957987587
+          ],
+          "rotation": [
+            -0.5527643688495559,
+            -0.5769835448266143,
+            0.9153573275086688
+          ],
+          "velocity": [
+            0.0007119243012365441,
+            0.008668804066090077,
+            0.000570610426086416
+          ],
+          "angularVelocity": [
+            0.30100374617062486,
+            0,
+            0.20933142097981638
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "second": {
+          "id": 1438,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -8.101448735773559,
+            2.3846415943388157,
+            11.240108823213527
+          ],
+          "rotation": [
+            -0.00044263097287951524,
+            -6.164324312413724e-05,
+            -1.4775478760617014e-05
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "angularVelocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "geometry": {
+          "interpenetrating": false,
+          "separatingGap": 4.088733340929599,
+          "minimumTranslationToSeparate": 0,
+          "axis": [
+            0.7192861199880117,
+            -0.00031812906613959104,
+            -0.6947138809513516
+          ],
+          "firstInterval": [
+            -18.588427472365407,
+            -18.022351548077253
+          ],
+          "secondInterval": [
+            -13.933618207147655,
+            -13.339737541112402
+          ]
+        }
+      }
+    ]
+  ]
+}

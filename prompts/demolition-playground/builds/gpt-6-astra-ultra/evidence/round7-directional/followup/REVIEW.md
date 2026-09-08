@@ -1,3 +1,5 @@
+> Superseded by the [unfinished loose-piece repair review](settlement/REVIEW.md). The current draft still has invalid solid contact; earlier passing results below are historical and do not establish current acceptance.
+
 # Mercantile Bank — support and performance follow-up
 
 The bank keeps the directional front and side collapses, while local wounds can remain useful standing states. Falling construction now damages the member it actually strikes; surviving supports decide whether a larger failure follows. This is a draft candidate for owner review, not an engineering certification or visual acceptance.

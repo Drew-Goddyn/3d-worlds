@@ -1,13 +1,13 @@
 {
-  "status": "implementation under independent verification; not accepted",
+  "status": "STOPPED unfinished: repeated contact approaches failed; draft review only",
   "baseline": "98633bf46e4e5c2ebd8a2ee02ad979bd9eb815fa",
   "branch": "round7/astra-shape-the-fall",
   "pullRequest": 6,
   "requiredRemaining": [
-    "profile corrected behavior and optimize measured costs",
-    "final full suite and independent actual-charge verification",
-    "final ordinary-browser persistence, directional collapse and time controls",
-    "updated evidence-only ZIP and draft PR description"
+    "Resolve fast simultaneous-axis solid crossings and dense retained penetration",
+    "Resolve unchanged whole-bank settlement regressions without weakening gates",
+    "Fresh independent full-suite and native acceptance on repaired final source",
+    "Current active and settled performance measurements and final accepted-source evidence"
   ],
   "testFixtureChange": "Narrow seam support now uses two off-center seams to balance the pane; both removed for the original wake/displacement check. Separate lone-seam, inclined pane, empty slope, raised ledge, fast thin ledge and steep-slope regressions added.",
   "boundaries": [
@@ -15,5 +15,50 @@
     "draft and unmerged",
     "no deployment",
     "preserve old evidence"
-  ]
+  ],
+  "currentRuntime": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "rejectedCandidate": {
+    "commit": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+    "evidence": "current-diagonal-failures.json",
+    "failure": "Fast diagonal solid crossings transfer no impulse. Two settled native stone cores still intersect at unchanged poses. Focused 18/18 passing is insufficient.",
+    "fullSuite": "Not completed; source was rejected by focused independent adversarial checks.",
+    "nativeEvidence": "current-native-penetration.json"
+  },
+  "preservedExperiment": {
+    "patch": "continuous-contact-experiment.patch",
+    "metadata": "continuous-experiment.json",
+    "status": "Not applied; four selected physical regressions fail."
+  },
+  "decision": "A coherent bank-local contact solver with continuous collision and stable contact response is still needed. Review head and experiment are both unaccepted. Do not merge or deploy.",
+  "reviewArchive": {
+    "path": "/Users/Drew/Downloads/astra-pr6-settlement-review/bank-direction-round7-followup-review.zip",
+    "sha256": "4e6d555dac4a775d74218f0ccfc2b9092c9cfb30c9eb6e67cf628419bdec48ff",
+    "productStatus": "REJECTED",
+    "members": 25,
+    "bytes": 7313060
+  },
+  "verificationScope": {
+    "focused": "18 passed independently at current runtime; additional two diagonal contact probes failed",
+    "native": "Independent exact-geometry proof finds persistent stopped column overlap at current runtime",
+    "fullSuite": "Not completed on current runtime. Earlier failed/cancelled runs are version-labelled historical results.",
+    "package": "PASS_EVIDENCE_HANDOFF: independent CRC, hashes, references, provenance, nine media decodes and offline final-frame seek/play; product remains rejected."
+  },
+  "reproduction": {
+    "start": "node prompts/demolition-playground/builds/gpt-6-astra-ultra/server.mjs",
+    "suite": "npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test",
+    "nativeHelper": "inspect-native.py",
+    "nativeInputs": "current-native-inspection.json",
+    "contactProbe": "astra-contact-acceptance-24055bb-diagonal.mjs",
+    "probeNote": "Independent diagnostic scripts retain exact original absolute paths; use this checkout or adapt the root and output paths before running elsewhere. Do not overwrite prior raw evidence.",
+    "fullRawCaptures": "Large local snapshots excluded from ZIP and repository; exact poses and interior-overlap proof are portable in current-native-penetration.json."
+  },
+  "rawEvidenceWhitespace": "git diff --cached --check reports six trailing-whitespace lines solely in byte-preserved raw unified-diff context and two historical test logs. They were retained unchanged to preserve raw evidence; no current source/test whitespace issue. No clean diff-check claim.",
+  "scopeAtStop": {
+    "implemented": "Actual rendered contact surfaces, centre-of-mass balance, current rooted support, moving-piece and three-axis crossing checks, derived exact-pose geometry caches.",
+    "notSatisfied": "Solid contact in every swept direction and dense retained rubble; complete current source whole-suite/native/history acceptance; acceptable active and settled performance.",
+    "recommendedNextDecision": "Authorize a coherent bank-local collision/contact-response repair with fresh verification, or retain this unfinished draft. No new dependencies are proposed; duration and performance cost remain uncertain.",
+    "authorizationBoundary": "Do not silently continue implementation after the repeated-failed-approaches stop. Continue only when owner resolves that decision. No new branch/PR, merge or deployment."
+  },
+  "packageIndependentAudit": "package-independent.json",
+  "cleanup": "Task server on4184 stopped; bank-round7 capture browser and both independent package browser sessions closed. Unrelated processes and old evidence preserved."
 }
