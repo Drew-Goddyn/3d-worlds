@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { surfaceContacts } from './bank-contact.js';
 
 // Finite compound sections assembled from the bank's actual retained pieces.
 // This is a bank-local rigid approximation: supported masonry hinges around
@@ -96,13 +97,11 @@ export class BankCohesion {
     for(let x=Math.floor(bounds.min.x/3);x<=Math.floor(bounds.max.x/3);x++)for(let z=Math.floor(bounds.min.z/3);z<=Math.floor(bounds.max.z/3);z++)for(const entry of grid.get(x+','+z)??[])entries.add(entry);
     return entries;
   }
-  resolveMovingContacts(prior,priorSleep,grounded,dt) {
+  resolveMovingContacts(prior,priorSleep,grounded,dt,priorGeometry=new Map()) {
     const bank=this.bank,grid=new Map(),bounds=new Map();
-    const moving=bank.bodies.filter(b=>b.state===1&&!['paper','glass'].includes(b.role));
-    if(!moving.some(b=>b.cluster>=0))return;
-    // This response owns the new section/piece boundary. Individual rubble
-    // retains the application's existing ground, resting-rubble and furnishing
-    // contact model; it is not run through a second free-piece solver.
+    const moving=bank.bodies.filter(b=>(b.state===1||priorGeometry.has(b.id))&&b.role!=='paper');
+    // Falling loose pieces also collide. Waiting until one piece sleeps lets
+    // two shafts pass through each other and find a ledge inside the other.
     for(const b of moving) {
       const now=bank.bounds(b);bounds.set(b.id,now);const swept=now.clone().union(prior.get(b.id)??now),entry={b};
       for(let x=Math.floor(swept.min.x/3);x<=Math.floor(swept.max.x/3);x++)for(let z=Math.floor(swept.min.z/3);z<=Math.floor(swept.max.z/3);z++){const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);}
@@ -122,10 +121,34 @@ export class BankCohesion {
     for(const first of moving) {
       const swept=bank.bounds(first).union(prior.get(first.id)??bounds.get(first.id));
       for(const {b:second} of this.candidates(grid,swept)) {
-        if(first===second||first.cluster<0&&second.cluster<0||first.cluster>=0&&first.cluster===second.cluster)continue;
+        if(first===second||first.cluster>=0&&first.cluster===second.cluster)continue;
         const key=Math.min(first.id,second.id)+':'+Math.max(first.id,second.id);if(pairs.has(key))continue;pairs.add(key);
         const a=bank.bounds(first),b=bank.bounds(second);
         if(!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
+        if(first.cluster<0&&second.cluster<0) {
+          let hit=null;
+          for(const [incoming,under] of [[first,second],[second,first]]) {
+            if(under.role==='glass')continue;
+            const old=priorGeometry.get(incoming.id),oldUnder=priorGeometry.get(under.id);if(!old||!oldUnder)continue;
+            // Evaluate the incoming material's previous position relative to
+            // the other moving solid, including the support's rotation.
+            const relative=bank.bodyMatrix(under).multiply(oldUnder.matrix.clone().invert());
+            const parts=bank.solidMeshes(incoming),supports=bank.solidMeshes(under);
+            for(let i=0;i<parts.length;i++)for(const support of supports) {
+              if(!parts[i].box.intersectsBox(support.box))continue;
+              const previous={vertices:old.meshes[i].vertices.map(p=>p.clone().applyMatrix4(relative))};
+              for(const c of surfaceContacts(parts[i],support,previous))if(c.depth>0&&(!hit||c.depth>hit.depth))hit={...c,incoming,under};
+            }
+          }
+          if(!hit)continue;
+          const {incoming,under,depth,normal}=hit,ia=1/incoming.mass,ib=under.state===2||grounded.has(under.id)?0:1/under.mass;
+          incoming.y+=depth*ia/(ia+ib);if(ib)under.y-=depth*ib/(ia+ib);
+          const relative=(under.vx-incoming.vx)*normal.x+(under.vy-incoming.vy)*normal.y+(under.vz-incoming.vz)*normal.z,j=Math.max(0,relative)*1.04/(ia+ib);
+          for(const axis of ['x','y','z']){incoming['v'+axis]+=normal[axis]*j*ia;if(ib)under['v'+axis]-=normal[axis]*j*ib;}
+          incoming.state=1;incoming.sleep=0;if(ib){under.state=1;under.sleep=0;}
+          bank.revision++;continue;
+        }
+        if(first.role==='glass'||second.role==='glass')continue;
         const pa=prior.get(first.id)??a,pb=prior.get(second.id)??b;
         let incoming,under,axis,depth;
         for(const dim of ['y','x','z']) {

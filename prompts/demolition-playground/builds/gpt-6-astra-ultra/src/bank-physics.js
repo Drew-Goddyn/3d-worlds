@@ -216,7 +216,7 @@ export class BankPhysics {
     }
     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
     // cost when the entire bank is moving; it is derived, never hidden state.
-    const grid=new Map(),restGrid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),grounded=new Set();
+    const grid=new Map(),restGrid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),priorGeometry=new Map(),grounded=new Set();
     const put=(b,mesh)=> {
       const box=mesh.box;
       const entry={b,mesh,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y};
@@ -236,7 +236,7 @@ export class BankPhysics {
       if(b.state===1)return; // moving contacts are owned by the section solver
       for(const mesh of this.solidMeshes(b))put(b,mesh);
     };
-    for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);}}
+    for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);priorGeometry.set(b.id,{meshes:this.solidMeshes(b),matrix:this.bodyMatrix(b)});}}
     this.cohesion.step(dt,grid);
 
     // Resting support is derived from the actual current solid surfaces. A
@@ -326,7 +326,7 @@ export class BankPhysics {
       } else b.sleep=0;
       b.vx*=Math.exp(-dt*(b.role==='paper'?1.9:.16));b.vz*=Math.exp(-dt*(b.role==='paper'?1.9:.16));
     }
-    this.cohesion.resolveMovingContacts(priorBounds,priorSleep,grounded,dt);
+    this.cohesion.resolveMovingContacts(priorBounds,priorSleep,grounded,dt,priorGeometry);
     if(active)this.revision++;
     if(!this.collapsed&&this.nodes.filter(n=>n.state===2).length>=18) {
       this.collapsed=true;this.sim.collapsedCount++;this.sim.cheerUntil=this.sim.time+4;

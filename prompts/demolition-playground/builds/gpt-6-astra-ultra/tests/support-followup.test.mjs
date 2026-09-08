@@ -130,6 +130,20 @@ test('a fast small fragment hits a thin ledge even when it crosses an entire hei
   assert.ok(piece.vy>=0,'the ledge receives the downward contact');
 });
 
+test('two falling columns exchange momentum instead of passing through one another before they settle',()=>{
+  const bank=small([{pos:[0,3,0],size:[.42,3.92,.42]},{pos:[0,7.3,0],size:[.42,3.92,.42]}]),[lower,upper]=bank.bodies;
+  bank.nodes[0].state=2;lower.state=upper.state=1;upper.vy=-8;
+  const past=bank.capture(),copy=structuredClone(past);
+  for(let i=0;i<180;i++) {
+    bank.step(1/60);
+    assert.ok(bank.bounds(upper).min.y>=bank.bounds(lower).max.y-.012,'real column cores cannot occupy the same vertical interval');
+  }
+  assert.equal(lower.state,2);assert.equal(upper.state,2);
+  const fresh=small([{pos:[0,3,0],size:[.42,3.92,.42]},{pos:[0,7.3,0],size:[.42,3.92,.42]}]);
+  fresh.restore(past);for(let i=0;i<180;i++)fresh.step(1/60);
+  assert.deepEqual(fresh.capture(),bank.capture());assert.deepEqual(past,copy);
+});
+
 test('loose rubble slides off a steep real face instead of sleeping on an impossible friction hold',()=>{
   for(const angle of [Math.PI/4,Math.PI/3]) {
     const bank=small([{pos:[0,3,0],size:[2,.1,2]},{pos:[-.1*Math.sin(angle),3+.1*Math.cos(angle),0],size:[.4,.1,.4]}]),[slope,piece]=bank.bodies;
