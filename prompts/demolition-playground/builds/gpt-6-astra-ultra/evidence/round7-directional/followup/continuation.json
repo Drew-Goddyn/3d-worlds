@@ -2,7 +2,7 @@
   "baseline": "bdfde0a8930a17e190e12e93c5481e97fea3b6a3",
   "branch": "round7/astra-shape-the-fall",
   "pr": 6,
-  "stage": "Application and native verification complete; evidence ZIP built. Independent packet review and authorized existing-branch PR update remain.",
+  "stage": "Complete: implementation, native inspection, independent runtime verification and corrected evidence packet verified. Existing PR #6 remains draft and unmerged.",
   "limits": [
     "No new branch or PR; no merge, ready, or deployment",
     "Preserve original Round Seven evidence"
@@ -41,10 +41,7 @@
     "failed": 1,
     "reason": "One glass fragment failed the unchanged six-charge settling check"
   },
-  "pending": [
-    "Independent packet verification",
-    "Normal push of round7/astra-shape-the-fall and update existing draft PR #6"
-  ],
+  "pending": [],
   "testHead": "02e3fb29b9c39642709bab1433c2e959372bce73",
   "runtimeSourceTree": "7f5353d10273a06158b711ec354cfbb0f9286103",
   "independentVerification": {
@@ -67,11 +64,11 @@
   },
   "packet": {
     "archive": "/Users/Drew/Downloads/bank-direction-round7-followup-review.zip",
-    "bytes": 11654907,
-    "sha256": "a2e6573041b50c1b89bff8e614ac4bba74689b1db497e246cdf0bdec12de8e64",
+    "bytes": 11655271,
+    "sha256": "613564a2d55e80234f39ef01b454f98f450607151083a78f672914a7f122d6f6",
     "members": 37,
     "referenceChecks": 32,
-    "cleanExtraction": "/var/folders/11/pycgkz793bd91ptwdp8_w1sh0000gp/T/astra-r7-followup-clean-extract-31jgs68p"
+    "cleanExtraction": "/var/folders/11/pycgkz793bd91ptwdp8_w1sh0000gp/T/astra-r7-followup-clean-extract-q6a4th4g"
   },
   "originalPacket": {
     "path": "/Users/Drew/Downloads/bank-direction-round7-review.zip",
@@ -85,5 +82,29 @@
     "controls": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/check-native.py /tmp/astra-followup-controls-release final http://127.0.0.1:4173",
     "timing": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/measure.py /tmp/astra-followup-timing LABEL http://127.0.0.1:4173",
     "packetFromCommittedPayload": "python3 prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/package-review.py /Users/Drew/Downloads/bank-direction-round7-followup-review.zip"
+  },
+  "postArchiveVerification": {
+    "result": "PASS",
+    "report": "verification/package-independent.md",
+    "machine": "verification/package-independent.json",
+    "scope": "Repository-only result recorded after the immutable evidence-only ZIP was built"
+  },
+  "cleanup": {
+    "taskServersStopped": [
+      4183,
+      4184,
+      4185,
+      4186,
+      4187
+    ],
+    "originalUserServerPreserved": 4173,
+    "taskBrowserSessionsClosed": true
+  },
+  "publication": {
+    "branch": "round7/astra-shape-the-fall",
+    "pr": 6,
+    "draft": true,
+    "merge": false,
+    "deployment": false
   }
 }

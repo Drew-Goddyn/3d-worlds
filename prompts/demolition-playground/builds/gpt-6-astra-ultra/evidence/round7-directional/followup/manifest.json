@@ -112,8 +112,8 @@
     },
     {
       "path": "measurements.json",
-      "bytes": 1200990,
-      "sha256": "c1829471c6b9deb936c515419d9daffac2cb6510b4bda28382d0396f732e80e3"
+      "bytes": 1201895,
+      "sha256": "eb5b42f03b744e09b86feda7c91ea8011af19711a0e649902f0206ac6579e7b4"
     },
     {
       "path": "media-check.json",

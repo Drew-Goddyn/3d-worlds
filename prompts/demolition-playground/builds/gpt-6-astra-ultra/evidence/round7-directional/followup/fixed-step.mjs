@@ -10,4 +10,4 @@ for(const p of inputs)if(!s.placeCharge(new THREE.Vector3(...p),0,0))throw Error
 const samples=[];let wall=performance.now(),cpu=process.cpuUsage();
 for(let i=1;i<=900;i++){s.update(1/60);if([300,600,900].includes(i)){const now=performance.now(),used=process.cpuUsage(cpu);samples.push({sim:s.time,wallMs:now-wall,cpuMs:(used.user+used.system)/1000,bank:s.bank.stats});wall=now;cpu=process.cpuUsage();}}
 const snapshot=JSON.stringify(s.capture(),(_,v)=>ArrayBuffer.isView(v)?Array.from(v):v);
-console.log(JSON.stringify({method:'Bank-only normal charge API; 900 fixed 1/60 updates; no browser, rendering or recording. CPU and wall time reported separately.',root,inputs,samples,snapshotSha256:createHash('sha256').update(snapshot).digest('hex')},null,2));
+console.log(JSON.stringify({method:'Bank-only normal charge API; 900 fixed 1/60 updates; no browser, WebGL draw or recording; Simulation.update still refreshes scene state. CPU and wall time reported separately.',root,inputs,samples,snapshotSha256:createHash('sha256').update(snapshot).digest('hex')},null,2));

@@ -1,5 +1,5 @@
 {
-  "method": "Native six-charge ordinary district, high quality, 1440x900, DPR 1, muted, no evidence recording or simultaneous Astra tests/encoding. Final pair began after the observed unrelated verification workers ended. Early investigative runs retain their external-process observations. Active interval 0.5\u20136 seconds wall; late aftermath 18\u201324 seconds. All RAF intervals and simulation advancement retained. The final contact repair supersedes the earlier 0799b75 result. The indexed-contact and solid-contact-pair runs share the fully corrected solid-overlap support behavior; both observed 16 unrelated verification workers, with no simultaneous Astra test or recording. Hardware contention and variable-step outcomes limit absolute comparison. Earlier traces are retained, not presented as final-head measurements.",
+  "method": "Native six-charge ordinary district, high quality, 1440x900, DPR 1, muted. No evidence recording, Astra tests or encoding ran during native timing measurements. Active interval is wall seconds 0.5\u20136; late interval is 18\u201324. All RAF intervals, simulation advancement, end counts and observed external processes are retained. The FINAL comparison is indexed-contact (a1c75de) versus solid-contact-pair (2a8f4ae), both with 16 unrelated verification workers observed. The earlier final and corrected-final-pair labels refer to the superseded 0799b75-versus-4cebb5d comparison, which began after the then-observed workers ended. Earlier traces are diagnostic history, not final-runtime measurements. Differing variable-step ruins and external CPU contention limit absolute comparisons.",
   "references": {
     "baseline": "bdfde0a8930a17e190e12e93c5481e97fea3b6a3",
     "correctedBeforeOptimization": "4cebb5d5371d634015ee765103651a6eec453ea0",
@@ -12747,7 +12747,7 @@
         "maxMs": 33.30000000000291,
         "frames": 357
       },
-      "sourceCommit": "1286eff",
+      "sourceCommit": "1286effbc3d84935b8225a569e541572ebb6ecba",
       "simAt6Wall": 4.799900000000186
     },
     "optimized-2": {
@@ -19628,7 +19628,7 @@
         "maxMs": 16.799999999999272,
         "frames": 360
       },
-      "sourceCommit": "1286eff",
+      "sourceCommit": "1286effbc3d84935b8225a569e541572ebb6ecba",
       "simAt6Wall": 4.666600000000188
     },
     "corrected-2": {
@@ -40450,7 +40450,8 @@
         "p95Ms": 216.70000000000073,
         "maxMs": 216.79999999999927,
         "frames": 30
-      }
+      },
+      "sourceCommit": "2a8f4ae9b533f9615280ae6c366dd4ab88dd7846"
     },
     "indexed-contact": {
       "end": {
@@ -45038,7 +45039,8 @@
         "p95Ms": 33.400000000001455,
         "maxMs": 33.400000000001455,
         "frames": 230
-      }
+      },
+      "sourceCommit": "a1c75deba4e1e07361f92807badc515f8e20a571"
     },
     "solid-contact-pair": {
       "end": {
@@ -46651,174 +46653,10 @@
         "p95Ms": 183.40000000000143,
         "maxMs": 183.5,
         "frames": 34
-      }
+      },
+      "sourceCommit": "2a8f4ae9b533f9615280ae6c366dd4ab88dd7846"
     }
   },
-  "fixedStep": {
-    "corrected": {
-      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, rendering or recording. CPU and wall time reported separately.",
-      "root": "/tmp/astra-pr6-followup-corrected/prompts/demolition-playground/builds/gpt-6-astra-ultra",
-      "inputs": [
-        [
-          -15.7,
-          1.3,
-          19.65
-        ],
-        [
-          -11,
-          1.3,
-          19.65
-        ],
-        [
-          -6.3,
-          1.3,
-          19.65
-        ],
-        [
-          -4.8,
-          1.3,
-          10
-        ],
-        [
-          -4.8,
-          1.3,
-          14
-        ],
-        [
-          -4.8,
-          1.3,
-          17.8
-        ]
-      ],
-      "samples": [
-        {
-          "sim": 4.999999999999988,
-          "wallMs": 13567.434666,
-          "cpuMs": 14230.258,
-          "bank": {
-            "bays": 27,
-            "failedBays": 15,
-            "loose": 124,
-            "settled": 1150,
-            "retained": 1864,
-            "movingSections": 0,
-            "connectedPieces": 0
-          }
-        },
-        {
-          "sim": 10.000000000000076,
-          "wallMs": 4814.868624999999,
-          "cpuMs": 3684.665,
-          "bank": {
-            "bays": 27,
-            "failedBays": 15,
-            "loose": 0,
-            "settled": 1274,
-            "retained": 1864,
-            "movingSections": 0,
-            "connectedPieces": 0
-          }
-        },
-        {
-          "sim": 15.000000000000325,
-          "wallMs": 3819.244625000003,
-          "cpuMs": 3516.839,
-          "bank": {
-            "bays": 27,
-            "failedBays": 15,
-            "loose": 0,
-            "settled": 1274,
-            "retained": 1864,
-            "movingSections": 0,
-            "connectedPieces": 0
-          }
-        }
-      ],
-      "snapshotSha256": "e1f321b007a2f8b7d7669955c9ee7f30aea97e4deea2d8b3493982e2a2f5741b"
-    },
-    "optimized": {
-      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, rendering or recording. CPU and wall time reported separately.",
-      "root": "/Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra",
-      "inputs": [
-        [
-          -15.7,
-          1.3,
-          19.65
-        ],
-        [
-          -11,
-          1.3,
-          19.65
-        ],
-        [
-          -6.3,
-          1.3,
-          19.65
-        ],
-        [
-          -4.8,
-          1.3,
-          10
-        ],
-        [
-          -4.8,
-          1.3,
-          14
-        ],
-        [
-          -4.8,
-          1.3,
-          17.8
-        ]
-      ],
-      "samples": [
-        {
-          "sim": 4.999999999999988,
-          "wallMs": 6229.422542,
-          "cpuMs": 11304.901,
-          "bank": {
-            "bays": 27,
-            "failedBays": 15,
-            "loose": 124,
-            "settled": 1150,
-            "retained": 1864,
-            "movingSections": 0,
-            "connectedPieces": 0
-          }
-        },
-        {
-          "sim": 10.000000000000076,
-          "wallMs": 6993.730624999999,
-          "cpuMs": 3088.828,
-          "bank": {
-            "bays": 27,
-            "failedBays": 15,
-            "loose": 0,
-            "settled": 1274,
-            "retained": 1864,
-            "movingSections": 0,
-            "connectedPieces": 0
-          }
-        },
-        {
-          "sim": 15.000000000000325,
-          "wallMs": 5203.957417,
-          "cpuMs": 3192.999,
-          "bank": {
-            "bays": 27,
-            "failedBays": 15,
-            "loose": 0,
-            "settled": 1274,
-            "retained": 1864,
-            "movingSections": 0,
-            "connectedPieces": 0
-          }
-        }
-      ],
-      "snapshotSha256": "e1f321b007a2f8b7d7669955c9ee7f30aea97e4deea2d8b3493982e2a2f5741b"
-    }
-  },
-  "fixedSnapshotIdentical": true,
   "profile": {
     "method": "Chrome CDP CPU sampling through agent-browser profiler. The separate DevTools MCP browser was already occupied, so its existing user browser was left alone. Profiling timings are not the unrecorded performance comparison.",
     "beforeRawSHA256": "ea0a9a9df9d916645fa54541d717b235fc14fe8007174de2b40bade079deb13c",
@@ -46841,11 +46679,13 @@
       "supportConnectivity": 5.3,
       "renderer": 10.8
     },
-    "note": "Inclusive categories overlap. Native frame intervals and collapse workloads differ; these percentages locate work, not a controlled speedup by themselves. Raw traces remain repository-external local intermediates; hashes identify them."
+    "note": "Inclusive categories overlap. Native frame intervals and collapse workloads differ; these percentages locate work, not a controlled speedup by themselves. Raw traces remain repository-external local intermediates; hashes identify them.",
+    "beforeSourceCommit": "4cebb5d5371d634015ee765103651a6eec453ea0",
+    "afterSourceCommit": "1286effbc3d84935b8225a569e541572ebb6ecba"
   },
   "finalContactFixedStep": {
     "solid-contact": {
-      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, rendering or recording. CPU and wall time reported separately.",
+      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, WebGL draw or recording; Simulation.update still refreshes scene state. CPU and wall time reported separately.",
       "root": "/tmp/astra-pr6-followup-solid-contact/prompts/demolition-playground/builds/gpt-6-astra-ultra",
       "inputs": [
         [
@@ -46923,10 +46763,11 @@
           }
         }
       ],
-      "snapshotSha256": "c2f6756412f1b95253ab7e4570a963b0d3911e936c727d873685d7ec3fdcd3b0"
+      "snapshotSha256": "c2f6756412f1b95253ab7e4570a963b0d3911e936c727d873685d7ec3fdcd3b0",
+      "sourceCommit": "2a8f4ae9b533f9615280ae6c366dd4ab88dd7846"
     },
     "indexed-contact": {
-      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, rendering or recording. CPU and wall time reported separately.",
+      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, WebGL draw or recording; Simulation.update still refreshes scene state. CPU and wall time reported separately.",
       "root": "/Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra",
       "inputs": [
         [
@@ -47004,7 +46845,176 @@
           }
         }
       ],
-      "snapshotSha256": "5c41bd89af61163785158034c14c5276da99e920455ce41e24a9740c873dc3b5"
+      "snapshotSha256": "5c41bd89af61163785158034c14c5276da99e920455ce41e24a9740c873dc3b5",
+      "sourceCommit": "a1c75deba4e1e07361f92807badc515f8e20a571"
     }
-  }
+  },
+  "geometryCacheFixedStep": {
+    "corrected": {
+      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, WebGL draw or recording; Simulation.update still refreshes scene state. CPU and wall time reported separately.",
+      "root": "/tmp/astra-pr6-followup-corrected/prompts/demolition-playground/builds/gpt-6-astra-ultra",
+      "inputs": [
+        [
+          -15.7,
+          1.3,
+          19.65
+        ],
+        [
+          -11,
+          1.3,
+          19.65
+        ],
+        [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        [
+          -4.8,
+          1.3,
+          10
+        ],
+        [
+          -4.8,
+          1.3,
+          14
+        ],
+        [
+          -4.8,
+          1.3,
+          17.8
+        ]
+      ],
+      "samples": [
+        {
+          "sim": 4.999999999999988,
+          "wallMs": 13567.434666,
+          "cpuMs": 14230.258,
+          "bank": {
+            "bays": 27,
+            "failedBays": 15,
+            "loose": 124,
+            "settled": 1150,
+            "retained": 1864,
+            "movingSections": 0,
+            "connectedPieces": 0
+          }
+        },
+        {
+          "sim": 10.000000000000076,
+          "wallMs": 4814.868624999999,
+          "cpuMs": 3684.665,
+          "bank": {
+            "bays": 27,
+            "failedBays": 15,
+            "loose": 0,
+            "settled": 1274,
+            "retained": 1864,
+            "movingSections": 0,
+            "connectedPieces": 0
+          }
+        },
+        {
+          "sim": 15.000000000000325,
+          "wallMs": 3819.244625000003,
+          "cpuMs": 3516.839,
+          "bank": {
+            "bays": 27,
+            "failedBays": 15,
+            "loose": 0,
+            "settled": 1274,
+            "retained": 1864,
+            "movingSections": 0,
+            "connectedPieces": 0
+          }
+        }
+      ],
+      "snapshotSha256": "e1f321b007a2f8b7d7669955c9ee7f30aea97e4deea2d8b3493982e2a2f5741b",
+      "sourceCommit": "4cebb5d5371d634015ee765103651a6eec453ea0"
+    },
+    "optimized": {
+      "method": "Bank-only normal charge API; 900 fixed 1/60 updates; no browser, WebGL draw or recording; Simulation.update still refreshes scene state. CPU and wall time reported separately.",
+      "root": "/Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra",
+      "inputs": [
+        [
+          -15.7,
+          1.3,
+          19.65
+        ],
+        [
+          -11,
+          1.3,
+          19.65
+        ],
+        [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        [
+          -4.8,
+          1.3,
+          10
+        ],
+        [
+          -4.8,
+          1.3,
+          14
+        ],
+        [
+          -4.8,
+          1.3,
+          17.8
+        ]
+      ],
+      "samples": [
+        {
+          "sim": 4.999999999999988,
+          "wallMs": 6229.422542,
+          "cpuMs": 11304.901,
+          "bank": {
+            "bays": 27,
+            "failedBays": 15,
+            "loose": 124,
+            "settled": 1150,
+            "retained": 1864,
+            "movingSections": 0,
+            "connectedPieces": 0
+          }
+        },
+        {
+          "sim": 10.000000000000076,
+          "wallMs": 6993.730624999999,
+          "cpuMs": 3088.828,
+          "bank": {
+            "bays": 27,
+            "failedBays": 15,
+            "loose": 0,
+            "settled": 1274,
+            "retained": 1864,
+            "movingSections": 0,
+            "connectedPieces": 0
+          }
+        },
+        {
+          "sim": 15.000000000000325,
+          "wallMs": 5203.957417,
+          "cpuMs": 3192.999,
+          "bank": {
+            "bays": 27,
+            "failedBays": 15,
+            "loose": 0,
+            "settled": 1274,
+            "retained": 1864,
+            "movingSections": 0,
+            "connectedPieces": 0
+          }
+        }
+      ],
+      "snapshotSha256": "e1f321b007a2f8b7d7669955c9ee7f30aea97e4deea2d8b3493982e2a2f5741b",
+      "sourceCommit": "1286effbc3d84935b8225a569e541572ebb6ecba"
+    }
+  },
+  "geometryCacheFixedSnapshotIdentical": true,
+  "finalContactFixedSnapshotIdentical": false
 }
