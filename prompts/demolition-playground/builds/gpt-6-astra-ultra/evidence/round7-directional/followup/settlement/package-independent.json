@@ -1,0 +1,258 @@
+{
+  "packageStatus": "PASS_EVIDENCE_HANDOFF",
+  "productStatus": "REJECTED; unfinished; do not merge",
+  "auditedAtUTC": "2026-09-08T04:30:11.141472+00:00",
+  "runtimeCommit": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "archive": {
+    "name": "bank-direction-round7-followup-review.zip",
+    "sha256Before": "4e6d555dac4a775d74218f0ccfc2b9092c9cfb30c9eb6e67cf628419bdec48ff",
+    "sha256After": "4e6d555dac4a775d74218f0ccfc2b9092c9cfb30c9eb6e67cf628419bdec48ff",
+    "bytes": 7313060,
+    "members": 25,
+    "crcFailures": 0,
+    "payloadHashMatches": 24,
+    "cleanExtraction": true
+  },
+  "claimsAndProvenance": {
+    "independentVerdictClaimsUnchanged": true,
+    "runtimeHashesMatchReviewedSource": true,
+    "linkedPayloadsPresent": true,
+    "excludedRawEvidenceExplicitlyLabelledAndHashed": true,
+    "nativeRawCaptureAndOracleHashes": [
+      {
+        "name": "spatial-side-25s-bank.json",
+        "available": true,
+        "hashMatches": true
+      },
+      {
+        "name": "spatial-side-replayed-bank.json",
+        "available": true,
+        "hashMatches": true
+      },
+      {
+        "name": "independent native geometry oracle",
+        "available": true,
+        "hashMatches": true
+      }
+    ],
+    "nativeCommonInteriorSphere": {
+      "computedMargins": [
+        0.20851803861561882,
+        0.21148196138438116,
+        0.15656138151695198,
+        3.7634386184830477,
+        0.2581623563367411,
+        0.1618376436632589,
+        0.218786544033384,
+        0.201213455966616,
+        2.681575543825185,
+        1.238424456174815,
+        0.20851196950174927,
+        0.2114880304982507
+      ],
+      "minimum": 0.15656138151695198,
+      "reported": 0.1565613815169531,
+      "sphereVolume": 0.016074687697350508,
+      "reportedSphereVolume": 0.016074687697350848
+    },
+    "historicalPerformanceClearlySeparatedFromCurrentAcceptance": true,
+    "fullSuiteAndNativeAcceptanceLimitationsPreserved": true,
+    "draftPRVerifiedOpenAndUnmerged": true,
+    "remoteHeadAtAuditBeforeFinalPush": "98633bf46e4e5c2ebd8a2ee02ad979bd9eb815fa"
+  },
+  "media": [
+    {
+      "file": "before-left.mp4",
+      "decodeExit": 0,
+      "decodeErrors": "",
+      "frames": 262,
+      "duration": 12.986,
+      "lastPTS": 12.985,
+      "allPTSPreservedFromInitial": true,
+      "durationCoversLastFrame": true,
+      "recordedFrameCountAndPTSMatch": true
+    },
+    {
+      "file": "current-front.mp4",
+      "decodeExit": 0,
+      "decodeErrors": "",
+      "frames": 26,
+      "duration": 20.617,
+      "lastPTS": 20.616,
+      "allPTSPreservedFromInitial": true,
+      "durationCoversLastFrame": true,
+      "recordedFrameCountAndPTSMatch": true
+    },
+    {
+      "file": "current-left.mp4",
+      "decodeExit": 0,
+      "decodeErrors": "",
+      "frames": 39,
+      "duration": 15.25,
+      "lastPTS": 15.249,
+      "allPTSPreservedFromInitial": true,
+      "durationCoversLastFrame": true,
+      "recordedFrameCountAndPTSMatch": true
+    },
+    {
+      "file": "current-side.mp4",
+      "decodeExit": 0,
+      "decodeErrors": "",
+      "frames": 28,
+      "duration": 20.725,
+      "lastPTS": 20.724,
+      "allPTSPreservedFromInitial": true,
+      "durationCoversLastFrame": true,
+      "recordedFrameCountAndPTSMatch": true
+    },
+    {
+      "file": "current-left.png",
+      "decodeExit": 0,
+      "decodeErrors": ""
+    },
+    {
+      "file": "current-rebuilt.png",
+      "decodeExit": 0,
+      "decodeErrors": ""
+    },
+    {
+      "file": "current-side-25s.png",
+      "decodeExit": 0,
+      "decodeErrors": ""
+    },
+    {
+      "file": "current-support-angle.png",
+      "decodeExit": 0,
+      "decodeErrors": ""
+    },
+    {
+      "file": "support-before.png",
+      "decodeExit": 0,
+      "decodeErrors": ""
+    }
+  ],
+  "offlineViewer": {
+    "openedByFileURL": true,
+    "networkOffline": true,
+    "externalResources": [],
+    "images": [
+      {
+        "loaded": true,
+        "src": "support-before.png"
+      },
+      {
+        "loaded": true,
+        "src": "current-left.png"
+      },
+      {
+        "loaded": true,
+        "src": "current-side-25s.png"
+      },
+      {
+        "loaded": true,
+        "src": "current-support-angle.png"
+      },
+      {
+        "loaded": true,
+        "src": "current-rebuilt.png"
+      }
+    ],
+    "comparisonButton": [
+      {
+        "currentTime": 0.50526,
+        "paused": false,
+        "playbackRate": 1,
+        "src": "before-left.mp4"
+      },
+      {
+        "currentTime": 0.508036,
+        "paused": false,
+        "playbackRate": 1,
+        "src": "current-left.mp4"
+      }
+    ],
+    "seekAndPlayback": [
+      {
+        "currentTime": 12.985,
+        "decodedFrame": 12.985,
+        "duration": 12.986,
+        "error": null,
+        "playAdvance": 0.3516269999999999,
+        "reachesFinalTime": true,
+        "readyState": 4,
+        "requestedLastTime": 12.985,
+        "seeked": true,
+        "src": "before-left.mp4"
+      },
+      {
+        "currentTime": 15.249,
+        "decodedFrame": 15.249,
+        "duration": 15.25,
+        "error": null,
+        "playAdvance": 0.3513569999999999,
+        "reachesFinalTime": true,
+        "readyState": 4,
+        "requestedLastTime": 15.249,
+        "seeked": true,
+        "src": "current-left.mp4"
+      },
+      {
+        "currentTime": 20.616,
+        "decodedFrame": 20.616,
+        "duration": 20.617,
+        "error": null,
+        "playAdvance": 0.35178200000000004,
+        "reachesFinalTime": true,
+        "readyState": 4,
+        "requestedLastTime": 20.616,
+        "seeked": true,
+        "src": "current-front.mp4"
+      },
+      {
+        "currentTime": 20.724,
+        "decodedFrame": 20.724,
+        "duration": 20.725,
+        "error": null,
+        "playAdvance": 0.35153100000000004,
+        "reachesFinalTime": true,
+        "readyState": 4,
+        "requestedLastTime": 20.724,
+        "seeked": true,
+        "src": "current-side.mp4"
+      }
+    ],
+    "restartBoth": [
+      {
+        "currentTime": 0,
+        "paused": true
+      },
+      {
+        "currentTime": 0,
+        "paused": true
+      }
+    ],
+    "browserErrors": "",
+    "sessionClosed": true,
+    "ownedSessionStillListed": false
+  },
+  "initialPackageRegression": {
+    "sha256": "b3a3c52a6f87bd36a3db30aed869687caadbb26de6d5c65151c14fc085622126",
+    "failure": "Container duration was shorter than final PTS for current videos, causing initial tail seeks to clamp early. Chromium eventually refreshed duration; permanent frame loss was not established.",
+    "correction": "Only four videos, media-check.json and manifest.json changed; B frames removed; all 355 original archived frame timestamps retained; declared durations now exceed final PTS by 1 ms.",
+    "changedMembers": [
+      "current-side.mp4",
+      "media-check.json",
+      "before-left.mp4",
+      "manifest.json",
+      "current-front.mp4",
+      "current-left.mp4"
+    ],
+    "previousEvidencePreserved": true
+  },
+  "scope": {
+    "productTestsRun": false,
+    "sourceEdited": false,
+    "productAcceptanceGranted": false,
+    "summary": "This certifies the evidence archive and its qualified claims only. It does not waive any product, history, support, contact, performance or full-suite acceptance requirement."
+  }
+}

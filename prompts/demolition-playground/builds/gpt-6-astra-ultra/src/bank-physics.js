@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 import { BankCohesion } from './bank-cohesion.js';
+import { BankStructure } from './bank-structure.js';
+import { boxMesh, worldMesh, surfaceContacts, balance } from './bank-contact.js';
 
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 const BODY_KEYS=['x','y','z','rx','ry','rz','vx','vy','vz','wx','wy','wz','hp','state','sleep','hits','scored','cluster'];
@@ -20,24 +22,52 @@ export class BankPhysics {
     this.nodes=recipe.nodes.map(n=>({...n,state:0,strain:0,support:1,drop:0,rx:0,rz:0,px:this.recipe.building.x+n.x,pz:this.recipe.building.z+n.z,wx:0,wz:0}));
     this.bodies=recipe.bodies.map(b=>({...b,x:b.origin.x,y:b.origin.y,z:b.origin.z,rx:0,ry:0,rz:0,vx:0,vy:0,vz:0,wx:0,wy:0,wz:0,hp:1,state:0,sleep:0,hits:0,scored:0,mass:b.mass??.8}));
     this.contacts=new Set();this.tonnage=0;this.collapsed=false;this.revision=0;this.snapshot=null;this.snapshotRevision=-1;
+    this.geometryCache=[];
+    for(const b of this.bodies) {
+      let volume=0;b.massCenter=new THREE.Vector3();
+      for(const part of b.parts){part.collisionMesh??=boxMesh(part.collisionBounds);const mesh=part.collisionMesh;volume+=mesh.volume;b.massCenter.addScaledVector(mesh.center,mesh.volume);}
+      if(volume)b.massCenter.divideScalar(volume);else b.bounds.getCenter(b.massCenter);
+    }
     this.cohesion=new BankCohesion(this);
+    this.structure=new BankStructure(this);
     this.render();
   }
-  bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {
+  // Derived geometry is keyed by the exact current physical pose, including
+  // its carrier. Contacts can change a pose midway through a step, so a frame
+  // number or the history revision alone would be an unsafe invalidation key.
+  geometry(body) {
+    let row=this.geometryCache[body.id];
+    if(!row)row=this.geometryCache[body.id]={key:new Float64Array(14).fill(NaN),matrix:new THREE.Matrix4(),box:new THREE.Box3(),parts:null,meshes:null};
+    const f=body.state===0&&!body.fixed&&!body.content&&this.structure?this.structure.frames[this.structure.owner[body.id]]:null,k=row.key;
+    const px=f?.p.x??0,py=f?.p.y??0,pz=f?.p.z??0,qx=f?.q.x??0,qy=f?.q.y??0,qz=f?.q.z??0,qw=f?.q.w??1,carried=Number(!!f);
+    if(k[0]!==body.x||k[1]!==body.y||k[2]!==body.z||k[3]!==body.rx||k[4]!==body.ry||k[5]!==body.rz||k[6]!==px||k[7]!==py||k[8]!==pz||k[9]!==qx||k[10]!==qy||k[11]!==qz||k[12]!==qw||k[13]!==carried) {
+      k.set([body.x,body.y,body.z,body.rx,body.ry,body.rz,px,py,pz,qx,qy,qz,qw,carried]);
+      this.composeBody(body,row.matrix);row.box.makeEmpty();
+      row.meshes=body.parts.map(part=>worldMesh(part.collisionMesh??=boxMesh(part.collisionBounds),row.matrix));
+      row.parts=row.meshes.map(mesh=>mesh.box);for(const box of row.parts)row.box.union(box);
+    }
+    return row;
+  }
+  solidMeshes(body) {const row=this.geometry(body);return row.meshes??=body.parts.map(p=>worldMesh(p.collisionMesh??=boxMesh(p.collisionBounds),row.matrix));}
+  solidBounds(body) {const row=this.geometry(body);return row.parts??=this.solidMeshes(body).map(p=>p.box);}
+  center(body) {return body.massCenter.clone().applyMatrix4(this.geometry(body).matrix);}
+  groundPoints(body) {const points=[];for(const mesh of this.solidMeshes(body))for(const p of mesh.vertices)if(p.y<=.242)points.push(p);return points;}
+  bodyMatrix(body,out=new THREE.Matrix4(),snapshot=null) {return snapshot?this.composeBody(body,out,snapshot):out.copy(this.geometry(body).matrix);}
+  composeBody(body,out=new THREE.Matrix4(),snapshot=null) {
     const i=body.id*B,j=body.node*N;
     const get=(key)=>snapshot?snapshot.bodies[i+BODY_KEYS.indexOf(key)]:body[key];
     let x=get('x'),y=get('y'),z=get('z'),rx=get('rx'),ry=get('ry'),rz=get('rz');
     if(get('state')===0&&!body.fixed&&!body.content) {
-      const n=this.nodes[body.node],drop=snapshot?snapshot.nodes[j+3]:n.drop;
-      const nx=snapshot?snapshot.nodes[j+4]:n.rx,nz=snapshot?snapshot.nodes[j+5]:n.rz;
-      const px=snapshot?snapshot.nodes[j+6]:n.px,pz=snapshot?snapshot.nodes[j+7]:n.pz;
-      quaternion.setFromEuler(euler.set(nx,0,nz));
-      position.set(x-px,y-(.23+n.y),z-pz).applyQuaternion(quaternion);
-      x=px+position.x;y=.23+n.y+position.y-drop;z=pz+position.z;rx+=nx;rz+=nz;
+      if(this.structure) {
+        const owner=this.structure.owner[body.id],f=this.structure.frames[owner],data=snapshot?.structure?.frames[owner];
+        const np=data?new THREE.Vector3().fromArray(data):f.p,nq=data?new THREE.Quaternion().fromArray(data,3):f.q;
+        position.set(x,y,z).sub(f.rest).applyQuaternion(nq).add(np);x=position.x;y=position.y;z=position.z;
+        quaternion.setFromEuler(euler.set(rx,ry,rz)).premultiply(nq);euler.setFromQuaternion(quaternion);rx=euler.x;ry=euler.y;rz=euler.z;
+      }
     }
     quaternion.setFromEuler(euler.set(rx,ry,rz));return out.compose(position.set(x,y,z),quaternion,scale);
   }
-  bounds(body,out=new THREE.Box3()) {return out.copy(body.bounds).applyMatrix4(this.bodyMatrix(body,matrix));}
+  bounds(body,out=new THREE.Box3()) {return out.copy(this.geometry(body).box);}
   nearest(point, floorIndex=null) {
     let best=null,distance=Infinity;const bounds=new THREE.Box3();
     for(const b of this.bodies) {
@@ -66,9 +96,22 @@ export class BankPhysics {
     return best;
   }
   solidContact(a,b) {
-    const am=this.bodyMatrix(a),bm=this.bodyMatrix(b),ab=new THREE.Box3(),bb=new THREE.Box3();
-    for(const ap of a.parts){ab.copy(ap.collisionBounds).applyMatrix4(am);for(const bp of b.parts){bb.copy(bp.collisionBounds).applyMatrix4(bm);if(ab.intersectsBox(bb))return true;}}
+    const ap=this.solidBounds(a),bp=this.solidBounds(b);
+    for(const x of ap)for(const y of bp)if(x.intersectsBox(y))return true;
     return false;
+  }
+  restingContacts(body,grid,meshes=this.solidMeshes(body),prior=null) {
+    const contacts=[];
+    for(let i=0;i<meshes.length;i++) {
+      const mesh=meshes[i],part=mesh.box,swept=prior?part.clone().union(prior[i].box):part,low=swept.min.y-.012,high=swept.max.y+.012;
+      const seen=new Set();
+      for(let x=Math.floor(part.min.x/.75);x<=Math.floor(part.max.x/.75);x++)for(let z=Math.floor(part.min.z/.75);z<=Math.floor(part.max.z/.75);z++)for(let y=Math.floor(low/.5);y<=Math.floor(high/.5);y++)for(const e of grid.get(x+','+z+','+y)??[]) {
+        if(seen.has(e)||e.b===body||e.b.state===1)continue;seen.add(e);
+        if(part.max.x<=e.minX||part.min.x>=e.maxX||part.max.z<=e.minZ||part.min.z>=e.maxZ)continue;
+        for(const contact of surfaceContacts(mesh,e.mesh,prior?.[i]))contacts.push({...contact,e});
+      }
+    }
+    return contacts;
   }
   hitContent(b,power,direction) {
     if(!b.content||b.fixed||power<3)return false;
@@ -123,6 +166,17 @@ export class BankPhysics {
     }
     return changed;
   }
+  damageContact(body,power,direction) {
+    if(body.fixed||body.state!==0)return false;
+    if(body.content)return this.hitContent(body,power,direction);
+    // A collision loads the member actually struck. It is not another radial
+    // blast: adjacent piers take subsequent load through their connections,
+    // rather than losing health through empty space around each falling chip.
+    const weak=body.role==='glass'?3.8:body.role==='joinery'?1.8:1;
+    body.hp=Math.max(0,body.hp-power/105*weak);
+    if(body.hp<(body.role==='pier'?.2:body.role==='slab'?.12:.35))this.release(body,direction,0);
+    this.revision++;return true;
+  }
   release(b,direction,power=0) {
     if(b.state!==0||b.fixed)return;
     this.bodyMatrix(b,matrix).decompose(position,quaternion,scale);scale.set(1,1,1);
@@ -132,47 +186,18 @@ export class BankPhysics {
     const tall=topples(b);
     const sign=(b.origin.x-this.recipe.building.x)*.09;
     b.wx=direction.z*.28+(tall?.8:.15+this.sim.random()*.3);b.wz=-direction.x*.28+sign*.15+(this.sim.random()-.5)*.5;b.wy=(this.sim.random()-.5)*.35;
+    const carrier=!b.content&&this.structure?.frames[this.structure.owner[b.id]];
+    if(carrier?.active) {
+      const r=new THREE.Vector3(b.x,b.y,b.z).sub(carrier.p),inherited=new THREE.Vector3().crossVectors(carrier.w,r).add(carrier.v);
+      b.vx+=inherited.x;b.vy+=inherited.y;b.vz+=inherited.z;
+      b.wx=carrier.w.x+direction.z*.28;b.wy=carrier.w.y;b.wz=carrier.w.z-direction.x*.28;
+    }
+
     this.sim._emit?.('release',new THREE.Vector3(b.x,b.y,b.z),{material:this.eventMaterial(b),mass:b.mass,power:Math.max(4,power*8)});
     this.revision++;
   }
   step(dt) {
-    // Direct support propagates vertically. Lateral bridging uses only direct
-    // support, so an unsupported island cannot hold itself up in a cycle.
-    const direct=new Float64Array(this.nodes.length);
-    for(const n of this.nodes) {
-      if(n.state===2)continue;
-      const own=n.supports.reduce((sum,id)=>sum+(this.bodies[id].state===0?this.bodies[id].hp:0),0)/n.supports.length;
-      const below=n.below<0?1:this.nodes[n.below].state===2?0:Math.max(0,1-this.nodes[n.below].drop*3);direct[n.id]=own*own*below;
-    }
-    for(const n of this.nodes) {
-      if(n.state===2)continue;
-      const bridge=n.neighbors.reduce((sum,id)=>sum+direct[id],0)*.16;
-      n.support=Math.min(1,direct[n.id]+bridge);
-      if(n.support<.72) {
-        n.state=1;
-        const deficit=.72-n.support;
-        // A supported neighbour holds a local wound indefinitely when capacity
-        // remains adequate. Continued loss increases load and releases the bay.
-        if(n.support<.60)n.strain+=dt*(.60-n.support)*3.5;
-        let bearingX=0,bearingZ=0,weight=0,lostX=0,lostZ=0;
-        for(const id of n.supports){const b=this.bodies[id],hold=b.state===0?b.hp:0;weight+=hold;bearingX+=b.origin.x*hold;bearingZ+=b.origin.z*hold;lostX+=(b.origin.x-this.recipe.building.x-n.x)*(1-hold);lostZ+=(b.origin.z-this.recipe.building.z-n.z)*(1-hold);}
-        if(n.strain<dt*2&&weight>.05){n.px=bearingX/weight;n.pz=bearingZ/weight;}
-        const length=Math.hypot(lostX,lostZ),dx=length>.05?lostX/length:(n.ix-1)*.7,dz=length>.05?lostZ/length:(n.iz-1)*.7;
-        const angle=Math.min(.34,deficit*.045+n.strain*n.strain*1.9);
-        const rx=dz*angle,rz=-dx*angle;
-        n.wx=clamp((rx-n.rx)/dt,-1.6,1.6);n.wz=clamp((rz-n.rz)/dt,-1.6,1.6);n.rx=rx;n.rz=rz;
-        n.drop=Math.min(.48,deficit*.08+n.strain*.42);
-        this.revision++;
-        if(n.strain>.46) {
-          n.state=2;
-          const direction=new THREE.Vector3(dx*.5,-.7,dz*.5);
-          this.cohesion.releaseBay(n,direction,.55);
-          this.sim.lastImpact.set(this.recipe.building.x+n.x,.23+n.y+2,this.recipe.building.z+n.z);
-          this.sim._emit('collapse',this.sim.lastImpact,{buildingId:this.recipe.building.id,floor:n.level,material:'stone'});
-          this.sim.crowdReaction=1;
-        }
-      }
-    }
+    this.structure.step(dt);
     const orphaned=[];
     for(const b of this.bodies)if(b.state===0&&b.restsOn!=null&&this.bodies[b.restsOn].state>0) {
       const support=this.bodies[b.restsOn];
@@ -191,41 +216,61 @@ export class BankPhysics {
     }
     // Ground and retained rubble contacts. A spatial grid avoids an all-pairs
     // cost when the entire bank is moving; it is derived, never hidden state.
-    const grid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),grounded=new Set();
-    const put=(b,box)=> {
-      const entry={b,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y};
+    const grid=new Map(),restGrid=new Map(),bounds=new THREE.Box3(),priorBounds=new Map(),priorSleep=new Map(),priorGeometry=new Map(),grounded=new Set();
+    const put=(b,mesh)=> {
+      const box=mesh.box;
+      const entry={b,mesh,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y};
       for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++) {
         const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);
+      }
+      // Fine surface cells are independent of the broad section grid. Only
+      // heights occupied by actual upward faces can supply a landing.
+      const levels=new Set();
+      for(const face of mesh.up)for(let y=Math.floor(face.box.min.y/.5);y<=Math.floor(face.box.max.y/.5);y++)levels.add(y);
+      for(let x=Math.floor(box.min.x/.75);x<=Math.floor(box.max.x/.75);x++)for(let z=Math.floor(box.min.z/.75);z<=Math.floor(box.max.z/.75);z++)for(const y of levels) {
+        const key=x+','+z+','+y;if(!restGrid.has(key))restGrid.set(key,[]);restGrid.get(key).push(entry);
       }
     };
     const putBody=b=>{
       if(b.role==='paper'||b.role==='glass')return; // thin loose articles bear no architectural loads
-      if(b.content||['vault-rib','gallery','vault-seam'].includes(b.role)){const transform=this.bodyMatrix(b);for(const part of b.parts)put(b,bounds.copy(part.collisionBounds).applyMatrix4(transform),part);}
-      else put(b,this.bounds(b,bounds));
+      if(b.state===1)return; // moving contacts are owned by the section solver
+      for(const mesh of this.solidMeshes(b))put(b,mesh);
     };
-    for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);}}
+    for(const b of this.bodies){putBody(b);if(b.state===1){priorBounds.set(b.id,this.bounds(b));priorSleep.set(b.id,b.sleep);priorGeometry.set(b.id,{meshes:this.solidMeshes(b),matrix:this.bodyMatrix(b)});}}
     this.cohesion.step(dt,grid);
 
     // Resting support is derived from the actual current solid surfaces. A
     // settled article must wake when any support moves, including a surface it
     // landed on after leaving its original parent. No hidden attachment cache.
+    const rooted=new Set(this.bodies.filter(b=>b.fixed||b.state===0).map(b=>b.id));
+    const pending=[];
     for(const b of this.bodies)if(b.state===2) {
-      const bottom=this.bounds(b,bounds).min.y;
-      if(bottom<=.25)continue;
-      const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
-      const supported=entries.some(e=>e.b!==b&&e.b.state!==1&&b.x>=e.minX&&b.x<=e.maxX&&b.z>=e.minZ&&b.z<=e.maxZ&&Math.abs(e.top-bottom)<.045);
-      if(!supported){b.state=1;b.sleep=0;if(b.role==='paper')b.hits=0;}
+      const ground=this.groundPoints(b);
+      if(balance(ground,this.center(b)).stable)rooted.add(b.id);
+      else pending.push({b,contacts:this.restingContacts(b,restGrid),ground});
     }
+    let added=true;
+    while(added){added=false;for(const row of pending)if(!rooted.has(row.b.id)) {
+      const held=row.contacts.filter(c=>rooted.has(c.e.b.id)),points=[...row.ground,...held.map(c=>c.point)],normals=[...row.ground.map(()=>new THREE.Vector3(0,1,0)),...held.map(c=>c.normal)];
+      if(balance(points,this.center(row.b),normals).stable){rooted.add(row.b.id);added=true;}
+    }}
+    for(const {b} of pending)if(!rooted.has(b.id)){b.state=1;b.sleep=0;if(b.role==='paper')b.hits=0;}
     const contents=this.bodies.filter(b=>b.content&&b.role!=='paper').map(b=>({b,box:this.bounds(b)}));
     let active=false;
     for(const b of this.bodies) {
       if(b.state!==1||b.cluster>=0||this.cohesion.moved.has(b.id))continue;active=true;
       const oldBottom=this.bounds(b,bounds).min.y;
+      const oldParts=this.solidMeshes(b);
       b.vy-=dt*(b.role==='paper'?2.4:12.5);
       if(b.role==='paper'&&!b.hits&&oldBottom>.5){b.vx+=Math.sin(this.sim.time*5+b.id)*dt*.7;b.wx=Math.sin(this.sim.time*4+b.id)*1.6;}
-      b.x+=b.vx*dt;b.y+=b.vy*dt;b.z+=b.vz*dt;
-      b.rx+=b.wx*dt;b.ry+=b.wy*dt;b.rz+=b.wz*dt;
-      const box=this.bounds(b,bounds);let surface=.23,under=null;
+      // Free rotation is about the solid mass center, not a recipe origin
+      // that can lie outside an arch, a frame or a triangular pane.
+      const center=this.center(b).add(new THREE.Vector3(b.vx,b.vy,b.vz).multiplyScalar(dt));
+      const q=new THREE.Quaternion().setFromEuler(new THREE.Euler(b.rx,b.ry,b.rz)),w=new THREE.Vector3(b.wx,b.wy,b.wz),angle=w.length()*dt;
+      if(angle)q.premultiply(new THREE.Quaternion().setFromAxisAngle(w.normalize(),angle));
+      const angles=new THREE.Euler().setFromQuaternion(q),origin=center.sub(b.massCenter.clone().applyQuaternion(q));
+      b.x=origin.x;b.y=origin.y;b.z=origin.z;b.rx=angles.x;b.ry=angles.y;b.rz=angles.z;
+      const box=this.bounds(b,bounds);let under=null,contactPoint=null;
       // Incoming architectural pieces must actually overlap a furnishing.
       // Regional wall damage does not teleport impulses through the room.
       if(b.role!=='paper'&&b.role!=='glass')for(const target of contents) {
@@ -240,23 +285,24 @@ export class BankPhysics {
         b.vx*=.82;b.vz*=.82;
       }
 
-      const entries=grid.get(Math.floor(b.x/3)+','+Math.floor(b.z/3))||[];
-      for(const entry of entries) {
-        if(entry.b===b||entry.b.state===1)continue;
-        // Use a central contact footprint to avoid giant empty AABB bridges.
-        if(b.x<entry.minX+.03||b.x>entry.maxX-.03||b.z<entry.minZ+.03||b.z>entry.maxZ-.03)continue;
-        if(entry.top>oldBottom+.15||entry.top<surface)continue;
-        surface=entry.top;under=entry.b;
-      }
-      if(box.min.y<=surface+.012 && b.vy<.5) {
-        const speed=Math.max(0,-b.vy);b.y+=surface-box.min.y;
+      const meshes=this.solidMeshes(b),bottom=Math.min(...meshes.map(m=>m.box.min.y));
+      const contacts=this.restingContacts(b,restGrid,meshes,oldParts);
+      let correction=.23-bottom;
+      for(const contact of contacts)if(contact.depth>correction){correction=contact.depth;under=contact.e.b;contactPoint=contact.point;}
+      if(correction>=-.002 && b.vy<.5) {
+        const speed=Math.max(0,-b.vy);b.y+=correction;
+        const touching=contacts.filter(c=>c.depth>=correction-.012),points=touching.map(c=>c.point),normals=touching.map(c=>c.normal);
+        if(.23-bottom>=correction-.012)for(const mesh of meshes)for(const point of mesh.vertices)if(point.y<=bottom+.012){points.push(point.clone().add(new THREE.Vector3(0,correction,0)));normals.push(new THREE.Vector3(0,1,0));}
+        const supported=balance(points,this.center(b),normals);
         if(b.role==='paper')b.hits=1;
-        b.vy=speed*(b.role==='glass'?.24:b.role==='paper'?.015:.08);
-        this.contactFriction(b,dt);
+        const normal=supported.normal??new THREE.Vector3(0,1,0),vn=b.vx*normal.x+b.vy*normal.y+b.vz*normal.z;
+        supported.impulse=Math.max(0,-vn)*(1+(b.role==='glass'?.24:b.role==='paper'?.015:.08));
+        b.vx+=normal.x*supported.impulse;b.vy+=normal.y*supported.impulse;b.vz+=normal.z*supported.impulse;
+        this.contactFriction(b,dt,supported);
         if(speed<.5)grounded.add(b.id);
         if(speed>2.5) {
           b.hits++;
-          p.set(b.x,surface,b.z);
+          if(contactPoint)p.copy(contactPoint);else p.set(b.x,.23,b.z);
           this.sim._emit?.('contact',p,{material:this.eventMaterial(b),mass:b.mass,speed,power:Math.min(140,speed*Math.sqrt(b.mass)*8)});
           if(b.hits===1&&b.mass>.8)this.sim._emitDust(p,1,Math.min(.9,b.size.length()*.16));
           const key=b.id+':'+(under?.id??'ground');
@@ -266,13 +312,13 @@ export class BankPhysics {
               // Impact fractures the struck floor locally, then the graph
               // reassesses load on the next step. It cannot topple all storeys
               // just because one unrelated corner is falling.
-              this.damage(p,Math.min(110,speed*b.mass*2.8),new THREE.Vector3(b.vx*.08,-.4,b.vz*.08),false);
+              this.damageContact(under,Math.min(110,speed*b.mass*2.8),new THREE.Vector3(b.vx*.08,-.4,b.vz*.08));
             }
             this.sim._affectProps(p,Math.min(2,b.size.length()*.4),speed*b.mass*8,new THREE.Vector3(b.vx||.2,0,b.vz||.3).normalize());
             this.neighborImpact(b,p,speed);
           }
         }
-        if(Math.hypot(b.vx,b.vz)<.14&&speed<.5&&Math.abs(b.wx)+Math.abs(b.wz)<.18)b.sleep+=dt;else b.sleep=0;
+        if(supported.stable&&Math.hypot(b.vx,b.vz)<.14&&speed<.5&&Math.hypot(b.wx,b.wy,b.wz)<.18)b.sleep+=dt;else b.sleep=0;
         if(b.sleep>.45) {
           this.settle(b);
           putBody(b);
@@ -280,7 +326,7 @@ export class BankPhysics {
       } else b.sleep=0;
       b.vx*=Math.exp(-dt*(b.role==='paper'?1.9:.16));b.vz*=Math.exp(-dt*(b.role==='paper'?1.9:.16));
     }
-    this.cohesion.resolveMovingContacts(priorBounds,priorSleep,grounded,dt);
+    this.cohesion.resolveMovingContacts(priorBounds,priorSleep,grounded,dt,priorGeometry);
     if(active)this.revision++;
     if(!this.collapsed&&this.nodes.filter(n=>n.state===2).length>=18) {
       this.collapsed=true;this.sim.collapsedCount++;this.sim.cheerUntil=this.sim.time+4;
@@ -289,10 +335,28 @@ export class BankPhysics {
       this.sim.lastCollapseBuilding=id;this.sim.chainTime=this.sim.time;
     }
   }
-  contactFriction(b,dt) {
-    b.vx*=Math.exp(-dt*12);b.vz*=Math.exp(-dt*12);
-    if(topples(b)&&b.role!=='paper'&&Math.abs(b.rx)<1.4)b.wx+=dt*.7;
-    else{b.wx*=Math.exp(-dt*9);b.wz*=Math.exp(-dt*9);}
+  contactFriction(b,dt,supported={stable:false,pivot:null}) {
+    const n=supported.normal??new THREE.Vector3(0,1,0),velocity=new THREE.Vector3(b.vx,b.vy,b.vz),tangent=velocity.clone().addScaledVector(n,-velocity.dot(n)),speed=tangent.length();
+    const friction=.55*Math.max(supported.impulse??0,12.5*n.y*dt);
+    if(speed>0){velocity.addScaledVector(tangent,-Math.min(1,friction/speed));b.vx=velocity.x;b.vy=velocity.y;b.vz=velocity.z;}
+    if(supported.balanced) {
+      // Finite static friction arrests rocking once the real contact patch
+      // carries the center of mass. Exponential damping alone leaves a thin
+      // pane repeatedly crossing between its two edges forever.
+      const patch=new THREE.Box3().setFromPoints(supported.hull).getSize(new THREE.Vector3()),extent=this.bounds(b).getSize(new THREE.Vector3());
+      const brake=(w,r,i)=>Math.sign(w)*Math.max(0,Math.abs(w)-12.5*.55*Math.max(.005,r)*dt/Math.max(.002,i));
+      b.wx=brake(b.wx,patch.z/2,(extent.y**2+extent.z**2)/12);
+      b.wz=brake(b.wz,patch.x/2,(extent.y**2+extent.x**2)/12);
+      b.wy=brake(b.wy,Math.hypot(patch.x,patch.z)/2,(extent.x**2+extent.z**2)/12);
+    }
+    else if(supported.pivot) {
+      const r=this.center(b).sub(supported.pivot),extent=this.bounds(b).getSize(new THREE.Vector3());
+      // Gravity about the nearest edge of the real support polygon tips an
+      // overhang. There is no role-specific motor or preferred Euler angle.
+      b.wx+=12.5*r.z*dt/Math.max(.02,(extent.y**2+extent.z**2)/12+r.y**2+r.z**2);
+      b.wz-=12.5*r.x*dt/Math.max(.02,(extent.y**2+extent.x**2)/12+r.y**2+r.x**2);
+      b.wx*=Math.exp(-dt*2);b.wz*=Math.exp(-dt*2);
+    }
     b.wy*=Math.exp(-dt*8);
   }
   settle(b) {
@@ -317,7 +381,7 @@ export class BankPhysics {
       const bodies=new Float64Array(this.bodies.length*B),nodes=new Float64Array(this.nodes.length*N);
       for(const b of this.bodies)for(let i=0;i<B;i++)bodies[b.id*B+i]=b[BODY_KEYS[i]];
       for(const n of this.nodes)for(let i=0;i<N;i++)nodes[n.id*N+i]=n[NODE_KEYS[i]];
-      this.snapshot={bodies,nodes,cohesion:this.cohesion.capture(),contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
+      this.snapshot={bodies,nodes,cohesion:this.cohesion.capture(),structure:this.structure.capture(),contacts:[...this.contacts],tonnage:this.tonnage,collapsed:this.collapsed};this.snapshotRevision=this.revision;
     }
     return this.snapshot;
   }
@@ -325,6 +389,7 @@ export class BankPhysics {
     for(const b of this.bodies)for(let i=0;i<B;i++)b[BODY_KEYS[i]]=state.bodies[b.id*B+i];
     for(const n of this.nodes)for(let i=0;i<N;i++)n[NODE_KEYS[i]]=state.nodes[n.id*N+i];
     this.cohesion.restore(state.cohesion);
+    this.structure.restore(state.structure);
     this.contacts=new Set(state.contacts);this.tonnage=state.tonnage;this.collapsed=state.collapsed;
     this.revision++;this.snapshot=state;this.snapshotRevision=this.revision;
   }

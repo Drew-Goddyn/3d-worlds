@@ -1,0 +1,95 @@
+{
+  "rawCaptures": "Local recording intermediates intentionally excluded from the packet and repository; hashes identify the input bytes used for these portable copies.",
+  "media": [
+    {
+      "file": "baseline-front.mp4",
+      "frames": 368,
+      "firstPTS": 0.0,
+      "lastPTS": 13.899,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "7d6db5fa1842d668fbb3b21a3a3b1a71ef2822dbc8e5e9e6dc202e8f77e295c9",
+      "rawCaptureSHA256": "5de9aacf60d61cdffc12e161589a2d87a7a84eb772740ab80fe3aeec88abed77",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "baseline-side.mp4",
+      "frames": 362,
+      "firstPTS": 0.0,
+      "lastPTS": 14.834,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "f1228763e2f6f60023e8c4aa39f24a7192e07e5fbf070696defa52baa2cb003c",
+      "rawCaptureSHA256": "800013997cf986a826319a4c26f065938825eaaa188b58d868ec537a63588ac7",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "baseline-clean-side.mp4",
+      "frames": 367,
+      "firstPTS": 0.0,
+      "lastPTS": 13.497,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "23f3871644a42b2df12a4d799579efdb993a86ba4a35c25393c145fa29077bc2",
+      "rawCaptureSHA256": "1ec86034065c16b793618b438827392c103ada044aa5421e00597654eae1480c",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "baseline-collapse.mp4",
+      "frames": 301,
+      "firstPTS": 0.0,
+      "lastPTS": 13.471,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "61c12769f85a8be478ef636ccbcfd516aedbad2c25eee71cb6ebb2da0f2be3ae",
+      "rawCaptureSHA256": "75e0509b1ab5fb90f71b40b041e723e3f151f7851cd309013db888cfba6d99d7",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "final-front.mp4",
+      "frames": 237,
+      "firstPTS": 0.0,
+      "lastPTS": 13.547,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "3dc11c5bf6f18291a9f29090b625496955d56d0a8e63cb50efff175b7b4c6837",
+      "rawCaptureSHA256": "0a69b68db0a99d72eae7c76f0fc6085ef5bb76b15d47c38a7c09144073abefca",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "final-side.mp4",
+      "frames": 210,
+      "firstPTS": 0.0,
+      "lastPTS": 13.469,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "8ba6bbf022f68f321cfa39e98ba203c0e577f9fe3db7da5135a3bd9472279ada",
+      "rawCaptureSHA256": "385d58c01046bbf3c8b5c5a8a18a972a65e3805b3e63401f6618485ddb17c46b",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "final-clean-side.mp4",
+      "frames": 256,
+      "firstPTS": 0.0,
+      "lastPTS": 13.483,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "33b0c8a5ae4af51822b0f9106e1428f29540af3b6e7f098d8162b9cc751218ee",
+      "rawCaptureSHA256": "50ab8ca4b4c4a940beeb36bff1b020eb74e23c4a40a6a4408596aed6d192c18a",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "final-collapse.mp4",
+      "frames": 198,
+      "firstPTS": 0.0,
+      "lastPTS": 14.08,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "824f1345477bcf46dd284e41deecee16970d00379cd1e998544aff76e042f180",
+      "rawCaptureSHA256": "7e0ffa6ecc4a804794522dc94d7595356ddb054a7fefc755c6ff9747d3505d3d",
+      "strictDecode": "pass; original demux time base retained in null output"
+    },
+    {
+      "file": "final-time-controls.mp4",
+      "frames": 569,
+      "firstPTS": 0.0,
+      "lastPTS": 29.201,
+      "everyFrameTimestampPreserved": true,
+      "mp4SHA256": "6bfd077f0182647912a5e20c566960f33fe31435e0cab260554a3f61f650625e",
+      "rawCaptureSHA256": "3b331a66f84bcb4906bbcc106e0c30035501c10ec4289651b7525d4b380e6990",
+      "strictDecode": "pass; original demux time base retained in null output"
+    }
+  ]
+}

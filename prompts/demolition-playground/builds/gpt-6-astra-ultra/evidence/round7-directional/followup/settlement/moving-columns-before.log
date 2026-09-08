@@ -1,0 +1,27 @@
+✖ two falling columns exchange momentum instead of passing through one another before they settle (11.029416ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 225.362917
+
+✖ failing tests:
+
+test at prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:133:1
+✖ two falling columns exchange momentum instead of passing through one another before they settle (11.029416ms)
+  AssertionError [ERR_ASSERTION]: real column cores cannot occupy the same vertical interval
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:139:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

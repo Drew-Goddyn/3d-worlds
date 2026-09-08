@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { surfaceContacts, contactView, contactVector } from './bank-contact.js';
 
 // Finite compound sections assembled from the bank's actual retained pieces.
 // This is a bank-local rigid approximation: supported masonry hinges around
@@ -96,31 +97,66 @@ export class BankCohesion {
     for(let x=Math.floor(bounds.min.x/3);x<=Math.floor(bounds.max.x/3);x++)for(let z=Math.floor(bounds.min.z/3);z<=Math.floor(bounds.max.z/3);z++)for(const entry of grid.get(x+','+z)??[])entries.add(entry);
     return entries;
   }
-  resolveMovingContacts(prior,priorSleep,grounded,dt) {
+  resolveMovingContacts(prior,priorSleep,grounded,dt,priorGeometry=new Map()) {
     const bank=this.bank,grid=new Map(),bounds=new Map();
-    const moving=bank.bodies.filter(b=>b.state===1&&!['paper','glass'].includes(b.role));
-    if(!moving.some(b=>b.cluster>=0))return;
-    // This response owns the new section/piece boundary. Individual rubble
-    // retains the application's existing ground, resting-rubble and furnishing
-    // contact model; it is not run through a second free-piece solver.
-    for(const b of moving) {
+    const moving=bank.bodies.filter(b=>(b.state===1||priorGeometry.has(b.id))&&b.role!=='paper');
+    // Falling loose pieces also collide. Waiting until one piece sleeps lets
+    // two shafts pass through each other and find a ledge inside the other.
+    for(const b of bank.bodies) {
+      if(b.role==='paper')continue;
       const now=bank.bounds(b);bounds.set(b.id,now);const swept=now.clone().union(prior.get(b.id)??now),entry={b};
       for(let x=Math.floor(swept.min.x/3);x<=Math.floor(swept.max.x/3);x++)for(let z=Math.floor(swept.min.z/3);z<=Math.floor(swept.max.z/3);z++){const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);}
     }
     const pairs=new Set();
-    const mass=b=>b.cluster<0?b.mass:bank.bodies.reduce((sum,p)=>sum+(p.cluster===b.cluster?p.mass:0),0);
-    const move=(b,axis,delta)=>{if(b.cluster<0)b[axis]+=delta;else{this.sections[b.cluster][axis]+=delta;for(const p of bank.bodies)if(p.cluster===b.cluster)p[axis]+=delta;}};
-    const impulse=(b,axis,dv)=>{if(b.cluster<0)b['v'+axis]+=dv;else{this.sections[b.cluster]['v'+axis]+=dv;for(const p of bank.bodies)if(p.cluster===b.cluster)p['v'+axis]+=dv;}};
+    let groups;
+    const rebuildGroups=()=>{
+      groups=new Map();for(const b of bank.bodies)if(b.cluster>=0){let g=groups.get(b.cluster);if(!g)groups.set(b.cluster,g={members:[],mass:0});g.members.push(b);g.mass+=b.mass;}
+    };
+    rebuildGroups();
+    const mass=b=>b.cluster<0?b.mass:groups.get(b.cluster).mass;
+    const move=(b,axis,delta)=>{if(b.cluster<0)b[axis]+=delta;else{this.sections[b.cluster][axis]+=delta;for(const p of groups.get(b.cluster).members)p[axis]+=delta;}};
+    const impulse=(b,axis,dv)=>{if(b.cluster<0)b['v'+axis]+=dv;else{this.sections[b.cluster]['v'+axis]+=dv;for(const p of groups.get(b.cluster).members)p['v'+axis]+=dv;}};
     // Resolve lower supports first, allowing actual grounded contacts to carry
     // a quiet stack without treating two freely falling pieces as grounded.
     moving.sort((a,b)=>bounds.get(a.id).min.y-bounds.get(b.id).min.y||a.id-b.id);
     for(const first of moving) {
       const swept=bank.bounds(first).union(prior.get(first.id)??bounds.get(first.id));
       for(const {b:second} of this.candidates(grid,swept)) {
-        if(first===second||first.cluster<0&&second.cluster<0||first.cluster>=0&&first.cluster===second.cluster)continue;
+        if(first===second||first.cluster>=0&&first.cluster===second.cluster)continue;
         const key=Math.min(first.id,second.id)+':'+Math.max(first.id,second.id);if(pairs.has(key))continue;pairs.add(key);
         const a=bank.bounds(first),b=bank.bounds(second);
-        if(!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
+        if(first.cluster<0&&second.cluster<0) {
+          if(!a.clone().union(prior.get(first.id)??a).intersectsBox(b.clone().union(prior.get(second.id)??b)))continue;
+          let hit=null;
+          for(const [incoming,under] of [[first,second],[second,first]]) {
+            if(under.role==='glass')continue;
+            const old=priorGeometry.get(incoming.id)??{meshes:bank.solidMeshes(incoming),matrix:bank.bodyMatrix(incoming)},oldUnder=priorGeometry.get(under.id)??{meshes:bank.solidMeshes(under),matrix:bank.bodyMatrix(under)};
+            // Evaluate the incoming material's previous position relative to
+            // the other moving solid, including the support's rotation.
+            const relative=bank.bodyMatrix(under).multiply(oldUnder.matrix.clone().invert());
+            const parts=bank.solidMeshes(incoming),supports=bank.solidMeshes(under);
+            for(let i=0;i<parts.length;i++) {
+              const previousVertices=old.meshes[i].vertices.map(p=>p.clone().applyMatrix4(relative)),sweptPart=parts[i].box.clone().union(new THREE.Box3().setFromPoints(previousVertices));
+              for(const support of supports) {
+                if(!sweptPart.intersectsBox(support.box))continue;
+                for(const axis of ['y','x','z']) {
+                  const previous={vertices:previousVertices.map(p=>contactVector(p,axis))};
+                  for(const c of surfaceContacts(contactView(parts[i],axis),contactView(support,axis),previous))if(c.depth>1e-8&&(!hit||c.fraction<hit.fraction))hit={...c,normal:contactVector(c.normal,axis,true),point:contactVector(c.point,axis,true),axis,incoming,under};
+                }
+              }
+            }
+          }
+          if(!hit)continue;
+          const {incoming,under,depth,normal,axis}=hit;
+          const inverse=b=>b.fixed||b.state===0||b.state===2||axis==='y'&&grounded.has(b.id)?0:1/b.mass,ia=inverse(incoming),ib=inverse(under);if(!ia&&!ib)continue;
+          incoming[axis]+=depth*ia/(ia+ib);if(ib)under[axis]-=depth*ib/(ia+ib);
+          const relative=(under.vx-incoming.vx)*normal.x+(under.vy-incoming.vy)*normal.y+(under.vz-incoming.vz)*normal.z,j=Math.max(0,relative)*1.04/(ia+ib);
+          for(const axis of ['x','y','z']){incoming['v'+axis]+=normal[axis]*j*ia;if(ib)under['v'+axis]-=normal[axis]*j*ib;}
+          if(ia){incoming.state=1;incoming.sleep=0;}if(ib){under.state=1;under.sleep=0;}
+          bank.revision++;continue;
+        }
+        if(first.state!==1||second.state!==1||!a.intersectsBox(b)||!bank.solidContact(first,second))continue;
+        if(first.role==='glass'||second.role==='glass')continue;
         const pa=prior.get(first.id)??a,pb=prior.get(second.id)??b;
         let incoming,under,axis,depth;
         for(const dim of ['y','x','z']) {
@@ -138,11 +174,14 @@ export class BankCohesion {
           bank.sim._emit?.('contact',impact,{material:bank.eventMaterial(incoming),mass:mi,speed:relative,power:Math.min(180,relative*15)});
           const ci=incoming.cluster;if(ci>=0)this.fracture(ci,impact,relative);
           const cu=under.cluster;if(cu>=0)this.fracture(cu,impact,relative);
+          if(ci>=0||cu>=0)rebuildGroups();
         }
         if(fixedUnder&&incoming.cluster<0) {
           bank.contactFriction(incoming,dt);
           if(Math.abs(incoming.vy)<.5)grounded.add(incoming.id);
-          if(Math.hypot(incoming.vx,incoming.vz)<.14&&Math.abs(incoming.vy)<.5&&Math.abs(incoming.wx)+Math.abs(incoming.wz)<.18){incoming.sleep=(priorSleep.get(incoming.id)??0)+dt;if(incoming.sleep>.45)bank.settle(incoming);}
+          // Individual settling is decided by the next free-piece step's real
+          // support polygon. A section's broad contact cannot certify balance.
+          incoming.sleep=0;
         }
         bank.revision++;
       }
@@ -231,7 +270,7 @@ export class BankCohesion {
         // retains momentum and may break at another real contact next step.
         for(const b of members){const near=bank.bounds(b,new THREE.Box3()).distanceToPoint(impact)<1.45+Math.min(1,speed*.06);if(near){b['v'+axis]*=.12;for(const a of ['x','y','z'])if(a!==axis)b['v'+a]*=.7;}}
         this.fracture(id,impact,speed);
-        if(hit.under?.state===0&&!hit.under.fixed&&speed>2.5)bank.damage(impact,Math.min(115,speed*members.reduce((m,b)=>m+b.mass,0)*.45),new THREE.Vector3(s.vx*.1,-.5,s.vz*.1),false);
+        if(hit.under?.state===0&&!hit.under.fixed&&speed>2.5)bank.damageContact(hit.under,Math.min(115,speed*members.reduce((m,b)=>m+b.mass,0)*.45),new THREE.Vector3(s.vx*.1,-.5,s.vz*.1));
         // Low energy contact still separates masonry into resting chunks, so
         // the legacy piece contact solver owns final settlement and scoring.
         if(speed<2.5)for(const b of members)if(b.cluster>=0){const cluster=b.cluster;this.sections[cluster].state=0;for(const p of bank.bodies)if(p.cluster===cluster)p.cluster=-1;}

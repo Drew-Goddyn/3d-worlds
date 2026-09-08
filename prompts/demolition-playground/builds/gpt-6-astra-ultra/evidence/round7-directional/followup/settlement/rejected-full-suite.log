@@ -1,0 +1,118 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ the court is an actual full-height void and galleries retain occupied depth (18042.923083ms)
+✔ floor fracture plates tile their complete load-bearing bay without overlap or lost material (1543.802166ms)
+✔ a removed vault rib releases its own glazing but leaves remote supported roof intact (1400.740125ms)
+✔ roof attachment failure, retained ribs and new past actions restore exact independent futures (102908.417584ms)
+✔ a charge belongs to the selected roof pane and to settled rubble on a later intervention (1178637.018917ms)
+✔ street-level roof debris remains chargeable outside its original storey volume (689972.0925ms)
+✔ a charge keeps its selected piece and local point when branching an interpolated replay (7073.320417ms)
+
+Interrupted while running:
+
+⚠ tests/bank.test.mjs (tests/bank.test.mjs:1:1)
+⚠ tests/cohesion.test.mjs (tests/cohesion.test.mjs:1:1)
+⚠ tests/contact-surfaces.test.mjs (tests/contact-surfaces.test.mjs:1:1)
+⚠ tests/contacts.test.mjs (tests/contacts.test.mjs:1:1)
+⚠ tests/event.test.mjs (tests/event.test.mjs:1:1)
+⚠ tests/hall.test.mjs (tests/hall.test.mjs:1:1)
+⚠ tests/history.test.mjs (tests/history.test.mjs:1:1)
+⚠ tests/simulation.test.mjs (tests/simulation.test.mjs:1:1)
+⚠ tests/structure.test.mjs (tests/structure.test.mjs:1:1)
+⚠ tests/support-followup.test.mjs (tests/support-followup.test.mjs:1:1)
+⚠ tests/verification.test.mjs (tests/verification.test.mjs:1:1)
+✖ tests/bank.test.mjs (3898536.063292ms)
+✖ ordinary charge strength carries connected architecture through a measurable fall before contact breakup (1763400.471959ms)
+✔ a new charge on moving connected construction splits the current remnant and restores its exact future (134291.024167ms)
+✔ compound motion hands a fractured piece to individual motion only on the following step (514.366667ms)
+✔ optimized contact faces preserve every rendered surface, including concave fracture edges and openings (812.32225ms)
+✔ collision bounds track rendered asymmetric bank pieces through arbitrary world rotations (1100.471625ms)
+✔ loose masonry transfers impact into a connected falling floor instead of crossing it (38.566375ms)
+✔ a connected floor edge collides across a spatial-cell boundary (22.339375ms)
+✔ a connected falling floor transfers impact to loose airborne rubble (2.322625ms)
+✔ two connected sections exchange impact without crossing (139.154458ms)
+✔ falling masonry damages the member it strikes without a blast through neighboring air (1.821792ms)
+✔ event aggregation cannot mutate an already recorded history frame (4.467334ms)
+✔ a dust birth preceding the oldest retained frame still renders and expires by simulation time (24.699667ms)
+✔ interpolated history births do not appear before their recorded time (0.26675ms)
+✔ discarded future events cannot leak into restored alternate futures or pristine rebuild (1.544667ms)
+✔ presentation admission and expiry bound sustained effects without evicting active births (135.4665ms)
+✔ retained normal replay reproduces forward audio choices while pause seek and resume suppress backlog (0.74025ms)
+✔ slow motion and reverse use explicit crossings and stop on every time-policy transition (0.203417ms)
+✔ procedural material choices are deterministic, distinct, finite and bounded with headroom (57.2655ms)
+✔ the intact hall contains supported furnishings and pre-existing triangular glazing (15656.124708ms)
+✔ a window wound releases nearby triangular shards without broadcasting damage into the hall (1411.735541ms)
+✔ a falling architectural fragment contacts a writing table and releases only its loose articles (17070.398666ms)
+✔ ball contact uses current solid members and passes through a cleared window (1462.890792ms)
+✔ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (57307.743417ms)
+✔ a fragment passing between table legs cannot impart a contact impulse (1912.581917ms)
+✔ a ledger that has settled on a table falls when the table moves away (1119164.179041ms)
+✔ settled masonry falls when its furniture support moves away (41915.629125ms)
+✔ the full-size ball can contact a writing table below the intact ceiling (247.362ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (5.065291ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.686208ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (353.185042ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (611.635125ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (866.041375ms)
+✔ slow motion advances exactly the supplied simulation time (8.129542ms)
+✔ a falling assembly transfers impact into an adjacent building (287.252042ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (388.875166ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (5.583459ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (104.988125ms)
+✔ intact bearings and the hinged vault carry their actual gravity load without a hidden pristine anchor (60536.537709ms)
+✔ equal front and side cuts carry upper construction on different support-driven paths, including a perturbed placement (1266744.815541ms)
+✔ a loaded vault, broken connections and a later cut resume exactly in a fresh simulation without mutating the past (531037.912042ms)
+✔ supported construction transfers a contact impulse to a falling section owner without stretching its members (36.427792ms)
+✔ a roof-only cut wakes the surviving half-arch through its lost crown connection (8245.494ms)
+✔ a heavy contact damages the struck block without releasing the entire supported receiving bay (7.858834ms)
+✔ court piers cannot borrow a distant surviving footing after their actual connecting construction is removed (32978.11425ms)
+✔ settled pieces need a path to ground and cannot keep each other asleep through a tolerance cycle (18.444375ms)
+✔ cached collision geometry follows an in-step carrier correction, release and fresh restoration (0.69975ms)
+✔ glass bridges real narrow seams away from its center and wakes when they are removed (3.082083ms)
+✔ the empty center of a window frame cannot hold a settled piece aloft (1.28525ms)
+✔ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (4.059833ms)
+✔ a fallen roof pane lies on its visible face instead of rotating upright and climbing on its bounds (140.994708ms)
+✔ the empty space above a sloping member cannot hold falling rubble (5.65525ms)
+✔ a stationary piece cannot step up onto an overlapping ledge above its current foot (1.686709ms)
+✔ a fast small fragment hits a thin ledge even when it crosses an entire height cell in one step (0.342ms)
+✔ loose rubble slides off a steep real face instead of sleeping on an impossible friction hold (280.060333ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (9.893167ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (80.544417ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (202.951083ms)
+✔ six-charge limit and all staged detonation state survive rewind (181.23525ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (857.769ms)
+ℹ tests 67
+ℹ suites 0
+ℹ pass 65
+ℹ fail 1
+ℹ cancelled 1
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3898564.684416
+
+✖ failing tests:
+
+test at tests/bank.test.mjs:1:1
+✖ tests/bank.test.mjs (3898536.063292ms)
+  'Promise resolution is still pending but the event loop has already resolved'
+
+test at tests/cohesion.test.mjs:13:1
+✖ ordinary charge strength carries connected architecture through a measurable fall before contact breakup (1763400.471959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  41 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/cohesion.test.mjs:23:146)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 41,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

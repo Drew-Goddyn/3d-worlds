@@ -7,7 +7,7 @@ const {BankPhysics}=await import('../src/bank-physics.js');
 function fixture(specs) {
   const body=(s,id)=>{const size=new THREE.Vector3(...s.size),bounds=new THREE.Box3(size.clone().multiplyScalar(-.5),size.clone().multiplyScalar(.5));return {id,node:0,role:s.role??'stone',origin:new THREE.Vector3(...s.pos),mass:1,size,bounds,parts:[{collisionBounds:bounds.clone()}],fixed:s.fixed??false,cohesion:s.group??'section'};};
   const recipe={building:{x:0,z:0,id:0},batches:[],nodes:[{id:0,x:0,z:0,y:0,level:0,ix:0,iz:0,bodies:specs.map((_,i)=>i),supports:[],neighbors:[]}],bodies:specs.map(body)};
-  const sim={floors:[],buildingStates:[],time:0,tonnage:0,random:()=>.5,_emitDust(){},_affectProps(){}};
+  const sim={floors:[],buildingStates:[],time:0,tonnage:0,random:()=>.5,_emitDust(){},_spawnDebris(){},_affectProps(){}};
   const bank=new BankPhysics(recipe,sim);sim.bank=bank;bank.nodes[0].state=2;
   for(const b of bank.bodies)if(!b.fixed){b.state=1;b.vx=b.vy=b.vz=b.wx=b.wy=b.wz=0;}
   return bank;
@@ -42,4 +42,15 @@ for(const lowerSection of [false,true])test(lowerSection?'two connected sections
     if(struck.vy < -12.5*(i+1)/60-1)impact=true; // faster than gravity-only free fall
   }
   assert.ok(impact,'the receiving construction must take the contact impulse');
+});
+
+test('falling masonry damages the member it strikes without a blast through neighboring air',()=>{
+  const bank=fixture([{pos:[0,1.2,0],size:[.6,2,.6]},{pos:[1.2,1.2,0],size:[.6,2,.6]},{pos:[0,3.2,0],size:[.3,.3,.3],group:'loose'}]);
+  // Two independently supported members and one incoming piece. Their carrier
+  // is already inactive; this fixture isolates the retained-piece contact path.
+  const [struck,neighbor,incoming]=bank.bodies;struck.state=neighbor.state=0;incoming.vy=-8;
+  for(let i=0;i<9;i++){bank.sim.time+=1/60;bank.step(1/60);}
+  assert.ok(struck.hp<1,'the actual collision must damage its receiving member');
+  assert.equal(neighbor.hp,1,'a nearby member with no contact cannot take radial collision damage');
+  assert.equal(neighbor.state,0);
 });

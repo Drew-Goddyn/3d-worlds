@@ -1,0 +1,238 @@
+{
+  "baseline": "98633bf46e4e5c2ebd8a2ee02ad979bd9eb815fa",
+  "runtimeCommit": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "productStatus": "REJECTED; unfinished; do not merge",
+  "kind": "evidence only; manifest excludes its own hash",
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "bytes": 8381,
+      "sha256": "146430604e0e7b4a566ea7b18624de6287096044bb0c5933a6d90eeb509cd2f6"
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 4223,
+      "sha256": "f3fbb38547e696aa76ef5df749e7b0795817af8adc186c8013992cfcd517b682"
+    },
+    {
+      "path": "before-left.mp4",
+      "bytes": 1038908,
+      "sha256": "32fc5dd2be5e378fbc873f265169e30cf699ac4ecc15a5e0f6fba45b76e5ccef"
+    },
+    {
+      "path": "current-left.mp4",
+      "bytes": 904150,
+      "sha256": "116d649510f6c34972afec66a75e93e9ece61a8dc0203285c84f23bc57a61d15"
+    },
+    {
+      "path": "current-front.mp4",
+      "bytes": 943690,
+      "sha256": "17d0f043bdb4f42723de41549d1b3a15b6bde0e9c4fbb83a3e86da54334a6f73"
+    },
+    {
+      "path": "current-side.mp4",
+      "bytes": 913947,
+      "sha256": "f58cbf6336f09f5a0f9fa4bcb9678608e23d180e55b1430d2ac1610a51e4e13c"
+    },
+    {
+      "path": "support-before.png",
+      "bytes": 892681,
+      "sha256": "2b8849445f5e67060ce2d4a75a1f123eba43e07ef05e07d60db731ee46bb0b4d"
+    },
+    {
+      "path": "current-left.png",
+      "bytes": 921568,
+      "sha256": "475f400252f147245de19603ed4f8b28a519bab6eaf9d424a0bd124d6024a618"
+    },
+    {
+      "path": "current-side-25s.png",
+      "bytes": 815600,
+      "sha256": "c37ca66f7377704fddd753d73e9064b6f416bfaebe806516917fe2050e9e02a8"
+    },
+    {
+      "path": "current-support-angle.png",
+      "bytes": 501579,
+      "sha256": "0c182b67ae3ac7c85d8b7104d62e1d5f90c83bc99a3f9488c191fa109e980bff"
+    },
+    {
+      "path": "current-rebuilt.png",
+      "bytes": 340427,
+      "sha256": "822701081dc5ed01f86ed3e8afc3cd882cd93698fa47975795595403c59a4da2"
+    },
+    {
+      "path": "before-recordings.json",
+      "bytes": 47541,
+      "sha256": "054ad0f3789aa5f427bec1bd5d05a43fa1df19902e448ac66f3d2a03b9a9e750"
+    },
+    {
+      "path": "current-recordings.json",
+      "bytes": 29167,
+      "sha256": "dc053629d433672614035cff2f5f88a8d4e09ea558e0bfa6074ce8a587aae07b"
+    },
+    {
+      "path": "current-native-inspection.json",
+      "bytes": 4233,
+      "sha256": "1d29dcf4e4dc120c00e3b30230c947752a29746520f024eb51372172c3cb56c4"
+    },
+    {
+      "path": "current-native-penetration.json",
+      "bytes": 6000,
+      "sha256": "50ee1b8d2cb0f739bc09f490520d21db0f4e85df30a4f83f5ce7c95a549fe731"
+    },
+    {
+      "path": "independent-review.json",
+      "bytes": 6010,
+      "sha256": "d79c4fd7717a68f51a0412e42bd5d6c32bc630fd608362d62bb5fba432f30d3e"
+    },
+    {
+      "path": "current-focused.log",
+      "bytes": 2063,
+      "sha256": "9558f104350d136ef7f70c5c943848d611f95c249a1463ca0ac157a30cfacd87"
+    },
+    {
+      "path": "current-diagonal-failures.json",
+      "bytes": 4449,
+      "sha256": "7f4b058e146f2706a6986a4ed7cc3dcc4f935189f62bffb9138b60d7e078af27"
+    },
+    {
+      "path": "current-diagonal-failures.log",
+      "bytes": 4450,
+      "sha256": "0516cfec3e3f417351d876d1aec68434be94e51df741f4c3de5c52605b83a7de"
+    },
+    {
+      "path": "current-restoration.json",
+      "bytes": 601,
+      "sha256": "67df033283ff0898537f1f0742403cac1737dbda8abda17e9aef6967621ab418"
+    },
+    {
+      "path": "continuous-experiment.json",
+      "bytes": 1213,
+      "sha256": "453318a4ee34b8131251760943114a8ce85bdd71d65d71b14d35578d92ef0f8e"
+    },
+    {
+      "path": "continuous-experiment-selected.log",
+      "bytes": 4722,
+      "sha256": "0ad5c8956061aadecb123d0ee6fefe3867354c6ef9454e56255756f6e1a9aea0"
+    },
+    {
+      "path": "measurements.json",
+      "bytes": 129132,
+      "sha256": "6c3bc555829488d7a8ad055af0428a4909832bf287f8a439e7d8efa74e2ae85e"
+    },
+    {
+      "path": "media-check.json",
+      "bytes": 1869,
+      "sha256": "7a80a9a644f58f6e6524b1444bcef8547af710a257ce09c622f4d60b024e5792"
+    }
+  ],
+  "references": [
+    {
+      "from": "REVIEW.md",
+      "to": "viewer.html"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "independent-review.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "current-focused.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "current-diagonal-failures.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "current-native-penetration.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "continuous-experiment.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "continuous-experiment-selected.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "before-recordings.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "current-recordings.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "current-native-inspection.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "current-restoration.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "measurements.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "media-check.json"
+    },
+    {
+      "from": "viewer.html",
+      "to": "before-left.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-left.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "support-before.png"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-left.png"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-front.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-side.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-side-25s.png"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-support-angle.png"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-native-penetration.json"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-native-inspection.json"
+    },
+    {
+      "from": "viewer.html",
+      "to": "current-rebuilt.png"
+    },
+    {
+      "from": "viewer.html",
+      "to": "REVIEW.md"
+    },
+    {
+      "from": "viewer.html",
+      "to": "independent-review.json"
+    },
+    {
+      "from": "viewer.html",
+      "to": "measurements.json"
+    }
+  ]
+}

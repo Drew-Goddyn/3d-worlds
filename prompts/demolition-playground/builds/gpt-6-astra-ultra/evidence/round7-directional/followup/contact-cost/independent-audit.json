@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 1,
+  "auditedAtUtc": "2026-09-08T05:39:29.403580+00:00",
+  "verdict": "DIAGNOSTIC_EVIDENCE_VALID_WITH_LIMITATIONS",
+  "scope": "Independent read-only verification of existing diagnostic evidence. No product fixes, tests, browser campaign, acceptance or performance certification.",
+  "source": {
+    "head": "a8c62e0aa72d6fb3d83b66891e5770f1448a7039",
+    "branch": "round7/astra-shape-the-fall",
+    "workingTreeCleanAtAuditStart": true,
+    "runtimeDiffAgainstHeadEmpty": true,
+    "evidenceEditsInProgressAtAuditEnd": [
+      "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/settlement/continuation.json"
+    ],
+    "relevantModules": [
+      {
+        "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/main.js",
+        "sha256": "ba6672f7767d3d8a1d05bd334fea8e24084665f6c2e8a8929f20e10acc113cf5",
+        "matchesHead": true,
+        "servedBytesMatchedDuringAudit": true
+      },
+      {
+        "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/simulation.js",
+        "sha256": "8028ef24835212c34d9cfcd389fd7f9c575cc3cfca0e3db9ef0d6d99e6fd855b",
+        "matchesHead": true,
+        "servedBytesMatchedDuringAudit": true
+      },
+      {
+        "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js",
+        "sha256": "062578b0bd658d6cb9b71dad9b9c4044bdaf162276f6786f967a7cad73e17dfb",
+        "matchesHead": true,
+        "servedBytesMatchedDuringAudit": true
+      },
+      {
+        "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js",
+        "sha256": "ce66ec524b99734259657a10a22d9547fe7b9293f2c794502353ca60305a6880",
+        "matchesHead": true,
+        "servedBytesMatchedDuringAudit": true
+      },
+      {
+        "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-contact.js",
+        "sha256": "9606111fb3439555a58edc97169ebf44628f43616dfc7155408dda7e690b197e",
+        "matchesHead": true,
+        "servedBytesMatchedDuringAudit": true
+      },
+      {
+        "path": "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-structure.js",
+        "sha256": "a65cdc874f1477dde3c26da32c464cf7159c3299053685e8594f91208a7a0390",
+        "matchesHead": true,
+        "servedBytesMatchedDuringAudit": true
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "file": "single-timing.json",
+      "sha256": "b62635bbb5dcbcef38a14c5359a697a24c3da0b88f88e3bd4435f63c4d9f7fd6"
+    },
+    {
+      "file": "single-profiled-timing.json",
+      "sha256": "b1ed4caf99deb2bdb0ce14eff0e746415f14d2d793517ea351cc5e5d936837b9"
+    },
+    {
+      "file": "profile-summary.json",
+      "sha256": "9559023982a41e0c7a81999cd9c4b20a465bff785298b66dcfff86c6df849847"
+    },
+    {
+      "file": "single-profiled-profile.json",
+      "sha256": "02521fda92414d0e55bad7dfea8616adfe50811dd773d312fab99973dcc08a89"
+    },
+    {
+      "file": "environment.json",
+      "sha256": "4e4f7c3f3b44ec384e661379b0984dc45ef773ef1cec6132ef22cc94d5cab4f2"
+    },
+    {
+      "file": "astra-measure-contact-cost.py",
+      "sourceLocation": "sibling of evidence directory at audit time",
+      "sha256": "ad0e1ecd6c5d7f3a83ef8e4848f9db93fe8a0abbd9f82d0baf45c9018ffa6da5"
+    }
+  ],
+  "checks": {
+    "timingWindows": [
+      {
+        "evidence": "single-timing.json",
+        "window": "idle",
+        "windowMs": [
+          1000,
+          9000
+        ],
+        "recomputed": {
+          "frames": 443,
+          "meanMs": 18.058013544018056,
+          "fpsEquivalent": 55.37707664037402,
+          "p95Ms": 33.29999999999927,
+          "maxMs": 33.400000000000546
+        },
+        "matchesExactly": true
+      },
+      {
+        "evidence": "single-timing.json",
+        "window": "early",
+        "windowMs": [
+          500,
+          4000
+        ],
+        "recomputed": {
+          "frames": 17,
+          "meanMs": 208.8176470588235,
+          "fpsEquivalent": 4.788867292036396,
+          "p95Ms": 249.89999999999964,
+          "maxMs": 249.89999999999964
+        },
+        "matchesExactly": true
+      },
+      {
+        "evidence": "single-timing.json",
+        "window": "lateBusy",
+        "windowMs": [
+          4000,
+          10000
+        ],
+        "recomputed": {
+          "frames": 27,
+          "meanMs": 217.27407407407412,
+          "fpsEquivalent": 4.602481930996863,
+          "p95Ms": 333.2999999999993,
+          "maxMs": 366.6000000000022
+        },
+        "matchesExactly": true
+      },
+      {
+        "evidence": "single-profiled-timing.json",
+        "window": "idle",
+        "windowMs": [
+          1000,
+          9000
+        ],
+        "recomputed": {
+          "frames": 436,
+          "meanMs": 18.347935779816513,
+          "fpsEquivalent": 54.5020438266435,
+          "p95Ms": 33.30000000000018,
+          "maxMs": 66.70000000000073
+        },
+        "matchesExactly": true
+      },
+      {
+        "evidence": "single-profiled-timing.json",
+        "window": "early",
+        "windowMs": [
+          500,
+          4000
+        ],
+        "recomputed": {
+          "frames": 17,
+          "meanMs": 203.91176470588235,
+          "fpsEquivalent": 4.904081927015722,
+          "p95Ms": 283.2999999999993,
+          "maxMs": 283.2999999999993
+        },
+        "matchesExactly": true
+      },
+      {
+        "evidence": "single-profiled-timing.json",
+        "window": "lateBusy",
+        "windowMs": [
+          4000,
+          10000
+        ],
+        "recomputed": {
+          "frames": 25,
+          "meanMs": 237.99199999999996,
+          "fpsEquivalent": 4.201821909980168,
+          "p95Ms": 266.7000000000007,
+          "maxMs": 266.7999999999993
+        },
+        "matchesExactly": true
+      }
+    ],
+    "unprofiledUnrecorded": true,
+    "singlePlacedCharge": true,
+    "unprofiledAdvancement": {
+      "wallSeconds": 10.19310000000596,
+      "simulationSeconds": 3.060000000000094,
+      "simulationRateRelativeToWall": 0.30020307855297257,
+      "apparentLostWallTimePercent": 69.97969214470274
+    },
+    "subsequentFrameAdvancementMatchesSource60MsCap": [
+      {
+        "evidence": "single-timing.json",
+        "phase": "idle",
+        "maxSimAdvanceDifferenceFrom60MsCapSeconds": 4.163336342344337e-15,
+        "negativeInitialCallbacks": 1
+      },
+      {
+        "evidence": "single-timing.json",
+        "phase": "active",
+        "maxSimAdvanceDifferenceFrom60MsCapSeconds": 2.7200464103316335e-15,
+        "negativeInitialCallbacks": 1
+      },
+      {
+        "evidence": "single-profiled-timing.json",
+        "phase": "idle",
+        "maxSimAdvanceDifferenceFrom60MsCapSeconds": 4.760081218080359e-15,
+        "negativeInitialCallbacks": 1
+      },
+      {
+        "evidence": "single-profiled-timing.json",
+        "phase": "active",
+        "maxSimAdvanceDifferenceFrom60MsCapSeconds": 4.052314039881821e-15,
+        "negativeInitialCallbacks": 1
+      }
+    ],
+    "lastTimedBankSample": {
+      "bank": {
+        "bays": 27,
+        "connectedPieces": 50,
+        "failedBays": 2,
+        "loose": 240,
+        "movingSections": 2,
+        "retained": 1865,
+        "settled": 7
+      },
+      "sim": 3.000000000000096,
+      "wall": 9809.800000005962
+    },
+    "profile": {
+      "profiles": 1,
+      "samples": 47128,
+      "selfRowsVerified": 30,
+      "inclusiveRowsVerified": 30,
+      "rawTraceHashVerified": true,
+      "traceSpanSeconds": 12.710775,
+      "method": "Unweighted stack-sample counts grouped by URL and function name; inclusive ancestors deduplicated once per function per sample. Inclusive rows overlap and must not be summed. Percentages are not wall-time or GPU shares.",
+      "bankPhysicsInclusivePercent": 88.05381089797997,
+      "movingContactsInclusivePercent": 39.25267356985232,
+      "structureStepInclusivePercent": 21.85749448310983
+    },
+    "environment": {
+      "hardwareAndLogicalCpuCountMatchCurrentHost": true,
+      "recordedLoadAverages": [
+        14.81,
+        12.23,
+        8.64
+      ],
+      "historicalProcessFlagsIndependentlyReconstructable": false,
+      "browser": {
+        "audio": false,
+        "dpr": 1,
+        "quality": "high",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+        "viewport": [
+          1440,
+          900
+        ]
+      }
+    },
+    "helper": {
+      "pythonSyntaxValid": true,
+      "input": "The application camera-view hook aims the camera. Charge placement uses projected screen coordinates with agent-browser mouse move/down/up; agent-browser click selects charges and detonates.",
+      "observation": "Rendering wrapper forwards original arguments and retains existing simulation reference. A requestAnimationFrame observer records timestamps, cursor and bank stats. No physics-state injection or video recording in unprofiled timing.",
+      "reproductionRequirements": [
+        "Run from verified repository root; recorded commit comes from process working directory.",
+        "Start existing Astra server with PORT=4184.",
+        "agent-browser must be on PATH.",
+        "Pass output directory and run name; optional third argument profile enables tracing.",
+        "Helper has absolute checkout location and imports existing round-three capture helper. Adapt checkout location for relocation."
+      ]
+    }
+  },
+  "limitations": [
+    "One unprofiled and one profiled headless Chrome run; verifies the single-charge case on this host, not every touch or machine.",
+    "Settings were high graphics quality, 1440 by 900 viewport, DPR 1 and audio disabled. Elevated host load remains a confounder.",
+    "Initial rAF timestamp precedes observer setup performance.now slightly. Negative interval is retained in raw data and excluded from published windows. Endpoint advancement has a small alignment offset.",
+    "Observer starts before separate detonation command. Early window includes input-delivery timing; endpoint-selected intervals are not precisely clipped wall-time buckets.",
+    "finalBank is captured after timing and later tool delays. Timestamped samples support measured-window bank state.",
+    "CPU trace spans about 12.71 seconds, longer than profiled timing window. Sample counts identify a likely CPU hotspot, not complete frame/GPU attribution.",
+    "Historical environment flags are recorded assertions without raw process evidence. Hardware and logical CPU count were independently checked.",
+    "Current source and served bytes match HEAD. Capture-time response hashes were not retained, so historical byte identity lacks a cryptographic capture-time attestation.",
+    "Passive observation has overhead. Helper was inspected, not rerun by verifier.",
+    "Raw profile was available locally and hash-checked. If excluded from a portable package, stack-count recomputation requires the hashed original."
+  ],
+  "standingInvariants": {
+    "noGateWeakeningObserved": true,
+    "noFakeNativeInputObservedInHelper": true,
+    "simulationTimeLossDisclosed": true,
+    "runtimeSourceUnchanged": true,
+    "productAcceptanceClaimed": false,
+    "repoModifiedByVerifier": false,
+    "testsOrBrowserCampaignRunByVerifier": false
+  },
+  "productState": "Existing invalid rubble-contact rejection remains in force; diagnostic does not establish acceptance or repair."
+}

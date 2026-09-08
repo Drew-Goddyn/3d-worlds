@@ -1,0 +1,32 @@
+✖ falling masonry damages the member it strikes without a blast through neighboring air (91.898042ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 742.428334
+
+✖ failing tests:
+
+test at ../astra-r7-pre-contact-test/tests/committed-fixture.test.mjs:47:1
+✖ falling masonry damages the member it strikes without a blast through neighboring air (91.898042ms)
+  AssertionError [ERR_ASSERTION]: a nearby member with no contact cannot take radial collision damage
+  + actual - expected
+
+  + 0.8845561931983008
+  - 1
+
+      at TestContext.<anonymous> (file:///private/tmp/astra-r7-pre-contact-test/tests/committed-fixture.test.mjs:54:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0.8845561931983008,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

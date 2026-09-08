@@ -1,0 +1,934 @@
+{
+  "status": "delivered_for_owner_review",
+  "baseline": "e4dc0d032020417efc09b519722c4cfafa118ea4",
+  "runtimeAndTests": "9b9a743e7c0fc536da1e94cec74801cba9348a7a",
+  "verification": {
+    "fullSuite": {
+      "pass": 57,
+      "fail": 0,
+      "skip": 0,
+      "runtimeCommit": "76e9ecf"
+    },
+    "fixtureOnlyFollowup": {
+      "commit": "9b9a743",
+      "contactTestsPass": 5
+    },
+    "sourceTreesIdentical": true,
+    "independentPriorRegressions": "all pass"
+  },
+  "nativeControls": "pass; exact pristine after history eviction; no browser console/errors",
+  "performance": "significant transient cost disclosed in REVIEW.md; keep PR unmerged",
+  "ownerAcceptance": false,
+  "deployment": false,
+  "nextAction": "Owner reviews the unmerged PR and evidence-only ZIP. No merge or deployment is authorized.",
+  "reproduce": {
+    "capture": [
+      "reproduce.py",
+      "output_directory",
+      "label",
+      "application_url",
+      "front,side,clean-side,collapse,left,right,perturbed"
+    ],
+    "native": [
+      "check-native.py",
+      "output_directory",
+      "label",
+      "application_url"
+    ],
+    "timing": [
+      "measure-timing.py",
+      "output_directory",
+      "label",
+      "application_url"
+    ],
+    "causal": "node causal-check.mjs",
+    "portableMedia": [
+      "prepare-media.py",
+      "baseline_capture_directory",
+      "final_capture_directory",
+      "native_capture_directory"
+    ],
+    "package": [
+      "package-review.py",
+      "/Users/Drew/Downloads/bank-direction-round7-review.zip"
+    ]
+  },
+  "pullRequest": {
+    "number": 6,
+    "url": "https://github.com/Drew-Goddyn/3d-worlds/pull/6",
+    "state": "OPEN",
+    "draft": true,
+    "mergeAuthorized": false
+  },
+  "archive": {
+    "path": "/Users/Drew/Downloads/bank-direction-round7-review.zip",
+    "bytes": 13688224,
+    "sha256": "7c1f62ade0c1639b8fdfa9b68f82ed584fc6146745ea9c523b08d99ed9751cbd",
+    "members": 31,
+    "evidenceCommit": "cb25d8622027417d426db3101f1c62721931909f"
+  },
+  "independentPackageVerification": {
+    "verdict": "PASS",
+    "scope": "Artifact integrity, claim consistency and offline viewer; no further artistic review or runtime re-certification.",
+    "referenceChecks": 78,
+    "timestampMatches": 2868,
+    "movies": 9,
+    "images": 5,
+    "browser": {
+      "url": "file:///tmp/round7-package-independent-verification/extracted/viewer.html",
+      "scenarios": [
+        {
+          "route": "front",
+          "loaded": [
+            {
+              "duration": 13.899,
+              "error": null,
+              "file": "baseline-front.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 13.518,
+              "error": null,
+              "file": "final-front.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ],
+          "played": [
+            {
+              "duration": 13.899,
+              "error": null,
+              "file": "baseline-front.mp4",
+              "frames": 47,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.442018,
+              "width": 1280
+            },
+            {
+              "duration": 13.518,
+              "error": null,
+              "file": "final-front.mp4",
+              "frames": 24,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.441946,
+              "width": 1280
+            }
+          ],
+          "sought": [
+            {
+              "duration": 13.899,
+              "error": null,
+              "file": "baseline-front.mp4",
+              "frames": 216,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            },
+            {
+              "duration": 13.518,
+              "error": null,
+              "file": "final-front.mp4",
+              "frames": 113,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            }
+          ],
+          "resumedAfterSeek": [
+            {
+              "duration": 13.899,
+              "error": null,
+              "file": "baseline-front.mp4",
+              "frames": 239,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 7.742384,
+              "width": 1280
+            },
+            {
+              "duration": 13.518,
+              "error": null,
+              "file": "final-front.mp4",
+              "frames": 130,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 7.74224,
+              "width": 1280
+            }
+          ],
+          "restarted": [
+            {
+              "duration": 13.899,
+              "error": null,
+              "file": "baseline-front.mp4",
+              "frames": 249,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 13.518,
+              "error": null,
+              "file": "final-front.mp4",
+              "frames": 139,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ]
+        },
+        {
+          "route": "side",
+          "loaded": [
+            {
+              "duration": 14.835,
+              "error": null,
+              "file": "baseline-side.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 13.421,
+              "error": null,
+              "file": "final-side.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ],
+          "played": [
+            {
+              "duration": 14.835,
+              "error": null,
+              "file": "baseline-side.mp4",
+              "frames": 40,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.272484,
+              "width": 1280
+            },
+            {
+              "duration": 13.421,
+              "error": null,
+              "file": "final-side.mp4",
+              "frames": 26,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.272408,
+              "width": 1280
+            }
+          ],
+          "sought": [
+            {
+              "duration": 14.835,
+              "error": null,
+              "file": "baseline-side.mp4",
+              "frames": 176,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            },
+            {
+              "duration": 13.421,
+              "error": null,
+              "file": "final-side.mp4",
+              "frames": 103,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            }
+          ],
+          "resumedAfterSeek": [
+            {
+              "duration": 14.835,
+              "error": null,
+              "file": "baseline-side.mp4",
+              "frames": 202,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 7.801877,
+              "width": 1280
+            },
+            {
+              "duration": 13.421,
+              "error": null,
+              "file": "final-side.mp4",
+              "frames": 124,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 7.801696,
+              "width": 1280
+            }
+          ],
+          "restarted": [
+            {
+              "duration": 14.835,
+              "error": null,
+              "file": "baseline-side.mp4",
+              "frames": 213,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 13.421,
+              "error": null,
+              "file": "final-side.mp4",
+              "frames": 135,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ]
+        },
+        {
+          "route": "clean-side",
+          "loaded": [
+            {
+              "duration": 13.498,
+              "error": null,
+              "file": "baseline-clean-side.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 13.484,
+              "error": null,
+              "file": "final-clean-side.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ],
+          "played": [
+            {
+              "duration": 13.498,
+              "error": null,
+              "file": "baseline-clean-side.mp4",
+              "frames": 46,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.409241,
+              "width": 1280
+            },
+            {
+              "duration": 13.484,
+              "error": null,
+              "file": "final-clean-side.mp4",
+              "frames": 32,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.4092,
+              "width": 1280
+            }
+          ],
+          "sought": [
+            {
+              "duration": 13.498,
+              "error": null,
+              "file": "baseline-clean-side.mp4",
+              "frames": 228,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            },
+            {
+              "duration": 13.484,
+              "error": null,
+              "file": "final-clean-side.mp4",
+              "frames": 108,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            }
+          ],
+          "resumedAfterSeek": [
+            {
+              "duration": 13.498,
+              "error": null,
+              "file": "baseline-clean-side.mp4",
+              "frames": 261,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 8.050785,
+              "width": 1280
+            },
+            {
+              "duration": 13.484,
+              "error": null,
+              "file": "final-clean-side.mp4",
+              "frames": 133,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 8.050602,
+              "width": 1280
+            }
+          ],
+          "restarted": [
+            {
+              "duration": 13.498,
+              "error": null,
+              "file": "baseline-clean-side.mp4",
+              "frames": 273,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 13.484,
+              "error": null,
+              "file": "final-clean-side.mp4",
+              "frames": 144,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ]
+        },
+        {
+          "route": "collapse",
+          "loaded": [
+            {
+              "duration": 13.468,
+              "error": null,
+              "file": "baseline-collapse.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 14.067,
+              "error": null,
+              "file": "final-collapse.mp4",
+              "frames": 4,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ],
+          "played": [
+            {
+              "duration": 13.468,
+              "error": null,
+              "file": "baseline-collapse.mp4",
+              "frames": 43,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.325012,
+              "width": 1280
+            },
+            {
+              "duration": 14.067,
+              "error": null,
+              "file": "final-collapse.mp4",
+              "frames": 23,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 1.325019,
+              "width": 1280
+            }
+          ],
+          "sought": [
+            {
+              "duration": 13.468,
+              "error": null,
+              "file": "baseline-collapse.mp4",
+              "frames": 170,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            },
+            {
+              "duration": 14.067,
+              "error": null,
+              "file": "final-collapse.mp4",
+              "frames": 78,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 7,
+              "width": 1280
+            }
+          ],
+          "resumedAfterSeek": [
+            {
+              "duration": 13.468,
+              "error": null,
+              "file": "baseline-collapse.mp4",
+              "frames": 186,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 7.684509,
+              "width": 1280
+            },
+            {
+              "duration": 14.067,
+              "error": null,
+              "file": "final-collapse.mp4",
+              "frames": 92,
+              "height": 800,
+              "paused": false,
+              "rate": 1,
+              "ready": 4,
+              "time": 7.684446,
+              "width": 1280
+            }
+          ],
+          "restarted": [
+            {
+              "duration": 13.468,
+              "error": null,
+              "file": "baseline-collapse.mp4",
+              "frames": 196,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            },
+            {
+              "duration": 14.067,
+              "error": null,
+              "file": "final-collapse.mp4",
+              "frames": 101,
+              "height": 800,
+              "paused": true,
+              "rate": 1,
+              "ready": 4,
+              "time": 0,
+              "width": 1280
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "complete": true,
+          "file": "progression.jpg",
+          "height": 1120,
+          "width": 1600
+        },
+        {
+          "complete": true,
+          "file": "front-aftermath.jpg",
+          "height": 900,
+          "width": 1440
+        },
+        {
+          "complete": true,
+          "file": "side-aftermath.jpg",
+          "height": 900,
+          "width": 1440
+        },
+        {
+          "complete": true,
+          "file": "placement-family.jpg",
+          "height": 330,
+          "width": 1440
+        }
+      ],
+      "transport": {
+        "duration": 29.202,
+        "error": null,
+        "file": "final-time-controls.mp4",
+        "played": {
+          "frames": 27,
+          "paused": false,
+          "time": 0.965164
+        },
+        "resumed": {
+          "frames": 126,
+          "paused": false,
+          "time": 20.500867
+        },
+        "sought": 20
+      },
+      "errors": {
+        "errors": []
+      },
+      "console": {
+        "messages": []
+      }
+    },
+    "claims": {
+      "baseline": {
+        "all": {
+          "meanMs": 18.596941489369627,
+          "p95Ms": 16.80000000000109,
+          "maxMs": 100.09999999999854,
+          "frames": 752
+        },
+        "collapse": {
+          "meanMs": 22.726033057851236,
+          "p95Ms": 66.70000000000073,
+          "maxMs": 100.09999999999854,
+          "frames": 242
+        },
+        "settled": {
+          "meanMs": 16.665999999999997,
+          "p95Ms": 16.799999999999272,
+          "maxMs": 16.80000000000291,
+          "frames": 300
+        },
+        "simulationAdvance": 13.662900000000125,
+        "wallSeconds": 14.00160000000596
+      },
+      "final": {
+        "all": {
+          "meanMs": 26.75047801145518,
+          "p95Ms": 100,
+          "maxMs": 133.40000000000146,
+          "frames": 523
+        },
+        "collapse": {
+          "meanMs": 87.29841269841269,
+          "p95Ms": 133.3000000000011,
+          "maxMs": 133.40000000000146,
+          "frames": 63
+        },
+        "settled": {
+          "meanMs": 16.665666666666663,
+          "p95Ms": 16.799999999999272,
+          "maxMs": 16.80000000000291,
+          "frames": 300
+        },
+        "simulationAdvance": 11.76310000000026,
+        "wallSeconds": 14.00739999999404
+      },
+      "timingPairInputsSettingsMatch": true,
+      "causal": {
+        "front": {
+          "seconds": 1.9999999999999978,
+          "largestUpperDisplacement": [
+            0.002171190359225861,
+            -1.0227794803731278,
+            3.024240029488105
+          ],
+          "retainedConnected": 78,
+          "restore": "exact; saved snapshot unchanged",
+          "state": 1
+        },
+        "side": {
+          "seconds": 1.9999999999999978,
+          "largestUpperDisplacement": [
+            2.969016347252439,
+            -1.0259901463646184,
+            0.0012054944901844777
+          ],
+          "retainedConnected": 74,
+          "restore": "exact; saved snapshot unchanged",
+          "state": 1
+        },
+        "perturbed": {
+          "seconds": 1.9999999999999978,
+          "largestUpperDisplacement": [
+            2.8506515123830902,
+            -1.3375919772794322,
+            -0.12884694931315188
+          ],
+          "retainedConnected": 74,
+          "restore": "exact; saved snapshot unchanged",
+          "state": 1
+        }
+      },
+      "nativeSmallWounds": {
+        "left": {
+          "wall": 12.005867125000805,
+          "bank": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 10,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 772
+          }
+        },
+        "right": {
+          "wall": 12.006836957996711,
+          "bank": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 0,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 58
+          }
+        }
+      },
+      "nativeActions": [
+        {
+          "action": "three front charges",
+          "mode": "live",
+          "cursor": 6.926500000000021,
+          "historyStart": 0,
+          "historyEnd": 6.926500000000021,
+          "historyFrames": 140
+        },
+        {
+          "action": "slow motion",
+          "mode": "live",
+          "cursor": 8.714170000000044,
+          "historyStart": 0,
+          "historyEnd": 8.677500000000043,
+          "historyFrames": 171
+        },
+        {
+          "action": "pause",
+          "mode": "paused",
+          "cursor": 8.97082000000004,
+          "historyStart": 0,
+          "historyEnd": 8.92749000000004,
+          "historyFrames": 176
+        },
+        {
+          "action": "reverse",
+          "mode": "rewind",
+          "cursor": 8.470720000000043,
+          "historyStart": 0,
+          "historyEnd": 8.92749000000004,
+          "historyFrames": 176
+        },
+        {
+          "action": "stop reverse",
+          "mode": "paused",
+          "cursor": 6.170920000000036,
+          "historyStart": 0,
+          "historyEnd": 8.92749000000004,
+          "historyFrames": 176
+        },
+        {
+          "action": "scrub",
+          "mode": "paused",
+          "cursor": 5.72,
+          "historyStart": 0,
+          "historyEnd": 8.92749000000004,
+          "historyFrames": 176
+        },
+        {
+          "action": "retained replay",
+          "mode": "live",
+          "cursor": 5.853300000000001,
+          "historyStart": 0,
+          "historyEnd": 8.92749000000004,
+          "historyFrames": 176
+        },
+        {
+          "action": "seek after initial charges",
+          "mode": "paused",
+          "cursor": 7.24,
+          "historyStart": 0,
+          "historyEnd": 9.69749000000007,
+          "historyFrames": 189
+        },
+        {
+          "action": "later charge on altered construction creates alternate future",
+          "mode": "live",
+          "cursor": 7.403100000000022,
+          "historyStart": 0,
+          "historyEnd": 7.403100000000022,
+          "historyFrames": 149,
+          "acceptedCharges": [
+            {
+              "bankBody": 1192,
+              "floor": 1,
+              "id": 3,
+              "when": -1,
+              "x": -0.5635152768637983,
+              "y": -0.4585644376718703,
+              "z": 0.017499199118578446
+            }
+          ],
+          "discardedHistoryEnd": 9.69749000000007
+        },
+        {
+          "action": "alternate future",
+          "mode": "live",
+          "cursor": 12.38970000000021,
+          "historyStart": 0,
+          "historyEnd": 12.38970000000021,
+          "historyFrames": 240
+        }
+      ],
+      "rollingMinute": {
+        "historyStart": 12.749500000000172,
+        "historyEnd": 72.79709999999643,
+        "historyFrames": 1202,
+        "duration": 60.047599999996265
+      },
+      "rebuild": {
+        "events": 0,
+        "exactBank": true
+      },
+      "rebuildAfterEviction": {
+        "events": 0,
+        "exactBank": true
+      },
+      "ball": {
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 16,
+          "failedBays": 5,
+          "loose": 401,
+          "movingSections": 3,
+          "retained": 1865,
+          "settled": 61
+        },
+        "chain": 1,
+        "charges": 0,
+        "collapsed": 0,
+        "pieces": 75,
+        "tonnage": 83
+      },
+      "errors": {
+        "errors": []
+      },
+      "console": {
+        "messages": []
+      }
+    },
+    "httpHarnessFinding": {
+      "surface": "Python SimpleHTTPServer at http://127.0.0.1:4827",
+      "finding": "After source replacement, videos advertised seekable range [0,0] despite fully buffered media; setting currentTime=7 resolved to 0.",
+      "baselineSide": {
+        "buffered": [
+          0,
+          14.835
+        ],
+        "seekable": [
+          0,
+          0
+        ]
+      },
+      "finalSide": {
+        "buffered": [
+          0,
+          13.421
+        ],
+        "seekable": [
+          0,
+          0
+        ]
+      },
+      "rangeRequest": "Range: bytes=0-100",
+      "rangeResponse": "HTTP/1.0 200 OK, no Accept-Ranges or Content-Range",
+      "disposition": "Verify unchanged media on the intended local-file offline surface; retain identical load/play/seek assertions."
+    },
+    "report": "# Round Seven evidence package \u2014 independent verification PASS\n\nThe frozen evidence-only ZIP at application/evidence commit `cb25d8622027417d426db3101f1c62721931909f` passes the requested archive, claims-consistency, decoding, and offline-viewer criteria. No package defects were found. No application, evidence, assertion, or archive bytes were changed.\n\n## Readable proof\n\n- `manifest-and-members.json`: all 31 archive members match committed source bytes. All 30 manifest payload sizes and SHA-256 hashes match. The manifest itself matches committed source. ZIP CRC passes; zero duplicates, symlinks, traversal names, nested source checkout, dependencies, or extra files. Archive bytes: 13688224. Archive SHA-256: `7c1f62ade0c1639b8fdfa9b68f82ed584fc6146745ea9c523b08d99ed9751cbd`.\n- `reference-map.json`: 78 enumerated reference checks, including static links, scenario-generated movie names, media metadata, manifest references, and seven explicitly repository-only helpers. Every local packet target resolves after extraction; repository-only helpers exist at the frozen commit. The commission's application/source instructions refer to the explicitly repository-only application, not missing archive assets. Absolute verification-log paths are explicitly identified as execution provenance. Raw capture omission is explicit.\n- `independent-media-check.json`: all nine H.264 1280\u00d7800 movies strictly decode with `-xerror -fps_mode passthrough -enc_time_base demux`, with empty error output. All 2,868 decoded presentation timestamps exactly equal retained raw WebM inputs, including frame count and first/last PTS. Raw and portable SHA-256 hashes match every media-check record. The demux timebase is 1/1,000,000 throughout.\n- `independent-image-check.json`: all five JPEGs strictly decode at the declared display dimensions.\n- `browser-verification.json` and `viewer.png`: extracted `viewer.html` opened directly as a local file in dedicated agent-browser session `round7-packet-verifier`. All four scenario pairs loaded the expected two movies, played with increasing time/frame count at rate 1, sought to 7 seconds, resumed, and restarted at zero. The 29.202-second transport movie played, sought to 20 seconds, and resumed. All viewer images loaded. Console and page-error collections were empty. Browser and temporary server were closed after checks.\n\n## Claims audited\n\n`independent-claims-check.json` independently recomputes the reported performance windows from their raw frame arrays: early mean 22.726033 ms versus 87.298413 ms; p95 66.7 ms versus 133.3 ms; late means 16.666000 ms versus 16.665667 ms; approximately 14-second simulation advances 13.6629 versus 11.7631 seconds. Requested inputs, camera, viewport, muted sound and absence of recording match for that timing pair. The single-pair and desktop-activity limitations are disclosed.\n\nAt two fixed simulation seconds, the largest connected upper displacements are front 3.024240 m forward, side 2.969016 m sideways, perturbed side 2.850652 m sideways. Those carriers retain 78, 74, and 74 physical members respectively. Diagnostic continuation is marked exact for all routes. The native recordings report ten failed bays for one left charge and zero for one right charge; all 1,865 district pieces remain. The rolling history spans 60.0476 seconds and 1,202 frames; both pristine rebuild records have exact bank restoration and zero event births. The later accepted body charge truncates retained history from 9.69749 seconds to 7.40310 seconds. Ball evidence reports nonzero impact tonnage. Normal/slow, pause/reverse, scrub and retained replay are reflected in the action trace. Camera/quality actions are explicit in the committed native helper; native error collections are empty. This is an audit of the included native evidence, not a second native-runtime certification.\n\n`paired-input-match.json` shows exact equality of requested world points, projected mouse points, camera, presentation mode, physical-neighbor setting and accepted body identities for all four paired scenarios. Front accepted coordinates also match exactly. Side-based accepted anchor coordinates differ only in their recorded floating representations, by at most 2.220446049250313e-16; the review does not promise identical floating snapshots and discloses independent native runs.\n\nThe source tree hash is `bbfe3fc266fa6ba305da3431231fdf0b66d8eb81` at 76e9ecf, exact verified result 9b9a743, and evidence commit cb25d86. Application source, tests, dependencies and runtime entry files are unchanged between 9b9a743 and cb25d86. Baseline reviewed head, runtime and merged checkpoint share source tree `59621100c3f85ec581ebc45136baaad76eec4c1c`. Git diff --check passes and the checkout is clean.\n\nThe included full-suite log reports 57 passes with zero failures, skips or exemptions at 76e9ecf; the five-test contact log passes at 9b9a743. The intervening test change supplies the existing particle sink only; no assertion changed. Comparing accepted baseline tests confirms the original assertions remain and six tests were added. No dependency manifest/vendor change occurred. The source's mass/inertia construction, physical bearing/tie/roof connections, four substeps/five sweeps, and captured state align with the technical description. Its compliant multiplier update follows the cited XPBD formulation; the paper was fetched from https://matthias-research.github.io/pages/publications/XPBD.pdf. No full runtime suite was rerun because it was already independently verified under the assigned scope.\n\n## Separate harness finding and boundaries\n\nThe initial temporary Python SimpleHTTPServer responds to byte-range requests with HTTP 200 and gives replaced video sources a browser seekable range of [0,0]. It could play those files but seeking returned to zero. `http-server-limitation.json` and `check-viewer-http.py` preserve that finding. The intended local-file surface passed the unchanged load/play/seek/resume/restart assertions. This is a server limitation, not a corrected or waived packet defect.\n\nArchive/playback integrity does not certify taste, perfect physics, audio quality, universal performance, deployment readiness, or owner acceptance. The review explicitly retains those limits and the significant busy-collapse performance cost. No additional artistic verdict was made.\n"
+  },
+  "cleanup": {
+    "applicationServers4173and4174": "stopped",
+    "nativeBrowserSession": "closed",
+    "packetVerifierBrowserAndServer": "closed"
+  }
+}
