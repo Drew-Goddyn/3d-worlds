@@ -105,7 +105,7 @@ export class BankPhysics {
     for(let i=0;i<meshes.length;i++) {
       const mesh=meshes[i],part=mesh.box,swept=prior?part.clone().union(prior[i].box):part,low=swept.min.y-.012,high=swept.max.y+.012;
       const seen=new Set();
-      for(let x=Math.floor(part.min.x/3);x<=Math.floor(part.max.x/3);x++)for(let z=Math.floor(part.min.z/3);z<=Math.floor(part.max.z/3);z++)for(let y=Math.floor(low/.5);y<=Math.floor(high/.5);y++)for(const e of grid.get(x+','+z+','+y)??[]) {
+      for(let x=Math.floor(part.min.x/.75);x<=Math.floor(part.max.x/.75);x++)for(let z=Math.floor(part.min.z/.75);z<=Math.floor(part.max.z/.75);z++)for(let y=Math.floor(low/.5);y<=Math.floor(high/.5);y++)for(const e of grid.get(x+','+z+','+y)??[]) {
         if(seen.has(e)||e.b===body||e.b.state===1)continue;seen.add(e);
         if(part.max.x<=e.minX||part.min.x>=e.maxX||part.max.z<=e.minZ||part.min.z>=e.maxZ)continue;
         for(const contact of surfaceContacts(mesh,e.mesh,prior?.[i]))contacts.push({...contact,e});
@@ -222,9 +222,13 @@ export class BankPhysics {
       const entry={b,mesh,minX:box.min.x,maxX:box.max.x,minZ:box.min.z,maxZ:box.max.z,bottom:box.min.y,top:box.max.y};
       for(let x=Math.floor(box.min.x/3);x<=Math.floor(box.max.x/3);x++)for(let z=Math.floor(box.min.z/3);z<=Math.floor(box.max.z/3);z++) {
         const key=x+','+z;if(!grid.has(key))grid.set(key,[]);grid.get(key).push(entry);
-        // Resting contact can only reach a current surface near the swept foot
-        // height. Index those heights without reducing the contact footprint.
-        for(let y=Math.floor(entry.bottom/.5);y<=Math.floor(entry.top/.5);y++){const resting=key+','+y;if(!restGrid.has(resting))restGrid.set(resting,[]);restGrid.get(resting).push(entry);}
+      }
+      // Fine surface cells are independent of the broad section grid. Only
+      // heights occupied by actual upward faces can supply a landing.
+      const levels=new Set();
+      for(const face of mesh.up)for(let y=Math.floor(face.box.min.y/.5);y<=Math.floor(face.box.max.y/.5);y++)levels.add(y);
+      for(let x=Math.floor(box.min.x/.75);x<=Math.floor(box.max.x/.75);x++)for(let z=Math.floor(box.min.z/.75);z<=Math.floor(box.max.z/.75);z++)for(const y of levels) {
+        const key=x+','+z+','+y;if(!restGrid.has(key))restGrid.set(key,[]);restGrid.get(key).push(entry);
       }
     };
     const putBody=b=>{
