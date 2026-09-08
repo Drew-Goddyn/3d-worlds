@@ -43,8 +43,8 @@ export class BankPhysics {
     if(k[0]!==body.x||k[1]!==body.y||k[2]!==body.z||k[3]!==body.rx||k[4]!==body.ry||k[5]!==body.rz||k[6]!==px||k[7]!==py||k[8]!==pz||k[9]!==qx||k[10]!==qy||k[11]!==qz||k[12]!==qw||k[13]!==carried) {
       k.set([body.x,body.y,body.z,body.rx,body.ry,body.rz,px,py,pz,qx,qy,qz,qw,carried]);
       this.composeBody(body,row.matrix);row.box.makeEmpty();
-      for(const part of body.parts)for(const vertex of (part.collisionMesh??=boxMesh(part.collisionBounds)).vertices)row.box.expandByPoint(p.copy(vertex).applyMatrix4(row.matrix));
-      row.parts=null;row.meshes=null;
+      row.meshes=body.parts.map(part=>worldMesh(part.collisionMesh??=boxMesh(part.collisionBounds),row.matrix));
+      row.parts=row.meshes.map(mesh=>mesh.box);for(const box of row.parts)row.box.union(box);
     }
     return row;
   }
@@ -239,7 +239,12 @@ export class BankPhysics {
     // settled article must wake when any support moves, including a surface it
     // landed on after leaving its original parent. No hidden attachment cache.
     const rooted=new Set(this.bodies.filter(b=>b.fixed||b.state===0).map(b=>b.id));
-    const pending=this.bodies.filter(b=>b.state===2).map(b=>({b,contacts:this.restingContacts(b,restGrid),ground:this.groundPoints(b)}));
+    const pending=[];
+    for(const b of this.bodies)if(b.state===2) {
+      const ground=this.groundPoints(b);
+      if(balance(ground,this.center(b)).stable)rooted.add(b.id);
+      else pending.push({b,contacts:this.restingContacts(b,restGrid),ground});
+    }
     let added=true;
     while(added){added=false;for(const row of pending)if(!rooted.has(row.b.id)) {
       const held=row.contacts.filter(c=>rooted.has(c.e.b.id)),points=[...row.ground,...held.map(c=>c.point)],normals=[...row.ground.map(()=>new THREE.Vector3(0,1,0)),...held.map(c=>c.normal)];
