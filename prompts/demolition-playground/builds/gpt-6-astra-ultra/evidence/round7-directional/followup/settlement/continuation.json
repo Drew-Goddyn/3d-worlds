@@ -60,5 +60,13 @@
     "authorizationBoundary": "Do not silently continue implementation after the repeated-failed-approaches stop. Continue only when owner resolves that decision. No new branch/PR, merge or deployment."
   },
   "packageIndependentAudit": "package-independent.json",
-  "cleanup": "Task server on4184 stopped; bank-round7 capture browser and both independent package browser sessions closed. Unrelated processes and old evidence preserved."
+  "cleanup": "Task server on4184 stopped; bank-round7 capture browser and both independent package browser sessions closed. Unrelated processes and old evidence preserved.",
+  "additionalPerformanceDiagnostic": {
+    "report": "../contact-cost/REVIEW.md",
+    "sourceHead": "a8c62e0aa72d6fb3d83b66891e5770f1448a7039",
+    "result": "One native corner charge:55.38FPS idle to4.60FPS late active, 3.06simsec in10.193wallsec. CPU sampling88.05% under bank physics.",
+    "runtimeEdited": false,
+    "newZIP": false,
+    "scope": "Read-only investigation of renewed owner feedback. The coherent contact-repair decision and all product acceptance criteria remain open."
+  }
 }
