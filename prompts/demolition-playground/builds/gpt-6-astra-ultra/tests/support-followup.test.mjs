@@ -61,13 +61,13 @@ test('cached collision geometry follows an in-step carrier correction, release a
   bank.restore(pristine);assert.equal(bank.bounds(body).min.x,-1,'restoring an earlier pose invalidates the derived geometry');
 });
 
-test('glass settles on a real narrow seam even when the seam is away from its center',()=>{
-  const bank=small([{pos:[.4,1,0],size:[.08,.1,2]},{pos:[0,1.075,0],size:[1,.05,1]}]);
-  const [seam,glass]=bank.bodies;seam.fixed=true;seam.role='vault-seam';glass.role='glass';glass.rx=Math.PI;glass.state=1;bank.nodes[0].state=2;
+test('glass bridges real narrow seams away from its center and wakes when they are removed',()=>{
+  const bank=small([{pos:[.4,1,0],size:[.08,.1,2]},{pos:[0,1.075,0],size:[1,.05,1]},{pos:[-.4,1,0],size:[.08,.1,2]}]);
+  const [seam,glass,second]=bank.bodies;second.fixed=true;seam.fixed=true;seam.role='vault-seam';glass.role='glass';glass.rx=Math.PI;glass.state=1;bank.nodes[0].state=2;
   for(let i=0;i<120;i++)bank.step(1/60);
   assert.equal(glass.state,2,'overlapping glass must settle instead of falling through a center-only contact test');
   assert.ok(Math.abs(bank.solidBounds(glass)[0].min.y-bank.solidBounds(seam)[0].max.y)<1e-9);
-  const past=bank.capture(),copy=structuredClone(past);seam.x+=3;
+  const past=bank.capture(),copy=structuredClone(past);seam.x+=3;second.x-=3;
   for(let i=0;i<30;i++)bank.step(1/60);
   assert.ok(glass.y<.7,'removing the actual seam must wake the resting glass');assert.deepEqual(past,copy);
 });
@@ -79,4 +79,63 @@ test('the empty center of a window frame cannot hold a settled piece aloft',()=>
   bank.geometryCache=[];piece.state=2;bank.nodes[0].state=2;
   for(let i=0;i<60;i++)bank.step(1/60);
   assert.ok(piece.y<1,'a framed opening is empty space, including during settled-support revalidation');
+});
+
+// A single edge cannot provide the balancing moment that two real seams do.
+test('a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof',()=>{
+  const bank=small([{pos:[.4,1,0],size:[.08,.1,2]},{pos:[0,1.075,0],size:[1,.05,1]}]);
+  const [seam,glass]=bank.bodies;seam.fixed=true;glass.role='glass';glass.state=1;glass.rx=Math.PI;bank.nodes[0].state=2;
+  let max=glass.y;for(let i=0;i<360;i++){bank.step(1/60);max=Math.max(max,glass.y);}
+  assert.ok(max<1.08,'gravity cannot lift the pane onto a higher surface');
+  assert.equal(glass.state,2);assert.ok(glass.y<.27,'the unsupported weight must fall to ground');
+});
+
+function rotatedPart(body,angle) {
+  const geometry=new THREE.BoxGeometry(body.size.x,body.size.y,body.size.z),q=new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0,0,1),angle);
+  const positions=geometry.attributes.position,vertices=[];
+  for(let i=0;i<positions.count;i++)vertices.push(new THREE.Vector3().fromBufferAttribute(positions,i).applyQuaternion(q));
+  const indices=geometry.index.array,faces=[];for(let i=0;i<indices.length;i+=3)faces.push(Array.from(indices.slice(i,i+3)));
+  const bounds=new THREE.Box3().setFromPoints(vertices);
+  body.parts=[{collisionBounds:bounds,collisionMesh:{vertices,faces,center:new THREE.Vector3(),volume:body.size.x*body.size.y*body.size.z}}];body.bounds=bounds.clone();geometry.dispose();
+}
+
+test('a fallen roof pane lies on its visible face instead of rotating upright and climbing on its bounds',()=>{
+  const bank=small([{pos:[0,1,0],size:[1,.04,2]}]),pane=bank.bodies[0];
+  pane.role='glass';rotatedPart(pane,.8);bank.geometryCache=[];pane.state=1;bank.nodes[0].state=2;
+  let highest=pane.y;for(let i=0;i<600;i++){bank.step(1/60);highest=Math.max(highest,pane.y);}
+  assert.ok(highest<1.01,'passive gravity and landing cannot raise the center of mass above its release height');
+  assert.equal(pane.state,2);assert.ok(pane.y<.27,'the actual thin face must come to rest close to the ground');
+});
+
+test('the empty space above a sloping member cannot hold falling rubble',()=>{
+  const bank=small([{pos:[0,3,0],size:[2,.1,2]},{pos:[-.6,3.9,0],size:[.1,.1,.1]}]),[slope,piece]=bank.bodies;
+  slope.fixed=true;rotatedPart(slope,Math.PI/4);bank.geometryCache=[];piece.state=1;bank.nodes[0].state=2;
+  for(let i=0;i<180;i++)bank.step(1/60);
+  assert.ok(piece.y<3.2,'contact must follow the rendered slope below the left end of its bounding box');
+});
+
+test('a stationary piece cannot step up onto an overlapping ledge above its current foot',()=>{
+  const bank=small([{pos:[.8,.28,0],size:[1,.1,2]},{pos:[0,.38,0],size:[1,.3,1]}]),[ledge,piece]=bank.bodies;
+  ledge.fixed=true;piece.state=1;bank.nodes[0].state=2;
+  let high=piece.y;for(let i=0;i<120;i++){bank.step(1/60);high=Math.max(high,piece.y);}
+  assert.ok(high<.39,'side overlap with a higher top cannot manufacture upward travel');
+  assert.equal(piece.state,2);
+});
+
+test('a fast small fragment hits a thin ledge even when it crosses an entire height cell in one step',()=>{
+  const bank=small([{pos:[0,1.2,0],size:[2,.02,2]},{pos:[0,1.26,0],size:[.06,.06,.06]}]),[ledge,piece]=bank.bodies;
+  ledge.fixed=true;piece.state=1;piece.vy=-20;bank.nodes[0].state=2;
+  bank.step(1/60);
+  assert.ok(bank.bounds(piece).min.y>=1.21-1e-8,'the swept foot must collide with the real ledge');
+  assert.ok(piece.vy>=0,'the ledge receives the downward contact');
+});
+
+test('loose rubble slides off a steep real face instead of sleeping on an impossible friction hold',()=>{
+  for(const angle of [Math.PI/4,Math.PI/3]) {
+    const bank=small([{pos:[0,3,0],size:[2,.1,2]},{pos:[-.1*Math.sin(angle),3+.1*Math.cos(angle),0],size:[.4,.1,.4]}]),[slope,piece]=bank.bodies;
+    slope.fixed=true;rotatedPart(slope,angle);rotatedPart(piece,angle);bank.geometryCache=[];piece.state=1;bank.nodes[0].state=2;
+    const start=piece.y;let high=start;for(let i=0;i<360;i++){bank.step(1/60);high=Math.max(high,piece.y);}
+    assert.ok(piece.y<1,'gravity must overcome friction on a 45 or 60 degree slope');
+    assert.ok(high<start+.01,'a passive slope contact must not inject upward energy');
+  }
 });

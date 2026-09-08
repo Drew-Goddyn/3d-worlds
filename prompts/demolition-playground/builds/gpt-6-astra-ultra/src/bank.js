@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { furnishHall } from './bank-hall.js';
 import { buildBankCourt } from './bank-world.js';
+import { contactMesh } from './bank-contact.js';
 
 // The bank's recipe: nine load-bearing bays per level, with real masonry
 // openings. Each retained fragment owns all its ornament; instances share only
@@ -65,6 +66,7 @@ export function createBank(building, root) {
     const bounds=shapes[shape].boundingBox.clone().applyMatrix4(transform);
     body.bounds.union(bounds);
     p.collisionBounds=bounds;
+    p.collisionMesh=contactMesh(shapes[shape],transform);
   };
   function body(node,role,x,y,z,options={}) {
     const b={id:bank.bodies.length,node:node.id,role,origin:new THREE.Vector3(building.x+x,.23+y,building.z+z),parts:[],bounds:new THREE.Box3(),...options};

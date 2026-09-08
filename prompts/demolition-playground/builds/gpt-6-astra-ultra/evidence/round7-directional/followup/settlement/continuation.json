@@ -1,0 +1,19 @@
+{
+  "status": "implementation under independent verification; not accepted",
+  "baseline": "98633bf46e4e5c2ebd8a2ee02ad979bd9eb815fa",
+  "branch": "round7/astra-shape-the-fall",
+  "pullRequest": 6,
+  "requiredRemaining": [
+    "profile corrected behavior and optimize measured costs",
+    "final full suite and independent actual-charge verification",
+    "final ordinary-browser persistence, directional collapse and time controls",
+    "updated evidence-only ZIP and draft PR description"
+  ],
+  "testFixtureChange": "Narrow seam support now uses two off-center seams to balance the pane; both removed for the original wake/displacement check. Separate lone-seam, inclined pane, empty slope, raised ledge, fast thin ledge and steep-slope regressions added.",
+  "boundaries": [
+    "no new branch or PR",
+    "draft and unmerged",
+    "no deployment",
+    "preserve old evidence"
+  ]
+}

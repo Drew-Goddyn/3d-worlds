@@ -148,7 +148,9 @@ export class BankCohesion {
         if(fixedUnder&&incoming.cluster<0) {
           bank.contactFriction(incoming,dt);
           if(Math.abs(incoming.vy)<.5)grounded.add(incoming.id);
-          if(Math.hypot(incoming.vx,incoming.vz)<.14&&Math.abs(incoming.vy)<.5&&Math.abs(incoming.wx)+Math.abs(incoming.wz)<.18){incoming.sleep=(priorSleep.get(incoming.id)??0)+dt;if(incoming.sleep>.45)bank.settle(incoming);}
+          // Individual settling is decided by the next free-piece step's real
+          // support polygon. A section's broad contact cannot certify balance.
+          incoming.sleep=0;
         }
         bank.revision++;
       }
