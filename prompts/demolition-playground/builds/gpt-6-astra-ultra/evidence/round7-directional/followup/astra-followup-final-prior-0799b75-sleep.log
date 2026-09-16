@@ -1,0 +1,2 @@
+{"check":"gravity-loaded intact sleep fixture","sleeping":false,"quiet":0,"stats":{"bays":27,"failedBays":0,"loose":0,"settled":0,"retained":1864,"movingSections":0,"connectedPieces":0}}
+{"check":"sleeping restore then ordinary charge","pass":null,"reason":"fixture did not naturally reach sleep"}

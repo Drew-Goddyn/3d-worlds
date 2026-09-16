@@ -1,0 +1,1419 @@
+{
+  "schema": "astra-independent-verification/v1",
+  "updated_utc": "2026-09-08T03:32:39Z",
+  "source_head": "5d52e88d902cc1e32f1d00093c930512e933137b",
+  "verdict": "BLOCKED - settled architectural solids interpenetrate",
+  "source_and_test_sha256": {
+    "package.json": "79d21413b2be6ed1e0ee9fb0ad37ffbb82eeb89a535971bd1b07ed66bc39f26c",
+    "src/bank-cohesion.js": "1e45ed5f9818a36973fcada446d02ed85ce9eaf1875300e8a0e4f8fefb1f5ec3",
+    "src/bank-contact.js": "e6a76b6549a001c3bf0161e5eacb24525baf255625639e5afdca080d421ad51d",
+    "src/bank-hall.js": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+    "src/bank-physics.js": "4277d01740dbe8fce83cecacbcc1970b675d9963d1c2fb2a3ae468f0e38f6a9a",
+    "src/bank-structure.js": "a65cdc874f1477dde3c26da32c464cf7159c3299053685e8594f91208a7a0390",
+    "src/bank-world.js": "cad94ea6fdd14ea7a63cd93fdb15a135b7b38c101cd9dbd511723259e4cb0ac8",
+    "src/bank.js": "d80b9b1193594bb7a0599cceac87b0250b4d463c2863ee9169a3a1603f667c3b",
+    "src/city.js": "b266889c15da75766edc33bcecb0bafdeafcef5f170470f1de69fe549a0fd76d",
+    "src/crane.js": "27cdf880e49b75f9479ace113099e58d4616449698c54889376b085a69533d09",
+    "src/event-audio.js": "f35399cb20f479205f993d8a2f6d5164d9c3e421953616206a38790c0dd04783",
+    "src/event-track.js": "b356e452649ef1173bdc0c19172b8835c14361d84c8d98f04e5424e0d66b5d84",
+    "src/event-visuals.js": "a0a04c9dbc7d5f3542365e6e1a4290573e7e01f7fb537c24abc0afcf64fcb2ff",
+    "src/fracture.js": "3306d23d0819122b1f223a451b7100de701cfc6301012b0ab6b8d151bed9fe43",
+    "src/history.js": "2702269060626387d8a151f5a469755eef5d0951cf47acea1e0c6ee9f22cbede",
+    "src/icons.js": "542b93cb24691d4c7d3ccd2a69bf9e1d7158a770aa98d4bfe43e891a38e97085",
+    "src/main.js": "ba6672f7767d3d8a1d05bd334fea8e24084665f6c2e8a8929f20e10acc113cf5",
+    "src/simulation.js": "8028ef24835212c34d9cfcd389fd7f9c575cc3cfca0e3db9ef0d6d99e6fd855b",
+    "tests/bank-world.test.mjs": "78c7b1384a5a7c635c28c41acc08f60c93a9cb65d29065f229ab60ad60d07e8a",
+    "tests/bank.test.mjs": "765476d22f7d72b4dfefe06cb182b76ced0099c40ae16be90b4a7e554fab4a29",
+    "tests/cohesion.test.mjs": "09f8eccbdf91d2c14e40ce7b9a107f435f4f1a1d88cfe6ddc7a330fd55354e8a",
+    "tests/contact-surfaces.test.mjs": "d98bc08bc87039194c2b30b1d59710374fe93f317c9a4a91edbce84c8b4b1912",
+    "tests/contacts.test.mjs": "835d6e142ad5e609e6050b79dd4ab95d8c2d8e3c3e1ee132c690c17f398780a6",
+    "tests/event.test.mjs": "63b4a2c2ce0a7d22281f88b91a7533b28dd413c7991065d8e45f95312728bdae",
+    "tests/hall.test.mjs": "ac48f9ca1c7d654da19bad18e156702042974cd242346f8f165bd9381c5bb7bc",
+    "tests/history.test.mjs": "e3d4c4a9fda1392986de18db265827c400d5b261c24b5fc01b2a657d040ff0ab",
+    "tests/simulation.test.mjs": "30ac47902a5c64d7c088825f68da828223acb1256b2cdf32c3731a707a0287da",
+    "tests/structure.test.mjs": "e1701a103990672edaf09fe13fa1e80e59c77759593abb0c323c00201174a212",
+    "tests/support-followup.test.mjs": "065acaa5514bb9c8e371360c599b3de17d42489b14566481fcce9e1a3ea1f204",
+    "tests/verification.test.mjs": "d4f63d07b473b3e674185f3ae44c7d8f188d621b84cceebf60c7b502c2776df3"
+  },
+  "scope": "Current source diff plus acceptance criteria and physical/history invariants. Builder reports and reasoning were excluded from initial review. No source edits, test changes, commits or pushes were made by this verifier.",
+  "full_suite": {
+    "status": "CANCELLED_SOURCE_CHANGE_INCOMPLETE",
+    "no_pass_claim": true,
+    "command": "npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test",
+    "log_name": "astra-settlement-independent-full-suite-5d52e88.log",
+    "log_sha256": "054325e0a986caa015bcbae3ba9f7159b6963b971b1bfee209f6f332454db22c",
+    "reason": "Rejected candidate has proven persistent native pier penetration; builder changed source and explicitly requested cancellation. Fresh verifier will run the entire unchanged suite on the final repair.",
+    "reported_assertion_failures_before_cancellation": [
+      {
+        "test": "ordinary charge strength carries connected architecture through a measurable fall before contact breakup",
+        "file": "tests/cohesion.test.mjs",
+        "observed_loose": 41,
+        "expected_loose": 0,
+        "assertion": "strict equality",
+        "status": "FAIL",
+        "discovered": "Buffered reporter output emitted when the rejected source run was cancelled"
+      }
+    ],
+    "reported_counts": {
+      "tests": 67,
+      "pass": 65,
+      "fail": 1,
+      "cancelled": 1,
+      "skipped": 0
+    },
+    "cancelled_test_file": "tests/bank.test.mjs"
+  },
+  "standing_invariants": [
+    "Visible solid geometry defines contact and preserves concave voids",
+    "Finite retained bodies may not disappear, recycle, become non-finite, or materially interpenetrate",
+    "Standing construction needs a real geometric path to a foundation; settled bodies need rooted balancing contact and admissible friction",
+    "Passive contact cannot create rising/climbing energy; unsupported bodies must wake",
+    "Ordinary charge ownership, strength, six-charge budget and meaningful partial/directional damage remain",
+    "Captured history remains immutable, supports fresh-instance continuation, replay and pristine rebuilding",
+    "No hidden anchors, artificial freezing, external dependencies or gate weakening"
+  ],
+  "findings": [
+    {
+      "id": "fast_fragment_thin_ledge",
+      "status": "fixed_and_retested",
+      "detail": "The initial candidate missed a thin support across a height-grid boundary. The unchanged independent falling-fragment probe now lands at y=1.21 m and reverses its normal velocity; the baseline also passed."
+    },
+    {
+      "id": "steep_slope_equilibrium",
+      "status": "fixed_and_retested",
+      "detail": "The initial candidate held loose plates on 45/60 degree inclines. The unchanged 30/45/60/80 degree probes now slide down and settle, with no meaningful COM rise."
+    },
+    {
+      "id": "deep_settled_pier_overlap",
+      "status": "BLOCKING",
+      "detail": "Two pairs of 0.42 x 3.92 x 0.42 m stone pier cores remain settled inside one another. Common vertical solid intervals exceed 3.637 m, and each pair contains a common interior sphere exceeding 0.207 m radius. The overlap persists unchanged across two exact native captures."
+    },
+    {
+      "id": "ordinary_charge_residual_loose_rubble",
+      "status": "BLOCKING",
+      "detail": "Existing charge-collapse regression observed 41 loose pieces where it requires zero. This real assertion failure was buffered behind the long bank file and surfaced on cancellation."
+    }
+  ],
+  "penetration_proof": {
+    "status": "FAIL",
+    "property": "Retained settled architectural solids must not interpenetrate",
+    "sourceHead": "5d52e88d902cc1e32f1d00093c930512e933137b",
+    "simulationTime": 32.846399999999925,
+    "pairs": [
+      {
+        "lower": {
+          "id": 1084,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -9.321625861494988,
+            6.310437621928108,
+            15.511314064869941
+          ],
+          "rotation": [
+            -0.001747543913269287,
+            1.3627453430336664e-05,
+            0.0003530081460421594
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "upper": {
+          "id": 1419,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -9.318579614338683,
+            6.592418629561084,
+            15.515741336277141
+          ],
+          "rotation": [
+            0.0023221625970267262,
+            -1.8696733725146038e-05,
+            -0.0020080659628930546
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "commonInteriorPoint": [
+          -9.320102737916836,
+          6.451428125744596,
+          15.51352770057354
+        ],
+        "commonInscribedSphereRadius": 0.20753995994908792,
+        "commonInteriorVolumeLowerBound": 0.03744499656364213,
+        "verticalCommonInteriorAtPointXZ": {
+          "minY": 4.632417592147712,
+          "maxY": 8.270445142964386,
+          "length": 3.6380275508166733
+        }
+      },
+      {
+        "lower": {
+          "id": 1264,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -9.321194582737187,
+            6.310329003745098,
+            16.152044295880778
+          ],
+          "rotation": [
+            -0.0012831077656702164,
+            3.2824822177383144e-05,
+            0.0003403519741434474
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "upper": {
+          "id": 1438,
+          "role": "pier",
+          "state": 2,
+          "position": [
+            -9.319173959016142,
+            6.5927539559750965,
+            16.154935050106996
+          ],
+          "rotation": [
+            0.003053061257051625,
+            -8.781443034939407e-05,
+            -0.0032309060797861815
+          ],
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "coreLocalDimensions": [
+            0.42,
+            3.92,
+            0.42
+          ],
+          "coreVolume": 0.6914879999999999
+        },
+        "commonInteriorPoint": [
+          -9.320184270876664,
+          6.451541479860097,
+          16.153489672993885
+        ],
+        "commonInscribedSphereRadius": 0.20837340013927985,
+        "commonInteriorVolumeLowerBound": 0.037897926092387006,
+        "verticalCommonInteriorAtPointXZ": {
+          "minY": 4.632742266909202,
+          "maxY": 8.270332929100514,
+          "length": 3.637590662191312
+        }
+      }
+    ]
+  },
+  "penetration_persistence": {
+    "later_simulation_time": 33.94969999999984,
+    "pairs_identical": true
+  },
+  "native_contact_audits": [
+    {
+      "scenario": "single left corner",
+      "simulation_time": 28.473299999999995,
+      "retained": 1865,
+      "stats": {
+        "bays": 27,
+        "failedBays": 3,
+        "loose": 9,
+        "settled": 323,
+        "retained": 1865,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      "standing_without_geometric_path": 0,
+      "settled_without_rooted_balanced_footprint": 0
+    },
+    {
+      "scenario": "single right corner",
+      "simulation_time": 29.50219999999984,
+      "retained": 1865,
+      "stats": {
+        "bays": 27,
+        "failedBays": 0,
+        "loose": 0,
+        "settled": 58,
+        "retained": 1865,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      "standing_without_geometric_path": 0,
+      "settled_without_rooted_balanced_footprint": 0
+    },
+    {
+      "scenario": "dense side cut",
+      "simulation_time": 32.846399999999925,
+      "retained": 1865,
+      "stats": {
+        "bays": 27,
+        "failedBays": 9,
+        "loose": 19,
+        "settled": 774,
+        "retained": 1865,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      "standing_without_geometric_path": 0,
+      "settled_without_rooted_balanced_footprint": 0
+    }
+  ],
+  "native_audit_limit": "Passing support footprints does not establish non-penetration. The dense side capture fails that separate invariant. Left and side captures retain explicitly moving debris; no complete-settlement claim is made.",
+  "suspicious_stationary_seam_support_dependencies": {
+    "1785": {
+      "kind": "contact",
+      "supports": [
+        498,
+        509,
+        1213,
+        1214,
+        1218
+      ],
+      "hull": [
+        [
+          -16.94304277665335,
+          0.9694468986926487,
+          18.462079676970728
+        ],
+        [
+          -16.600765443674387,
+          1.080781684768854,
+          16.776218496594936
+        ],
+        [
+          -16.55130870745089,
+          1.0976186572889954,
+          16.555398522668572
+        ],
+        [
+          -16.465651654704097,
+          1.0772860631802066,
+          16.5740736106995
+        ],
+        [
+          -16.50425853301337,
+          1.080208039815927,
+          16.746449924071786
+        ],
+        [
+          -16.932961063989328,
+          0.9695077949465322,
+          18.464652377335252
+        ]
+      ],
+      "center": [
+        -16.721381433083156,
+        1.0536864113647666,
+        17.515321416763076
+      ],
+      "normal": [
+        0.07925315815107907,
+        0.8793140796881239,
+        0.46960162498154534
+      ]
+    },
+    "1218": {
+      "kind": "contact",
+      "supports": [
+        509,
+        547
+      ],
+      "hull": [
+        [
+          -17.379139758286264,
+          0.965498744377312,
+          17.357118059635432
+        ],
+        [
+          -16.906031550177754,
+          1.027207042325363,
+          16.83400976575308
+        ],
+        [
+          -16.796181509825164,
+          0.9994147095119459,
+          17.062533048308826
+        ],
+        [
+          -16.79917542553388,
+          0.9688133576064789,
+          17.36254890493393
+        ]
+      ],
+      "center": [
+        -17.000689118526388,
+        1.276484161441942,
+        17.1254626464189
+      ],
+      "normal": [
+        -0.1516546797440301,
+        0.9815157959373235,
+        0.11673731381721002
+      ]
+    },
+    "547": {
+      "kind": "contact",
+      "supports": [
+        498,
+        497,
+        500,
+        509,
+        507
+      ],
+      "hull": [
+        [
+          -17.24880142447206,
+          1.0645172097826958,
+          16.70044690283845
+        ],
+        [
+          -17.01552847120424,
+          0.9665014842615826,
+          16.547309535801865
+        ],
+        [
+          -16.623607843638474,
+          0.8112371451130119,
+          16.31163860833165
+        ],
+        [
+          -16.587862750576235,
+          0.8889621612426578,
+          16.36030255879486
+        ],
+        [
+          -16.753918929374876,
+          0.9705242997232523,
+          18.461219072260917
+        ],
+        [
+          -16.985399850522736,
+          1.06158162832245,
+          18.583546234330804
+        ]
+      ],
+      "center": [
+        -16.849026450204484,
+        1.002259318949585,
+        17.476183892897883
+      ],
+      "normal": [
+        -0.22250630078001438,
+        0.9723977994901347,
+        0.070238633670776
+      ]
+    },
+    "507": {
+      "kind": "contact",
+      "supports": [
+        506,
+        436,
+        503,
+        433,
+        437,
+        438
+      ],
+      "hull": [
+        [
+          -17.255841307312014,
+          0.9053373128371496,
+          19.39159735847944
+        ],
+        [
+          -17.197593836695592,
+          0.907496202379235,
+          18.48286129348282
+        ],
+        [
+          -16.37413444366766,
+          0.916453766243983,
+          18.901519310849427
+        ],
+        [
+          -16.530174111927384,
+          0.8422197844294654,
+          19.159992606565236
+        ],
+        [
+          -16.685791748297905,
+          0.8235511163231498,
+          19.396894082953676
+        ],
+        [
+          -17.239505709447602,
+          0.8802227176322102,
+          19.401184264502174
+        ]
+      ],
+      "center": [
+        -16.819372156203762,
+        0.9578320542206828,
+        18.99318575175747
+      ],
+      "normal": [
+        0.07450843801456701,
+        0.9937192841499266,
+        -0.0834893823979233
+      ]
+    },
+    "438": {
+      "kind": "contact",
+      "supports": [
+        436,
+        437
+      ],
+      "hull": [
+        [
+          -16.90365623050288,
+          1.3052174735364448,
+          19.04496561169598
+        ],
+        [
+          -16.858615580447026,
+          1.3160366812761528,
+          19.01490096173815
+        ],
+        [
+          -16.775484083520823,
+          1.482629500125614,
+          19.366532219222233
+        ],
+        [
+          -16.845589938840863,
+          0.7675351002415473,
+          19.736349261892478
+        ]
+      ],
+      "center": [
+        -16.81139337344387,
+        1.3139404053626005,
+        19.549119386862632
+      ],
+      "normal": [
+        -0.1843621712877678,
+        0.9813940076499753,
+        -0.053632001144649825
+      ]
+    },
+    "437": {
+      "kind": "contact",
+      "supports": [
+        432,
+        435,
+        433,
+        436
+      ],
+      "hull": [
+        [
+          -17.080785872357048,
+          0.8106790414969294,
+          19.188036810817604
+        ],
+        [
+          -17.037339676340082,
+          0.9832430061195029,
+          19.092250896305394
+        ],
+        [
+          -17.030854316627597,
+          0.9965714190620965,
+          19.077952610886843
+        ],
+        [
+          -16.540173335534664,
+          0.8137928420629938,
+          19.000271153751225
+        ],
+        [
+          -16.494756925920463,
+          0.41450000000000004,
+          19.16745593666599
+        ],
+        [
+          -16.96394725286938,
+          0.8423492806814067,
+          19.759316092176075
+        ],
+        [
+          -16.968253211118984,
+          0.8420062962104093,
+          19.74632362560864
+        ]
+      ],
+      "center": [
+        -16.65017441708826,
+        0.9552847570313857,
+        19.29349062687722
+      ],
+      "normal": [
+        0.08087582441590511,
+        0.9934349917282339,
+        -0.08090746711504161
+      ]
+    },
+    "436": {
+      "kind": "contact",
+      "supports": [
+        435,
+        433
+      ],
+      "hull": [
+        [
+          -17.267615567297174,
+          0.2391448177053388,
+          19.571972018004242
+        ],
+        [
+          -17.258008986836266,
+          0.41809600979114714,
+          19.100558297263195
+        ],
+        [
+          -17.223161998655964,
+          0.5158103595159615,
+          18.931624505122453
+        ],
+        [
+          -16.595753933152356,
+          0.230012035337834,
+          19.582098066122
+        ]
+      ],
+      "center": [
+        -16.922548334271486,
+        0.6299212118379246,
+        19.32739888545565
+      ],
+      "normal": [
+        0.010315697651443344,
+        0.9285177008961135,
+        -0.3711448039573769
+      ]
+    },
+    "433": {
+      "kind": "ground",
+      "hull": [
+        [
+          -17.21224182485026,
+          0.23000000000000004,
+          19.253075155351404
+        ],
+        [
+          -16.462340137293154,
+          0.23564764688985756,
+          19.242325128206748
+        ],
+        [
+          -16.451477689514714,
+          0.2397728710626446,
+          20.00223630048531
+        ],
+        [
+          -17.20137937707182,
+          0.23412522417278708,
+          20.012986327629967
+        ]
+      ],
+      "center": [
+        -16.836566171202342,
+        0.4996506295423475,
+        19.43844196021253
+      ]
+    },
+    "435": {
+      "kind": "contact",
+      "supports": [
+        433,
+        503,
+        434
+      ],
+      "hull": [
+        [
+          -17.577056143660176,
+          0.23000000000000004,
+          19.61972711376578
+        ],
+        [
+          -17.494596074133693,
+          0.4128455512406012,
+          19.097851347632876
+        ],
+        [
+          -16.865472525707585,
+          0.41261414025016463,
+          19.247126976362004
+        ]
+      ],
+      "center": [
+        -17.238707007870392,
+        0.6297728409560593,
+        19.380363080067884
+      ],
+      "normal": [
+        -0.005631930050881141,
+        0.9999819230161145,
+        -0.002105945131169607
+      ]
+    },
+    "434": {
+      "kind": "ground",
+      "hull": [
+        [
+          -17.896490440938805,
+          0.23848336688186905,
+          19.255063322230193
+        ],
+        [
+          -17.22664051108556,
+          0.23000000000000004,
+          19.202024619739017
+        ],
+        [
+          -17.18083486390278,
+          0.23197144784420315,
+          19.7802096732293
+        ],
+        [
+          -17.850684793756027,
+          0.24045481472607216,
+          19.83324837572048
+        ]
+      ],
+      "center": [
+        -17.542069856805668,
+        0.512409948416937,
+        19.430270921469983
+      ]
+    },
+    "503": {
+      "kind": "ground",
+      "hull": [
+        [
+          -17.679013904869446,
+          0.23081348140394625,
+          19.455816437334427
+        ],
+        [
+          -17.667557100678835,
+          0.23000000000000004,
+          18.47255018431331
+        ],
+        [
+          -16.90767127393422,
+          0.23976112226366952,
+          18.481396132810033
+        ],
+        [
+          -16.91912807812483,
+          0.24057460366761574,
+          19.46466238583115
+        ]
+      ],
+      "center": [
+        -17.10593757343734,
+        0.5050751269007276,
+        18.970566685103876
+      ]
+    },
+    "432": {
+      "kind": "standing_or_fixed_construction"
+    },
+    "506": {
+      "kind": "contact",
+      "supports": [
+        503,
+        505,
+        434,
+        432,
+        435,
+        436
+      ],
+      "hull": [
+        [
+          -17.542660740959587,
+          0.7608355826674945,
+          19.06474849502131
+        ],
+        [
+          -17.409262649901557,
+          0.23291404102253715,
+          18.530812627546823
+        ],
+        [
+          -16.993,
+          0.39,
+          18.47541496054152
+        ],
+        [
+          -16.909981227767133,
+          0.4197462138688849,
+          18.48122031144605
+        ],
+        [
+          -16.654922981611566,
+          0.5514813059571324,
+          18.8769616085641
+        ],
+        [
+          -16.993,
+          0.39,
+          19.388160155195806
+        ],
+        [
+          -17.498016019530766,
+          0.7894143578847513,
+          19.435587706845155
+        ],
+        [
+          -17.517682946297825,
+          0.7866429103846511,
+          19.272225334141787
+        ]
+      ],
+      "center": [
+        -17.102869123917966,
+        0.64099757335633,
+        18.936518459534316
+      ],
+      "normal": [
+        -0.005924750778913798,
+        0.9486819907817767,
+        -0.31617618141557224
+      ]
+    },
+    "505": {
+      "kind": "ground",
+      "hull": [
+        [
+          -17.911607572330098,
+          0.23205146439291535,
+          19.2319371743872
+        ],
+        [
+          -17.817471180689704,
+          0.23059780326791024,
+          18.331512457332682
+        ],
+        [
+          -17.240615538551072,
+          0.22999999999999998,
+          18.391821749851157
+        ],
+        [
+          -17.334751930191466,
+          0.2314536611250051,
+          19.292246466905674
+        ]
+      ],
+      "center": [
+        -17.48798294579857,
+        0.5084342410243139,
+        18.820645160347425
+      ]
+    },
+    "509": {
+      "kind": "ground",
+      "hull": [
+        [
+          -17.27771225540556,
+          0.23000000000000004,
+          16.55207129460923
+        ],
+        [
+          -16.697726759191575,
+          0.23330433877513884,
+          16.54964116566725
+        ],
+        [
+          -16.690198669448655,
+          0.23572751975478762,
+          18.3496237922664
+        ],
+        [
+          -17.27018416566264,
+          0.2324231809796488,
+          18.35205392120838
+        ]
+      ],
+      "center": [
+        -17.042639183665713,
+        0.6482701371470027,
+        17.450533746791145
+      ]
+    },
+    "500": {
+      "kind": "contact",
+      "supports": [
+        499,
+        509,
+        497,
+        498
+      ],
+      "hull": [
+        [
+          -17.316028069436594,
+          0.9651221576072792,
+          16.800164060001773
+        ],
+        [
+          -17.311830829045203,
+          0.9322462501833593,
+          15.895419950253423
+        ],
+        [
+          -16.68217791282323,
+          1.4040790747213767,
+          15.864918334707616
+        ],
+        [
+          -16.526937364770767,
+          1.3558407626996458,
+          15.894945436826475
+        ],
+        [
+          -16.496631234291474,
+          1.3368625723351644,
+          15.905137715138446
+        ],
+        [
+          -16.48168076792765,
+          1.3662534066975769,
+          16.702806712177306
+        ],
+        [
+          -16.51161499921939,
+          1.385962706524123,
+          16.712456788258546
+        ],
+        [
+          -16.66570981723132,
+          1.436453387202844,
+          16.743559105789
+        ]
+      ],
+      "center": [
+        -16.911683323407317,
+        1.1702767073679792,
+        16.331386712422777
+      ],
+      "normal": [
+        -0.4451344815399712,
+        0.8954495446442435,
+        0.005040470271521905
+      ]
+    },
+    "498": {
+      "kind": "contact",
+      "supports": [
+        497,
+        509,
+        308
+      ],
+      "hull": [
+        [
+          -17.133957854987056,
+          0.4186104984569815,
+          16.047825030048383
+        ],
+        [
+          -16.607582524226398,
+          0.8674700398315685,
+          15.819333882557498
+        ],
+        [
+          -16.44261242581448,
+          0.8106907221027461,
+          15.928818824248882
+        ],
+        [
+          -16.76078457701012,
+          0.9683143490809478,
+          16.819627794020462
+        ]
+      ],
+      "center": [
+        -16.83635028383715,
+        0.9473720695171982,
+        16.286251787773974
+      ],
+      "normal": [
+        0.00923462684026032,
+        0.9999517076686882,
+        0.003362141816669325
+      ]
+    },
+    "308": {
+      "kind": "standing_or_fixed_construction"
+    },
+    "497": {
+      "kind": "ground",
+      "hull": [
+        [
+          -17.451880197541612,
+          0.23932266853946843,
+          16.773468345444922
+        ],
+        [
+          -16.689349870253526,
+          0.2342627978731,
+          15.79210890970325
+        ],
+        [
+          -16.691939909517394,
+          0.22999999999999998,
+          16.775429592235326
+        ]
+      ],
+      "center": [
+        -16.876488741275285,
+        0.501787412968911,
+        16.284448730434033
+      ]
+    },
+    "499": {
+      "kind": "contact",
+      "supports": [
+        498,
+        509,
+        497
+      ],
+      "hull": [
+        [
+          -17.300602028854996,
+          0.9651695373823241,
+          16.769467636505034
+        ],
+        [
+          -16.737815626717506,
+          0.842109572011245,
+          15.860493069118597
+        ],
+        [
+          -16.652639599864752,
+          1.4190220117555432,
+          16.510086539505068
+        ],
+        [
+          -16.72619410303152,
+          0.8734378919156625,
+          16.765110278115717
+        ],
+        [
+          -17.235656880629776,
+          0.960471832033202,
+          16.768974973932423
+        ]
+      ],
+      "center": [
+        -16.893507393028422,
+        1.1704411882450498,
+        16.30348062910175
+      ],
+      "normal": [
+        -0.0354287979624057,
+        0.9914477550021218,
+        0.12560314238183587
+      ]
+    },
+    "1214": {
+      "kind": "contact",
+      "supports": [
+        497,
+        509,
+        498,
+        547,
+        1213
+      ],
+      "hull": [
+        [
+          -17.155193617367637,
+          0.9655572345476886,
+          16.435567548126556
+        ],
+        [
+          -16.603165898089713,
+          0.8386647591179381,
+          16.27137879284511
+        ],
+        [
+          -16.29521202496035,
+          1.30766877882838,
+          16.29723020729879
+        ],
+        [
+          -16.700311661154114,
+          0.8736361285675993,
+          16.803400340295738
+        ],
+        [
+          -17.1471109417172,
+          0.9661000968387626,
+          16.81123160055488
+        ]
+      ],
+      "center": [
+        -16.7286754511829,
+        1.1572919209668096,
+        16.53345890494367
+      ],
+      "normal": [
+        0.0378632100630983,
+        0.9840103449207406,
+        -0.17404027813320377
+      ]
+    },
+    "1213": {
+      "kind": "contact",
+      "supports": [
+        498,
+        499,
+        500,
+        509,
+        547
+      ],
+      "hull": [
+        [
+          -17.170182156594464,
+          1.1267080224193682,
+          16.67030432865723
+        ],
+        [
+          -17.160110878249366,
+          1.1021646210147205,
+          16.60428786653997
+        ],
+        [
+          -16.74884758911977,
+          0.8954567599326103,
+          16.247373110624327
+        ],
+        [
+          -16.476599064668292,
+          1.2277841445592081,
+          16.213387187376533
+        ],
+        [
+          -16.46490708728121,
+          1.030754753750023,
+          16.771209500475454
+        ],
+        [
+          -16.498935022580742,
+          1.0380698978946632,
+          16.774203637382332
+        ],
+        [
+          -16.663679999957775,
+          1.0573990917866747,
+          16.778224009122265
+        ]
+      ],
+      "center": [
+        -16.70889263101698,
+        1.2461267121182926,
+        16.419878106197956
+      ],
+      "normal": [
+        -0.005529261650547463,
+        0.9985851779605062,
+        0.05288732951458027
+      ]
+    }
+  },
+  "exposed_side_pier_evidence": [
+    {
+      "body": 1084,
+      "support": {
+        "kind": "contact",
+        "supports": [
+          359
+        ],
+        "hull": [
+          [
+            -9.529993120384493,
+            4.339974412021217,
+            15.72336841407584
+          ],
+          [
+            -9.52999308925417,
+            4.339979357744691,
+            15.303368414104959
+          ],
+          [
+            -9.109993089254171,
+            4.3399793942626,
+            15.303368445235714
+          ],
+          [
+            -9.109993120384496,
+            4.339974448539126,
+            15.723368445206592
+          ]
+        ],
+        "center": [
+          -9.321616097870649,
+          6.282779311105645,
+          15.51136239889882
+        ],
+        "normal": [
+          -8.694827446574761e-08,
+          0.9999999999306647,
+          1.1775532075256418e-05
+        ]
+      }
+    },
+    {
+      "body": 1264,
+      "support": {
+        "kind": "contact",
+        "supports": [
+          553
+        ],
+        "hull": [
+          [
+            -9.52997898099975,
+            4.340037979848244,
+            16.36341393170469
+          ],
+          [
+            -9.529978234088555,
+            4.340047392320691,
+            15.943413931810827
+          ],
+          [
+            -9.109978234090274,
+            4.34004645021297,
+            15.94341467870091
+          ],
+          [
+            -9.10997898100147,
+            4.340037037740523,
+            16.363414678594776
+          ]
+        ],
+        "center": [
+          -9.321185169161723,
+          6.2826706733359465,
+          16.15207978420979
+        ],
+        "normal": [
+          2.2430737671325102e-06,
+          0.9999999997463657,
+          2.2410652671805917e-05
+        ]
+      }
+    },
+    {
+      "body": 1419,
+      "support": {
+        "kind": "contact",
+        "supports": [
+          1084
+        ],
+        "hull": [
+          [
+            -9.631033482907116,
+            4.619789144455555,
+            15.2042722933928
+          ],
+          [
+            -9.01253038850832,
+            4.620007466032549,
+            15.204263483230882
+          ],
+          [
+            -9.012541922678725,
+            4.621085531546015,
+            15.821170129866994
+          ],
+          [
+            -9.63102507626602,
+            4.620867186444294,
+            15.821161450305995
+          ]
+        ],
+        "center": [
+          -9.318635154102168,
+          6.564760405121485,
+          15.515677108228985
+        ],
+        "normal": [
+          -0.00035300813867740396,
+          0.999998410746651,
+          -0.0017475381043167387
+        ]
+      }
+    },
+    {
+      "body": 1438,
+      "support": {
+        "kind": "contact",
+        "supports": [
+          1264
+        ],
+        "hull": [
+          [
+            -9.630629545485048,
+            4.619827233519246,
+            15.84422329482256
+          ],
+          [
+            -9.015513691284816,
+            4.620036563343098,
+            15.84420283514453
+          ],
+          [
+            -9.015567674569315,
+            4.620825316054355,
+            16.4589427195904
+          ],
+          [
+            -9.630609368986326,
+            4.620615923704423,
+            16.458894777183747
+          ]
+        ],
+        "center": [
+          -9.319263320406938,
+          6.5650958744832355,
+          16.154850600180325
+        ],
+        "normal": [
+          -0.0003403519673882544,
+          0.9999991189119938,
+          -0.0012830961672918618
+        ]
+      }
+    }
+  ],
+  "focused_probe_results": [
+    {
+      "name": "fast falling piece must collide with a thin supported ledge",
+      "status": "pass",
+      "bottom": 1.2099999997764825,
+      "ledgeTop": 1.2099999997764825,
+      "vy": 1.6166666666666671
+    },
+    {
+      "name": "bridge remains balanced on two off-center seams and tips when one is removed",
+      "status": "pass",
+      "endY": 0.26021704521082545,
+      "state": 2
+    },
+    {
+      "name": "off-origin rotating body preserves freely falling solid center",
+      "status": "pass",
+      "initial": [
+        3,
+        11,
+        3.469446951953614e-18
+      ],
+      "after": [
+        3.000000000000001,
+        10.809027777777782,
+        3.469446951953614e-18
+      ]
+    }
+  ],
+  "shape_oracle_results": [
+    {
+      "name": "convex_box",
+      "rays": 400,
+      "originalTriangles": 12,
+      "optimizedPolygons": 6,
+      "status": "pass"
+    },
+    {
+      "name": "concave_L",
+      "rays": 400,
+      "originalTriangles": 20,
+      "optimizedPolygons": 14,
+      "status": "pass"
+    },
+    {
+      "name": "hole",
+      "rays": 400,
+      "originalTriangles": 32,
+      "optimizedPolygons": 24,
+      "status": "pass"
+    },
+    {
+      "name": "resting-contact cache distinguishes current support poses and restores old pose",
+      "status": "pass"
+    }
+  ],
+  "raw_diagnostics_excluded": [
+    {
+      "name": "final-left-25s-bank.json",
+      "sha256": "deaf203edd428b1fb8ff73d6865cd247e3ef3a508afb48a8364e909235611f68",
+      "included_in_packet": false,
+      "reason": "Full native recipe/capture retained as local diagnostic; compact geometric proof and support dependencies are embedded below."
+    },
+    {
+      "name": "final-left-replayed-bank.json",
+      "sha256": "7f14dba68b0af9ba845c7c769494c7263b2d68d44fb7537277779c6d38e98e8d",
+      "included_in_packet": false,
+      "reason": "Full native recipe/capture retained as local diagnostic; compact geometric proof and support dependencies are embedded below."
+    },
+    {
+      "name": "final-left-later-cut-bank.json",
+      "sha256": "94a27dee6d4c49b1392ae843c3c016b69af15eb84e52923b59cccd139bfd9890",
+      "included_in_packet": false,
+      "reason": "Full native recipe/capture retained as local diagnostic; compact geometric proof and support dependencies are embedded below."
+    },
+    {
+      "name": "final-right-25s-bank.json",
+      "sha256": "e82da151604999dac13319c32d6840d37a05ec499f9e5690aa396cf2a80165e3",
+      "included_in_packet": false,
+      "reason": "Full native recipe/capture retained as local diagnostic; compact geometric proof and support dependencies are embedded below."
+    },
+    {
+      "name": "final-side-25s-bank.json",
+      "sha256": "0afd0d8c064c2b529392828106797d22d6fe0e45261bf14f1669a32bb776634b",
+      "included_in_packet": false,
+      "reason": "Full native recipe/capture retained as local diagnostic; compact geometric proof and support dependencies are embedded below."
+    },
+    {
+      "name": "final-side-replayed-bank.json",
+      "sha256": "1662e4c388b33557e88bf44fdd4e7cf536157cf3b2c5968d968baa6cba5f089e",
+      "included_in_packet": false,
+      "reason": "Full native recipe/capture retained as local diagnostic; compact geometric proof and support dependencies are embedded below."
+    }
+  ],
+  "diagnostic_correction": "The initial support audit falsely flagged seam 1785 by combining incidental slope contacts with supports that were already balanced on ground. Accepting a sufficient grounded contact subset resolves the false negative without changing source, tolerances or invariants. Preferred roof-rib foot links also do not invalidate real alternate construction paths.",
+  "pending": [
+    "A repaired candidate must resolve deep solid overlap without weakening contact/history gates",
+    "Final acceptance of a subsequent repair requires a fresh verifier context; this context has since received the builder repair hypothesis",
+    "Separate ordinary browser corner interaction audit was not started while the full suite ran and this candidate is already blocked"
+  ]
+}

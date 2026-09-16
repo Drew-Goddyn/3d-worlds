@@ -1,0 +1,211 @@
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js
+index 87aad75..80d1b8d 100644
+--- a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js
+@@ -1,5 +1,5 @@
+ import * as THREE from 'three';
+-import { surfaceContacts, contactView, contactVector } from './bank-contact.js';
++import { sweptContact } from './bank-contact.js';
+ 
+ // Finite compound sections assembled from the bank's actual retained pieces.
+ // This is a bank-local rigid approximation: supported masonry hinges around
+@@ -139,19 +139,23 @@ export class BankCohesion {
+               const previousVertices=old.meshes[i].vertices.map(p=>p.clone().applyMatrix4(relative)),sweptPart=parts[i].box.clone().union(new THREE.Box3().setFromPoints(previousVertices));
+               for(const support of supports) {
+                 if(!sweptPart.intersectsBox(support.box))continue;
+-                for(const axis of ['y','x','z']) {
+-                  const previous={vertices:previousVertices.map(p=>contactVector(p,axis))};
+-                  for(const c of surfaceContacts(contactView(parts[i],axis),contactView(support,axis),previous))if(c.depth>1e-8&&(!hit||c.fraction<hit.fraction))hit={...c,normal:contactVector(c.normal,axis,true),point:contactVector(c.point,axis,true),axis,incoming,under};
+-                }
++                const c=sweptContact(parts[i],support,{vertices:previousVertices});
++                if(c&&(!hit||c.fraction<hit.fraction-1e-8))hit={...c,incoming,under};
++                else if(c&&hit.incoming===incoming&&Math.abs(c.fraction-hit.fraction)<=1e-8&&c.normal.dot(hit.normal)>1-1e-8){hit.point.multiplyScalar(hit.count).addScaledVector(c.point,c.count).divideScalar(hit.count+c.count);hit.count+=c.count;hit.depth=Math.max(hit.depth,c.depth);}
+               }
+             }
+           }
+           if(!hit)continue;
+-          const {incoming,under,depth,normal,axis}=hit;
+-          const inverse=b=>b.fixed||b.state===0||b.state===2||axis==='y'&&grounded.has(b.id)?0:1/b.mass,ia=inverse(incoming),ib=inverse(under);if(!ia&&!ib)continue;
+-          incoming[axis]+=depth*ia/(ia+ib);if(ib)under[axis]-=depth*ib/(ia+ib);
+-          const relative=(under.vx-incoming.vx)*normal.x+(under.vy-incoming.vy)*normal.y+(under.vz-incoming.vz)*normal.z,j=Math.max(0,relative)*1.04/(ia+ib);
+-          for(const axis of ['x','y','z']){incoming['v'+axis]+=normal[axis]*j*ia;if(ib)under['v'+axis]-=normal[axis]*j*ib;}
++          const {incoming,under,depth,normal}=hit;
++          const inverse=b=>b.fixed||b.state===0||b.state===2?0:1/b.mass,ia=inverse(incoming),ib=inverse(under);
++          const ay=grounded.has(incoming.id)&&normal.y<0?0:1,by=grounded.has(under.id)&&normal.y>0?0:1;
++          const mobility=(ia+ib)*(normal.x**2+normal.z**2)+(ia*ay+ib*by)*normal.y**2;if(!mobility)continue;
++          for(const axis of ['x','y','z']) {
++            const ma=ia*(axis==='y'?ay:1),mb=ib*(axis==='y'?by:1);
++            incoming[axis]+=normal[axis]*depth*ma/mobility;under[axis]-=normal[axis]*depth*mb/mobility;
++            hit.point[axis]-=normal[axis]*depth*mb/mobility;
++          }
++          bank.collide(incoming,under,hit.point,normal,.04,grounded);
+           if(ia){incoming.state=1;incoming.sleep=0;}if(ib){under.state=1;under.sleep=0;}
+           bank.revision++;continue;
+         }
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-contact.js b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-contact.js
+index 7023f28..77a9335 100644
+--- a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-contact.js
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-contact.js
+@@ -52,23 +52,53 @@ export function worldMesh(mesh,matrix) {
+     const p=ids.map(id=>vertices[id]),n=new THREE.Vector3().crossVectors(new THREE.Vector3().subVectors(p[1],p[0]),new THREE.Vector3().subVectors(p[2],p[0])).normalize();
+     return {ids,p,n,d:-n.dot(p[0]),box:new THREE.Box3().setFromPoints(p)};
+   });
+-  let up=null,down=null;
+-  return {vertices,box,get faces(){return getSurfaces();},get up(){return up??=getSurfaces().filter(f=>f.n.y>.05);},get down(){return down??=getSurfaces().filter(f=>f.n.y< -.05);}};
++  let up=null,down=null,edges=null;
++  return {vertices,box,get faces(){return getSurfaces();},get edges(){
++    if(!edges){const unique=new Map();for(const face of getSurfaces())for(let i=0;i<face.ids.length;i++){const a=face.ids[i],b=face.ids[(i+1)%face.ids.length],key=Math.min(a,b)+','+Math.max(a,b);if(!unique.has(key))unique.set(key,{ids:[a,b],a:vertices[a],b:vertices[b],normals:[],box:new THREE.Box3().setFromPoints([vertices[a],vertices[b]])});unique.get(key).normals.push(face.n);}edges=[...unique.values()].filter(e=>e.normals.length===1||e.normals.some(n=>n.dot(e.normals[0])<1-1e-10));}return edges;
++  },get up(){return up??=getSurfaces().filter(f=>f.n.y>.05);},get down(){return down??=getSurfaces().filter(f=>f.n.y< -.05);}};
+ }
+-// The same real-face crossing test can look along any world axis. These are
+-// coordinate rotations, not new collision hulls; holes stay empty in each view.
+-const views=new WeakMap();
+-export function contactVector(p,axis,inverse=false) {
+-  if(axis==='y')return p.clone();
+-  return (axis==='x')!==inverse?new THREE.Vector3(p.z,p.x,p.y):new THREE.Vector3(p.y,p.z,p.x);
+-}
+-export function contactView(mesh,axis) {
+-  if(axis==='y')return mesh;
+-  let cached=views.get(mesh);if(!cached)views.set(mesh,cached={});if(cached[axis])return cached[axis];
+-  const vertices=mesh.vertices.map(p=>contactVector(p,axis)),faces=mesh.faces.map(f=>{
+-    const p=f.ids.map(id=>vertices[id]),n=contactVector(f.n,axis);return {ids:f.ids,p,n,d:-n.dot(p[0]),box:new THREE.Box3().setFromPoints(p)};
+-  });
+-  return cached[axis]={vertices,box:new THREE.Box3().setFromPoints(vertices),up:faces.filter(f=>f.n.y>.05),down:faces.filter(f=>f.n.y<-.05)};
++// Continuous relative motion: material vertices cross actual faces, and
++// finite edges cross finite edges. End-of-step projections need not overlap.
++// The support is expressed in its current local frame by the caller, so both
++// bodies may move and rotate without treating either one's old pose as fixed.
++export function sweptContact(moving,support,previous) {
++  let hit=null;
++  const accept=(fraction,depth,normal,point)=>{
++    if(depth<=1e-8||fraction<0||fraction>1)return;
++    if(!hit||fraction<hit.fraction-1e-8)hit={fraction,depth,normal,point:point.clone(),count:1};
++    else if(Math.abs(fraction-hit.fraction)<=1e-8&&normal.dot(hit.normal)>1-1e-8){hit.point.multiplyScalar(hit.count).add(point).divideScalar(++hit.count);hit.depth=Math.max(hit.depth,depth);}
++  };
++  const scratch=new THREE.Box3(),edgeVector=new THREE.Vector3(),toPoint=new THREE.Vector3(),crossed=new THREE.Vector3();
++  for(let i=0;i<moving.vertices.length;i++) {
++    const old=previous.vertices[i],now=moving.vertices[i];scratch.setFromPoints([old,now]).expandByScalar(.002);
++    for(const f of support.faces) {
++      if(!scratch.intersectsBox(f.box))continue;
++      const before=f.n.dot(old)+f.d,after=f.n.dot(now)+f.d;if(before<-.002||after>=-1e-8||before<=after)continue;
++      const fraction=Math.max(0,before)/(before-after);if(hit&&fraction>hit.fraction+1e-8)continue;
++      const point=old.clone().lerp(now,fraction);
++      let inside=true;for(let j=0;j<f.p.length;j++)if(crossed.crossVectors(edgeVector.subVectors(f.p[(j+1)%f.p.length],f.p[j]),toPoint.subVectors(point,f.p[j])).dot(f.n)<-1e-8){inside=false;break;}
++      if(inside)accept(fraction,-after,f.n,point);
++    }
++  }
++  const roots=(a,b,c)=>{if(Math.abs(a)<1e-14)return Math.abs(b)<1e-14?[]:[-c/b];const d=b*b-4*a*c;if(d<0)return [];const q=-.5*(b+Math.sign(b||1)*Math.sqrt(d));return q?[q/a,c/q]:[-b/(2*a)];};
++  for(const edge of moving.edges) {
++    const a=previous.vertices[edge.ids[0]],end=previous.vertices[edge.ids[1]],e=end.clone().sub(a),va=edge.a.clone().sub(a),ve=edge.b.clone().sub(edge.a).sub(e);
++    scratch.setFromPoints([a,end,edge.a,edge.b]);
++    for(const other of support.edges) {
++      if(!scratch.intersectsBox(other.box))continue;
++      const f=other.b.clone().sub(other.a),r=a.clone().sub(other.a),ef=e.clone().cross(f),vf=ve.clone().cross(f);
++      for(const t of roots(va.dot(vf),va.dot(ef)+r.dot(vf),r.dot(ef))) {
++        if(t<0||t>1||hit&&t>hit.fraction+1e-8)continue;
++        const at=a.clone().addScaledVector(va,t),et=e.clone().addScaledVector(ve,t),offset=at.clone().sub(other.a),aa=et.lengthSq(),bb=et.dot(f),cc=f.lengthSq(),dd=et.dot(offset),ee=f.dot(offset),den=aa*cc-bb*bb;
++        if(den<1e-14)continue;
++        const u=(bb*ee-cc*dd)/den,v=(aa*ee-bb*dd)/den;if(u<0||u>1||v<0||v>1)continue;
++        const point=other.a.clone().addScaledVector(f,v);if(at.addScaledVector(et,u).distanceToSquared(point)>1e-12)continue;
++        const normal=et.clone().cross(f).normalize(),speed=va.clone().addScaledVector(ve,u);if(normal.dot(speed)>0)normal.negate();
++        const finish=edge.a.clone().lerp(edge.b,u),depth=-normal.dot(finish.sub(point));accept(t,depth,normal,point);
++      }
++    }
++  }
++  return hit;
+ }
+ const cross=(a,b,c)=>(b.x-a.x)*(c.z-a.z)-(b.z-a.z)*(c.x-a.x);
+ const height=(f,x,z)=>-(f.n.x*x+f.n.z*z+f.d)/f.n.y;
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js
+index cdd38dc..246d640 100644
+--- a/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js
+@@ -289,15 +289,15 @@ export class BankPhysics {
+       const contacts=this.restingContacts(b,restGrid,meshes,oldParts);
+       let correction=.23-bottom;
+       for(const contact of contacts)if(contact.depth>correction){correction=contact.depth;under=contact.e.b;contactPoint=contact.point;}
+-      if(correction>=-.002 && b.vy<.5) {
++      if(correction>=-.002) {
+         const speed=Math.max(0,-b.vy);b.y+=correction;
+         const touching=contacts.filter(c=>c.depth>=correction-.012),points=touching.map(c=>c.point),normals=touching.map(c=>c.normal);
+         if(.23-bottom>=correction-.012)for(const mesh of meshes)for(const point of mesh.vertices)if(point.y<=bottom+.012){points.push(point.clone().add(new THREE.Vector3(0,correction,0)));normals.push(new THREE.Vector3(0,1,0));}
+         const supported=balance(points,this.center(b),normals);
+         if(b.role==='paper')b.hits=1;
+-        const normal=supported.normal??new THREE.Vector3(0,1,0),vn=b.vx*normal.x+b.vy*normal.y+b.vz*normal.z;
+-        supported.impulse=Math.max(0,-vn)*(1+(b.role==='glass'?.24:b.role==='paper'?.015:.08));
+-        b.vx+=normal.x*supported.impulse;b.vy+=normal.y*supported.impulse;b.vz+=normal.z*supported.impulse;
++        const normal=supported.normal??new THREE.Vector3(0,1,0),point=supported.pivot?.clone()??this.center(b);
++        if(supported.balanced){const center=this.center(b);point.x=center.x;point.z=center.z;}
++        supported.impulse=this.collide(b,null,point,normal,b.role==='glass'?.24:b.role==='paper'?.015:.08)/b.mass;
+         this.contactFriction(b,dt,supported);
+         if(speed<.5)grounded.add(b.id);
+         if(speed>2.5) {
+@@ -335,6 +335,24 @@ export class BankPhysics {
+       this.sim.lastCollapseBuilding=id;this.sim.chainTime=this.sim.time;
+     }
+   }
++  collide(a,b,point,normal,restitution=.04,grounded=new Set()) {
++    const data=(body,sign)=>{
++      if(!body||body.fixed||body.state===0||body.state===2)return {body:null,inverse:0,y:0,r:new THREE.Vector3(),inertia:new THREE.Vector3(),velocity:new THREE.Vector3()};
++      const inverse=1/body.mass,r=point.clone().sub(this.center(body)),extent=this.bounds(body).getSize(new THREE.Vector3());
++      const inertia=new THREE.Vector3(12*inverse/Math.max(.024,extent.y**2+extent.z**2),12*inverse/Math.max(.024,extent.x**2+extent.z**2),12*inverse/Math.max(.024,extent.x**2+extent.y**2));
++      const velocity=new THREE.Vector3(body.vx,body.vy,body.vz).add(new THREE.Vector3(body.wx,body.wy,body.wz).cross(r));
++      return {body,inverse,y:grounded.has(body.id)&&normal.y*sign<0?0:1,r,inertia,velocity};
++    };
++    const aa=data(a,1),bb=data(b,-1),armA=aa.r.clone().cross(normal),armB=bb.r.clone().cross(normal);
++    const mobility=(aa.inverse+bb.inverse)*(normal.x**2+normal.z**2)+(aa.inverse*aa.y+bb.inverse*bb.y)*normal.y**2+armA.clone().multiply(aa.inertia).dot(armA)+armB.clone().multiply(bb.inertia).dot(armB);
++    const closing=bb.velocity.sub(aa.velocity).dot(normal);if(closing<=0||!mobility)return 0;
++    const impulse=closing*(1+(closing>.5?restitution:0))/mobility;
++    for(const [row,arm,sign] of [[aa,armA,1],[bb,armB,-1]])if(row.body) {
++      const body=row.body;for(const axis of ['x','y','z'])body['v'+axis]+=normal[axis]*impulse*row.inverse*sign*(axis==='y'?row.y:1);
++      arm.multiply(row.inertia).multiplyScalar(impulse*sign);body.wx+=arm.x;body.wy+=arm.y;body.wz+=arm.z;
++    }
++    return impulse;
++  }
+   contactFriction(b,dt,supported={stable:false,pivot:null}) {
+     const n=supported.normal??new THREE.Vector3(0,1,0),velocity=new THREE.Vector3(b.vx,b.vy,b.vz),tangent=velocity.clone().addScaledVector(n,-velocity.dot(n)),speed=tangent.length();
+     const friction=.55*Math.max(supported.impulse??0,12.5*n.y*dt);
+@@ -349,14 +367,8 @@ export class BankPhysics {
+       b.wz=brake(b.wz,patch.x/2,(extent.y**2+extent.x**2)/12);
+       b.wy=brake(b.wy,Math.hypot(patch.x,patch.z)/2,(extent.x**2+extent.z**2)/12);
+     }
+-    else if(supported.pivot) {
+-      const r=this.center(b).sub(supported.pivot),extent=this.bounds(b).getSize(new THREE.Vector3());
+-      // Gravity about the nearest edge of the real support polygon tips an
+-      // overhang. There is no role-specific motor or preferred Euler angle.
+-      b.wx+=12.5*r.z*dt/Math.max(.02,(extent.y**2+extent.z**2)/12+r.y**2+r.z**2);
+-      b.wz-=12.5*r.x*dt/Math.max(.02,(extent.y**2+extent.x**2)/12+r.y**2+r.x**2);
+-      b.wx*=Math.exp(-dt*2);b.wz*=Math.exp(-dt*2);
+-    }
++    // Off-center normal impulses supply the tipping moment. Adding a second
++    // gravity torque here would count the same contact reaction twice.
+     b.wy*=Math.exp(-dt*8);
+   }
+   settle(b) {
+diff --git a/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs b/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs
+index dce0a90..988cb4b 100644
+--- a/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs
++++ b/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs
+@@ -178,6 +178,22 @@ test('a diagonal corner strike contacts the real face at the crossing point',()=
+   }
+ });
+ 
++test('fast diagonal motion cannot cross another solid between disjoint endpoint projections',()=>{
++  const bank=small([{pos:[0,10,0],size:[.06,.06,.06]},{pos:[.12,10,.12],size:[.06,.06,.06]}]),[a,b]=bank.bodies;
++  bank.nodes[0].state=2;a.state=b.state=1;b.vx=b.vz=-20;
++  bank.step(1/60);
++  assert.ok(Math.hypot(a.vx,a.vz)>1,'the struck solid must receive momentum from the crossing');
++  assert.ok(Math.abs(a.vx+b.vx+20*Math.exp(-.16/60))<1e-8&&Math.abs(a.vz+b.vz+20*Math.exp(-.16/60))<1e-8,'the diagonal collision conserves contact momentum');
++});
++
++test('crossing thin members collide at their edges even though every vertex misses the other member',()=>{
++  const bank=small([{pos:[0,5,0],size:[2,.06,.06]},{pos:[0,5.3,0],size:[.06,.06,2]}]),[beam,piece]=bank.bodies;
++  bank.nodes[0].state=2;beam.fixed=true;piece.state=1;piece.vy=-30;
++  bank.step(1/60);
++  assert.ok(bank.bounds(piece).min.y>=bank.bounds(beam).max.y-1e-8,'edge contact prevents two perpendicular members crossing through');
++  assert.ok(piece.vy>=0,'the real beam stops the incoming member');
++});
++
+ test('loose rubble slides off a steep real face instead of sleeping on an impossible friction hold',()=>{
+   for(const angle of [Math.PI/4,Math.PI/3]) {
+     const bank=small([{pos:[0,3,0],size:[2,.1,2]},{pos:[-.1*Math.sin(angle),3+.1*Math.cos(angle),0],size:[.4,.1,.4]}]),[slope,piece]=bank.bodies;

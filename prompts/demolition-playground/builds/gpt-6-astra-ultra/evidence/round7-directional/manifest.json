@@ -1,0 +1,269 @@
+{
+  "baseline": "e4dc0d032020417efc09b519722c4cfafa118ea4",
+  "baselineMediaServedHead": "3d2e55e6ae4036fc6c91797acc4d2255b55ba1d9",
+  "resultCommit": "9b9a743e7c0fc536da1e94cec74801cba9348a7a",
+  "resultSourceTree": "bbfe3fc266fa6ba305da3431231fdf0b66d8eb81",
+  "kind": "evidence only; manifest excludes its own hash",
+  "files": [
+    {
+      "path": "FOLLOW-UP.md",
+      "bytes": 15008,
+      "sha256": "77759b1a29f553d952108af6e306d6f6cd18533ffb5d24dde707dac2fba3051c"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 12585,
+      "sha256": "055c09310d9016093deabf1941b04637724b80fb9599a9b0a51cd4b37c668e6e"
+    },
+    {
+      "path": "baseline-clean-side.mp4",
+      "bytes": 830300,
+      "sha256": "23f3871644a42b2df12a4d799579efdb993a86ba4a35c25393c145fa29077bc2"
+    },
+    {
+      "path": "baseline-collapse.mp4",
+      "bytes": 1854013,
+      "sha256": "61c12769f85a8be478ef636ccbcfd516aedbad2c25eee71cb6ebb2da0f2be3ae"
+    },
+    {
+      "path": "baseline-front.mp4",
+      "bytes": 1004263,
+      "sha256": "7d6db5fa1842d668fbb3b21a3a3b1a71ef2822dbc8e5e9e6dc202e8f77e295c9"
+    },
+    {
+      "path": "baseline-recordings.json",
+      "bytes": 323606,
+      "sha256": "dfb6edee96d81091c8b4bbe40cdc678300585a1ba3bb89c4b9b1091ba98f8dad"
+    },
+    {
+      "path": "baseline-side.mp4",
+      "bytes": 858620,
+      "sha256": "f1228763e2f6f60023e8c4aa39f24a7192e07e5fbf070696defa52baa2cb003c"
+    },
+    {
+      "path": "baseline-timing.json",
+      "bytes": 86149,
+      "sha256": "fcb6459763eb21ef6e3be5c3dfa4e5fb5e5bee563a2d7193496b20b4f329dc54"
+    },
+    {
+      "path": "before.jpg",
+      "bytes": 303775,
+      "sha256": "8bf6e8ea086ed346af4a70852e22a83e4733c871965a52a9e41b70eb11ece768"
+    },
+    {
+      "path": "causal-check.json",
+      "bytes": 148881,
+      "sha256": "53c91fd3cc92f19581572fd66a466218f2842159653c7ea62bb09581c59d5319"
+    },
+    {
+      "path": "construction-checks.log",
+      "bytes": 1056,
+      "sha256": "ee49ff6d61e54ae9dc3c2b8458b6dc286961666bba3a4bb0885bdf9fa0f487ab"
+    },
+    {
+      "path": "contact-after.log",
+      "bytes": 555,
+      "sha256": "9589646ff5c57003a3c7fd2ed99ed9759be506d2431c5dfc502ae01816109d18"
+    },
+    {
+      "path": "contact-before.log",
+      "bytes": 1108,
+      "sha256": "9c470bda4342d41a5ae5e7b02f4f52a829122ecbc6f57e5973c5d32a86c33981"
+    },
+    {
+      "path": "final-clean-side.mp4",
+      "bytes": 1409797,
+      "sha256": "33b0c8a5ae4af51822b0f9106e1428f29540af3b6e7f098d8162b9cc751218ee"
+    },
+    {
+      "path": "final-collapse.mp4",
+      "bytes": 1486510,
+      "sha256": "824f1345477bcf46dd284e41deecee16970d00379cd1e998544aff76e042f180"
+    },
+    {
+      "path": "final-front.mp4",
+      "bytes": 907364,
+      "sha256": "3dc11c5bf6f18291a9f29090b625496955d56d0a8e63cb50efff175b7b4c6837"
+    },
+    {
+      "path": "final-recordings.json",
+      "bytes": 463711,
+      "sha256": "dd123dd2f2d4f22a37c0aada5d10415eb6433d81505b41bc6fa632dee046461b"
+    },
+    {
+      "path": "final-side.mp4",
+      "bytes": 1153168,
+      "sha256": "8ba6bbf022f68f321cfa39e98ba203c0e577f9fe3db7da5135a3bd9472279ada"
+    },
+    {
+      "path": "final-time-controls.mp4",
+      "bytes": 2268531,
+      "sha256": "6bfd077f0182647912a5e20c566960f33fe31435e0cab260554a3f61f650625e"
+    },
+    {
+      "path": "final-timing.json",
+      "bytes": 60786,
+      "sha256": "7af058f3a9c27cfa9d0c3835cc4702c7fab5e2e6f414dd4b18f7a70b3452d43e"
+    },
+    {
+      "path": "front-aftermath.jpg",
+      "bytes": 360664,
+      "sha256": "249adb1f99e1c00e69fee30996d2f87a1238a6e8d778dd6cce1295658167b841"
+    },
+    {
+      "path": "media-check.json",
+      "bytes": 3993,
+      "sha256": "987ca44abc0f8be35599171705eaf5ee175c9d9875508a9f24a39ba9ee82714c"
+    },
+    {
+      "path": "native-checks.json",
+      "bytes": 32482,
+      "sha256": "aa63f68c89d9a021d8b30a1af3a3d5db76b6359e91b3dd68875c971773512dd4"
+    },
+    {
+      "path": "placement-family.jpg",
+      "bytes": 190702,
+      "sha256": "96e0de6a2a2bafee4f0e0d3d820e858713a7f77d9424d6d00dea7c637273d315"
+    },
+    {
+      "path": "progression.jpg",
+      "bytes": 659554,
+      "sha256": "50690481f8c8d118cc5648477eaee408097cd60cd97b55bc62783b7f0b1e8c3f"
+    },
+    {
+      "path": "roof-check.log",
+      "bytes": 526,
+      "sha256": "1933d713094bdfdf3051874b8ece632b942daa4243d86b910c11f25235acc641"
+    },
+    {
+      "path": "section-contact-check.log",
+      "bytes": 937,
+      "sha256": "81453ded231119ff4095c93cf886d14a26875306429314f88be95bfd03be4cac"
+    },
+    {
+      "path": "side-aftermath.jpg",
+      "bytes": 368597,
+      "sha256": "387c153e49da82e23271d30f41703becd063c703b38d79995763680965c126d5"
+    },
+    {
+      "path": "verification.log",
+      "bytes": 6072,
+      "sha256": "a573b7a826a2de0928f9e7d4084dbe175f44ed9c029772b0427eb26f1887cf1b"
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 3730,
+      "sha256": "a5f398a4f1b7f444087974ed1c59654960b5dec15f6431d2eb1506433cff9b71"
+    }
+  ],
+  "references": [
+    {
+      "from": "REVIEW.md",
+      "to": "viewer.html"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "progression.jpg"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "before.jpg"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "FOLLOW-UP.md"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "baseline-recordings.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "final-recordings.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "placement-family.jpg"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "causal-check.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "verification.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "contact-after.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "contact-before.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "construction-checks.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "roof-check.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "section-contact-check.log"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "native-checks.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "baseline-timing.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "final-timing.json"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "media-check.json"
+    },
+    {
+      "from": "viewer.html",
+      "to": "baseline-front.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-front.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-time-controls.mp4"
+    },
+    {
+      "from": "viewer.html",
+      "to": "native-checks.json"
+    },
+    {
+      "from": "viewer.html",
+      "to": "progression.jpg"
+    },
+    {
+      "from": "viewer.html",
+      "to": "front-aftermath.jpg"
+    },
+    {
+      "from": "viewer.html",
+      "to": "side-aftermath.jpg"
+    },
+    {
+      "from": "viewer.html",
+      "to": "placement-family.jpg"
+    },
+    {
+      "from": "viewer.html",
+      "to": "REVIEW.md"
+    }
+  ]
+}

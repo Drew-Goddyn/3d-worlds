@@ -1,0 +1,69 @@
+{"check":"direct geometry oracle","queries":18640,"retained":1864}
+✖ ordinary side demolition keeps cached geometry identical to current direct geometry through contact, restore, and interpolation (31002.20875ms)
+✔ a whole carrier without a foundation moves, and settled construction reacts to removal of its current support (6.277667ms)
+✖ a normal lower-front wound stays meaningfully damaged while the observation interval advances and a later cut remains effective (36945.96325ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 68224.023792
+
+✖ failing tests:
+
+test at ../../../../../../private/tmp/astra-followup-independent-checks.mjs:59:1
+✖ ordinary side demolition keeps cached geometry identical to current direct geometry through contact, restore, and interpolation (31002.20875ms)
+  AssertionError [ERR_ASSERTION]: unsupported pier 365 cannot remain frozen for five simulated seconds
+      at TestContext.<anonymous> (file:///private/tmp/astra-followup-independent-checks.mjs:80:74)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+       0.37165556481578066,  -0.6251527501925636,
+       -0.6863353262568797,                    0,
+      -0.11417726222201624,  -0.7644573554945691,
+        0.6344828637731164,                    0,
+       -0.9213227957306538, -0.15744519858326683,
+      -0.35549305972146317,                    0,
+        -6.141200473944868,    2.646081821706419,
+         9.191310119084951,                    1
+    ],
+    expected: [
+       0.37165556481578066,  -0.6251527501925636,
+       -0.6863353262568797,                    0,
+      -0.11417726222201624,  -0.7644573554945691,
+        0.6344828637731164,                    0,
+       -0.9213227957306538, -0.15744519858326683,
+      -0.35549305972146317,                    0,
+        -6.141200473944868,    2.646081821706419,
+         9.191310119084951,                    1
+    ],
+    operator: 'notDeepStrictEqual',
+    diff: 'simple'
+  }
+
+test at ../../../../../../private/tmp/astra-followup-independent-checks.mjs:102:1
+✖ a normal lower-front wound stays meaningfully damaged while the observation interval advances and a later cut remains effective (36945.96325ms)
+  AssertionError [ERR_ASSERTION]: the observed wound must reach structural sleep for the restoration check
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/astra-followup-independent-checks.mjs:109:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

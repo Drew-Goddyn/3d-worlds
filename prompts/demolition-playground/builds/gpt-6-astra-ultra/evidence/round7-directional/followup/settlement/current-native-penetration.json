@@ -1,0 +1,283 @@
+{
+  "status": "FAIL_DIAGNOSTIC",
+  "sourceHead": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "runtimeMatchesCommittedSource": true,
+  "sourceHashes": {
+    "src/bank-physics.js": "062578b0bd658d6cb9b71dad9b9c4044bdaf162276f6786f967a7cad73e17dfb",
+    "src/bank-contact.js": "9606111fb3439555a58edc97169ebf44628f43616dfc7155408dda7e690b197e",
+    "src/bank-cohesion.js": "ce66ec524b99734259657a10a22d9547fe7b9293f2c794502353ca60305a6880",
+    "vendor/three-0.180.0/three.module.js": "c8211c69345d2e9949dc7a8ac969380497aa0600a5a8ac6a459c8cd02dd9cb8a"
+  },
+  "method": "Diagnostic of supplied 24055bb captures; original offending pairs and all released pier first-part rendered convex stone cores. No stepping, no acceptance claim, no assessment of other materials or unreleased carrier geometry.",
+  "oracle": {
+    "filename": "astra-settlement-independent-penetration-spatial.mjs",
+    "sha256": "b12924c25d366ea479154c757e11a31cb1b28b6af33b7412fa7bd5b8aaee8084",
+    "included_in_packet": false,
+    "repository_only": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/settlement/astra-settlement-independent-penetration-spatial.mjs"
+  },
+  "summary": {
+    "releasedPierCores": 40,
+    "intersectingPairsAtFirstSnapshot": 14,
+    "intersectingPairsAtLaterSnapshot": 16,
+    "persistentSettledPairs": [
+      [
+        1092,
+        1446
+      ]
+    ],
+    "posesAndLinearAndAngularVelocitiesUnchanged": true,
+    "simulationInterval": 0.9332999999999103,
+    "otherIntersectingPairsInvolveAtLeastOneMovingBody": true,
+    "noFinalAcceptanceClaim": true,
+    "noFullSuiteRun": true,
+    "noSourceOrTestEdits": true
+  },
+  "captures": [
+    {
+      "filename": "spatial-side-25s-bank.json",
+      "sha256": "ec73cf3dd5d948b9e148def211e7ba2ce5886c26a52541011538a1234c9b3e57",
+      "included_in_packet": false,
+      "simulationTime": 30.10329999999999
+    },
+    {
+      "filename": "spatial-side-replayed-bank.json",
+      "sha256": "bf20268b0fa4df35f6fd2457fe6ba883dc798eeee3bf65b7e859f0ea7feb85a5",
+      "included_in_packet": false,
+      "simulationTime": 31.0365999999999
+    }
+  ],
+  "exactPersistentSettledProof": [
+    {
+      "first": {
+        "id": 1092,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -2.2270928637239127,
+          0.5556493753537278,
+          15.334181238299166
+        ],
+        "rotation": [
+          -0.024453377463432437,
+          -0.6974934006135989,
+          -1.5863171106607705
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "second": {
+        "id": 1446,
+        "role": "pier",
+        "state": 2,
+        "position": [
+          -0.5533840527244036,
+          0.5530987406345136,
+          15.782952058493708
+        ],
+        "rotation": [
+          -1.575123486049709,
+          -0.014941514544439238,
+          -0.3574658312913344
+        ],
+        "velocity": [
+          0,
+          0,
+          0
+        ],
+        "angularVelocity": [
+          0,
+          0,
+          0
+        ],
+        "coreLocalDimensions": [
+          0.42,
+          3.92,
+          0.42
+        ],
+        "coreVolume": 0.6914879999999999
+      },
+      "geometry": {
+        "interpenetrating": true,
+        "separatingGap": 0,
+        "minimumTranslationToSeparate": 0.4072651701180865,
+        "axis": [
+          -0.9367862303976453,
+          0.006077947352916617,
+          -0.3498494205988413
+        ],
+        "firstInterval": [
+          -5.192673125519899,
+          -1.3572614452262695
+        ],
+        "secondInterval": [
+          -5.2143767791240005,
+          -4.785407955401812
+        ]
+      },
+      "interiorProof": {
+        "intersectionVertexCount": 12,
+        "commonInteriorPoint": [
+          -0.8140885818896213,
+          0.5536030330994944,
+          16.455844009106343
+        ],
+        "allFaceInteriorMargins": [
+          0.20851803861561877,
+          0.21148196138438125,
+          0.1565613815169531,
+          3.7634386184830477,
+          0.2581623563367401,
+          0.16183764366325804,
+          0.21878654403338338,
+          0.20121345596661655,
+          2.6815755438251863,
+          1.2384244561748137,
+          0.208511969501749,
+          0.2114880304982507
+        ],
+        "commonInscribedSphereRadius": 0.1565613815169531,
+        "intersectionVolumeLowerBound": 0.016074687697350848
+      }
+    }
+  ],
+  "allPairIDsBySnapshot": [
+    [
+      [
+        186,
+        920
+      ],
+      [
+        921,
+        1089
+      ],
+      [
+        923,
+        1407
+      ],
+      [
+        923,
+        1425
+      ],
+      [
+        1090,
+        1270
+      ],
+      [
+        1091,
+        1407
+      ],
+      [
+        1091,
+        1425
+      ],
+      [
+        1091,
+        1426
+      ],
+      [
+        1092,
+        1272
+      ],
+      [
+        1092,
+        1446
+      ],
+      [
+        1271,
+        1272
+      ],
+      [
+        1407,
+        1425
+      ],
+      [
+        1407,
+        1426
+      ],
+      [
+        1425,
+        1426
+      ]
+    ],
+    [
+      [
+        186,
+        920
+      ],
+      [
+        921,
+        1089
+      ],
+      [
+        923,
+        1407
+      ],
+      [
+        923,
+        1425
+      ],
+      [
+        1089,
+        1424
+      ],
+      [
+        1090,
+        1270
+      ],
+      [
+        1091,
+        1407
+      ],
+      [
+        1091,
+        1425
+      ],
+      [
+        1091,
+        1426
+      ],
+      [
+        1092,
+        1272
+      ],
+      [
+        1092,
+        1446
+      ],
+      [
+        1271,
+        1272
+      ],
+      [
+        1407,
+        1425
+      ],
+      [
+        1407,
+        1426
+      ],
+      [
+        1425,
+        1426
+      ],
+      [
+        1444,
+        1445
+      ]
+    ]
+  ]
+}

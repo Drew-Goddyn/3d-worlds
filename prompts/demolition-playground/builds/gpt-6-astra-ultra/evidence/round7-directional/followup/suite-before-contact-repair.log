@@ -1,0 +1,96 @@
+
+> demolition-district@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ the court is an actual full-height void and galleries retain occupied depth (4326.606417ms)
+✔ floor fracture plates tile their complete load-bearing bay without overlap or lost material (795.045584ms)
+✔ a removed vault rib releases its own glazing but leaves remote supported roof intact (487.276292ms)
+✔ roof attachment failure, retained ribs and new past actions restore exact independent futures (18807.003125ms)
+✔ a charge belongs to the selected roof pane and to settled rubble on a later intervention (31971.447125ms)
+✔ street-level roof debris remains chargeable outside its original storey volume (17179.987708ms)
+✔ a charge keeps its selected piece and local point when branching an interpolated replay (1759.269333ms)
+✔ a limited bank wound is local, remains standing, and changes with the hit location (9040.44575ms)
+✔ bank support loss can peel one bay while leaving an independently supported bay intact (19538.458208ms)
+✔ bank charges, support, fragment motion and impact contacts replay exactly without snapshot aliasing (17764.607875ms)
+✔ extensive bank destruction settles into finite persistent architecture and retains a full minute (81143.671375ms)
+✖ six normal bank charges can cause substantial failure without an easy-collapse override (18723.378875ms)
+✔ ordinary charge strength carries connected architecture through a measurable fall before contact breakup (39114.50325ms)
+✔ a new charge on moving connected construction splits the current remnant and restores its exact future (16763.143916ms)
+✔ compound motion hands a fractured piece to individual motion only on the following step (347.043458ms)
+✔ loose masonry transfers impact into a connected falling floor instead of crossing it (76.981958ms)
+✔ a connected floor edge collides across a spatial-cell boundary (2.459792ms)
+✔ a connected falling floor transfers impact to loose airborne rubble (2.980458ms)
+✔ two connected sections exchange impact without crossing (1.946875ms)
+✔ falling masonry damages the member it strikes without a blast through neighboring air (0.5675ms)
+✔ event aggregation cannot mutate an already recorded history frame (6.939833ms)
+✔ a dust birth preceding the oldest retained frame still renders and expires by simulation time (3.825708ms)
+✔ interpolated history births do not appear before their recorded time (0.127167ms)
+✔ discarded future events cannot leak into restored alternate futures or pristine rebuild (0.208667ms)
+✔ presentation admission and expiry bound sustained effects without evicting active births (129.42375ms)
+✔ retained normal replay reproduces forward audio choices while pause seek and resume suppress backlog (0.289834ms)
+✔ slow motion and reverse use explicit crossings and stop on every time-policy transition (0.115667ms)
+✔ procedural material choices are deterministic, distinct, finite and bounded with headroom (236.591125ms)
+✔ the intact hall contains supported furnishings and pre-existing triangular glazing (3438.390917ms)
+✔ a window wound releases nearby triangular shards without broadcasting damage into the hall (509.994458ms)
+✔ a falling architectural fragment contacts a writing table and releases only its loose articles (4000.055875ms)
+✔ ball contact uses current solid members and passes through a cleared window (481.688ms)
+✔ paper, furniture, contact ownership and scoring replay exactly and rebuild without duplicates (9934.163583ms)
+✔ a fragment passing between table legs cannot impart a contact impulse (523.872667ms)
+✔ a ledger that has settled on a table falls when the table moves away (21630.649167ms)
+✔ settled masonry falls when its furniture support moves away (16128.72075ms)
+✔ the full-size ball can contact a writing table below the intact ceiling (232.745667ms)
+✔ retains a full minute after prolonged recording and interpolates every seek (5.414542ms)
+✔ branching removes the abandoned disaster without losing earlier replay (0.400542ms)
+✔ demolition charge destroys supports and upper floors pancake in sequence (571.937167ms)
+✔ restoring mid-blast reproduces every physical and random state exactly, including staged charges and a water burst (327.309125ms)
+✔ rewind after more than a minute restores damage, rubble, props and charge inventory (714.339292ms)
+✔ slow motion advances exactly the supplied simulation time (3.150333ms)
+✔ a falling assembly transfers impact into an adjacent building (238.549125ms)
+✔ distance and quality change debris rendering without changing the recorded disaster (143.178792ms)
+✔ a damaged curtain-wall pane detaches while its neighboring pane survives, and rewind reconstructs exact geometry (5.727041ms)
+✔ the archived rebuild carries a detached tank directly back to its roof (178.263375ms)
+✔ intact bearings and the hinged vault carry their actual gravity load without a hidden pristine anchor (11081.22525ms)
+✔ equal front and side cuts carry upper construction on different support-driven paths, including a perturbed placement (36792.725334ms)
+✔ a loaded vault, broken connections and a later cut resume exactly in a fresh simulation without mutating the past (15604.46325ms)
+✔ supported construction transfers a contact impulse to a falling section owner without stretching its members (0.916291ms)
+✔ a roof-only cut wakes the surviving half-arch through its lost crown connection (867.584417ms)
+✔ a heavy contact damages the struck block without releasing the entire supported receiving bay (60.047583ms)
+✔ court piers cannot borrow a distant surviving footing after their actual connecting construction is removed (7163.828166ms)
+✔ settled pieces need a path to ground and cannot keep each other asleep through a tolerance cycle (6.377875ms)
+✔ cached collision geometry follows an in-step carrier correction, release and fresh restoration (0.942875ms)
+✔ rolling history retains at least 60 seconds and interpolates inside that window (3.842459ms)
+✔ restoring a captured destruction state reproduces its exact future under identical inputs (163.089042ms)
+✔ snapshot ownership is independent of future physics and supports exact restore (36.173875ms)
+✔ six-charge limit and all staged detonation state survive rewind (162.834459ms)
+✔ a complete collapse retains finite supported positions and persistent settled debris (721.521458ms)
+ℹ tests 61
+ℹ suites 0
+ℹ pass 60
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146617.750916
+
+✖ failing tests:
+
+test at tests/bank.test.mjs:64:1
+✖ six normal bank charges can cause substantial failure without an easy-collapse override (18723.378875ms)
+  AssertionError [ERR_ASSERTION]: settled rubble must stop twitching
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/bank.test.mjs:72:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

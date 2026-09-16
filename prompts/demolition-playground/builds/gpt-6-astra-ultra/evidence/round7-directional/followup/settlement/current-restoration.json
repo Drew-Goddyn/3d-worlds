@@ -1,0 +1,18 @@
+{
+  "source": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "results": [
+    {
+      "name": "fresh continuation from a moving lateral contact state",
+      "passed": true
+    },
+    {
+      "name": "captured past remains immutable after continuation",
+      "passed": true
+    },
+    {
+      "name": "pristine body state restores exactly after contact and continuation",
+      "passed": true
+    }
+  ],
+  "limits": "Synthetic bank fixture only; native simulation event history, rolling minute, retained future and permanent rebuild remain subject to the unchanged full suite and native inspection."
+}

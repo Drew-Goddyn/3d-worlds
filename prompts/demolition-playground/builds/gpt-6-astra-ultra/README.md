@@ -1,6 +1,6 @@
 # Demolition District
 
-> **Round-six continuation:** the connected demolition from PR #4 is retained as a merged checkpoint, with its transient timing limit disclosed. Recorded pressure plumes, moving masonry dust, material contact voices and reversible effects now express the actual event. This candidate awaits owner review. See [round-six review and evidence](evidence/round6-event/REVIEW.md).
+> **Round-seven continuation:** Mercantile Bank now carries damaged wings through connected, load-driven motion, with an articulated vault that responds when its bearings separate. PR #5 was retained under explicit checkpoint authorization. The candidate passes 57 tests and awaits owner review, with significant busy-collapse cost. See [the directional-collapse review](evidence/round7-directional/REVIEW.md). Session model/reasoning remain **unverified**.
 
 A standalone procedural Three.js demolition playground. Eight downtown buildings, a controllable wrecking crane, staged demolition charges, material-specific rubble, water, dust, slow motion, and a scrubbable one-minute destruction history.
 
@@ -68,3 +68,11 @@ Charges now open localized wounds and remove bearings under the banking court. C
 The event layer owns immutable, spatially grouped birth records with independent visual/audio randomness. Snapshots carry all still-visible births; scrubbing reconstructs clouds and grit analytically. Actual member release and contact hooks observe the existing solver. Its structural RNG, charge strengths, supports and fracture behavior remain intact; legacy dust generation is retained for structural random-stream compatibility while the new layer supplies the visible dust.
 
 Working entry points are `src/event-track.js` for ownership and transport, `src/event-visuals.js` for simulation-time reconstruction, and `src/event-audio.js` for editable procedural material voices and bounded Web Audio playback. The selected evidence folder retains the short audio-capture recipe. All synthesis and rendering work locally using the existing vendored runtime. No added dependency, external sample, asset tool, runtime service or account is needed.
+
+## Shape the fall
+
+Try three low charges across the front, then rebuild and place three along the right side. Front damage can carry the tall arcade forward together; side damage can turn the gallery wing and draw the roof into the court. One low front-right charge leaves a useful local wound; a front-left charge can trigger a larger partial failure. Pause during the turn, rewind, and place another charge on the surviving construction. The six-charge budget and ordinary charge power are unchanged.
+
+The bank now uses 27 articulated bearing bays and ten independently supported half-arches. Actual retained-member mass, inertia, pier health, touching masonry ties, vault feet and crown connections determine load transfer and rupture. Damaged bearings yield; intact neighboring bearings take real reactions. Contact hands construction to the existing finite section/rubble system with its carried momentum. Editable geometry remains in the bank construction recipes; the bank-local solver is `src/bank-structure.js`. It follows compliant position-constraint methods described in [XPBD (Macklin, Müller and Chentanez, 2016)](https://matthias-research.github.io/pages/publications/XPBD.pdf); no library, external asset, or runtime dependency was added.
+
+Rigid carrier poses, velocities, connection failure/strain, roof state and equilibrium sleep state join the immutable recorded history. Earlier evidence remains historical. This is a coarse experimental construction model: prepared fracture boundaries, approximate solid contacts and visible heavy-collapse cost remain. The new PR must remain unmerged for owner review; nothing is deployed.

@@ -1,0 +1,309 @@
+{
+  "method": "Bank-only actual recipe, three ordinary charge API inputs, 1800 fixed 1/60 steps. District physically absent. Not native pointer-input footage. Full native inspections are recorded separately in inspections.json.",
+  "baseline": {
+    "geometricTolerance": 0.18,
+    "noRootCarriers": [],
+    "staleOwner": [],
+    "stats": {
+      "bays": 27,
+      "connectedPieces": 0,
+      "failedBays": 10,
+      "loose": 0,
+      "movingSections": 0,
+      "retained": 1865,
+      "settled": 866
+    },
+    "structureSleeping": true,
+    "time": 29.999999999999577,
+    "unrooted": [
+      {
+        "bottom": 4.709899621173476,
+        "connections": [
+          1264
+        ],
+        "hp": 1,
+        "id": 1084,
+        "node": 13,
+        "owner": 13,
+        "ownerState": 0,
+        "pos": [
+          -9.319929439189496,
+          6.674913156749518,
+          15.51344641022038
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 8.63992669232556
+      },
+      {
+        "bottom": 4.710157333129566,
+        "connections": [
+          1084
+        ],
+        "hp": 1,
+        "id": 1264,
+        "node": 16,
+        "owner": 16,
+        "ownerState": 0,
+        "pos": [
+          -9.31990949232543,
+          6.675191901713189,
+          16.15366458849614
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 8.640226470296811
+      },
+      {
+        "bottom": 9.00989719006321,
+        "connections": [
+          1438,
+          1775
+        ],
+        "hp": 0.9660941447810748,
+        "id": 1419,
+        "node": 22,
+        "owner": 22,
+        "ownerState": 0,
+        "pos": [
+          -9.31986771820705,
+          10.974912480489252,
+          15.513578286880932
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 12.939927770915292
+      },
+      {
+        "bottom": 9.010195534861658,
+        "connections": [
+          1419,
+          1775
+        ],
+        "hp": 1,
+        "id": 1438,
+        "node": 25,
+        "owner": 25,
+        "ownerState": 0,
+        "pos": [
+          -9.31987087439824,
+          10.975236663914044,
+          16.1541303739815
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 12.940277792966423
+      },
+      {
+        "bottom": 12.939927692161602,
+        "connections": [
+          1419,
+          1438
+        ],
+        "hp": 1,
+        "id": 1775,
+        "node": 23,
+        "owner": 32,
+        "ownerState": 2,
+        "pos": [
+          -9.081560379482466,
+          13.076573420888256,
+          15.327530699114238
+        ],
+        "role": "vault-seam",
+        "state": 2,
+        "top": 13.21321914961491
+      }
+    ],
+    "unrootedPiers": [
+      {
+        "bottom": 4.709899621173476,
+        "connections": [
+          1264
+        ],
+        "hp": 1,
+        "id": 1084,
+        "node": 13,
+        "owner": 13,
+        "ownerState": 0,
+        "pos": [
+          -9.319929439189496,
+          6.674913156749518,
+          15.51344641022038
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 8.63992669232556
+      },
+      {
+        "bottom": 4.710157333129566,
+        "connections": [
+          1084
+        ],
+        "hp": 1,
+        "id": 1264,
+        "node": 16,
+        "owner": 16,
+        "ownerState": 0,
+        "pos": [
+          -9.31990949232543,
+          6.675191901713189,
+          16.15366458849614
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 8.640226470296811
+      },
+      {
+        "bottom": 9.00989719006321,
+        "connections": [
+          1438,
+          1775
+        ],
+        "hp": 0.9660941447810748,
+        "id": 1419,
+        "node": 22,
+        "owner": 22,
+        "ownerState": 0,
+        "pos": [
+          -9.31986771820705,
+          10.974912480489252,
+          15.513578286880932
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 12.939927770915292
+      },
+      {
+        "bottom": 9.010195534861658,
+        "connections": [
+          1419,
+          1775
+        ],
+        "hp": 1,
+        "id": 1438,
+        "node": 25,
+        "owner": 25,
+        "ownerState": 0,
+        "pos": [
+          -9.31987087439824,
+          10.975236663914044,
+          16.1541303739815
+        ],
+        "role": "pier",
+        "state": 0,
+        "top": 12.940277792966423
+      }
+    ],
+    "capture": "support-before.png",
+    "source": "bdfde0a8930a17e190e12e93c5481e97fea3b6a3"
+  },
+  "final": {
+    "geometricTolerance": 0.18,
+    "noRootCarriers": [],
+    "staleOwner": [],
+    "stats": {
+      "bays": 27,
+      "connectedPieces": 0,
+      "failedBays": 9,
+      "loose": 0,
+      "movingSections": 0,
+      "retained": 1865,
+      "settled": 789
+    },
+    "structureSleeping": false,
+    "time": 29.999999999999577,
+    "unrooted": [],
+    "unrootedPiers": [],
+    "applicationSource": "a1c75deba4e1e07361f92807badc515f8e20a571",
+    "capture": "support-after.png"
+  },
+  "pauseBefore": {
+    "success": true,
+    "data": {
+      "origin": "http://127.0.0.1:4183/",
+      "result": {
+        "mode": "paused",
+        "probe": {
+          "events": [
+            {
+              "at": 164142.5,
+              "target": "svg",
+              "type": "pointerdown"
+            },
+            {
+              "at": 164530.30000001192,
+              "target": "svg",
+              "type": "pointerup"
+            }
+          ],
+          "mutations": 10
+        }
+      }
+    },
+    "error": null
+  },
+  "pauseAfter": [
+    {
+      "mode": "paused",
+      "probe": {
+        "events": [
+          {
+            "at": 40879.90000000596,
+            "target": "svg",
+            "type": "pointerdown"
+          },
+          {
+            "at": 41310.5,
+            "target": "svg",
+            "type": "pointerup"
+          },
+          {
+            "at": 41311,
+            "target": "svg",
+            "type": "click"
+          }
+        ],
+        "mutations": 1
+      }
+    },
+    {
+      "mode": "live",
+      "probe": {
+        "events": [
+          {
+            "at": 40879.90000000596,
+            "target": "svg",
+            "type": "pointerdown"
+          },
+          {
+            "at": 41310.5,
+            "target": "svg",
+            "type": "pointerup"
+          },
+          {
+            "at": 41311,
+            "target": "svg",
+            "type": "click"
+          },
+          {
+            "at": 41874.40000000596,
+            "target": "svg",
+            "type": "pointerdown"
+          },
+          {
+            "at": 42291,
+            "target": "svg",
+            "type": "pointerup"
+          },
+          {
+            "at": 42291.30000001192,
+            "target": "svg",
+            "type": "click"
+          }
+        ],
+        "mutations": 2
+      }
+    }
+  ]
+}

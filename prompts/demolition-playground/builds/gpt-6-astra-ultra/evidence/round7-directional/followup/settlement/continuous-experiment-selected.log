@@ -1,0 +1,86 @@
+✖ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (31.859375ms)
+✖ two falling columns exchange momentum instead of passing through one another before they settle (36.139625ms)
+✖ loose solids collide sideways with moving and stationary solids along both horizontal axes (7.273917ms)
+✔ a fast fragment transfers momentum to a falling thin plate even when their final bounds would be disjoint (1.666834ms)
+✖ fast diagonal motion cannot cross another solid between disjoint endpoint projections (1.203042ms)
+✔ crossing thin members collide at their edges even though every vertex misses the other member (1.218292ms)
+✔ loose rubble slides off a steep real face instead of sleeping on an impossible friction hold (41.057458ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 3
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 321.27225
+
+✖ failing tests:
+
+test at prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:85:1
+✖ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (31.859375ms)
+  AssertionError [ERR_ASSERTION]: the unsupported weight must fall to ground
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:90:38)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:133:1
+✖ two falling columns exchange momentum instead of passing through one another before they settle (36.139625ms)
+  AssertionError [ERR_ASSERTION]: real column cores cannot occupy the same vertical interval
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:139:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:147:1
+✖ loose solids collide sideways with moving and stationary solids along both horizontal axes (7.273917ms)
+  AssertionError [ERR_ASSERTION]: real cube interiors cannot cross through each other
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:156:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:181:1
+✖ fast diagonal motion cannot cross another solid between disjoint endpoint projections (1.203042ms)
+  AssertionError [ERR_ASSERTION]: the struck solid must receive momentum from the crossing
+      at TestContext.<anonymous> (file:///Users/Drew/.codex/worktrees/d794/3d-worlds/prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs:185:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at node:internal/test_runner/test:1285:31
+      at node:internal/process/task_queues:151:7
+      at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+      at AsyncResource.runMicrotask (node:internal/process/task_queues:148:8) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

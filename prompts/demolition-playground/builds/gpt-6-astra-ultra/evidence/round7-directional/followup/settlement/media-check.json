@@ -1,0 +1,49 @@
+{
+  "method": "Every captured video frame and wall-time timestamp is preserved. No speed changes or stall trimming. Raw recording intermediates remain outside the packet; hashes identify them. PNGs are unchanged browser screenshots.",
+  "media": [
+    {
+      "duration": 12.986,
+      "durationBeyondLastFrame": true,
+      "file": "before-left.mp4",
+      "frames": 262,
+      "firstPTS": 0.0,
+      "lastPTS": 12.985,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "d4f279ef597ec64cd5f006a85af5cfec7fda31accb6e620b545316c19a047073",
+      "mp4SHA256": "32fc5dd2be5e378fbc873f265169e30cf699ac4ecc15a5e0f6fba45b76e5ccef"
+    },
+    {
+      "duration": 15.25,
+      "durationBeyondLastFrame": true,
+      "file": "current-left.mp4",
+      "frames": 39,
+      "firstPTS": 0.0,
+      "lastPTS": 15.249,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "4260d1a8052048ed31c608c640baf5d1dd1039d8ff995ec34ea96a23efaa1192",
+      "mp4SHA256": "116d649510f6c34972afec66a75e93e9ece61a8dc0203285c84f23bc57a61d15"
+    },
+    {
+      "duration": 20.617,
+      "durationBeyondLastFrame": true,
+      "file": "current-front.mp4",
+      "frames": 26,
+      "firstPTS": 0.0,
+      "lastPTS": 20.616,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "9bb5fab9655612595a3a8ceda67347d8a4ac5bb730b2f675eb10c70f6ff01470",
+      "mp4SHA256": "17d0f043bdb4f42723de41549d1b3a15b6bde0e9c4fbb83a3e86da54334a6f73"
+    },
+    {
+      "duration": 20.725,
+      "durationBeyondLastFrame": true,
+      "file": "current-side.mp4",
+      "frames": 28,
+      "firstPTS": 0.0,
+      "lastPTS": 20.724,
+      "everyFrameTimestampPreserved": true,
+      "rawCaptureSHA256": "f4f3f166701325b6ea2f67ac3d4dba6c6b13a9ce26b054f5443d234c6ecd56c9",
+      "mp4SHA256": "f58cbf6336f09f5a0f9fa4bcb9678608e23d180e55b1430d2ac1610a51e4e13c"
+    }
+  ]
+}

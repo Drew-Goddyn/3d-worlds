@@ -1,0 +1,14 @@
+{
+  "status": "Failed development experiment; not applied at review head",
+  "baseCommit": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "patchSHA256": "798fdfd3cd96dbe3d4ce130baf1b7ec3a4161b08b2d82861dae21ab4b71887ca",
+  "files": {
+    "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-contact.js": "b6074a9acb83bded83d42d9bd44358da478c53baf7b32e9c8216442c6cb05b09",
+    "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-physics.js": "243356eee29d93edcd03c9da63476dbaa5dbdc78f5dc66ef5e895fd2ab164899",
+    "prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-cohesion.js": "dd7935a4333d166bd8bac80f037d9c6e1b7f7340e304cc478f539730f07ce018",
+    "prompts/demolition-playground/builds/gpt-6-astra-ultra/tests/support-followup.test.mjs": "0782ea32f978493e699ae435aa392b3fed557e225dd5fef5bd57b618faf6c642"
+  },
+  "selectedProbeResult": "3 pass,4 fail; includes pane not reaching ground, column overlap, lateral overlap, and insufficient diagonal momentum transfer",
+  "preservedLog": "continuous-experiment-selected.log",
+  "resume": "The patch is retained in this repository as development evidence. It is not part of the review ZIP. Do not treat it as a completed fix."
+}

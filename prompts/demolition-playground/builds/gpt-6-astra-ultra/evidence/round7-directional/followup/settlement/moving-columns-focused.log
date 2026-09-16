@@ -1,0 +1,21 @@
+✔ a heavy contact damages the struck block without releasing the entire supported receiving bay (9.64ms)
+✔ court piers cannot borrow a distant surviving footing after their actual connecting construction is removed (6651.921542ms)
+✔ settled pieces need a path to ground and cannot keep each other asleep through a tolerance cycle (7.371458ms)
+✔ cached collision geometry follows an in-step carrier correction, release and fresh restoration (0.644792ms)
+✔ glass bridges real narrow seams away from its center and wakes when they are removed (14.33625ms)
+✔ the empty center of a window frame cannot hold a settled piece aloft (1.579708ms)
+✔ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (9.561833ms)
+✔ a fallen roof pane lies on its visible face instead of rotating upright and climbing on its bounds (15.282ms)
+✔ the empty space above a sloping member cannot hold falling rubble (5.41675ms)
+✔ a stationary piece cannot step up onto an overlapping ledge above its current foot (4.299417ms)
+✔ a fast small fragment hits a thin ledge even when it crosses an entire height cell in one step (0.394875ms)
+✔ two falling columns exchange momentum instead of passing through one another before they settle (11.7415ms)
+✔ loose rubble slides off a steep real face instead of sleeping on an impossible friction hold (17.965083ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6967.249166

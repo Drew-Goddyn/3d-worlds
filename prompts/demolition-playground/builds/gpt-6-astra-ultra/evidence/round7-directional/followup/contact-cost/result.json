@@ -1,0 +1,20 @@
+{
+  "status": "Diagnostic only; bank contact repair still unfinished and rejected",
+  "sourceHead": "a8c62e0aa72d6fb3d83b66891e5770f1448a7039",
+  "runtimeChanged": false,
+  "normalInput": "One low front-left native pointer charge, all district construction enabled",
+  "unprofiledRecord": "single-timing.json",
+  "separateProfiledRecord": "single-profiled-timing.json",
+  "profileSummary": "profile-summary.json",
+  "rawTrace": {
+    "originalName": "single-profiled-profile.json",
+    "localPath": "/tmp/astra-bank-contact-cost/single-profiled-profile.json",
+    "sha256": "02521fda92414d0e55bad7dfea8616adfe50811dd773d312fab99973dcc08a89",
+    "included": false
+  },
+  "conclusion": "A one-charge intervention reproduces roughly5FPS without recording or project tests. CPU sampling points to bank physics, with moving contacts the largest sampled subtree. This does not establish the cost of every possible light touch, GPU time, or acceptable settled performance.",
+  "priorEvidenceArchive": "The independently audited settlement ZIP is preserved unchanged. This diagnostic is an additional repository record; no new ZIP was produced for this diagnostic-only turn.",
+  "independentAudit": "independent-audit.json",
+  "verification": "DIAGNOSTIC_EVIDENCE_VALID_WITH_LIMITATIONS; no product acceptance",
+  "cleanup": "Owned bank-contact-cost browser closed after each run; task server4184 stopped. Occupied Chrome DevTools MCP profile was left untouched."
+}

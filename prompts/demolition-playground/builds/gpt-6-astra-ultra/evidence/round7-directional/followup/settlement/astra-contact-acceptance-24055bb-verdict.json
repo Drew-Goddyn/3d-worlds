@@ -1,0 +1,115 @@
+{
+  "status": "rejected",
+  "source_commit": "24055bb553c792d97ec4f9eb592aa06becc7f352",
+  "review_base": "98633bf46e4e5c2ebd8a2ee02ad979bd9eb815fa",
+  "incremental_base": "a4fc466b3fa900376c69df42ce6ed2688f1f8a95",
+  "standing_invariants": [
+    "Current physical support path and wake on support removal; no unsupported circular sleep",
+    "Physical solid contact, no persistent interpenetration or swept-through solids",
+    "No passive energy manufacture, invisible anchors, deletion, arbitrary freezing, or scripted hit count",
+    "Render and physics geometry and world transform alignment",
+    "Captured state immutability; fresh restoration and continued simulation; retained future replay and branching; rolling minute and pristine rebuild",
+    "Unchanged normal six-charge interaction and directional front/side collapse with useful surviving partial wounds",
+    "No weakened tests, skipped gates, or retry-until-pass; exact Astra full suite required before acceptance"
+  ],
+  "runtime_files": {
+    "src/bank-cohesion.js": "ce66ec524b99734259657a10a22d9547fe7b9293f2c794502353ca60305a6880",
+    "src/bank-contact.js": "9606111fb3439555a58edc97169ebf44628f43616dfc7155408dda7e690b197e",
+    "src/bank-hall.js": "783d648e9481881fb25baeca24c4c3e7275cf9f008df97a6fb23187fd96de1e6",
+    "src/bank-physics.js": "062578b0bd658d6cb9b71dad9b9c4044bdaf162276f6786f967a7cad73e17dfb",
+    "src/bank-structure.js": "a65cdc874f1477dde3c26da32c464cf7159c3299053685e8594f91208a7a0390",
+    "src/bank-world.js": "cad94ea6fdd14ea7a63cd93fdb15a135b7b38c101cd9dbd511723259e4cb0ac8",
+    "src/bank.js": "d80b9b1193594bb7a0599cceac87b0250b4d463c2863ee9169a3a1603f667c3b",
+    "src/city.js": "b266889c15da75766edc33bcecb0bafdeafcef5f170470f1de69fe549a0fd76d",
+    "src/crane.js": "27cdf880e49b75f9479ace113099e58d4616449698c54889376b085a69533d09",
+    "src/event-audio.js": "f35399cb20f479205f993d8a2f6d5164d9c3e421953616206a38790c0dd04783",
+    "src/event-track.js": "b356e452649ef1173bdc0c19172b8835c14361d84c8d98f04e5424e0d66b5d84",
+    "src/event-visuals.js": "a0a04c9dbc7d5f3542365e6e1a4290573e7e01f7fb537c24abc0afcf64fcb2ff",
+    "src/fracture.js": "3306d23d0819122b1f223a451b7100de701cfc6301012b0ab6b8d151bed9fe43",
+    "src/history.js": "2702269060626387d8a151f5a469755eef5d0951cf47acea1e0c6ee9f22cbede",
+    "src/icons.js": "542b93cb24691d4c7d3ccd2a69bf9e1d7158a770aa98d4bfe43e891a38e97085",
+    "src/main.js": "ba6672f7767d3d8a1d05bd334fea8e24084665f6c2e8a8929f20e10acc113cf5",
+    "src/simulation.js": "8028ef24835212c34d9cfcd389fd7f9c575cc3cfca0e3db9ef0d6d99e6fd855b"
+  },
+  "criteria_file_sha256": "ad5c61deae371dbb7f27e85ce037e87826d55a5ce4c81082a4c576e430401a33",
+  "results": {
+    "focused_tests": {
+      "pass": 18,
+      "fail": 0,
+      "runs": 1
+    },
+    "previous_lateral_and_vertical_tunneling_probes": "pass on new source; rejected-source failures remain valid",
+    "fresh_contact_continuation": "pass exact synthetic snapshot continuation",
+    "snapshot_immutability": "pass",
+    "synthetic_pristine_restoration": "pass",
+    "diagonal_swept_contacts": "FAIL: two independent trajectories cross current solid volume but receive zero contact impulse",
+    "passive_energy": "sampled translating-slope contact dissipates energy; no general contact-energy certificate inferred"
+  },
+  "incomplete": [
+    "Full Astra suite not started per coordinator instruction",
+    "Native exact snapshots not supplied yet",
+    "Native support aftermath, front and side motion, performance, retained replay, branching, rolling minute and permanent pristine rebuild not independently completed"
+  ],
+  "evidence": [
+    {
+      "file": "astra-contact-acceptance-24055bb-adversarial.json",
+      "path": "/tmp/astra-contact-acceptance-24055bb-adversarial.json",
+      "sha256": "06450bddf31243d4570a81635bf33813d4cbdd6d121885467a5aab59af13b987",
+      "bytes": 112781
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-adversarial.log",
+      "path": "/tmp/astra-contact-acceptance-24055bb-adversarial.log",
+      "sha256": "53757885f441ec78743d631b3d9b50660f50f73049814e73d2ffa2cd9499bd69",
+      "bytes": 5352
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-adversarial.mjs",
+      "path": "/tmp/astra-contact-acceptance-24055bb-adversarial.mjs",
+      "sha256": "aa5640a7b7b22fba78f01a7b0fff9b34b2a72437c1136d40a30257ba74ab2bba",
+      "bytes": 4252
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-diagonal.json",
+      "path": "/tmp/astra-contact-acceptance-24055bb-diagonal.json",
+      "sha256": "7f4b058e146f2706a6986a4ed7cc3dcc4f935189f62bffb9138b60d7e078af27",
+      "bytes": 4449
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-diagonal.log",
+      "path": "/tmp/astra-contact-acceptance-24055bb-diagonal.log",
+      "sha256": "0516cfec3e3f417351d876d1aec68434be94e51df741f4c3de5c52605b83a7de",
+      "bytes": 4450
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-diagonal.mjs",
+      "path": "/tmp/astra-contact-acceptance-24055bb-diagonal.mjs",
+      "sha256": "a9675af6e02015b4a6fbffecbe042fa8eaed9ebe771ebb37f325bb535fe9a944",
+      "bytes": 3195
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-focused.log",
+      "path": "/tmp/astra-contact-acceptance-24055bb-focused.log",
+      "sha256": "9558f104350d136ef7f70c5c943848d611f95c249a1463ca0ac157a30cfacd87",
+      "bytes": 2063
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-restoration.json",
+      "path": "/tmp/astra-contact-acceptance-24055bb-restoration.json",
+      "sha256": "67df033283ff0898537f1f0742403cac1737dbda8abda17e9aef6967621ab418",
+      "bytes": 601
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-restoration.log",
+      "path": "/tmp/astra-contact-acceptance-24055bb-restoration.log",
+      "sha256": "f576c18d527659d18008639bd334d56c2f310dfd7f13c1d2aa257ecd96e0727d",
+      "bytes": 602
+    },
+    {
+      "file": "astra-contact-acceptance-24055bb-restoration.mjs",
+      "path": "/tmp/astra-contact-acceptance-24055bb-restoration.mjs",
+      "sha256": "a67fe67690c4bca249fd481cb0e4f9c9f83e96915b3ffc50220c833abd4fe57a",
+      "bytes": 3093
+    }
+  ]
+}

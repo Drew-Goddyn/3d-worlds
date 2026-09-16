@@ -1,0 +1,14 @@
+✔ a heavy contact damages the struck block without releasing the entire supported receiving bay (9.389875ms)
+✔ court piers cannot borrow a distant surviving footing after their actual connecting construction is removed (3155.330083ms)
+✔ settled pieces need a path to ground and cannot keep each other asleep through a tolerance cycle (2.7385ms)
+✔ cached collision geometry follows an in-step carrier correction, release and fresh restoration (0.387958ms)
+✔ glass settles on a real narrow seam even when the seam is away from its center (1.5215ms)
+✔ the empty center of a window frame cannot hold a settled piece aloft (0.885125ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3422.544208

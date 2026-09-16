@@ -1,0 +1,92 @@
+✔ a heavy contact damages the struck block without releasing the entire supported receiving bay (57.707917ms)
+✔ court piers cannot borrow a distant surviving footing after their actual connecting construction is removed (6115.967834ms)
+✔ settled pieces need a path to ground and cannot keep each other asleep through a tolerance cycle (3.835ms)
+✔ cached collision geometry follows an in-step carrier correction, release and fresh restoration (0.414959ms)
+✔ glass bridges real narrow seams away from its center and wakes when they are removed (1.862209ms)
+✔ the empty center of a window frame cannot hold a settled piece aloft (0.754125ms)
+✖ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (4.982ms)
+✖ a fallen roof pane lies on its visible face instead of rotating upright and climbing on its bounds (11.709167ms)
+✖ the empty space above a sloping member cannot hold falling rubble (3.074958ms)
+✖ a stationary piece cannot step up onto an overlapping ledge above its current foot (6.09375ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 6
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6658.779292
+
+✖ failing tests:
+
+test at ../../../../../../private/tmp/astra-baseline-regressions.mjs:85:1
+✖ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (4.982ms)
+  AssertionError [ERR_ASSERTION]: the unsupported weight must fall to ground
+      at TestContext.<anonymous> (file:///private/tmp/astra-baseline-regressions.mjs:90:38)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../../private/tmp/astra-baseline-regressions.mjs:102:1
+✖ a fallen roof pane lies on its visible face instead of rotating upright and climbing on its bounds (11.709167ms)
+  AssertionError [ERR_ASSERTION]: passive gravity and landing cannot raise the center of mass above its release height
+      at TestContext.<anonymous> (file:///private/tmp/astra-baseline-regressions.mjs:106:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../../private/tmp/astra-baseline-regressions.mjs:110:1
+✖ the empty space above a sloping member cannot hold falling rubble (3.074958ms)
+  AssertionError [ERR_ASSERTION]: contact must follow the rendered slope below the left end of its bounding box
+      at TestContext.<anonymous> (file:///private/tmp/astra-baseline-regressions.mjs:114:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at ../../../../../../private/tmp/astra-baseline-regressions.mjs:117:1
+✖ a stationary piece cannot step up onto an overlapping ledge above its current foot (6.09375ms)
+  AssertionError [ERR_ASSERTION]: side overlap with a higher top cannot manufacture upward travel
+      at TestContext.<anonymous> (file:///private/tmp/astra-baseline-regressions.mjs:121:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

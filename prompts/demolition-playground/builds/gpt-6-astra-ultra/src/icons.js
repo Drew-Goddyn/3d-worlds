@@ -13,5 +13,7 @@ const paths={
   play:'<path d="m7 3 14 9-14 9V3Z"/>',
   plunger:'<path d="M5 12h14v9H5zM12 12V3M6 3h12M9 7h6M9 16h6m-3-3v6"/>'
 };
-export function icon(el,name){el.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.ball}</svg>`;}
+// Preserve the pressed DOM target between pointerdown and pointerup.
+const rendered=new WeakMap();
+export function icon(el,name){if(rendered.has(el)&&rendered.get(el)===name)return;el.innerHTML=`<svg viewBox="0 0 24 24" aria-hidden="true">${paths[name]||paths.ball}</svg>`;rendered.set(el,name);}
 document.querySelectorAll('[data-icon]').forEach(el=>icon(el,el.dataset.icon));

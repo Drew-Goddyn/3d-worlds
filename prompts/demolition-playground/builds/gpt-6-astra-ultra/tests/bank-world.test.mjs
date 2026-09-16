@@ -68,8 +68,11 @@ test('a charge belongs to the selected roof pane and to settled rubble on a late
 });
 
 test('street-level roof debris remains chargeable outside its original storey volume',()=>{
-  const sim=fixture(),b=sim.bank,pane=b.bodies.find(p=>p.role==='glass'&&p.attachments);
-  assert.ok(sim.placeCharge(pane.origin,0,2,pane.id));sim.detonate();advance(sim,900);
+  const sim=fixture(),b=sim.bank;
+  // A local roof wound can rest on surviving galleries. Produce street-level
+  // roof rubble through ordinary substantial demolition for this tool test.
+  for(const point of [[-15.7,1.3,19.65],[-11,1.3,19.65],[-6.3,1.3,19.65],[-4.8,1.3,10],[-4.8,1.3,14],[-4.8,1.3,17.8]])assert.ok(sim.placeCharge(new THREE.Vector3(...point),0,0));
+  sim.detonate();advance(sim,900);
   const rubble=b.bodies.filter(p=>p.state===2&&!p.content&&b.nodes[p.node].level===2&&b.bounds(p).max.y<1.5);
   assert.ok(rubble.length>=6);
   for(const part of rubble.slice(0,6)) {

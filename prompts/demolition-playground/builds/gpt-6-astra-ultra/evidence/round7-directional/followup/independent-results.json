@@ -1,0 +1,122 @@
+{
+  "result": "all_executed_checks_pass; natural_structural_sleep_restore_unverified",
+  "runtime_commit": "a1c75deba4e1e07361f92807badc515f8e20a571",
+  "suite_commit": "02e3fb29b9c39642709bab1433c2e959372bce73",
+  "runtime_trees_identical": true,
+  "node": "v26.3.0",
+  "npm": "11.16.0",
+  "suite": {
+    "tests": 63,
+    "passed": 63,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "duration_ms": 170431.212333,
+    "log": "suite-final.log"
+  },
+  "supplemental": {
+    "tests": 4,
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "duration_ms": 63997.030334,
+    "script": "Repository-only: prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/independent-checks.mjs",
+    "log": "independent-checks.log",
+    "observations": [
+      {
+        "check": "direct geometry oracle",
+        "queries": 18640,
+        "retained": 1864
+      },
+      {
+        "check": "native side-collapse current support",
+        "at10Seconds": [],
+        "at15Seconds": [],
+        "stats": {
+          "bays": 27,
+          "failedBays": 10,
+          "loose": 0,
+          "settled": 801,
+          "retained": 1864,
+          "movingSections": 0,
+          "connectedPieces": 0
+        }
+      },
+      {
+        "check": "25-second native partial wound",
+        "input": [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        "at5Seconds": {
+          "bays": 27,
+          "failedBays": 7,
+          "loose": 127,
+          "settled": 317,
+          "retained": 1864,
+          "movingSections": 0,
+          "connectedPieces": 0
+        },
+        "at25Seconds": {
+          "bays": 27,
+          "failedBays": 7,
+          "loose": 0,
+          "settled": 444,
+          "retained": 1864,
+          "movingSections": 0,
+          "connectedPieces": 0
+        },
+        "naturalSleepCovered": false,
+        "laterInput": [
+          -11,
+          1.3,
+          19.65
+        ],
+        "afterLaterCut": {
+          "bays": 27,
+          "failedBays": 8,
+          "loose": 33,
+          "settled": 499,
+          "retained": 1864,
+          "movingSections": 0,
+          "connectedPieces": 0
+        }
+      },
+      {
+        "check": "height-bin direct-scan oracle",
+        "queries": 18
+      }
+    ],
+    "sha256": "dc86d5c74f56461ee88149c742fb5327610ee92075954992fda170dd2b93ea1c",
+    "scope": "Actual bank recipe and normal charge API, no district or browser. Original observation labels using native mean normal charge calls."
+  },
+  "preserved_prior_runs": [
+    {
+      "commit": "0799b7538d4996f0bbbd1beca3f72d678e422643",
+      "tests": 61,
+      "passed": 60,
+      "failed": 1,
+      "failure": "six-charge variable-step demolition leaves one loose piece",
+      "log": "suite-before-contact-repair.log",
+      "superseded_by": "solid-part resting-contact repair; original test now passes"
+    },
+    {
+      "commit": "a1c75deba4e1e07361f92807badc515f8e20a571",
+      "tests": 63,
+      "passed": 62,
+      "failed": 1,
+      "failure": "single-roof-charge setup produces fewer than six eligible street-level roof pieces",
+      "log": "suite-before-fixture-update.log",
+      "superseded_by": "ordinary substantial-demolition test setup; all original street-level count, anchoring and six-charge-budget assertions preserved"
+    }
+  ],
+  "test_setup_review": "accepted as preservation of the tool safeguard: six ordinary charges produce real street-level rubble; no runtime or assertion change in the final fixture-only commit",
+  "limitations": [
+    "Naturally sleeping structural restoration was not exercised; selected fixtures did not reach structural sleep.",
+    "Support checks use current collision solid-part bounds and do not certify an unspecified owner-reported visual symptom.",
+    "No independent browser, visual acceptance, performance comparison, audio, or final ZIP verification was performed."
+  ],
+  "application_or_repository_test_edits_by_verifier": false,
+  "retries_without_changes_to_obtain_green": false
+}

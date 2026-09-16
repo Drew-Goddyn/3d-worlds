@@ -1,0 +1,624 @@
+{
+  "method": "Bank-only actual recipe, ordinary 118-power charge API and fixed 1/60 updates; separate from native pointer-input captures.",
+  "unjustifiedReceivingFailure": {
+    "time": 2.083333333333331,
+    "node": 26,
+    "hit": 1307,
+    "role": "arch",
+    "speed": 4.114791797695646,
+    "delta": [
+      0.0002648842609209723,
+      -0.0007601958623233429,
+      0.0004317111276357366
+    ],
+    "support": 1,
+    "from": "at BankStructure.contacts (file:///private/tmp/astra-pr6-followup-baseline/prompts/demolition-playground/builds/gpt-6-astra-ultra/src/bank-structure.js:247:91)"
+  },
+  "milestones": {
+    "reviewed": [
+      {
+        "route": "left",
+        "point": [
+          -15.7,
+          1.3,
+          19.65
+        ],
+        "samples": [
+          {
+            "sim": 0.19999999999999998,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 70,
+              "settled": 0,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.0000000000000013,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 63,
+              "settled": 7,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.9999999999999978,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 64,
+              "settled": 18,
+              "retained": 1864,
+              "movingSections": 2,
+              "connectedPieces": 9
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 4.999999999999988,
+            "bank": {
+              "bays": 27,
+              "failedBays": 14,
+              "loose": 561,
+              "settled": 363,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 10.000000000000076,
+            "bank": {
+              "bays": 27,
+              "failedBays": 14,
+              "loose": 0,
+              "settled": 930,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 24.99999999999986,
+            "bank": {
+              "bays": 27,
+              "failedBays": 14,
+              "loose": 0,
+              "settled": 930,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": true
+          }
+        ]
+      },
+      {
+        "route": "right",
+        "point": [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        "samples": [
+          {
+            "sim": 0.19999999999999998,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 70,
+              "settled": 0,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.0000000000000013,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 63,
+              "settled": 7,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.9999999999999978,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 69,
+              "settled": 18,
+              "retained": 1864,
+              "movingSections": 1,
+              "connectedPieces": 5
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 4.999999999999988,
+            "bank": {
+              "bays": 27,
+              "failedBays": 8,
+              "loose": 423,
+              "settled": 263,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 10.000000000000076,
+            "bank": {
+              "bays": 27,
+              "failedBays": 8,
+              "loose": 0,
+              "settled": 715,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": true
+          },
+          {
+            "sim": 24.99999999999986,
+            "bank": {
+              "bays": 27,
+              "failedBays": 8,
+              "loose": 0,
+              "settled": 715,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": true
+          }
+        ]
+      },
+      {
+        "route": "side",
+        "point": [
+          -4.8,
+          1.3,
+          14
+        ],
+        "samples": [
+          {
+            "sim": 0.19999999999999998,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 53,
+              "settled": 0,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.0000000000000013,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 47,
+              "settled": 6,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.9999999999999978,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 37,
+              "settled": 26,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 4.999999999999988,
+            "bank": {
+              "bays": 27,
+              "failedBays": 7,
+              "loose": 219,
+              "settled": 341,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 10.000000000000076,
+            "bank": {
+              "bays": 27,
+              "failedBays": 7,
+              "loose": 1,
+              "settled": 562,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": true
+          },
+          {
+            "sim": 24.99999999999986,
+            "bank": {
+              "bays": 27,
+              "failedBays": 7,
+              "loose": 0,
+              "settled": 563,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": true
+          }
+        ]
+      }
+    ],
+    "corrected": [
+      {
+        "route": "left",
+        "point": [
+          -15.7,
+          1.3,
+          19.65
+        ],
+        "samples": [
+          {
+            "sim": 0.19999999999999998,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 70,
+              "settled": 0,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.0000000000000013,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 63,
+              "settled": 7,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.9999999999999978,
+            "bank": {
+              "bays": 27,
+              "failedBays": 1,
+              "loose": 137,
+              "settled": 20,
+              "retained": 1864,
+              "movingSections": 2,
+              "connectedPieces": 12
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 4.999999999999988,
+            "bank": {
+              "bays": 27,
+              "failedBays": 5,
+              "loose": 216,
+              "settled": 285,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 10.000000000000076,
+            "bank": {
+              "bays": 27,
+              "failedBays": 5,
+              "loose": 2,
+              "settled": 517,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 24.99999999999986,
+            "bank": {
+              "bays": 27,
+              "failedBays": 5,
+              "loose": 0,
+              "settled": 519,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          }
+        ]
+      },
+      {
+        "route": "right",
+        "point": [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        "samples": [
+          {
+            "sim": 0.19999999999999998,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 70,
+              "settled": 0,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.0000000000000013,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 63,
+              "settled": 7,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.9999999999999978,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 72,
+              "settled": 20,
+              "retained": 1864,
+              "movingSections": 2,
+              "connectedPieces": 9
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 4.999999999999988,
+            "bank": {
+              "bays": 27,
+              "failedBays": 8,
+              "loose": 225,
+              "settled": 539,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 10.000000000000076,
+            "bank": {
+              "bays": 27,
+              "failedBays": 8,
+              "loose": 0,
+              "settled": 764,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 24.99999999999986,
+            "bank": {
+              "bays": 27,
+              "failedBays": 8,
+              "loose": 0,
+              "settled": 764,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          }
+        ]
+      },
+      {
+        "route": "side",
+        "point": [
+          -4.8,
+          1.3,
+          14
+        ],
+        "samples": [
+          {
+            "sim": 0.19999999999999998,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 53,
+              "settled": 0,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.0000000000000013,
+            "bank": {
+              "bays": 27,
+              "failedBays": 0,
+              "loose": 47,
+              "settled": 6,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 1.9999999999999978,
+            "bank": {
+              "bays": 27,
+              "failedBays": 1,
+              "loose": 83,
+              "settled": 26,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 4.999999999999988,
+            "bank": {
+              "bays": 27,
+              "failedBays": 6,
+              "loose": 52,
+              "settled": 194,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 10.000000000000076,
+            "bank": {
+              "bays": 27,
+              "failedBays": 6,
+              "loose": 0,
+              "settled": 247,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          },
+          {
+            "sim": 24.99999999999986,
+            "bank": {
+              "bays": 27,
+              "failedBays": 6,
+              "loose": 0,
+              "settled": 247,
+              "retained": 1864,
+              "movingSections": 0,
+              "connectedPieces": 0
+            },
+            "structureSleeping": false
+          }
+        ]
+      }
+    ]
+  },
+  "unsupportedPierGroups": [
+    {
+      "ids": [
+        1084,
+        1264
+      ],
+      "nearestOutsideGapMetres": 0.3699557917398675
+    },
+    {
+      "ids": [
+        1419,
+        1438,
+        1775
+      ],
+      "nearestOutsideGapMetres": 0.3699756488135879
+    }
+  ],
+  "supportMethod": "Original adjacent bodies had fallen away; nearest current transformed solid parts were checked including furniture and glass. Frozen transforms persisted from 5 through 30 simulated seconds and after fresh restoration. A later charge removed the lower pair while the upper pair stayed suspended in the reviewed implementation.",
+  "finalVerificationRepair": {
+    "runtime": "a1c75deba4e1e07361f92807badc515f8e20a571",
+    "singleRoofWound": {
+      "failedBays": 0,
+      "settled": 43,
+      "loose": 0,
+      "streetLevelRoofPieces": 0
+    },
+    "streetLevelToolCheck": {
+      "stats": {
+        "bays": 27,
+        "failedBays": 21,
+        "loose": 0,
+        "settled": 1441,
+        "retained": 1864,
+        "movingSections": 0,
+        "connectedPieces": 0
+      },
+      "street": 204,
+      "results": [
+        {
+          "id": 931,
+          "placed": true,
+          "anchor": 931
+        },
+        {
+          "id": 932,
+          "placed": true,
+          "anchor": 932
+        },
+        {
+          "id": 933,
+          "placed": true,
+          "anchor": 933
+        },
+        {
+          "id": 934,
+          "placed": true,
+          "anchor": 934
+        },
+        {
+          "id": 935,
+          "placed": true,
+          "anchor": 935
+        },
+        {
+          "id": 936,
+          "placed": true,
+          "anchor": 936
+        }
+      ],
+      "seventh": false
+    },
+    "fixtureChange": "Only the demolition setup changes to six ordinary front/side charges; all six selected roof-piece anchoring, minimum count and seventh-charge rejection assertions remain. A local roof wound is no longer required to throw six pieces onto the street."
+  }
+}

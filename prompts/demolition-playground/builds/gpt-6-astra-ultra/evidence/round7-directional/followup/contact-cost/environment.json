@@ -1,0 +1,11 @@
+{
+  "recordedAtUnix": 1788845492.3442209,
+  "hardware": "Mac14,9",
+  "logicalCPUs": "10",
+  "uptime": "22:31  up 2 days, 13:06, 1 user, load averages: 14.81 12.23 8.64",
+  "unrelatedVerificationWorkerCount": 0,
+  "taskRecording": false,
+  "taskFullSuiteRunning": false,
+  "traceRunning": false,
+  "note": "Process aggregate only; no command lines or credentials retained."
+}

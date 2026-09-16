@@ -1,0 +1,1679 @@
+{
+  "archive": "/Users/Drew/Downloads/bank-direction-round7-followup-review.zip",
+  "archiveBytes": 11655271,
+  "archiveSHA256": "613564a2d55e80234f39ef01b454f98f450607151083a78f672914a7f122d6f6",
+  "members": [
+    {
+      "path": "FOLLOW-UP.md",
+      "bytes": 14177,
+      "sha256": "ad5c61deae371dbb7f27e85ce037e87826d55a5ce4c81082a4c576e430401a33"
+    },
+    {
+      "path": "REVIEW.md",
+      "bytes": 9854,
+      "sha256": "7c64123703ebb8b7f4484ad56d01eaa00ad3200b409450bf648b7606bc81d58e"
+    },
+    {
+      "path": "astra-followup-final-prior-0799b75-checks.log",
+      "bytes": 3279,
+      "sha256": "7aa8dde0faad6f32fd7b426740c50a6b6ba0e7d04be311a55e3347990ec961b7"
+    },
+    {
+      "path": "astra-followup-final-prior-0799b75-sleep.log",
+      "bytes": 298,
+      "sha256": "b2525c7ef4b2f9aacd3d1c4d23308fb807243884d1f0b8b71a53cb2ff5b96b6a"
+    },
+    {
+      "path": "astra-followup-final-prior-0799b75-support-trace.log",
+      "bytes": 6358,
+      "sha256": "d5938eb033b3e6485e48e6ee95d2ddf431dd8579ce62686947877ef55cd91704"
+    },
+    {
+      "path": "baseline-left.mp4",
+      "bytes": 775924,
+      "sha256": "e610755701bdf06c3af0acc7d2637ebae78a918655f2558c8c7db3d370d82e47"
+    },
+    {
+      "path": "causes.json",
+      "bytes": 16318,
+      "sha256": "78e1b225e74c5bf451aecf1724122df4a88423fc040a9a41942d23db66c21fc0"
+    },
+    {
+      "path": "contact-before.jsonl",
+      "bytes": 4133,
+      "sha256": "58a72cbbedeb4ee175308e7a52302853722907f1d5e078223624867b6124142d"
+    },
+    {
+      "path": "contact-regressions.log",
+      "bytes": 759,
+      "sha256": "8c6313a88fbbb9839ea4c6eb4560b673bac16ea3eb9c2695844c3822ab37a10e"
+    },
+    {
+      "path": "controls.json",
+      "bytes": 32694,
+      "sha256": "ed7e3446f3f7f9ab7226c4699243b3e037d9ad16cabefee6196cc01652c31e02"
+    },
+    {
+      "path": "final-collapse.mp4",
+      "bytes": 1415505,
+      "sha256": "db3463f96bb6a7ed882727437982b379732079d020abf9d87bbe8a872eb79351"
+    },
+    {
+      "path": "final-front.mp4",
+      "bytes": 920984,
+      "sha256": "b674dbff823c51f6fe441607e76404126dcddeb6641cdc00f9ba1532dfead552"
+    },
+    {
+      "path": "final-left-later-cut.mp4",
+      "bytes": 587507,
+      "sha256": "64b874571d2113930b826d9412641b99176a0d7a418de8d9c7d7e9ddfe5bc4c3"
+    },
+    {
+      "path": "final-left.mp4",
+      "bytes": 785817,
+      "sha256": "996173daab069de964801753c70d170df4da9646033f7b4c28af5e4e80cfd4e9"
+    },
+    {
+      "path": "final-side.mp4",
+      "bytes": 1051448,
+      "sha256": "1426932a4642aa28f8e6f3edcc937621dcc59c63b1af9a6d51460d636313eb53"
+    },
+    {
+      "path": "final-time-controls.mp4",
+      "bytes": 2359500,
+      "sha256": "47a2fa95a345a214bcaf3696f112626fd6907d1ab573c636523351d90795148d"
+    },
+    {
+      "path": "independent-checks.log",
+      "bytes": 1476,
+      "sha256": "bc45099d9f0f9efdacb6a1e393b6fc81a751e6c1b846551109f2c081bd361b4b"
+    },
+    {
+      "path": "independent-results.json",
+      "bytes": 4020,
+      "sha256": "d765dcf2a9e5ae0d8b62be21ce5149d8a052f9178c647cd87cdbe38d8d9dadf7"
+    },
+    {
+      "path": "independent-review.md",
+      "bytes": 5164,
+      "sha256": "b52cc4ed376158df30b869bd5463b7647ce6995c2a8d26c055fd9b019ad5b9be"
+    },
+    {
+      "path": "inspections.json",
+      "bytes": 22005,
+      "sha256": "1133fe4217da69c53c98e3aed6c433dc93db94651a8b258d4005181578495a16"
+    },
+    {
+      "path": "later-side.png",
+      "bytes": 819630,
+      "sha256": "037ec4241446adb8caf4084d020ca70ce8446d0cb3606e63de9be06326ec92e5"
+    },
+    {
+      "path": "measurements.json",
+      "bytes": 1201895,
+      "sha256": "eb5b42f03b744e09b86feda7c91ea8011af19711a0e649902f0206ac6579e7b4"
+    },
+    {
+      "path": "media-check.json",
+      "bytes": 2646,
+      "sha256": "d326194602d5c7b67000c77b541fa8a5207e1036b8d8799ee06516eac4df205c"
+    },
+    {
+      "path": "native-recordings.json",
+      "bytes": 681257,
+      "sha256": "a3b3fd610089c05eed7cbf10971b2a131622909053201a4df01762d08dfaa4a9"
+    },
+    {
+      "path": "partial-left.png",
+      "bytes": 707850,
+      "sha256": "a1bc52ef462003a9ccdca1c70a63da63e09a6a5f8d2803ff4f1e8b13bc9a3401"
+    },
+    {
+      "path": "partial-right.png",
+      "bytes": 767618,
+      "sha256": "1779d1cabd3e70e94bd4e2229bfe65ecdfa5c8621bf41007e37e4f83c35d8b9e"
+    },
+    {
+      "path": "partial-side.png",
+      "bytes": 785858,
+      "sha256": "6ae1a2ea82897445503f2a382581eb3ec2dcdaa5cbccc82cd6865b49b24e1ef0"
+    },
+    {
+      "path": "regressions-before.log",
+      "bytes": 3052,
+      "sha256": "f09891067dc250ca67608b88ae8ddcfcdb815ab44b839aff95232fb5155b6799"
+    },
+    {
+      "path": "runtime-equivalence.json",
+      "bytes": 521,
+      "sha256": "9f79de9270029df5a2949b40282171006085c100e0e64dfdd0ed8111573704cd"
+    },
+    {
+      "path": "suite-before-contact-repair.log",
+      "bytes": 7512,
+      "sha256": "9570f2613324a3c4200743bed586f27a3e2c9b36ba66ee808160a828f58f9217"
+    },
+    {
+      "path": "suite-before-fixture-update.log",
+      "bytes": 7725,
+      "sha256": "d235a4d8d1d6e74dd8747a23a3387311dd79e33237e7b08a97782ddfb5aec59c"
+    },
+    {
+      "path": "suite-final.log",
+      "bytes": 6743,
+      "sha256": "03d22a683d2c205cac4eeff6f1a054399feb8ece3e10d1be42f4293c9ae2d159"
+    },
+    {
+      "path": "support-after.png",
+      "bytes": 258439,
+      "sha256": "b156c8eef9c5e1ef36025db41b970fbc4e76e06832e38641988aaf3c007c726e"
+    },
+    {
+      "path": "support-before.png",
+      "bytes": 239505,
+      "sha256": "adcaadcb97c2144b4734de9981a86d1a022176061042cc533cc298fbdbfcdf88"
+    },
+    {
+      "path": "support-evidence.json",
+      "bytes": 6759,
+      "sha256": "2a321c157f5d74033ab9facf3f11c9bb7c3832d743f5bc402969a73a223ea7c0"
+    },
+    {
+      "path": "viewer.html",
+      "bytes": 4769,
+      "sha256": "a0cad5d3f3834175d8cb7f4680c67bc7f825d2ffcf14100e5821afcb2756971a"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 8345,
+      "sha256": "5a045e7227dfd48b1abef0f93cd5c525af06889ed5afcd51a5bd0f68470adaf0"
+    }
+  ],
+  "references": [
+    {
+      "from": "independent-review.md",
+      "to": "suite-before-contact-repair.log",
+      "target": "suite-before-contact-repair.log",
+      "kind": "inline evidence file",
+      "status": "included"
+    },
+    {
+      "from": "independent-review.md",
+      "to": "suite-before-fixture-update.log",
+      "target": "suite-before-fixture-update.log",
+      "kind": "inline evidence file",
+      "status": "included"
+    },
+    {
+      "from": "independent-review.md",
+      "to": "suite-final.log",
+      "target": "suite-final.log",
+      "kind": "inline evidence file",
+      "status": "included"
+    },
+    {
+      "from": "independent-review.md",
+      "to": "independent-checks.log",
+      "target": "independent-checks.log",
+      "kind": "inline evidence file",
+      "status": "included"
+    },
+    {
+      "from": "independent-review.md",
+      "to": "runtime-equivalence.json",
+      "target": "runtime-equivalence.json",
+      "kind": "inline evidence file",
+      "status": "included"
+    },
+    {
+      "from": "independent-review.md",
+      "to": "independent-results.json",
+      "target": "independent-results.json",
+      "kind": "inline evidence file",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "baseline-left.mp4",
+      "target": "baseline-left.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-left.mp4",
+      "target": "final-left.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "partial-left.png",
+      "target": "partial-left.png",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "partial-side.png",
+      "target": "partial-side.png",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "partial-right.png",
+      "target": "partial-right.png",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "later-side.png",
+      "target": "later-side.png",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "inspections.json",
+      "target": "inspections.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-left-later-cut.mp4",
+      "target": "final-left-later-cut.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-front.mp4",
+      "target": "final-front.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-side.mp4",
+      "target": "final-side.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-collapse.mp4",
+      "target": "final-collapse.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "support-before.png",
+      "target": "support-before.png",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "support-after.png",
+      "target": "support-after.png",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-time-controls.mp4",
+      "target": "final-time-controls.mp4",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "controls.json",
+      "target": "controls.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "REVIEW.md",
+      "target": "REVIEW.md",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "independent-review.md",
+      "target": "independent-review.md",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "viewer.html",
+      "target": "viewer.html",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "native-recordings.json",
+      "target": "native-recordings.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "causes.json",
+      "target": "causes.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "suite-before-contact-repair.log",
+      "target": "suite-before-contact-repair.log",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "contact-before.jsonl",
+      "target": "contact-before.jsonl",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "controls.json",
+      "target": "controls.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "inspections.json",
+      "target": "inspections.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "support-evidence.json",
+      "target": "support-evidence.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "independent-review.md",
+      "target": "independent-review.md",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "measurements.json",
+      "target": "measurements.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "independent-review.md",
+      "target": "independent-review.md",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "suite-final.log",
+      "target": "suite-final.log",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "suite-before-fixture-update.log",
+      "target": "suite-before-fixture-update.log",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "manifest.json",
+      "target": "manifest.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "media-check.json",
+      "target": "media-check.json",
+      "kind": "link",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "viewer.html",
+      "target": "viewer.html",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "native-recordings.json",
+      "target": "native-recordings.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "causes.json",
+      "target": "causes.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "suite-before-contact-repair.log",
+      "target": "suite-before-contact-repair.log",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "contact-before.jsonl",
+      "target": "contact-before.jsonl",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "controls.json",
+      "target": "controls.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "inspections.json",
+      "target": "inspections.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "support-evidence.json",
+      "target": "support-evidence.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "independent-review.md",
+      "target": "independent-review.md",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "measurements.json",
+      "target": "measurements.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "independent-review.md",
+      "target": "independent-review.md",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "suite-final.log",
+      "target": "suite-final.log",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "suite-before-fixture-update.log",
+      "target": "suite-before-fixture-update.log",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "manifest.json",
+      "target": "manifest.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "media-check.json",
+      "target": "media-check.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "baseline-left.mp4",
+      "target": "baseline-left.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-left.mp4",
+      "target": "final-left.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "partial-left.png",
+      "target": "partial-left.png",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "partial-side.png",
+      "target": "partial-side.png",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "partial-right.png",
+      "target": "partial-right.png",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "later-side.png",
+      "target": "later-side.png",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "inspections.json",
+      "target": "inspections.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-left-later-cut.mp4",
+      "target": "final-left-later-cut.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-front.mp4",
+      "target": "final-front.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-side.mp4",
+      "target": "final-side.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-collapse.mp4",
+      "target": "final-collapse.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "support-before.png",
+      "target": "support-before.png",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "support-after.png",
+      "target": "support-after.png",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "final-time-controls.mp4",
+      "target": "final-time-controls.mp4",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "controls.json",
+      "target": "controls.json",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "REVIEW.md",
+      "target": "REVIEW.md",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "viewer.html",
+      "to": "independent-review.md",
+      "target": "independent-review.md",
+      "kind": "manifest",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "baseline-left.mp4",
+      "target": "baseline-left.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "final-left.mp4",
+      "target": "final-left.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "final-front.mp4",
+      "target": "final-front.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "final-side.mp4",
+      "target": "final-side.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "final-collapse.mp4",
+      "target": "final-collapse.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "final-left-later-cut.mp4",
+      "target": "final-left-later-cut.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "media-check.json",
+      "to": "final-time-controls.mp4",
+      "target": "final-time-controls.mp4",
+      "kind": "media metadata",
+      "status": "included"
+    },
+    {
+      "from": "controls.json",
+      "to": "final-time-controls.mp4",
+      "target": "final-time-controls.mp4",
+      "kind": "metadata .capture",
+      "status": "included"
+    },
+    {
+      "from": "support-evidence.json",
+      "to": "support-before.png",
+      "target": "support-before.png",
+      "kind": "metadata .baseline.capture",
+      "status": "included"
+    },
+    {
+      "from": "support-evidence.json",
+      "to": "support-after.png",
+      "target": "support-after.png",
+      "kind": "metadata .final.capture",
+      "status": "included"
+    },
+    {
+      "from": "independent-results.json",
+      "to": "suite-final.log",
+      "target": "suite-final.log",
+      "kind": "metadata .suite.log",
+      "status": "included"
+    },
+    {
+      "from": "independent-results.json",
+      "to": "independent-checks.log",
+      "target": "independent-checks.log",
+      "kind": "metadata .supplemental.log",
+      "status": "included"
+    },
+    {
+      "from": "independent-results.json",
+      "to": "suite-before-contact-repair.log",
+      "target": "suite-before-contact-repair.log",
+      "kind": "metadata .preserved_prior_runs[0].log",
+      "status": "included"
+    },
+    {
+      "from": "independent-results.json",
+      "to": "suite-before-fixture-update.log",
+      "target": "suite-before-fixture-update.log",
+      "kind": "metadata .preserved_prior_runs[1].log",
+      "status": "included"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/measure.py",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/fixed-step.mjs",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/inspect-native.py",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/inspect-support.js",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/support-view.html",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    },
+    {
+      "from": "REVIEW.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/prepare-media.py",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    },
+    {
+      "from": "independent-review.md",
+      "to": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/round7-directional/followup/independent-checks.mjs",
+      "kind": "explicit repository-only source",
+      "status": "exists in source worktree; evidence awaiting commit"
+    }
+  ],
+  "defects": [],
+  "crc": "pass",
+  "duplicates": 0,
+  "runtimeIdentitiesMatch": true,
+  "status": "PASS",
+  "media": [
+    {
+      "file": "baseline-left.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 209,
+      "firstPTS": 0.0,
+      "lastPTS": 14.054,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-pr6-followup-native-baseline-verified/baseline-left.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/baseline-left.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    },
+    {
+      "file": "final-left.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 217,
+      "firstPTS": 0.0,
+      "lastPTS": 13.124,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-followup-native-release/final-left.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/final-left.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    },
+    {
+      "file": "final-front.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 220,
+      "firstPTS": 0.0,
+      "lastPTS": 13.137,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-followup-native-release/final-front.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/final-front.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    },
+    {
+      "file": "final-side.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 212,
+      "firstPTS": 0.0,
+      "lastPTS": 13.158,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-followup-native-release/final-side.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/final-side.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    },
+    {
+      "file": "final-collapse.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 207,
+      "firstPTS": 0.0,
+      "lastPTS": 13.582,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-followup-native-release/final-collapse.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/final-collapse.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    },
+    {
+      "file": "final-left-later-cut.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 300,
+      "firstPTS": 0.0,
+      "lastPTS": 15.466,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-followup-inspection-release/final-left-later-cut.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/final-left-later-cut.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    },
+    {
+      "file": "final-time-controls.mp4",
+      "stream": {
+        "codec_name": "h264",
+        "width": 1280,
+        "height": 800,
+        "time_base": "1/1000000"
+      },
+      "frameCount": 471,
+      "firstPTS": 0.0,
+      "lastPTS": 22.648,
+      "timestampsExactlyMatchRaw": true,
+      "hashesMatch": true,
+      "strictDecode": "pass",
+      "rawSource": "/tmp/astra-followup-controls-release/final-time-controls.webm",
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-xerror",
+        "-i",
+        "/tmp/astra-followup-package-verifier/extracted/final-time-controls.mp4",
+        "-fps_mode",
+        "passthrough",
+        "-enc_time_base",
+        "demux",
+        "-f",
+        "null",
+        "-"
+      ]
+    }
+  ],
+  "browser": {
+    "url": "file:///tmp/astra-followup-package-verifier/extracted/viewer.html",
+    "media": [
+      {
+        "duration": 14.038,
+        "error": null,
+        "file": "baseline-left.mp4",
+        "height": 800,
+        "played": {
+          "frames": 52,
+          "paused": false,
+          "time": 0.701077
+        },
+        "resumed": {
+          "frames": 154,
+          "paused": false,
+          "time": 7.502802
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      },
+      {
+        "duration": 13.09,
+        "error": null,
+        "file": "final-left.mp4",
+        "height": 800,
+        "played": {
+          "frames": 45,
+          "paused": false,
+          "time": 0.701458
+        },
+        "resumed": {
+          "frames": 165,
+          "paused": false,
+          "time": 7.502362
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      },
+      {
+        "duration": 15.467,
+        "error": null,
+        "file": "final-left-later-cut.mp4",
+        "height": 800,
+        "played": {
+          "frames": 19,
+          "paused": false,
+          "time": 0.674216
+        },
+        "resumed": {
+          "frames": 165,
+          "paused": false,
+          "time": 7.502488
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      },
+      {
+        "duration": 13.083,
+        "error": null,
+        "file": "final-front.mp4",
+        "height": 800,
+        "played": {
+          "frames": 16,
+          "paused": false,
+          "time": 0.671103
+        },
+        "resumed": {
+          "frames": 119,
+          "paused": false,
+          "time": 7.502314
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      },
+      {
+        "duration": 13.076,
+        "error": null,
+        "file": "final-side.mp4",
+        "height": 800,
+        "played": {
+          "frames": 15,
+          "paused": false,
+          "time": 0.672461
+        },
+        "resumed": {
+          "frames": 114,
+          "paused": false,
+          "time": 7.501871
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      },
+      {
+        "duration": 13.568,
+        "error": null,
+        "file": "final-collapse.mp4",
+        "height": 800,
+        "played": {
+          "frames": 15,
+          "paused": false,
+          "time": 0.676516
+        },
+        "resumed": {
+          "frames": 101,
+          "paused": false,
+          "time": 7.501687
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      },
+      {
+        "duration": 22.649,
+        "error": null,
+        "file": "final-time-controls.mp4",
+        "height": 800,
+        "played": {
+          "frames": 13,
+          "paused": false,
+          "time": 0.674616
+        },
+        "resumed": {
+          "frames": 159,
+          "paused": false,
+          "time": 7.501842
+        },
+        "sought": {
+          "ready": 4,
+          "time": 7
+        },
+        "width": 1280
+      }
+    ],
+    "pairedPlay": [
+      {
+        "file": "baseline-left.mp4",
+        "frames": 30,
+        "paused": false,
+        "rate": 1,
+        "time": 0.949623
+      },
+      {
+        "file": "final-left.mp4",
+        "frames": 25,
+        "paused": false,
+        "rate": 1,
+        "time": 0.949657
+      }
+    ],
+    "pairedRestart": [
+      {
+        "paused": true,
+        "time": 0
+      },
+      {
+        "paused": true,
+        "time": 0
+      }
+    ],
+    "images": [
+      {
+        "complete": true,
+        "file": "partial-left.png",
+        "height": 900,
+        "width": 1440
+      },
+      {
+        "complete": true,
+        "file": "partial-side.png",
+        "height": 900,
+        "width": 1440
+      },
+      {
+        "complete": true,
+        "file": "partial-right.png",
+        "height": 900,
+        "width": 1440
+      },
+      {
+        "complete": true,
+        "file": "later-side.png",
+        "height": 900,
+        "width": 1440
+      },
+      {
+        "complete": true,
+        "file": "support-before.png",
+        "height": 900,
+        "width": 1440
+      },
+      {
+        "complete": true,
+        "file": "support-after.png",
+        "height": 900,
+        "width": 1440
+      }
+    ],
+    "errors": {
+      "errors": []
+    },
+    "console": {
+      "messages": []
+    },
+    "status": "pass",
+    "closed": {
+      "closed": true
+    }
+  },
+  "provenance": {
+    "recomputed": {
+      "corrected-1": {
+        "active": {
+          "meanMs": 68.74750000000002,
+          "p95Ms": 133.29999999999927,
+          "maxMs": 133.39999999999964,
+          "frames": 80
+        },
+        "late": {
+          "meanMs": 19.811589403973507,
+          "p95Ms": 33.30000000000291,
+          "maxMs": 33.400000000001455,
+          "frames": 302
+        },
+        "externalWorkerCount": 16,
+        "end": {
+          "sim": 22.362499999999553,
+          "wall": 24.00250000001789
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 15,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1276
+        }
+      },
+      "optimized-1": {
+        "active": {
+          "meanMs": 45.83166666666666,
+          "p95Ms": 116.60000000000036,
+          "maxMs": 133.39999999999964,
+          "frames": 120
+        },
+        "late": {
+          "meanMs": 16.806162464986002,
+          "p95Ms": 16.799999999995634,
+          "maxMs": 33.30000000000291,
+          "frames": 357
+        },
+        "externalWorkerCount": 16,
+        "end": {
+          "sim": 22.799199999999377,
+          "wall": 24.00240000001192
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 15,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1289
+        }
+      },
+      "optimized-2": {
+        "active": {
+          "meanMs": 50.14909090909091,
+          "p95Ms": 100.10000000000036,
+          "maxMs": 133.39999999999964,
+          "frames": 110
+        },
+        "late": {
+          "meanMs": 16.666111111111118,
+          "p95Ms": 16.700000000000728,
+          "maxMs": 16.799999999999272,
+          "frames": 360
+        },
+        "externalWorkerCount": 13,
+        "end": {
+          "sim": 22.68250000000002,
+          "wall": 24.01469999998808
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 15,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1289
+        }
+      },
+      "corrected-2": {
+        "active": {
+          "meanMs": 67.07073170731708,
+          "p95Ms": 116.80000000000018,
+          "maxMs": 150,
+          "frames": 82
+        },
+        "late": {
+          "meanMs": 18.466358024691353,
+          "p95Ms": 33.29999999999927,
+          "maxMs": 33.400000000001455,
+          "frames": 324
+        },
+        "externalWorkerCount": 9,
+        "end": {
+          "sim": 22.275899999999982,
+          "wall": 24.00270000001788
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 15,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1289
+        }
+      },
+      "corrected-final-pair": {
+        "active": {
+          "meanMs": 63.95000000000001,
+          "p95Ms": 116.69999999999982,
+          "maxMs": 133.39999999999964,
+          "frames": 86
+        },
+        "late": {
+          "meanMs": 17.856547619047618,
+          "p95Ms": 33.29999999999927,
+          "maxMs": 33.400000000001455,
+          "frames": 336
+        },
+        "externalWorkerCount": 0,
+        "end": {
+          "sim": 22.349100000000043,
+          "wall": 24.00210000001192
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 15,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1289
+        }
+      },
+      "final": {
+        "active": {
+          "meanMs": 41.79090909090909,
+          "p95Ms": 100,
+          "maxMs": 133.39999999999964,
+          "frames": 132
+        },
+        "late": {
+          "meanMs": 16.66611111111111,
+          "p95Ms": 16.799999999999272,
+          "maxMs": 16.80000000000291,
+          "frames": 360
+        },
+        "externalWorkerCount": 0,
+        "end": {
+          "sim": 22.90910000000006,
+          "wall": 24.00049999998212
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 21,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1443
+        }
+      },
+      "solid-contact": {
+        "active": {
+          "meanMs": 138.74499999999998,
+          "p95Ms": 166.8000000000011,
+          "maxMs": 183.3000000000011,
+          "frames": 40
+        },
+        "late": {
+          "meanMs": 199.99000000000004,
+          "p95Ms": 216.70000000000073,
+          "maxMs": 216.79999999999927,
+          "frames": 30
+        },
+        "externalWorkerCount": 8,
+        "end": {
+          "sim": 8.483400000000241,
+          "wall": 24.07030000001192
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 20,
+          "loose": 2,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1436
+        }
+      },
+      "indexed-contact": {
+        "active": {
+          "meanMs": 73.33066666666666,
+          "p95Ms": 116.70000000000071,
+          "maxMs": 150.10000000000036,
+          "frames": 75
+        },
+        "late": {
+          "meanMs": 26.086086956521736,
+          "p95Ms": 33.400000000001455,
+          "maxMs": 33.400000000001455,
+          "frames": 230
+        },
+        "externalWorkerCount": 16,
+        "end": {
+          "sim": 22.53249999999959,
+          "wall": 24.00020000001192
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 18,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1291
+        }
+      },
+      "solid-contact-pair": {
+        "active": {
+          "meanMs": 140.78421052631577,
+          "p95Ms": 183.39999999999964,
+          "maxMs": 183.39999999999964,
+          "frames": 38
+        },
+        "late": {
+          "meanMs": 173.52058823529413,
+          "p95Ms": 183.40000000000143,
+          "maxMs": 183.5,
+          "frames": 34
+        },
+        "externalWorkerCount": 16,
+        "end": {
+          "sim": 9.259900000000291,
+          "wall": 24.03879999999404
+        },
+        "bank": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 15,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 1280
+        }
+      }
+    },
+    "defects": [],
+    "selectedNativePair": {
+      "before": "solid-contact-pair",
+      "after": "indexed-contact",
+      "inputsSettingsChargesMatch": true,
+      "activeImprovement": 0.4791271947860979,
+      "workerCounts": [
+        16,
+        16
+      ]
+    },
+    "selectedFixedStep": {
+      "firstIntervalCPUSeconds": [
+        27.494187,
+        15.279386
+      ],
+      "lastIntervalCPUSeconds": [
+        23.573401,
+        5.483863
+      ],
+      "finalBanks": [
+        {
+          "bays": 27,
+          "failedBays": 21,
+          "loose": 0,
+          "settled": 1441,
+          "retained": 1864,
+          "movingSections": 0,
+          "connectedPieces": 0
+        },
+        {
+          "bays": 27,
+          "failedBays": 21,
+          "loose": 0,
+          "settled": 1441,
+          "retained": 1864,
+          "movingSections": 0,
+          "connectedPieces": 0
+        }
+      ],
+      "snapshotHashesDiffer": true
+    },
+    "pairedNativeAnchors": [
+      {
+        "route": "left",
+        "inputsAndAnchorsExactlyMatch": true,
+        "cameraMatch": true
+      },
+      {
+        "route": "right",
+        "inputsAndAnchorsExactlyMatch": true,
+        "cameraMatch": true
+      },
+      {
+        "route": "side",
+        "inputsAndAnchorsExactlyMatch": true,
+        "cameraMatch": true
+      },
+      {
+        "route": "front",
+        "inputsAndAnchorsExactlyMatch": true,
+        "cameraMatch": true
+      },
+      {
+        "route": "collapse",
+        "inputsAndAnchorsExactlyMatch": true,
+        "cameraMatch": true
+      }
+    ],
+    "screenshots": [
+      {
+        "file": "partial-left.png",
+        "raw": "/tmp/astra-followup-inspection-release/final-left-25s.png",
+        "exactByteMatch": true
+      },
+      {
+        "file": "partial-side.png",
+        "raw": "/tmp/astra-followup-inspection-release/final-single-side-25s.png",
+        "exactByteMatch": true
+      },
+      {
+        "file": "partial-right.png",
+        "raw": "/tmp/astra-followup-inspection-release/final-right-25s.png",
+        "exactByteMatch": true
+      },
+      {
+        "file": "later-side.png",
+        "raw": "/tmp/astra-followup-inspection-release/final-single-side-later-cut.png",
+        "exactByteMatch": true
+      },
+      {
+        "file": "support-before.png",
+        "raw": "/tmp/astra-followup-inspection/baseline-support-diagnostic.png",
+        "exactByteMatch": true
+      },
+      {
+        "file": "support-after.png",
+        "raw": "/tmp/astra-followup-inspection-release/final-support-diagnostic.png",
+        "exactByteMatch": true
+      }
+    ],
+    "correction": "Method contradiction resolved; exact source annotations and separate fixed-step equality labels verified."
+  },
+  "repositoryEditsByVerifier": false,
+  "applicationTestsRun": false,
+  "benchmarkingRun": false,
+  "prActionsPerformed": false,
+  "preservedArchive": "/tmp/astra-followup-package-verifier/preserved-corrected-followup-review.zip",
+  "sourceSnapshotNote": "Every corrected archive member matches current source evidence.",
+  "correctionCheck": {
+    "archive": "/Users/Drew/Downloads/bank-direction-round7-followup-review.zip",
+    "sha256": "613564a2d55e80234f39ef01b454f98f450607151083a78f672914a7f122d6f6",
+    "crc": "pass",
+    "members": 37,
+    "onlyChangedMembers": [
+      "measurements.json",
+      "manifest.json"
+    ],
+    "allManifestMemberSourceHashesMatch": true,
+    "mediaAndViewerUnchanged": true
+  },
+  "initialFailure": {
+    "status": "FAIL",
+    "report": "/tmp/astra-followup-package-verifier/initial-FAIL.md",
+    "machineResult": "/tmp/astra-followup-package-verifier/initial-FAIL.json",
+    "archive": "/tmp/astra-followup-package-verifier/preserved-initial-followup-review.zip",
+    "defect": "Stale final-pair worker-contention wording",
+    "resolution": "Final and earlier comparisons now name their measured worker counts."
+  },
+  "timingProvenanceCorrection": {
+    "allNativeRowsHaveExactResolvableCommit": true,
+    "sourceCommitByNativeRun": {
+      "corrected-1": "4cebb5d5371d634015ee765103651a6eec453ea0",
+      "optimized-1": "1286effbc3d84935b8225a569e541572ebb6ecba",
+      "optimized-2": "1286effbc3d84935b8225a569e541572ebb6ecba",
+      "corrected-2": "4cebb5d5371d634015ee765103651a6eec453ea0",
+      "corrected-final-pair": "4cebb5d5371d634015ee765103651a6eec453ea0",
+      "final": "0799b7538d4996f0bbbd1beca3f72d678e422643",
+      "solid-contact": "2a8f4ae9b533f9615280ae6c366dd4ab88dd7846",
+      "indexed-contact": "a1c75deba4e1e07361f92807badc515f8e20a571",
+      "solid-contact-pair": "2a8f4ae9b533f9615280ae6c366dd4ab88dd7846"
+    },
+    "allOriginalRawMeasurementsUnchanged": true,
+    "geometryCacheFixedSnapshotIdentical": true,
+    "finalContactFixedSnapshotIdentical": false,
+    "fixedStepSceneRefreshDisclosed": true,
+    "profileCommitAnnotationsVerified": true
+  },
+  "decodeAndPlaybackRepeated": false,
+  "previousDecodeAndPlaybackResultsApplicable": "All seven movies, six images and viewer are byte-identical to the independently checked original."
+}

@@ -1,0 +1,880 @@
+{
+  "method": "Ordinary district, real mouse charges, high quality, 1440x900, DPR 1. Native pause at sampled simulation intervals, alternate revealing angle, retained replay, and later cuts. This is a sampled observation interval including pauses; not an uninterrupted wall-time movie. No dust hiding or physics override. Geometry path check uses a disclosed 0.18 m construction tolerance and is not a strength certificate.",
+  "inspections": [
+    {
+      "route": "left",
+      "url": "http://127.0.0.1:4184",
+      "viewport": [
+        1440,
+        900
+      ],
+      "camera": {
+        "position": [
+          16,
+          20,
+          47
+        ],
+        "target": [
+          -11,
+          6.8,
+          14
+        ]
+      },
+      "ordinaryDistrict": true,
+      "samples": [
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 5,
+            "loose": 143,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 327
+          },
+          "structureSleeping": false,
+          "time": 7.769699999999989,
+          "unrooted": [
+            {
+              "bottom": 0.7267069027350064,
+              "connections": [],
+              "hp": 1,
+              "id": 1645,
+              "node": 25,
+              "owner": 25,
+              "ownerState": 2,
+              "pos": [
+                -10.346943376875451,
+                1.0998516717919589,
+                13.49859519638694
+              ],
+              "role": "masonry",
+              "state": 2,
+              "top": 1.4729964408489111
+            }
+          ],
+          "unrootedPiers": [],
+          "observedAfter": 1.926599999999998,
+          "wallElapsed": 6.226952958997572,
+          "elapsedSim": 5.843099999999991
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 5,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 470
+          },
+          "structureSleeping": false,
+          "time": 18.352600000000272,
+          "unrooted": [
+            {
+              "bottom": 0.7267069027350064,
+              "connections": [],
+              "hp": 1,
+              "id": 1645,
+              "node": 25,
+              "owner": 25,
+              "ownerState": 2,
+              "pos": [
+                -10.346943376875451,
+                1.0998516717919589,
+                13.49859519638694
+              ],
+              "role": "masonry",
+              "state": 2,
+              "top": 1.4729964408489111
+            }
+          ],
+          "unrootedPiers": [],
+          "observedAfter": 1.926599999999998,
+          "wallElapsed": 18.02046575001441,
+          "elapsedSim": 16.426000000000275
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 5,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 470
+          },
+          "structureSleeping": false,
+          "time": 27.818899999999815,
+          "unrooted": [
+            {
+              "bottom": 0.7267069027350064,
+              "connections": [],
+              "hp": 1,
+              "id": 1645,
+              "node": 25,
+              "owner": 25,
+              "ownerState": 2,
+              "pos": [
+                -10.346943376875451,
+                1.0998516717919589,
+                13.49859519638694
+              ],
+              "role": "masonry",
+              "state": 2,
+              "top": 1.4729964408489111
+            }
+          ],
+          "unrootedPiers": [],
+          "observedAfter": 1.926599999999998,
+          "wallElapsed": 28.674311292008497,
+          "elapsedSim": 25.892299999999818
+        }
+      ],
+      "inputs": [
+        {
+          "point": [
+            -15.7,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 515.9120193464521,
+            "y": 610.2921473301624
+          }
+        }
+      ],
+      "charges": [
+        {
+          "bankBody": 459,
+          "floor": 0,
+          "id": 0,
+          "when": -1,
+          "x": -0.15033482177522473,
+          "y": -0.3432725310905469,
+          "z": 0.012000534161920484
+        }
+      ],
+      "supportAngle": {
+        "position": [
+          -2,
+          9,
+          23
+        ],
+        "target": [
+          -10,
+          6,
+          15.5
+        ]
+      },
+      "afterReplay": {
+        "geometricTolerance": 0.18,
+        "noRootCarriers": [],
+        "staleOwner": [],
+        "stats": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 5,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 470
+        },
+        "structureSleeping": false,
+        "time": 29.568699999999733,
+        "unrooted": [
+          {
+            "bottom": 0.7267069027350064,
+            "connections": [],
+            "hp": 1,
+            "id": 1645,
+            "node": 25,
+            "owner": 25,
+            "ownerState": 2,
+            "pos": [
+              -10.346943376875451,
+              1.0998516717919589,
+              13.49859519638694
+            ],
+            "role": "masonry",
+            "state": 2,
+            "top": 1.4729964408489111
+          }
+        ],
+        "unrootedPiers": []
+      },
+      "later": {
+        "point": [
+          -11,
+          1.3,
+          19.65
+        ],
+        "screen": {
+          "x": 611.965083229226,
+          "y": 647.6987957719845
+        },
+        "charges": [
+          {
+            "bankBody": 606,
+            "floor": 0,
+            "id": 1,
+            "when": -1,
+            "x": -0.3146036788620368,
+            "y": -0.2593815551199399,
+            "z": 0.05999990157690149
+          }
+        ],
+        "before": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 5,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 470
+        },
+        "elapsedSim": 13.686199999999744,
+        "after": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 6,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 549
+        },
+        "support": {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 6,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 549
+          },
+          "structureSleeping": false,
+          "time": 43.80489999999945,
+          "unrooted": [
+            {
+              "bottom": 0.7267069027350064,
+              "connections": [],
+              "hp": 1,
+              "id": 1645,
+              "node": 25,
+              "owner": 25,
+              "ownerState": 2,
+              "pos": [
+                -10.346943376875451,
+                1.0998516717919589,
+                13.49859519638694
+              ],
+              "role": "masonry",
+              "state": 2,
+              "top": 1.4729964408489111
+            }
+          ],
+          "unrootedPiers": []
+        }
+      },
+      "applicationSource": "a1c75deba4e1e07361f92807badc515f8e20a571",
+      "servedHead": "02e3fb29b9c39642709bab1433c2e959372bce73"
+    },
+    {
+      "route": "right",
+      "url": "http://127.0.0.1:4184",
+      "viewport": [
+        1440,
+        900
+      ],
+      "camera": {
+        "position": [
+          16,
+          20,
+          47
+        ],
+        "target": [
+          -11,
+          6.8,
+          14
+        ]
+      },
+      "ordinaryDistrict": true,
+      "samples": [
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 0,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 60
+          },
+          "structureSleeping": false,
+          "time": 7.893100000000039,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 1.5599999999999985,
+          "wallElapsed": 6.636332541005686,
+          "elapsedSim": 6.33310000000004
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 0,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 60
+          },
+          "structureSleeping": false,
+          "time": 17.559300000000334,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 1.5599999999999985,
+          "wallElapsed": 17.301610708003864,
+          "elapsedSim": 15.999300000000336
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 0,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 60
+          },
+          "structureSleeping": false,
+          "time": 27.158900000000163,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 1.5599999999999985,
+          "wallElapsed": 27.87927204099833,
+          "elapsedSim": 25.598900000000164
+        }
+      ],
+      "inputs": [
+        {
+          "point": [
+            -6.3,
+            1.3,
+            19.65
+          ],
+          "screen": {
+            "x": 721.936735064799,
+            "y": 690.5258619007669
+          }
+        }
+      ],
+      "charges": [
+        {
+          "bankBody": 690,
+          "floor": 0,
+          "id": 0,
+          "when": -1,
+          "x": -0.025421909203735993,
+          "y": -0.1641999668977434,
+          "z": 0.3424591964888002
+        }
+      ],
+      "supportAngle": {
+        "position": [
+          -2,
+          9,
+          23
+        ],
+        "target": [
+          -10,
+          6,
+          15.5
+        ]
+      },
+      "afterReplay": {
+        "geometricTolerance": 0.18,
+        "noRootCarriers": [],
+        "staleOwner": [],
+        "stats": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 0,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 60
+        },
+        "structureSleeping": false,
+        "time": 28.308800000000108,
+        "unrooted": [],
+        "unrootedPiers": []
+      },
+      "later": {
+        "point": [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        "screen": {
+          "x": 721.936735064799,
+          "y": 690.5258619007669
+        },
+        "charges": [
+          {
+            "bankBody": 692,
+            "floor": 0,
+            "id": 1,
+            "when": -1,
+            "x": -0.1656692995409612,
+            "y": 0.1950003000870435,
+            "z": 0.07086299535682272
+          }
+        ],
+        "before": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 0,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 60
+        },
+        "elapsedSim": 13.419499999999683,
+        "after": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 7,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 733
+        },
+        "support": {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 7,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 733
+          },
+          "structureSleeping": false,
+          "time": 42.17839999999976,
+          "unrooted": [],
+          "unrootedPiers": []
+        }
+      },
+      "applicationSource": "a1c75deba4e1e07361f92807badc515f8e20a571",
+      "servedHead": "02e3fb29b9c39642709bab1433c2e959372bce73"
+    },
+    {
+      "route": "side",
+      "url": "http://127.0.0.1:4184",
+      "viewport": [
+        1440,
+        900
+      ],
+      "camera": {
+        "position": [
+          16,
+          20,
+          47
+        ],
+        "target": [
+          -11,
+          6.8,
+          14
+        ]
+      },
+      "ordinaryDistrict": true,
+      "samples": [
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 9,
+            "loose": 52,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 739
+          },
+          "structureSleeping": false,
+          "time": 8.563100000000007,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 2.4931999999999954,
+          "wallElapsed": 7.0047676660178695,
+          "elapsedSim": 6.069900000000012
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 9,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 804
+          },
+          "structureSleeping": false,
+          "time": 18.662700000000232,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 2.4931999999999954,
+          "wallElapsed": 18.19339724999736,
+          "elapsedSim": 16.169500000000237
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 9,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 804
+          },
+          "structureSleeping": false,
+          "time": 28.595599999999827,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 2.4931999999999954,
+          "wallElapsed": 29.143843791011022,
+          "elapsedSim": 26.102399999999832
+        }
+      ],
+      "inputs": [
+        {
+          "point": [
+            -4.8,
+            1.3,
+            10
+          ],
+          "screen": {
+            "x": 924.9040086855624,
+            "y": 603.7032329739376
+          }
+        },
+        {
+          "point": [
+            -4.8,
+            1.3,
+            14
+          ],
+          "screen": {
+            "x": 863.4416508729938,
+            "y": 641.7641979572472
+          }
+        },
+        {
+          "point": [
+            -4.8,
+            1.3,
+            17.8
+          ],
+          "screen": {
+            "x": 796.571005138596,
+            "y": 683.1742804254428
+          }
+        }
+      ],
+      "charges": [
+        {
+          "bankBody": 250,
+          "floor": 0,
+          "id": 0,
+          "when": -1,
+          "x": 0.008144721290568313,
+          "y": -0.1839061034188421,
+          "z": 0.4526662250359923
+        },
+        {
+          "bankBody": 382,
+          "floor": 0,
+          "id": 1,
+          "when": -1,
+          "x": -0.02197614903747258,
+          "y": 0.4150000292062761,
+          "z": -0.53102123938692
+        },
+        {
+          "bankBody": 705,
+          "floor": 0,
+          "id": 2,
+          "when": -1,
+          "x": -0.016745191841041063,
+          "y": 0.41500002920627777,
+          "z": -0.37669927434267336
+        }
+      ],
+      "supportAngle": {
+        "position": [
+          -2,
+          9,
+          23
+        ],
+        "target": [
+          -10,
+          6,
+          15.5
+        ]
+      },
+      "afterReplay": {
+        "geometricTolerance": 0.18,
+        "noRootCarriers": [],
+        "staleOwner": [],
+        "stats": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 9,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 804
+        },
+        "structureSleeping": false,
+        "time": 29.728899999999783,
+        "unrooted": [],
+        "unrootedPiers": []
+      },
+      "applicationSource": "a1c75deba4e1e07361f92807badc515f8e20a571",
+      "servedHead": "02e3fb29b9c39642709bab1433c2e959372bce73"
+    },
+    {
+      "route": "single-side",
+      "url": "http://127.0.0.1:4184",
+      "viewport": [
+        1440,
+        900
+      ],
+      "camera": {
+        "position": [
+          16,
+          20,
+          47
+        ],
+        "target": [
+          -11,
+          6.8,
+          14
+        ]
+      },
+      "ordinaryDistrict": true,
+      "samples": [
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 3,
+            "loose": 32,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 209
+          },
+          "structureSleeping": false,
+          "time": 7.253099999999985,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 1.6932999999999985,
+          "wallElapsed": 5.882262541010277,
+          "elapsedSim": 5.559799999999987
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 6,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 261
+          },
+          "structureSleeping": false,
+          "time": 17.402600000000298,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 1.6932999999999985,
+          "wallElapsed": 17.06932345801033,
+          "elapsedSim": 15.7093000000003
+        },
+        {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 6,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 261
+          },
+          "structureSleeping": false,
+          "time": 27.502099999999835,
+          "unrooted": [],
+          "unrootedPiers": [],
+          "observedAfter": 1.6932999999999985,
+          "wallElapsed": 28.229685124999378,
+          "elapsedSim": 25.808799999999838
+        }
+      ],
+      "inputs": [
+        {
+          "point": [
+            -4.8,
+            1.3,
+            14
+          ],
+          "screen": {
+            "x": 863.4416508729938,
+            "y": 641.7641979572472
+          }
+        }
+      ],
+      "charges": [
+        {
+          "bankBody": 382,
+          "floor": 0,
+          "id": 0,
+          "when": -1,
+          "x": -0.02197614903747258,
+          "y": 0.4150000292062761,
+          "z": -0.53102123938692
+        }
+      ],
+      "supportAngle": {
+        "position": [
+          -2,
+          9,
+          23
+        ],
+        "target": [
+          -10,
+          6,
+          15.5
+        ]
+      },
+      "afterReplay": {
+        "geometricTolerance": 0.18,
+        "noRootCarriers": [],
+        "staleOwner": [],
+        "stats": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 6,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 261
+        },
+        "structureSleeping": false,
+        "time": 28.95189999999979,
+        "unrooted": [],
+        "unrootedPiers": []
+      },
+      "later": {
+        "point": [
+          -6.3,
+          1.3,
+          19.65
+        ],
+        "screen": {
+          "x": 721.936735064799,
+          "y": 690.5258619007669
+        },
+        "charges": [
+          {
+            "bankBody": 690,
+            "floor": 0,
+            "id": 1,
+            "when": -1,
+            "x": -0.025488142920352175,
+            "y": -0.16413409140931923,
+            "z": 0.34247246359954175
+          }
+        ],
+        "before": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 6,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 261
+        },
+        "elapsedSim": 13.569299999999629,
+        "after": {
+          "bays": 27,
+          "connectedPieces": 0,
+          "failedBays": 9,
+          "loose": 0,
+          "movingSections": 0,
+          "retained": 1865,
+          "settled": 577
+        },
+        "support": {
+          "geometricTolerance": 0.18,
+          "noRootCarriers": [],
+          "staleOwner": [],
+          "stats": {
+            "bays": 27,
+            "connectedPieces": 0,
+            "failedBays": 9,
+            "loose": 0,
+            "movingSections": 0,
+            "retained": 1865,
+            "settled": 577
+          },
+          "structureSleeping": false,
+          "time": 42.98799999999939,
+          "unrooted": [],
+          "unrootedPiers": []
+        }
+      },
+      "applicationSource": "a1c75deba4e1e07361f92807badc515f8e20a571",
+      "servedHead": "02e3fb29b9c39642709bab1433c2e959372bce73"
+    }
+  ]
+}

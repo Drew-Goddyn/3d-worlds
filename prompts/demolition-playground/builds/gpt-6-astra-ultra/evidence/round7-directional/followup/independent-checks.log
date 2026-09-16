@@ -1,0 +1,16 @@
+{"check":"direct geometry oracle","queries":18640,"retained":1864}
+{"check":"native side-collapse current support","at10Seconds":[],"at15Seconds":[],"stats":{"bays":27,"failedBays":10,"loose":0,"settled":801,"retained":1864,"movingSections":0,"connectedPieces":0}}
+{"check":"25-second native partial wound","input":[-6.3,1.3,19.65],"at5Seconds":{"bays":27,"failedBays":7,"loose":127,"settled":317,"retained":1864,"movingSections":0,"connectedPieces":0},"at25Seconds":{"bays":27,"failedBays":7,"loose":0,"settled":444,"retained":1864,"movingSections":0,"connectedPieces":0},"naturalSleepCovered":false,"laterInput":[-11,1.3,19.65],"afterLaterCut":{"bays":27,"failedBays":8,"loose":33,"settled":499,"retained":1864,"movingSections":0,"connectedPieces":0}}
+{"check":"height-bin direct-scan oracle","queries":18}
+✔ ordinary side demolition keeps cached geometry identical to current direct geometry through contact, restore, and interpolation (24426.398708ms)
+✔ a whole carrier without a foundation moves, and settled construction reacts to removal of its current support (6.084791ms)
+✔ a normal lower-front wound stays meaningfully damaged while the observation interval advances and a later cut remains effective (39363.79625ms)
+✔ height-indexed resting candidates equal a direct solid-overlap scan at bin edges and through downward sweeps (0.851334ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 63997.030334

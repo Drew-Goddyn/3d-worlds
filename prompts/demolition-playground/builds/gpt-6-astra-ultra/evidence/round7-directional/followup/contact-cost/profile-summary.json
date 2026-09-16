@@ -1,0 +1,371 @@
+{
+  "sourceHead": "a8c62e0aa72d6fb3d83b66891e5770f1448a7039",
+  "rawTraceSHA256": "02521fda92414d0e55bad7dfea8616adfe50811dd773d312fab99973dcc08a89",
+  "rawTraceIncluded": false,
+  "method": "One Chrome CPU profile; counts of sampled JavaScript stacks, not GPU time or per-frame wall-time percentages. Inclusive counts follow parents and count each function once per sample; rows overlap and must not be summed. Unrecorded frame measurement is separate.",
+  "samples": 47128,
+  "selfSamples": [
+    {
+      "url": "http://127.0.0.1:4184/src/bank-cohesion.js",
+      "function": "resolveMovingContacts",
+      "samples": 5308,
+      "percent": 11.26294347309455
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "surfaceContacts",
+      "samples": 4038,
+      "percent": 8.568154812425734
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "put",
+      "samples": 3393,
+      "percent": 7.199541673739603
+    },
+    {
+      "url": "",
+      "function": "(garbage collector)",
+      "samples": 2705,
+      "percent": 5.739687659141063
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "",
+      "samples": 2415,
+      "percent": 5.124342216941097
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "geometry",
+      "samples": 2293,
+      "percent": 4.865472755050076
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "step",
+      "samples": 1956,
+      "percent": 4.150398913597012
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "worldMesh",
+      "samples": 1690,
+      "percent": 3.5859786114411816
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "bounds",
+      "samples": 1654,
+      "percent": 3.509590901374979
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "overlap",
+      "samples": 1323,
+      "percent": 2.8072483449329484
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "step",
+      "samples": 1208,
+      "percent": 2.5632320488881346
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "putBody",
+      "samples": 1093,
+      "percent": 2.3192157528433204
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "get up",
+      "samples": 1029,
+      "percent": 2.1834153793922932
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "Vector3",
+      "samples": 942,
+      "percent": 1.9988117467323034
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "cross",
+      "samples": 869,
+      "percent": 1.8439144457647259
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "Box3",
+      "samples": 825,
+      "percent": 1.7505516890171449
+    },
+    {
+      "url": "",
+      "function": "(program)",
+      "samples": 797,
+      "percent": 1.6911390256323204
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "applyMatrix4",
+      "samples": 759,
+      "percent": 1.6105075538957732
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "contacts",
+      "samples": 714,
+      "percent": 1.5150229163130198
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "max",
+      "samples": 622,
+      "percent": 1.3198098794771687
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "setFromPoints",
+      "samples": 603,
+      "percent": 1.279494143608895
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "min",
+      "samples": 587,
+      "percent": 1.2455440502461381
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "clone",
+      "samples": 518,
+      "percent": 1.0991342726192497
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-cohesion.js",
+      "function": "candidates",
+      "samples": 462,
+      "percent": 0.980308945849601
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "applyQuaternion",
+      "samples": 410,
+      "percent": 0.8699711424206417
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "copy",
+      "samples": 407,
+      "percent": 0.8636054999151248
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "solve",
+      "samples": 395,
+      "percent": 0.8381429298930572
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "contactView",
+      "samples": 378,
+      "percent": 0.8020709556951282
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "detachIslands",
+      "samples": 357,
+      "percent": 0.7575114581565099
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "contactVector",
+      "samples": 276,
+      "percent": 0.5856391105075539
+    }
+  ],
+  "inclusiveSamples": [
+    {
+      "url": "",
+      "function": "(root)",
+      "samples": 47128,
+      "percent": 100.0
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/main.js",
+      "function": "animate",
+      "samples": 43267,
+      "percent": 91.80741809539977
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/simulation.js",
+      "function": "update",
+      "samples": 42142,
+      "percent": 89.42030215583092
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/simulation.js",
+      "function": "_step",
+      "samples": 41688,
+      "percent": 88.4569682566627
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "step",
+      "samples": 41498,
+      "percent": 88.05381089797997
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-cohesion.js",
+      "function": "resolveMovingContacts",
+      "samples": 18499,
+      "percent": 39.25267356985232
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "step",
+      "samples": 10301,
+      "percent": 21.85749448310983
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "putBody",
+      "samples": 8928,
+      "percent": 18.944152096418264
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "put",
+      "samples": 7953,
+      "percent": 16.875318282125274
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "surfaceContacts",
+      "samples": 7708,
+      "percent": 16.355457477508065
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "bounds",
+      "samples": 7495,
+      "percent": 15.903496859616364
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "",
+      "samples": 6085,
+      "percent": 12.911644882023426
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "geometry",
+      "samples": 6049,
+      "percent": 12.835257171957222
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "get up",
+      "samples": 4775,
+      "percent": 10.131980987947717
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "getSurfaces",
+      "samples": 3971,
+      "percent": 8.42598879646919
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-physics.js",
+      "function": "",
+      "samples": 3414,
+      "percent": 7.244101171278221
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "worldMesh",
+      "samples": 3145,
+      "percent": 6.673315226616873
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "solve",
+      "samples": 2736,
+      "percent": 5.805465965031404
+    },
+    {
+      "url": "",
+      "function": "(garbage collector)",
+      "samples": 2705,
+      "percent": 5.739687659141063
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "overlap",
+      "samples": 2043,
+      "percent": 4.3350025462570025
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "setFromPoints",
+      "samples": 1859,
+      "percent": 3.9445764725852994
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "correct",
+      "samples": 1454,
+      "percent": 3.0852147343405196
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "contacts",
+      "samples": 1217,
+      "percent": 2.582328976404685
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "expandByPoint",
+      "samples": 1124,
+      "percent": 2.3849940587336613
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "clone",
+      "samples": 1114,
+      "percent": 2.3637752503819387
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-contact.js",
+      "function": "contactView",
+      "samples": 1058,
+      "percent": 2.24494992361229
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "inverseInertia",
+      "samples": 1041,
+      "percent": 2.208877949414361
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "Box3",
+      "samples": 979,
+      "percent": 2.0773213376336783
+    },
+    {
+      "url": "http://127.0.0.1:4184/vendor/three-0.180.0/three.core.js",
+      "function": "Vector3",
+      "samples": 942,
+      "percent": 1.9988117467323034
+    },
+    {
+      "url": "http://127.0.0.1:4184/src/bank-structure.js",
+      "function": "detachIslands",
+      "samples": 915,
+      "percent": 1.9415209641826514
+    }
+  ]
+}

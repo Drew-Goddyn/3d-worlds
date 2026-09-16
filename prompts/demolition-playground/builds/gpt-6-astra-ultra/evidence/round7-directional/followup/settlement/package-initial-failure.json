@@ -1,0 +1,21 @@
+{
+  "status": "Initial package rejected; media re-encoded for corrected duration/seek behavior",
+  "initialArchiveSHA256": "b3a3c52a6f87bd36a3db30aed869687caadbb26de6d5c65151c14fc085622126",
+  "initialDurations": {
+    "current-left.mp4": {
+      "declared": 13.442,
+      "finalFramePTS": 15.249
+    },
+    "current-front.mp4": {
+      "declared": 15.384,
+      "finalFramePTS": 20.616
+    },
+    "current-side.mp4": {
+      "declared": 15.077,
+      "finalFramePTS": 20.724
+    }
+  },
+  "finding": "Offline Chromium initially clamped seeks to incorrect shorter durations; it could revise duration after demuxing and eventually present tail frames. Permanent loss was not established.",
+  "repair": "Encode without B-frame reordering; retain every original frame and PTS; verify declared duration beyond last frame; repeat independent offline seek/playback.",
+  "productStatus": "REJECTED; packaging repair does not change application acceptance"
+}

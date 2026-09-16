@@ -1,0 +1,26 @@
+✔ optimized contact faces preserve every rendered surface, including concave fracture edges and openings (148.696708ms)
+✔ collision bounds track rendered asymmetric bank pieces through arbitrary world rotations (297.719125ms)
+✔ a heavy contact damages the struck block without releasing the entire supported receiving bay (10.609ms)
+✔ court piers cannot borrow a distant surviving footing after their actual connecting construction is removed (9050.047833ms)
+✔ settled pieces need a path to ground and cannot keep each other asleep through a tolerance cycle (12.70575ms)
+✔ cached collision geometry follows an in-step carrier correction, release and fresh restoration (1.49825ms)
+✔ glass bridges real narrow seams away from its center and wakes when they are removed (4.974167ms)
+✔ the empty center of a window frame cannot hold a settled piece aloft (3.950041ms)
+✔ a pane hanging beyond a lone seam tips and lands instead of remaining upright above the roof (13.252917ms)
+✔ a fallen roof pane lies on its visible face instead of rotating upright and climbing on its bounds (11.350542ms)
+✔ the empty space above a sloping member cannot hold falling rubble (7.729584ms)
+✔ a stationary piece cannot step up onto an overlapping ledge above its current foot (8.016625ms)
+✔ a fast small fragment hits a thin ledge even when it crosses an entire height cell in one step (1.379792ms)
+✔ two falling columns exchange momentum instead of passing through one another before they settle (18.548708ms)
+✔ loose solids collide sideways with moving and stationary solids along both horizontal axes (16.23675ms)
+✔ a fast fragment transfers momentum to a falling thin plate even when their final bounds would be disjoint (0.468625ms)
+✔ a diagonal corner strike contacts the real face at the crossing point (0.506791ms)
+✔ loose rubble slides off a steep real face instead of sleeping on an impossible friction hold (43.370541ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9502.37625

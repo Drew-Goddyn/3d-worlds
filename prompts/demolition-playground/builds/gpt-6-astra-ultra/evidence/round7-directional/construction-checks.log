@@ -1,0 +1,5 @@
+oppositeBay {"state":0,"drop":0.000030577843216139655,"positionChange":[0.000023816407301424647,-0.000030577843216139655,0.000007334952869086919],"angle":0.000005026442412562095,"speed":0.000031528529641539496,"damaged":0,"released":0,"total":119}
+fresh restore exact and immutable PASS
+ordinary charge variable timestep {"time":12.300000000000118,"stats":{"bays":27,"failedBays":26,"loose":0,"settled":1784,"retained":1864,"movingSections":0,"connectedPieces":0},"sleeping":true,"activeFrames":1,"maxFrameSpeed":0,"maxLooseSpeed":0,"looseRoles":{}}
+ten additional seconds {"time":22.299999999999944,"stats":{"bays":27,"failedBays":26,"loose":0,"settled":1784,"retained":1864,"movingSections":0,"connectedPieces":0},"sleeping":true,"activeFrames":1,"maxFrameSpeed":0,"maxLooseSpeed":0,"looseRoles":{}}
+thirty additional seconds {"time":42.29999999999881,"stats":{"bays":27,"failedBays":26,"loose":0,"settled":1784,"retained":1864,"movingSections":0,"connectedPieces":0},"sleeping":true,"activeFrames":1,"maxFrameSpeed":0,"maxLooseSpeed":0,"looseRoles":{}}
