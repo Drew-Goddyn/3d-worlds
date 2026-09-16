@@ -1,0 +1,18 @@
+{
+  "command": "git diff --cached --check",
+  "passed": false,
+  "unchangedFrozenInput": true,
+  "reproducedDirectlyFromArchive": [
+    {
+      "frozenArchiveEntry": "source/docs/BUILD_BRIEF.md",
+      "exitCode": 3,
+      "output": "docs/BUILD_BRIEF.md:109: new blank line at EOF.\n"
+    },
+    {
+      "frozenArchiveEntry": "source/src/architecture.js",
+      "exitCode": 3,
+      "output": "src/architecture.js:72: trailing whitespace.\n+        \n"
+    }
+  ],
+  "disposition": "Preserve the two whitespace defects because the assignment requires byte-identical frozen source. Publication-only documentation passes whitespace checks."
+}

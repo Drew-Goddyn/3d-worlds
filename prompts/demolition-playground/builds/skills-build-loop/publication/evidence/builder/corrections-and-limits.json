@@ -1,0 +1,98 @@
+{
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "repairs": [
+    "Whole rotated tank/slab contact replaces center-footprint support search.",
+    "Detached columns release their old structural constraint; healthy beams still constrain connected motion.",
+    "Resting slabs require an upward contact path to standing or grounded roots; tilted support may have a higher center. Floating cycles cannot become anchors.",
+    "Debris rotation bounds are cached; permanent architecture does not increment an unused age field.",
+    "Float64 XOR deltas keep every state record with12 instead of20 bytes per changed field."
+  ],
+  "intermediateFailures": [
+    {
+      "finding": "Headless Chrome stopped delivering animation callbacks during a take, then also before recording in a fresh session. JavaScript stayed responsive and WebGL was not lost.",
+      "resolution": "The capture-only --disable-frame-rate-limit launch option restored frame delivery. A moving/held/moving recorder preflight and all final actual-control takes use this setting. Performance samples retain default frame limiting. Failed takes are excluded; no application clock, physical state or video speed was changed."
+    },
+    {
+      "finding": "The final collapse recording exposed one slab repeatedly sleeping and waking because its valid tilted support had a higher center.",
+      "resolution": "Require an upward contact path to standing or grounded roots instead of ordering by center height. The exact 11 recorded inputs now form a 30-to-40-second stability regression, independently verified on the final runtime."
+    },
+    {
+      "finding": "Initial contact response suppressed rupture.",
+      "resolution": "Measure impact energy before contact damping. Existing rupture/water assertion retained."
+    },
+    {
+      "finding": "Initial whole-slab collision changed velocity during an old velocity fixture.",
+      "resolution": "Observe the same velocity property before collision response; no tolerance weakened."
+    },
+    {
+      "finding": "Independent roof-bound probe initially reported25 overlap frames in a nearby edge case.",
+      "resolution": "Correct the probe to rotate its local roof-center offset. Three OBB.applyMatrix4 only translated that existing center. No geometry tolerance loosened."
+    },
+    {
+      "finding": "First collapse rehearsal missed a foundation and paused instead of continuing.",
+      "resolution": "A projected target lay over the playback controls. Driver now checks the top DOM element is the canvas and verifies every accepted charge event. The corrected recorded flow reaches99 resting bays."
+    }
+  ],
+  "rebuttal": "The reviewed33 standing tower bays are not automatically a defect: foundations51,52,53 remained fully healthy. The final action-only continuation removes them and reaches99 resting bays; it does not schedule unconditional collapse.",
+  "remainingApproximations": [
+    "Coarse structural assemblies and conservative box contacts; no all-pairs moving slab/chunk solver.",
+    "Chunks share motion and bounds span gaps; rubble overlap and some long-lived connected activity remain possible.",
+    "Water is a short-lived momentum-carrying particle burst, not a fluid-volume solver.",
+    "Steel bending, concrete/rebar failure, dust volumes and a whole-tower lean remain stylized or partial.",
+    "History grows without eviction;91 simulation seconds is the longest tested run, and payload excludes object/renderer/event memory.",
+    "The original capture sequence ends with a still-moving supported tank, but zero measured overlap; resting is not forced on moving support.",
+    "Full uninterrupted normal-speed viewing of every delivered clip was not completed. Selected frames, decode checks and cadence telemetry are the available playback proof."
+  ]
+}

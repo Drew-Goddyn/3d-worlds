@@ -1,0 +1,122 @@
+{
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "b6554231b62edf4111653568c914b3d350ec5aaafa4054e411090e46509d08da"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1cf5166322ebabea67436ad990684daf31514ea0f9011946937b1773e8467ce4"
+  },
+  "inputs": [
+    {
+      "time": 0,
+      "kind": "charge-placed",
+      "node": 48,
+      "slot": 0
+    },
+    {
+      "time": 0,
+      "kind": "charge-placed",
+      "node": 49,
+      "slot": 1
+    },
+    {
+      "time": 0.016666666666666666,
+      "kind": "charge-placed",
+      "node": 50,
+      "slot": 2
+    },
+    {
+      "time": 0.03333333333333333,
+      "kind": "charge-placed",
+      "node": 54,
+      "slot": 3
+    },
+    {
+      "time": 0.03333333333333333,
+      "kind": "charge-placed",
+      "node": 55,
+      "slot": 4
+    },
+    {
+      "time": 0.05,
+      "kind": "charge-placed",
+      "node": 56,
+      "slot": 5
+    },
+    {
+      "time": 0.18333333333333332,
+      "kind": "detonation-armed",
+      "count": 6
+    },
+    {
+      "time": 10.650000000000109,
+      "kind": "charge-placed",
+      "node": 51,
+      "slot": 0
+    },
+    {
+      "time": 10.650000000000109,
+      "kind": "charge-placed",
+      "node": 52,
+      "slot": 1
+    },
+    {
+      "time": 10.683333333333444,
+      "kind": "charge-placed",
+      "node": 53,
+      "slot": 2
+    },
+    {
+      "time": 10.850000000000119,
+      "kind": "detonation-armed",
+      "count": 3
+    }
+  ],
+  "endTime": 40
+}

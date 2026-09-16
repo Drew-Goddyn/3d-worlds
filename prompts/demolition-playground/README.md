@@ -7,12 +7,15 @@ Independent builds of the same [original prompt](PROMPT.md): a dense downtown de
 | [Demolition Site](builds/gpt-5.5-xhigh/) | GPT-5.5 | xhigh | July 7, 2026 |
 | [District 08](builds/gpt-5.6-sol-ultra/) | GPT-5.6 Sol | ultra | July 9, 2026 |
 | [Demolition District](builds/gpt-6-astra-ultra/) | GPT-6 Astra | ultra | September 4, 2026 |
+| [Demolition Playground - Skills Build Loop (3 rounds)](builds/skills-build-loop/) | GPT-6 Astra | max | September 15, 2026 |
 
-Build folders are named for their verified creation model and reasoning setting. Each build owns its implementation and dependencies. The `previews/` folder contains actual browser captures. See the [showcase and launch instructions](../../README.md), [provenance notes](../../showcase/README.md), and [attempt catalog](../../showcase/attempts.json).
+Original build folders use their verified creation model and reasoning setting. The Skills Build Loop uses a workflow name and records its recovered creation settings in its [provenance](builds/skills-build-loop/PROVENANCE.md). Each build owns its implementation and dependencies. The `previews/` folder contains actual browser captures. See the [showcase and launch instructions](../../README.md), [provenance notes](../../showcase/README.md), and [attempt catalog](../../showcase/attempts.json).
 
 The original prompts match byte for byte. Follow-up instructions, tools, and iteration differed; these artifacts are not a controlled benchmark.
 
 ## Comparison demos
+
+The historical films cover the original three entries and do not include the Skills Build Loop.
 
 **[Watch the side-by-side preview](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4)** · **[Download the synchronized viewer](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip)** · [All release assets](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1)
 

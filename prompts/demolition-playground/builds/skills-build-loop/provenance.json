@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "id": "demolition-skills-build-loop",
+  "name": "Demolition Playground - Skills Build Loop (3 rounds)",
+  "status": "frozen-comparison-artifact",
+  "publicationStatus": "collection-import-record",
+  "source": {
+    "repository": "Drew-Goddyn/blind-3d-world-astra-build-loop",
+    "branchAtFreeze": "main",
+    "baselineCommit": "186001a2f22b98f3c127a535f742e1eca1935343",
+    "implementationCommitAtFreeze": null,
+    "workingTreeAtFreeze": "implementation uncommitted; builder-reported",
+    "archive": "build-03.zip",
+    "archiveBytes": 64303553,
+    "archiveSHA256": "0b5a4c310e89d70a6fc47c61fb846d0d0adb517aee25c028fc9734d8504f9e01",
+    "sourceManifestSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+    "runtimeSourceSHA256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4",
+    "sourceFiles": 52,
+    "baselineMeaning": "Predates the uncommitted implementation; not its generation commit.",
+    "sourceManifest": "publication/SOURCE_SHA256SUMS.txt",
+    "packageMetadata": "publication/frozen-package.json"
+  },
+  "prompt": {
+    "promptId": "demolition-playground",
+    "bytes": 6308,
+    "sha256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+    "extraction": "Original evaluation prompt section of frozen docs/BUILD_BRIEF.md; surrounding LF delimiters excluded; no trailing LF.",
+    "comparison": "Byte-identical to the shared PROMPT.md, frozen original-prompt section, and supplied ORIGINAL_PROMPT.txt; verified during collection import.",
+    "clarifications": "Six agreed interpretations are recorded separately in docs/BUILD_BRIEF.md.",
+    "verification": "publication/prompt-verification.json"
+  },
+  "workflow": {
+    "type": "human-directed-skills-assisted-build-loop",
+    "clarificationRoundsUsed": 1,
+    "clarificationRecommendationsAccepted": 6,
+    "buildAssignmentsUsed": 3,
+    "maximumBuildAssignments": 3,
+    "oneShot": false,
+    "selectedReviewPartnerSkills": [
+      "Grilling",
+      "Domain Modeling",
+      "Codebase Design",
+      "Build Loop",
+      "Writing for Agents"
+    ],
+    "reviewPartner": "ChatGPT",
+    "implementationAgent": "Local coding-agent session",
+    "builderInternalReviews": "Reported by the builder; not three model calls and not a fixed total-compute experiment.",
+    "humanContribution": "Supplied the exact task, accepted six interpretations, relayed complete assignments and evidence, and authorized publication after freeze.",
+    "isolation": "Build and final assessment used this attempt only. Collection metadata was inspected after freeze solely to arrange publication; no other build implementation was inspected in this publication preparation.",
+    "administrationIsAnotherBuildRound": false
+  },
+  "modelProvenance": {
+    "leadModel": "gpt-6-astra",
+    "reasoningEffort": "max",
+    "creationDate": "2026-09-15",
+    "dateMeaning": "Implementation-session start; not the final freeze or collection-import date.",
+    "implementationSessionStartUTC": "2026-09-15T21:05:16.281Z",
+    "scope": "All three implementation assignment starts and their recorded continuation contexts; lead local coding agent only, not every helper call.",
+    "basis": "This attempt's own Codex turn_context metadata correlated with the three assignment requests. Raw transcripts remain private. Later publication turns are excluded.",
+    "evidence": "publication/builder-session-settings.json",
+    "publicationTurnsExcluded": true,
+    "reviewPartner": {
+      "product": "ChatGPT",
+      "model": "unverified",
+      "reasoningEffort": "unverified",
+      "skills": [
+        "Grilling",
+        "Domain Modeling",
+        "Codebase Design",
+        "Build Loop",
+        "Writing for Agents"
+      ],
+      "basis": "Role and selected skills supplied by the review conversation; exact reviewer creation settings were not independently substantiated."
+    }
+  },
+  "verificationAtFinalReview": {
+    "builderSuite": {
+      "passed": 47,
+      "failed": 0,
+      "skipped": 0,
+      "attribution": "builder-produced"
+    },
+    "independentRerun": {
+      "passed": 46,
+      "fullSuiteRerun": false,
+      "limitation": "One Three.js-dependent case unavailable because dependency-registry resolution failed; seven original cases used relocated import/fixture paths."
+    },
+    "geometry": "Independent endpoint check reproduced 268/6305 shell samples intersecting in build 02; 0/6305 for identical controls in build 03 and for final-recording controls.",
+    "collapse": "Action-only diagnostic reproduced 99 resting tower bays, unchanged from 30 through 40 simulation seconds, and 28 neighboring hotel-bay failures.",
+    "temporal": "Independent diagnostics reproduced smooth presentation and simulation-time-based rewind.",
+    "fullNormalSpeedVideoReview": "unverified",
+    "gpuPixelExactComparison": false,
+    "reference": "publication/evidence/reviewer/FINAL_REVIEW.md",
+    "note": "Historical verification attached to the frozen identity; tests were not rerun during preparation of this publication packet.",
+    "publicEvidence": "publication/evidence/reviewer/README.md"
+  },
+  "performance": {
+    "attribution": "builder-produced measurements inspected by review partner; not independently remeasured on that hardware",
+    "environment": "Apple M2 Pro, 32 GiB RAM, Headless Chrome 149, Metal acceleration, 1440x900, DPR 1, High quality",
+    "simulationSeconds": 91,
+    "historyPayloadBytes": 463948380,
+    "collapseP95Ms": 16.7,
+    "collapseMaximumSampledMs": 25.0,
+    "caveats": [
+      "Payload excludes JavaScript object, event-trace, renderer and temporary memory.",
+      "91 simulation seconds is the longest reported tested run.",
+      "The separate 91-second workload ends with 30 moving bays.",
+      "Frame-callback measurements are not a universal sustained-performance guarantee.",
+      "The input schedule is comparable across rounds, but changed physics produces different destruction workloads."
+    ]
+  },
+  "limitations": [
+    "The maximum-ambition visual brief remains partially fulfilled; the final review describes a detailed stylized diorama.",
+    "Whole-tower lean, rich steel bending, exposed-rebar failure and volumetric street dust remain partial.",
+    "Conservative contact bounds and grouped debris can produce gaps or overlap; universal moving-debris contact is incomplete.",
+    "Water is a momentum-carrying particle burst and the ruptured tank is one coarse shell/roof body.",
+    "History grows without a proven unlimited-session memory bound."
+  ],
+  "publication": {
+    "targetRepository": "Drew-Goddyn/3d-worlds",
+    "inspectedTargetRevision": "e4dc0d032020417efc09b519722c4cfafa118ea4",
+    "branch": "publish/demolition-skills-build-loop",
+    "baseBranch": "main",
+    "directory": "prompts/demolition-playground/builds/skills-build-loop",
+    "preview": "prompts/demolition-playground/previews/demolition-skills-build-loop.png",
+    "previewSHA256": "97c80e114fc9cf244cb3f5ea23113f90cdbdc1fd0902889744644c766aa5a413",
+    "importCommit": null,
+    "pullRequest": null,
+    "identityResolution": "This record is part of the import commit. Resolve its commit through Git history and its PR through the publication handoff or GitHub head branch. Exact identities are intentionally omitted here to avoid self-reference and pre-publication claims.",
+    "stateMeaning": "This is a source-import record, not an assertion of remote push, PR, merge, release, or deployment state.",
+    "generationCommit": false,
+    "mergeOrDeploymentClaimed": false,
+    "documentationExports": "publication/documentation-exports.json",
+    "rule": "Byte-identical frozen source; existing builds and media preserved. Publication administration does not add a build round."
+  },
+  "verificationAtCollectionImport": {
+    "attribution": "Local coding agent, after the final thinking-partner review and successful dependency installation in the collection checkout.",
+    "sourceManifestSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+    "runtimeSourceSHA256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4",
+    "tests": {
+      "passed": 47,
+      "failed": 0,
+      "skipped": 0
+    },
+    "staticCheckPassed": true,
+    "browserSmokePassed": true,
+    "browserSmokeChecks": 15,
+    "node": "v22.23.2",
+    "performanceBenchmark": false,
+    "reusedForProvenanceContinuation": "The application bytes are unchanged; only provenance, navigation, and export records changed.",
+    "reference": "publication/evidence/publication/checks.json",
+    "whitespaceException": "Two frozen-source defects reproduced directly from the archive are preserved. Publication-only files pass whitespace checks."
+  },
+  "launch": {
+    "workingDirectory": ".",
+    "commands": [
+      "npm --prefix prompts/demolition-playground/builds/skills-build-loop ci",
+      "PORT=4176 npm --prefix prompts/demolition-playground/builds/skills-build-loop start"
+    ],
+    "url": "http://127.0.0.1:4176",
+    "node": ">=22",
+    "dependencyInstallationRequired": true,
+    "dependencyInstallationNetworkRequired": true,
+    "runtimeNetworkRequired": false
+  }
+}

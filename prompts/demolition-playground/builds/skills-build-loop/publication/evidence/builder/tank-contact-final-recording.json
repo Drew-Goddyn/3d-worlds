@@ -1,0 +1,111 @@
+{
+  "recordingPath": "review/build-03/checks/capture-tank-run.json",
+  "capturedTankMaxDifference": 1.5987211554602254e-13,
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "tolerance": 0.0001,
+  "method": "At every fixed 1/60 s step, independent Three.js OBB exclusion checks the complete conservative tank envelope against rotated slab envelopes (including roof tile). Both envelopes are inset 0.0001 world units; OBB numerical epsilon 1e-12. The original 6305 shell samples are also checked at the endpoint and any envelope failure. Edge setups are explicitly posed diagnostics; subsequent support removal uses accepted charge actions. The recorded sequence uses only original accepted controls.",
+  "reports": [
+    {
+      "name": "final build-03 recording: accepted charge placements and detonations",
+      "steps": 1569,
+      "overlapFrames": 0,
+      "maxFloorPenetrations": 0,
+      "examples": [],
+      "supportLoss": 13,
+      "finalShell": {
+        "samples": 6305,
+        "intersections": 0,
+        "floors": [],
+        "examples": []
+      },
+      "stats": {
+        "time": 26.149999999999796,
+        "active": 4,
+        "sleeping": 54,
+        "debris": 1326,
+        "dust": 0,
+        "water": 0,
+        "score": 19020,
+        "tons": 864,
+        "chain": 2,
+        "waterImpulse": 67.82473643261153,
+        "chainContacts": 1,
+        "crushedCars": 4,
+        "snappedTrees": 0,
+        "createdFragments": 1942
+      },
+      "tank": [
+        -12.761371988743818,
+        6.165776380898774,
+        -12.55312874100889,
+        0,
+        0,
+        0,
+        0.30524960907980253,
+        0,
+        0.261714477264543,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0.7000000000000005,
+        0.2333333333333333,
+        0.4666666666666666
+      ]
+    }
+  ],
+  "passed": true
+}

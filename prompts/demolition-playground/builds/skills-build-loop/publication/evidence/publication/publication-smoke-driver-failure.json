@@ -1,0 +1,97 @@
+{
+  "purpose": "Publication-path smoke test; not a performance benchmark or another build round.",
+  "url": "http://127.0.0.1:4176",
+  "browserLaunchArgs": "--disable-frame-rate-limit",
+  "checks": [
+    {
+      "name": "Initial procedural scene and WebGL canvas render",
+      "pass": true
+    },
+    {
+      "name": "Pinned local Three imports and no remote runtime requests",
+      "pass": true
+    },
+    {
+      "name": "Pause control",
+      "pass": true
+    },
+    {
+      "name": "Slow control selects 10 percent",
+      "pass": true
+    },
+    {
+      "name": "Quality selector changes rendering",
+      "pass": true
+    },
+    {
+      "name": "Action camera toggle",
+      "pass": true
+    },
+    {
+      "name": "Reset view restores ordinary camera",
+      "pass": true
+    },
+    {
+      "name": "Charge placement mode",
+      "pass": true
+    },
+    {
+      "name": "Actual canvas click places a charge",
+      "pass": true
+    },
+    {
+      "name": "Detonate control reaches simulation",
+      "pass": true
+    }
+  ],
+  "pageErrors": [],
+  "failedRequests": [],
+  "externalRequests": [],
+  "httpErrors": [],
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Pro, Unspecified Version)",
+    "vendor": "Google Inc. (Apple)",
+    "viewport": [
+      1440,
+      900
+    ],
+    "devicePixelRatio": 1,
+    "pixelRatio": 1,
+    "quality": "high",
+    "three": "0.180.0",
+    "seed": 85173
+  },
+  "initial": {
+    "stats": {
+      "time": 0.03333333333333333,
+      "active": 0,
+      "sleeping": 0,
+      "debris": 0,
+      "dust": 0,
+      "water": 0,
+      "score": 0,
+      "tons": 0,
+      "chain": 0,
+      "waterImpulse": 0,
+      "chainContacts": 0,
+      "crushedCars": 0,
+      "snappedTrees": 0,
+      "createdFragments": 0,
+      "historyBytes": 27144,
+      "frames": 2,
+      "branch": 0,
+      "parts": 21870,
+      "drawCalls": 844,
+      "triangles": 258044
+    },
+    "buildings": 7,
+    "canvas": [
+      1440,
+      900
+    ],
+    "errorVisible": false
+  },
+  "status": "fail",
+  "failure": "Error: locator.fill: Error: Malformed value\nCall log:\n\u001b[2m  - waiting for locator('#timeline')\u001b[22m\n\u001b[2m    - locator resolved to <input min=\"0\" value=\"0\" step=\"any\" type=\"range\" id=\"timeline\" max=\"0.7500000000000007\" aria-label=\"Recorded history playhead\"/>\u001b[22m\n\u001b[2m    - fill(\"0.37500000000000033\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and editable\u001b[22m\n"
+}

@@ -1,0 +1,36 @@
+{
+  "kind": "creation-session-metadata-extract",
+  "source": "The local Codex session that implemented this artifact; turn_context settings correlated with this attempt's three assignment requests. Raw transcripts remain private.",
+  "sessionStartedUTC": "2026-09-15T21:05:16.281Z",
+  "createdOn": "2026-09-15",
+  "dateMeaning": "Start of the implementation session, not an implementation Git commit or an import timestamp.",
+  "builderClient": "Codex Desktop",
+  "modelProvider": "openai",
+  "assignments": [
+    {
+      "round": 1,
+      "requestUTC": "2026-09-15T21:05:19.925Z",
+      "contextUTC": "2026-09-15T21:05:19.833Z",
+      "model": "gpt-6-astra",
+      "reasoningEffort": "max"
+    },
+    {
+      "round": 2,
+      "requestUTC": "2026-09-15T22:13:06.647Z",
+      "contextUTC": "2026-09-15T22:13:06.570Z",
+      "model": "gpt-6-astra",
+      "reasoningEffort": "max"
+    },
+    {
+      "round": 3,
+      "requestUTC": "2026-09-15T23:38:35.200Z",
+      "contextUTC": "2026-09-15T23:38:35.115Z",
+      "model": "gpt-6-astra",
+      "reasoningEffort": "max"
+    }
+  ],
+  "continuationContexts": "All recovered continuation contexts for those three assignment turns retain the same model and effort.",
+  "scope": "Lead local coding-agent settings only; this extract does not identify the separate ChatGPT thinking/review partner or every helper call.",
+  "publicationTurnExcluded": true,
+  "otherSessionsInspected": false
+}
