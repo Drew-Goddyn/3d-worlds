@@ -1,0 +1,296 @@
+
+> demolition-playground@1.0.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: oriented slab and off-center tank bounds agree with independent Three geometry
+ok 1 - oriented slab and off-center tank bounds agree with independent Three geometry
+  ---
+  duration_ms: 123.675125
+  type: 'test'
+  ...
+# Subtest: a sleeping slab wakes when its actual supporting slab moves away
+ok 2 - a sleeping slab wakes when its actual supporting slab moves away
+  ---
+  duration_ms: 103.273584
+  type: 'test'
+  ...
+# Subtest: released upper columns cannot preserve an invisible support constraint
+ok 3 - released upper columns cannot preserve an invisible support constraint
+  ---
+  duration_ms: 591.64025
+  type: 'test'
+  ...
+# Subtest: reversible history preserves Float64 bits, checkpoints, and branch recounts
+ok 4 - reversible history preserves Float64 bits, checkpoints, and branch recounts
+  ---
+  duration_ms: 117.113875
+  type: 'test'
+  ...
+# Subtest: a lateral slab-edge collision transfers damage to the neighboring structure
+ok 5 - a lateral slab-edge collision transfers damage to the neighboring structure
+  ---
+  duration_ms: 123.151
+  type: 'test'
+  ...
+# Subtest: an upright tank cannot sleep on a roof sliver beyond its center of mass
+ok 6 - an upright tank cannot sleep on a roof sliver beyond its center of mass
+  ---
+  duration_ms: 347.306083
+  type: 'test'
+  ...
+# Subtest: a tank sleeps on either face of a flat grounded slab
+ok 7 - a tank sleeps on either face of a flat grounded slab
+  ---
+  duration_ms: 349.672916
+  type: 'test'
+  ...
+# Subtest: recorded complete collapse stays asleep despite tilted supports with higher centers
+ok 8 - recorded complete collapse stays asleep despite tilted supports with higher centers
+  ---
+  duration_ms: 13070.443458
+  type: 'test'
+  ...
+# Subtest: every shed piece belongs to a bounded spatial chunk, with room for the whole city
+ok 9 - every shed piece belongs to a bounded spatial chunk, with room for the whole city
+  ---
+  duration_ms: 190.406333
+  type: 'test'
+  ...
+# Subtest: rotated carried geometry stays above physical ground through falling and sleeping
+ok 10 - rotated carried geometry stays above physical ground through falling and sleeping
+  ---
+  duration_ms: 1038.211458
+  type: 'test'
+  ...
+# Subtest: tank detaches, rotates, ruptures, survives as a body, and falls when its roof is lost
+ok 11 - tank detaches, rotates, ruptures, survives as a body, and falls when its roof is lost
+  ---
+  duration_ms: 3697.3305
+  type: 'test'
+  ...
+# Subtest: tank motion, rupture and support loss restore exactly and replacement futures abandon later wreckage
+ok 12 - tank motion, rupture and support loss restore exactly and replacement futures abandon later wreckage
+  ---
+  duration_ms: 480.124458
+  type: 'test'
+  ...
+# Subtest: surviving connections carry a displaced section before strain and floor impacts break it
+ok 13 - surviving connections carry a displaced section before strain and floor impacts break it
+  ---
+  duration_ms: 973.574833
+  type: 'test'
+  ...
+# Subtest: facade damage retains supported columns; released columns collide with surviving floors
+ok 14 - facade damage retains supported columns; released columns collide with surviving floors
+  ---
+  duration_ms: 545.886917
+  type: 'test'
+  ...
+# Subtest: a tilted tall chunk tips under contact torque before it sleeps
+ok 15 - a tilted tall chunk tips under contact torque before it sleeps
+  ---
+  duration_ms: 312.95175
+  type: 'test'
+  ...
+# Subtest: constrained bay velocity agrees with displacement before contact response
+ok 16 - constrained bay velocity agrees with displacement before contact response
+  ---
+  duration_ms: 161.962875
+  type: 'test'
+  ...
+# Subtest: a bay first released by a floor impact keeps its contact velocity until integration
+ok 17 - a bay first released by a floor impact keeps its contact velocity until integration
+  ---
+  duration_ms: 113.138834
+  type: 'test'
+  ...
+# Subtest: 10% speed changes every presented moving pose
+ok 18 - 10% speed changes every presented moving pose
+  ---
+  duration_ms: 167.075542
+  type: 'test'
+  ...
+# Subtest: 10% holdSlow changes every presented moving pose
+ok 19 - 10% holdSlow changes every presented moving pose
+  ---
+  duration_ms: 118.340417
+  type: 'test'
+  ...
+# Subtest: passive slow playback samples the recorded future without altering it
+ok 20 - passive slow playback samples the recorded future without altering it
+  ---
+  duration_ms: 170.229792
+  type: 'test'
+  ...
+# Subtest: reverse and rebuild use duration regardless of same-time input density
+ok 21 - reverse and rebuild use duration regardless of same-time input density
+  ---
+  duration_ms: 314.473792
+  type: 'test'
+  ...
+# Subtest: fractional scrubbing and reverse sample the same trajectory; exact moments are exact
+ok 22 - fractional scrubbing and reverse sample the same trajectory; exact moments are exact
+  ---
+  duration_ms: 151.102958
+  type: 'test'
+  ...
+# Subtest: an interpolated intervention restores the preceding physical moment; rejection preserves both view and future
+ok 23 - an interpolated intervention restores the preceding physical moment; rejection preserves both view and future
+  ---
+  duration_ms: 188.148291
+  type: 'test'
+  ...
+# Subtest: sampling never blends births, deaths, recycled identities or discrete scores
+ok 24 - sampling never blends births, deaths, recycled identities or discrete scores
+  ---
+  duration_ms: 114.699167
+  type: 'test'
+  ...
+# Subtest: held crane rotation, cable and pumping are included in live slow presentation
+ok 25 - held crane rotation, cable and pumping are included in live slow presentation
+  ---
+  duration_ms: 322.828167
+  type: 'test'
+  ...
+# Subtest: passive slow and reverse crane motion include ordered actions at the next moment
+ok 26 - passive slow and reverse crane motion include ordered actions at the next moment
+  ---
+  duration_ms: 133.227084
+  type: 'test'
+  ...
+# Subtest: pristine district remains intact under gravity and gentle crane sway
+ok 27 - pristine district remains intact under gravity and gentle crane sway
+  ---
+  duration_ms: 404.063084
+  type: 'test'
+  ...
+# Subtest: a weak localized strike sheds facade material without destroying supports
+ok 28 - a weak localized strike sheds facade material without destroying supports
+  ---
+  duration_ms: 316.688583
+  type: 'test'
+  ...
+# Subtest: same seed, different support placement produces distinct local failure
+ok 29 - same seed, different support placement produces distinct local failure
+  ---
+  duration_ms: 1296.485125
+  type: 'test'
+  ...
+# Subtest: manual charges fire at staged deadlines and ground support loss propagates floor by floor
+ok 30 - manual charges fire at staged deadlines and ground support loss propagates floor by floor
+  ---
+  duration_ms: 1558.276667
+  type: 'test'
+  ...
+# Subtest: ball momentum changes damage through the actual action interface
+ok 31 - ball momentum changes damage through the actual action interface
+  ---
+  duration_ms: 1107.924
+  type: 'test'
+  ...
+# Subtest: neighbor collapse has a contact source and does not start merely from proximity
+ok 32 - neighbor collapse has a contact source and does not start merely from proximity
+  ---
+  duration_ms: 2130.3795
+  type: 'test'
+  ...
+# Subtest: water burst transfers momentum to debris and expires without deleting structural rubble
+ok 33 - water burst transfers momentum to debris and expires without deleting structural rubble
+  ---
+  duration_ms: 647.515792
+  type: 'test'
+  ...
+# Subtest: all numeric state restores exactly across mid-collapse, rubble, creation, reuse and pristine
+ok 34 - all numeric state restores exactly across mid-collapse, rubble, creation, reuse and pristine
+  ---
+  duration_ms: 784.179792
+  type: 'test'
+  ...
+# Subtest: scrubbing and passive playback preserve future and replay cannot award duplicate score
+ok 35 - scrubbing and passive playback preserve future and replay cannot award duplicate score
+  ---
+  duration_ms: 1090.467166
+  type: 'test'
+  ...
+# Subtest: accepted actions branch from restored physical state; invalid input keeps the old future
+ok 36 - accepted actions branch from restored physical state; invalid input keeps the old future
+  ---
+  duration_ms: 737.363584
+  type: 'test'
+  ...
+# Subtest: slow motion advances simulation at one tenth rate; pause and scrub consume no history
+ok 37 - slow motion advances simulation at one tenth rate; pause and scrub consume no history
+  ---
+  duration_ms: 275.860583
+  type: 'test'
+  ...
+# Subtest: 90 simulation seconds retain earliest and recent destruction for a full animated reset
+ok 38 - 90 simulation seconds retain earliest and recent destruction for a full animated reset
+  ---
+  duration_ms: 6254.201625
+  type: 'test'
+  ...
+# Subtest: recorded crane actions replay at the original simulation-time rate
+ok 39 - recorded crane actions replay at the original simulation-time rate
+  ---
+  duration_ms: 133.4765
+  type: 'test'
+  ...
+# Subtest: an input at the cable limit cannot erase the recorded future
+ok 40 - an input at the cable limit cannot erase the recorded future
+  ---
+  duration_ms: 165.349667
+  type: 'test'
+  ...
+# Subtest: spent charge slots are reusable for later demolition
+ok 41 - spent charge slots are reusable for later demolition
+  ---
+  duration_ms: 464.47625
+  type: 'test'
+  ...
+# Subtest: branching at a same-time action preserves only events at that snapshot
+ok 42 - branching at a same-time action preserves only events at that snapshot
+  ---
+  duration_ms: 80.376333
+  type: 'test'
+  ...
+# Subtest: the visible rooftop tank has a ball collider and ruptures on contact
+ok 43 - the visible rooftop tank has a ball collider and ruptures on contact
+  ---
+  duration_ms: 80.012542
+  type: 'test'
+  ...
+# Subtest: shed architecture is assigned persistent physical groups that survive pool reuse
+ok 44 - shed architecture is assigned persistent physical groups that survive pool reuse
+  ---
+  duration_ms: 534.904917
+  type: 'test'
+  ...
+# Subtest: water impulses move physical groups carrying the shed visible architecture
+ok 45 - water impulses move physical groups carrying the shed visible architecture
+  ---
+  duration_ms: 260.999458
+  type: 'test'
+  ...
+# Subtest: settling retains debris group orientation
+ok 46 - settling retains debris group orientation
+  ---
+  duration_ms: 278.463625
+  type: 'test'
+  ...
+# Subtest: falling member mass changes the damage transferred to its support
+ok 47 - falling member mass changes the damage transferred to its support
+  ---
+  duration_ms: 155.023959
+  type: 'test'
+  ...
+1..47
+# tests 47
+# suites 0
+# pass 47
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 18824.999416

@@ -1,0 +1,37 @@
+{
+  "method": "Independent Node replay through City.action and City.step; Python SciPy intrinsic XYZ rotation and point-in-oriented-box shell sampling at the endpoint. No use of application contact() for the intersection calculation. This checks the original 6305 samples, not all intermediate frames or all possible contacts.",
+  "results": [
+    {
+      "sequence": "build02-original-sequence",
+      "fixed_steps": 1144,
+      "shell_samples": 6305,
+      "endpoint_intersections": 268,
+      "intersecting_floors": [
+        {
+          "floor": 199,
+          "intersections": 268
+        }
+      ],
+      "tank_mode": 2.0,
+      "max_difference_from_captured_tank": null
+    },
+    {
+      "sequence": "build03-original-sequence",
+      "fixed_steps": 1144,
+      "shell_samples": 6305,
+      "endpoint_intersections": 0,
+      "intersecting_floors": [],
+      "tank_mode": 1.0,
+      "max_difference_from_captured_tank": null
+    },
+    {
+      "sequence": "build03-final-tank-recording",
+      "fixed_steps": 1569,
+      "shell_samples": 6305,
+      "endpoint_intersections": 0,
+      "intersecting_floors": [],
+      "tank_mode": 2.0,
+      "max_difference_from_captured_tank": 3.0730973321624333e-13
+    }
+  ]
+}

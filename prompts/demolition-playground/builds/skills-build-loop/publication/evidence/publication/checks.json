@@ -1,0 +1,53 @@
+{
+  "purpose": "Fresh publication-path checks against the imported frozen source; no performance benchmark or application edits.",
+  "node": "v22.23.2",
+  "npm": "10.9.8",
+  "tests": {
+    "total": 47,
+    "passed": 47,
+    "failed": 0,
+    "skipped": 0,
+    "output": "import-test.txt"
+  },
+  "staticCheck": {
+    "passed": true,
+    "output": "import-check.txt"
+  },
+  "browserSmoke": {
+    "passed": true,
+    "output": "publication-smoke.json",
+    "initialSceneInspected": true
+  },
+  "driverCorrection": {
+    "firstAttempt": "publication-smoke-driver-failure.json",
+    "cause": "Playwright rejected an over-precise floating-point range-input string as malformed.",
+    "fix": "Round the smoke driver midpoint to three decimal places before filling the control; the exact entered-time assertion is unchanged. No frozen application bytes were edited."
+  },
+  "scopeBoundary": "Full playback viewing, GPU-pixel comparison, and hardware performance were not repeated for publication.",
+  "gitWhitespaceCheck": {
+    "command": "git diff --cached --check",
+    "passed": false,
+    "unchangedFrozenInput": true,
+    "reproducedDirectlyFromArchive": [
+      {
+        "frozenArchiveEntry": "source/docs/BUILD_BRIEF.md",
+        "exitCode": 3,
+        "output": "docs/BUILD_BRIEF.md:109: new blank line at EOF.\n"
+      },
+      {
+        "frozenArchiveEntry": "source/src/architecture.js",
+        "exitCode": 3,
+        "output": "src/architecture.js:72: trailing whitespace.\n+        \n"
+      }
+    ],
+    "disposition": "Preserve the two whitespace defects because the assignment requires byte-identical frozen source. Publication-only documentation passes whitespace checks."
+  },
+  "checkedSource": {
+    "archiveSHA256": "0b5a4c310e89d70a6fc47c61fb846d0d0adb517aee25c028fc9734d8504f9e01",
+    "sourceManifestSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+    "runtimeSourceSHA256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4",
+    "sourceFiles": 52
+  },
+  "attribution": "Local coding-agent verification from the collection directory, subsequent to the historical thinking-partner review.",
+  "provenanceOnlyContinuation": "Reused the completed 47-case suite, static check, and browser smoke because all checked application bytes remain unchanged. Refreshed hashes, metadata consistency, public links, staged scope, and formatting separately."
+}

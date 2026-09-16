@@ -1,0 +1,206 @@
+{
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "4eb8a34c8306a51052e366fd1a3527ed1272f7490c952b363242217c4c880634"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "70970c3a80bbeebdd2307d7cbab7b090d20bcb0a2ed78e660aa028d3d76c5f3f"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "f7039a24dbccd0b9ee6067b8a5d4e03daad88bb86cdaf3c09af17cacf554f73a"
+  },
+  "tolerance": 0.0001,
+  "method": "At every fixed 1/60 s step, independent Three.js OBB exclusion checks the complete conservative tank envelope against rotated slab envelopes (including roof tile). Both envelopes are inset 0.0001 world units; OBB numerical epsilon 1e-12. The original 6305 shell samples are also checked at the endpoint and any envelope failure. Edge setups are explicitly posed diagnostics; subsequent support removal uses accepted charge actions. The recorded sequence uses only original accepted controls.",
+  "reports": [
+    {
+      "name": "build-02 recorded charge placements and detonations",
+      "steps": 1144,
+      "overlapFrames": 549,
+      "maxFloorPenetrations": 3,
+      "examples": [
+        {
+          "time": 9.933333333333406,
+          "floors": [
+            200
+          ],
+          "position": [
+            -9.167519169041801,
+            23.754641729298136,
+            -13.506678026098845
+          ],
+          "shell": {
+            "samples": 6305,
+            "intersections": 0,
+            "floors": [],
+            "examples": []
+          }
+        },
+        {
+          "time": 9.950000000000074,
+          "floors": [
+            199,
+            200
+          ],
+          "position": [
+            -9.167519169041801,
+            23.704392729298135,
+            -13.506678026098845
+          ],
+          "shell": {
+            "samples": 6305,
+            "intersections": 0,
+            "floors": [],
+            "examples": []
+          }
+        },
+        {
+          "time": 9.966666666666741,
+          "floors": [
+            197,
+            199,
+            200
+          ],
+          "position": [
+            -9.167519169041801,
+            23.651418729298136,
+            -13.506678026098845
+          ],
+          "shell": {
+            "samples": 6305,
+            "intersections": 0,
+            "floors": [],
+            "examples": []
+          }
+        },
+        {
+          "time": 9.983333333333409,
+          "floors": [
+            197,
+            199,
+            200
+          ],
+          "position": [
+            -9.167519169041801,
+            23.595719729298136,
+            -13.506678026098845
+          ],
+          "shell": {
+            "samples": 6305,
+            "intersections": 0,
+            "floors": [],
+            "examples": []
+          }
+        }
+      ],
+      "supportLoss": 2,
+      "finalShell": {
+        "samples": 6305,
+        "intersections": 268,
+        "floors": [
+          199
+        ],
+        "examples": [
+          {
+            "floor": 199,
+            "point": [
+              -7.912014869624791,
+              20.983448050750436,
+              -12.070085802558975
+            ]
+          },
+          {
+            "floor": 199,
+            "point": [
+              -7.903840178087742,
+              21.030083092422114,
+              -12.059861385078992
+            ]
+          },
+          {
+            "floor": 199,
+            "point": [
+              -7.895665486550692,
+              21.07671813409379,
+              -12.04963696759901
+            ]
+          }
+        ]
+      },
+      "stats": {
+        "time": 19.066666666666865,
+        "active": 47,
+        "sleeping": 1,
+        "debris": 1112,
+        "dust": 15,
+        "water": 0,
+        "score": 210,
+        "tons": 16,
+        "chain": 0,
+        "waterImpulse": 100.29303743218856,
+        "chainContacts": 0,
+        "crushedCars": 3,
+        "snappedTrees": 0,
+        "createdFragments": 1419
+      },
+      "tank": [
+        -9.167519169041801,
+        21.21663172949998,
+        -13.506678026098845,
+        0,
+        0,
+        0,
+        0.21582836358175525,
+        0,
+        -0.16957942852852198,
+        0,
+        0,
+        0,
+        2,
+        1,
+        0.7000000000000005,
+        0.13333333333333333,
+        0.18333333333333332
+      ]
+    }
+  ],
+  "passed": false
+}

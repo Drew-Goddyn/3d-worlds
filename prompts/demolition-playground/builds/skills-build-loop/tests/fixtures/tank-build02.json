@@ -1,0 +1,148 @@
+{
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "4eb8a34c8306a51052e366fd1a3527ed1272f7490c952b363242217c4c880634"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "70970c3a80bbeebdd2307d7cbab7b090d20bcb0a2ed78e660aa028d3d76c5f3f"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "f7039a24dbccd0b9ee6067b8a5d4e03daad88bb86cdaf3c09af17cacf554f73a"
+  },
+  "inputs": [
+    {
+      "time": 0,
+      "kind": "charge-placed",
+      "node": 196,
+      "slot": 0
+    },
+    {
+      "time": 0.05,
+      "kind": "detonation-armed",
+      "count": 1
+    },
+    {
+      "time": 3.3166666666666598,
+      "kind": "charge-placed",
+      "node": 147,
+      "slot": 0
+    },
+    {
+      "time": 3.3333333333333264,
+      "kind": "charge-placed",
+      "node": 148,
+      "slot": 1
+    },
+    {
+      "time": 3.349999999999993,
+      "kind": "charge-placed",
+      "node": 150,
+      "slot": 2
+    },
+    {
+      "time": 3.349999999999993,
+      "kind": "charge-placed",
+      "node": 151,
+      "slot": 3
+    },
+    {
+      "time": 3.3666666666666596,
+      "kind": "charge-placed",
+      "node": 152,
+      "slot": 4
+    },
+    {
+      "time": 3.4166666666666594,
+      "kind": "detonation-armed",
+      "count": 5
+    },
+    {
+      "time": 5.799999999999985,
+      "kind": "charge-placed",
+      "node": 153,
+      "slot": 0
+    },
+    {
+      "time": 5.833333333333318,
+      "kind": "charge-placed",
+      "node": 154,
+      "slot": 1
+    },
+    {
+      "time": 5.866666666666651,
+      "kind": "charge-placed",
+      "node": 155,
+      "slot": 2
+    },
+    {
+      "time": 5.916666666666651,
+      "kind": "detonation-armed",
+      "count": 3
+    }
+  ],
+  "endTime": 19.066666666666865,
+  "originalStats": {
+    "time": 19.066666666666865,
+    "active": 47,
+    "sleeping": 1,
+    "debris": 1112,
+    "dust": 15,
+    "water": 0,
+    "score": 210,
+    "tons": 16,
+    "chain": 0,
+    "waterImpulse": 100.29303743218856,
+    "chainContacts": 0,
+    "crushedCars": 3,
+    "snappedTrees": 0,
+    "createdFragments": 1419,
+    "historyBytes": 92986464,
+    "frames": 1156,
+    "branch": 1,
+    "parts": 21870,
+    "drawCalls": 73,
+    "triangles": 231836
+  },
+  "originalFinalShellIntersections": 268,
+  "shellSamples": 6305,
+  "originalAffectedFloor": 199
+}

@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+review/*.zip
+review/build-01/
+review/build-02/
+.scratch/
+
+__pycache__/
+
+review/build-03/
+review/build-03.zip

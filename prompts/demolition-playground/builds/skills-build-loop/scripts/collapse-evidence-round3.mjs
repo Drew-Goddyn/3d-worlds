@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';import{writeFile,mkdir}from'node:fs/promises';import{createHash}from'node:crypto';
+import{City,N,G}from'../src/world.js';import{sourceIdentity}from'./source-identity.mjs';
+await mkdir('review/build-03/checks',{recursive:true});
+const c=new City(),samples=[],hashTower=()=>createHash('sha256').update(Buffer.concat(c.plan.nodes.filter(n=>n.b===2).map(n=>Buffer.from(c.state.slice(c.no(n.id),c.no(n.id)+32).buffer)))).digest('hex');
+const charge=ids=>{for(const node of ids)assert(c.action({type:'charge',node}));assert(c.action({type:'detonate'}));};
+const summary=()=>{const nodes=c.plan.nodes.filter(n=>n.b===2);return{stats:c.stats(),tower:{standing:nodes.filter(n=>c.state[c.no(n.id)+N.mode]===0).length,moving:nodes.filter(n=>c.state[c.no(n.id)+N.mode]===1).length,resting:nodes.filter(n=>c.state[c.no(n.id)+N.mode]===2).length,highestCenter:Math.max(...nodes.map(n=>c.state[c.no(n.id)+1])),hash:hashTower()},neighborFailures:c.events.filter(e=>e.kind==='support-failure'&&e.building===6).map(e=>e.node)};};
+let connectedMoving=0,maxConnectedTilt=0;charge([48,49,50,54,55,56]);let partial;
+for(let i=0;i<2400;i++){
+ if(i===720){partial={...summary(),remainingFoundations:[51,52,53].map(id=>({id,mode:c.state[c.no(id)+N.mode],columnHealth:c.state[c.jointBase+c.plan.nodes[id].vertical]}))};charge([51,52,53]);}
+ c.step();for(const j of c.plan.joints){if(j.b<0||c.state[c.jointBase+j.id]<=.1)continue;const a=c.no(j.a),b=c.no(j.b);if(c.state[a+N.mode]===1&&c.state[b+N.mode]===1){connectedMoving++;maxConnectedTilt=Math.max(maxConnectedTilt,Math.hypot(c.state[a+6],c.state[a+8]));}}
+ if(i%120===119)samples.push(summary());
+}
+const final=summary(),at30=samples.find(x=>x.stats.time>29&&x.stats.time<31),contacts=c.events.filter(e=>e.kind==='neighbor-contact'),failures=c.events.filter(e=>e.kind==='support-failure'&&e.building===2);
+const result={sourceIdentity:await sourceIdentity(),method:'Only accepted City.action charge placements/detonations and 1/60 s steps. Six outer tower foundations at t=0; inspect t=12; then remove remaining three foundations. No state posing, timer-triggered collapse, or altered health.',partial,final,samples,connectedMovingSamples:connectedMoving,maxConnectedTilt,firstFailureByFloor:Array.from({length:11},(_,f)=>Math.min(...failures.filter(e=>e.floor===f).map(e=>e.time))),neighborContacts:contacts,neighborFailures:c.events.filter(e=>e.kind==='support-failure'&&e.building===6),settledTowerStableFrom30To40Seconds:at30.tower.hash===final.tower.hash};
+await writeFile('review/build-03/checks/collapse-support.json',JSON.stringify(result,null,2));assert(partial.remainingFoundations.every(f=>f.mode===0&&f.columnHealth===1));assert(partial.tower.standing>0);assert.equal(final.tower.resting,99);assert.equal(final.tower.moving,0);assert(result.settledTowerStableFrom30To40Seconds);assert(connectedMoving>100&&maxConnectedTilt>.05);assert(result.neighborFailures.length>0&&contacts.length>0);console.log({partial:partial.tower,final:final.tower,neighborFailures:result.neighborFailures.length,stable:result.settledTowerStableFrom30To40Seconds});

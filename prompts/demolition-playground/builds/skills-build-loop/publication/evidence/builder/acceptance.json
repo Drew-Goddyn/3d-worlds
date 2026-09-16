@@ -1,0 +1,230 @@
+{
+  "round": 3,
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "requirements": [
+    {
+      "behavior": "Bright procedural seven-building district, detailed architecture and immediate compact controls",
+      "status": "demonstrated",
+      "evidence": [
+        "captures/01-pristine-hero.png",
+        "capture-temporal-run.json"
+      ],
+      "boundary": "21,870 procedural parts; a stylized diorama, not proof of the maximum-ambition visual claim."
+    },
+    {
+      "behavior": "Crane rotation, cable length, swing momentum and staged player charges",
+      "status": "demonstrated",
+      "evidence": [
+        "tests.txt",
+        "capture-temporal-run.json",
+        "capture-collapse-run.json"
+      ],
+      "boundary": "Existing control and staging tests pass; the recordings use actual swing, charge and historical crane controls."
+    },
+    {
+      "behavior": "Crowd reactions, pigeons, score and site activity",
+      "status": "partial",
+      "evidence": [
+        "render-restoration.json",
+        "captures/01-pristine-hero.png"
+      ],
+      "boundary": "Simple event-driven spectators, phones, pigeons and warning lights remain. Numeric score restoration is tested; the final media does not separately demonstrate every reaction or establish the original cinematic ambition."
+    },
+    {
+      "behavior": "Partial support damage preserves a genuinely supported remnant",
+      "status": "demonstrated",
+      "evidence": [
+        "collapse-support.json",
+        "capture-collapse-run.json"
+      ],
+      "boundary": "The three middle tower foundations remain at full health before deliberate removal; no blanket rule forces all elevated floors down."
+    },
+    {
+      "behavior": "Deliberate complete tower collapse, connected motion and persistent settled rubble",
+      "status": "demonstrated",
+      "evidence": [
+        "collapse-support.json",
+        "capture-collapse-run.json",
+        "captures/collapse.mp4"
+      ],
+      "boundary": "Action-only check reaches99 resting bays; their entire numeric rows are unchanged from30 to40s. Connected motion is measured, but a single coherent cinematic whole-tower lean is only partial."
+    },
+    {
+      "behavior": "Neighbor consequences come from actual impacts",
+      "status": "demonstrated",
+      "evidence": [
+        "tests.txt",
+        "collapse-support.json",
+        "captures/collapse.mp4"
+      ],
+      "boundary": "28 neighboring hotel bays fail in the action-only diagnostic, with recorded source contacts. The video shows damage. Neighbor destruction is not triggered merely by proximity."
+    },
+    {
+      "behavior": "Tank detaches, rotates, ruptures, washes debris and leaves surviving wreckage",
+      "status": "demonstrated",
+      "evidence": [
+        "tests.txt",
+        "capture-tank-run.json",
+        "captures/tank.mp4"
+      ],
+      "boundary": "One coarse shell/roof body; water carries momentum and expires. Support legs remain with the roof bay."
+    },
+    {
+      "behavior": "Original tank/slab intersection and edge/support transitions",
+      "status": "demonstrated",
+      "evidence": [
+        "tank-contact-baseline.json",
+        "tank-contact.json",
+        "tank-contact-final-recording.json",
+        "tests.txt",
+        "captures/10-tank-supported-contact.png",
+        "captures/08-tank-contact-and-wreckage.png"
+      ],
+      "boundary": "Baseline reproduces268/6305 surface intersections. Final four cases have zero envelope overlap frames across5344 steps. Each OBB is inset0.0001 world units; numerical epsilon1e-12. Edge fixtures are posed diagnostics; the original replay uses accepted recorded controls."
+    },
+    {
+      "behavior": "Every moving piece has fully resolved contact and all rubble motion ceases",
+      "status": "partial",
+      "evidence": [
+        "tests.txt",
+        "profile-after.json",
+        "performance-retention.json"
+      ],
+      "boundary": "Persistent chunks sleep and recheck support, but all moving pairs are not resolved. The91s run still has30 moving bays; the deliberately fully undermined tower is separately proven settled."
+    },
+    {
+      "behavior": "Material-specific breakup, rich steel bending and rolling volumetric dust",
+      "status": "partial",
+      "evidence": [
+        "captures/collapse.mp4",
+        "captures/07-tank-rupture.png"
+      ],
+      "boundary": "Distinct loose bricks, masonry groups, glass triangles and warm dust exist; steel/concrete and translucent billboard dust remain stylized."
+    },
+    {
+      "behavior": "10% presentation, reverse/forward and fractional inspection remain smooth and ordered",
+      "status": "demonstrated",
+      "evidence": [
+        "temporal-regressions.json",
+        "render-restoration.json",
+        "performance-retention.json",
+        "capture-temporal-run.json"
+      ],
+      "boundary": "120/120 deterministic presentation updates versus12 physical updates. Exact records and discrete transitions remain authoritative; at least6 continuous fixed-camera slow-motion seconds are recorded."
+    },
+    {
+      "behavior": "Accepted historical actions replace the future; rejected input and passive replay preserve it",
+      "status": "demonstrated",
+      "evidence": [
+        "tests.txt",
+        "capture-temporal-run.json"
+      ],
+      "boundary": "Fractional intervention resumes at the preceding physical record, at most1/60s earlier; rejected input preserves the fractional view."
+    },
+    {
+      "behavior": "Exact current-run restoration including older destruction, slots and score",
+      "status": "demonstrated",
+      "evidence": [
+        "tests.txt",
+        "render-restoration.json",
+        "performance-retention.json"
+      ],
+      "boundary": "All5483 records in91s retained; repeated early/late hashes and complete Rebuild match pristine. Visible GPU input hashes restore; final pixels are not byte-compared. Hidden spent-charge transforms remain irrelevant to the visible result."
+    },
+    {
+      "behavior": "Quality changes preserve the authoritative simulation and history",
+      "status": "demonstrated",
+      "evidence": [
+        "render-restoration.json"
+      ],
+      "boundary": "Low/Medium/High change rendering without changing world/history bytes or duration."
+    },
+    {
+      "behavior": "Lower resource cost without avoiding the intended destruction",
+      "status": "demonstrated",
+      "evidence": [
+        "comparison.json",
+        "profile-before.json",
+        "profile-after.json",
+        "performance-retention.json"
+      ],
+      "boundary": "Same91s input schedule; lower payload with more tonnage and created identities than build02. CPU profiling and browser frame sampling are distinct evidence."
+    },
+    {
+      "behavior": "Sustained60fps for arbitrary heavy or long play",
+      "status": "partial",
+      "evidence": [
+        "performance-retention.json"
+      ],
+      "boundary": "Measured short windows on one hardware-accelerated headlessM2Pro browser; no indefinite playtime or all-machine guarantee."
+    },
+    {
+      "behavior": "Full normal-speed playback review of all final recordings",
+      "status": "unverified",
+      "evidence": [
+        "visual-evidence.json"
+      ],
+      "boundary": "Decode, cadence and selected-frame inspection completed. A full human first watch remains for final judgment; no extra round is initiated."
+    }
+  ],
+  "finalAutomatedCheckFailures": [],
+  "historicalFailedFinding": "Build02 tank intersection reproduced and repaired; see baseline and final contact diagnostics.",
+  "statusMeaning": {
+    "demonstrated": "The scoped behavior is backed by the cited evidence.",
+    "partial": "Mechanism exists with a material approximation or incomplete original ambition.",
+    "failed": "A final applicable check failed. None remains in the executed final automated checks.",
+    "unverified": "The observation was not completed."
+  }
+}

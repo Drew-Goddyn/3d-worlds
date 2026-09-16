@@ -1,0 +1,1736 @@
+{
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "method": "Only accepted City.action charge placements/detonations and 1/60 s steps. Six outer tower foundations at t=0; inspect t=12; then remove remaining three foundations. No state posing, timer-triggered collapse, or altered health.",
+  "partial": {
+    "stats": {
+      "time": 12.000000000000176,
+      "active": 79,
+      "sleeping": 0,
+      "debris": 2863,
+      "dust": 213,
+      "water": 0,
+      "score": 0,
+      "tons": 0,
+      "chain": 2,
+      "waterImpulse": 0,
+      "chainContacts": 19,
+      "crushedCars": 4,
+      "snappedTrees": 1,
+      "createdFragments": 3004
+    },
+    "tower": {
+      "standing": 33,
+      "moving": 66,
+      "resting": 0,
+      "highestCenter": 36.700259377620625,
+      "hash": "231f867bf3c0e1ec014b420a172339cb08d14944a50baa3b07eb1aeacc20690a"
+    },
+    "neighborFailures": [
+      241,
+      247,
+      253,
+      243,
+      259,
+      229,
+      255,
+      249,
+      265,
+      235,
+      261
+    ],
+    "remainingFoundations": [
+      {
+        "id": 51,
+        "mode": 0,
+        "columnHealth": 1
+      },
+      {
+        "id": 52,
+        "mode": 0,
+        "columnHealth": 1
+      },
+      {
+        "id": 53,
+        "mode": 0,
+        "columnHealth": 1
+      }
+    ]
+  },
+  "final": {
+    "stats": {
+      "time": 39.99999999999901,
+      "active": 32,
+      "sleeping": 106,
+      "debris": 2691,
+      "dust": 14,
+      "water": 0,
+      "score": 38850,
+      "tons": 1680,
+      "chain": 2,
+      "waterImpulse": 0,
+      "chainContacts": 26,
+      "crushedCars": 7,
+      "snappedTrees": 2,
+      "createdFragments": 5346
+    },
+    "tower": {
+      "standing": 0,
+      "moving": 0,
+      "resting": 99,
+      "highestCenter": 6.4847484613425594,
+      "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+    },
+    "neighborFailures": [
+      241,
+      247,
+      253,
+      243,
+      259,
+      229,
+      255,
+      249,
+      265,
+      235,
+      261,
+      231,
+      237,
+      267,
+      248,
+      254,
+      260,
+      266,
+      240,
+      246,
+      252,
+      258,
+      264,
+      242,
+      236,
+      230,
+      234,
+      270
+    ]
+  },
+  "samples": [
+    {
+      "stats": {
+        "time": 1.9999999999999978,
+        "active": 13,
+        "sleeping": 0,
+        "debris": 608,
+        "dust": 110,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 0,
+        "waterImpulse": 0,
+        "chainContacts": 0,
+        "crushedCars": 0,
+        "snappedTrees": 0,
+        "createdFragments": 608
+      },
+      "tower": {
+        "standing": 86,
+        "moving": 13,
+        "resting": 0,
+        "highestCenter": 36.62,
+        "hash": "34dc6292682ddadee74e845ade3d8fe2f1f8c34677c4d04fde9c90ed8643c2f9"
+      },
+      "neighborFailures": []
+    },
+    {
+      "stats": {
+        "time": 3.9999999999999907,
+        "active": 27,
+        "sleeping": 0,
+        "debris": 1008,
+        "dust": 138,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 0,
+        "waterImpulse": 0,
+        "chainContacts": 0,
+        "crushedCars": 1,
+        "snappedTrees": 1,
+        "createdFragments": 1008
+      },
+      "tower": {
+        "standing": 72,
+        "moving": 27,
+        "resting": 0,
+        "highestCenter": 36.62,
+        "hash": "6b2900b45a14ac996ed62ec5a85b14a802871982def8e08b9854db49a70fd915"
+      },
+      "neighborFailures": []
+    },
+    {
+      "stats": {
+        "time": 5.999999999999984,
+        "active": 42,
+        "sleeping": 0,
+        "debris": 1582,
+        "dust": 196,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 3,
+        "crushedCars": 2,
+        "snappedTrees": 1,
+        "createdFragments": 1582
+      },
+      "tower": {
+        "standing": 57,
+        "moving": 42,
+        "resting": 0,
+        "highestCenter": 36.62,
+        "hash": "a5a1c2b2477639374e7ce0d4c1c2b41f6d888988449112052a9c7bd9e6d2c367"
+      },
+      "neighborFailures": []
+    },
+    {
+      "stats": {
+        "time": 7.999999999999977,
+        "active": 59,
+        "sleeping": 0,
+        "debris": 2062,
+        "dust": 217,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 5,
+        "crushedCars": 3,
+        "snappedTrees": 1,
+        "createdFragments": 2083
+      },
+      "tower": {
+        "standing": 42,
+        "moving": 57,
+        "resting": 0,
+        "highestCenter": 36.62,
+        "hash": "6bf496b85d0e271a131e4dc5c89b40e426e2bb097e16402a6d09bc6842c08be1"
+      },
+      "neighborFailures": [
+        241,
+        247
+      ]
+    },
+    {
+      "stats": {
+        "time": 10.000000000000076,
+        "active": 69,
+        "sleeping": 0,
+        "debris": 2376,
+        "dust": 188,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 9,
+        "crushedCars": 4,
+        "snappedTrees": 1,
+        "createdFragments": 2462
+      },
+      "tower": {
+        "standing": 33,
+        "moving": 66,
+        "resting": 0,
+        "highestCenter": 36.67750358253625,
+        "hash": "523e62fab153914239448f9a459ed74d12d4a0d00f7269772b8b53f16b309ef8"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253
+      ]
+    },
+    {
+      "stats": {
+        "time": 12.000000000000176,
+        "active": 79,
+        "sleeping": 0,
+        "debris": 2863,
+        "dust": 213,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 19,
+        "crushedCars": 4,
+        "snappedTrees": 1,
+        "createdFragments": 3004
+      },
+      "tower": {
+        "standing": 33,
+        "moving": 66,
+        "resting": 0,
+        "highestCenter": 36.700259377620625,
+        "hash": "231f867bf3c0e1ec014b420a172339cb08d14944a50baa3b07eb1aeacc20690a"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261
+      ]
+    },
+    {
+      "stats": {
+        "time": 14.000000000000275,
+        "active": 87,
+        "sleeping": 6,
+        "debris": 3070,
+        "dust": 294,
+        "water": 0,
+        "score": 3330,
+        "tons": 144,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 22,
+        "crushedCars": 5,
+        "snappedTrees": 1,
+        "createdFragments": 3630
+      },
+      "tower": {
+        "standing": 24,
+        "moving": 69,
+        "resting": 6,
+        "highestCenter": 36.70219385801956,
+        "hash": "57a2222b0e4f699548aec4f0119b4d179d825c0b429b6442352cb455241c50c1"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267
+      ]
+    },
+    {
+      "stats": {
+        "time": 16.000000000000373,
+        "active": 89,
+        "sleeping": 17,
+        "debris": 3072,
+        "dust": 349,
+        "water": 0,
+        "score": 9990,
+        "tons": 432,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 22,
+        "crushedCars": 5,
+        "snappedTrees": 1,
+        "createdFragments": 4016
+      },
+      "tower": {
+        "standing": 14,
+        "moving": 68,
+        "resting": 17,
+        "highestCenter": 36.692698773474625,
+        "hash": "0420352017371c49c2b51a91aa0f4c8ebae5e923ff4d49dc10681b5c9f12eff2"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248
+      ]
+    },
+    {
+      "stats": {
+        "time": 18.00000000000026,
+        "active": 84,
+        "sleeping": 40,
+        "debris": 3071,
+        "dust": 490,
+        "water": 0,
+        "score": 19980,
+        "tons": 864,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 5,
+        "snappedTrees": 1,
+        "createdFragments": 4600
+      },
+      "tower": {
+        "standing": 3,
+        "moving": 56,
+        "resting": 40,
+        "highestCenter": 36.63162522442141,
+        "hash": "ee128201f4370ca91d7804b42d8c9a5b098a1da8d53dc2c8da5af443939cb5db"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266
+      ]
+    },
+    {
+      "stats": {
+        "time": 20.000000000000146,
+        "active": 65,
+        "sleeping": 63,
+        "debris": 3058,
+        "dust": 524,
+        "water": 0,
+        "score": 26640,
+        "tons": 1152,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 6,
+        "snappedTrees": 1,
+        "createdFragments": 4801
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 36,
+        "resting": 63,
+        "highestCenter": 24.046073361516996,
+        "hash": "f98837b423be24734d889a40be95d3a94c81a1ea1ecead1018f4c7e6bf250fe7"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266
+      ]
+    },
+    {
+      "stats": {
+        "time": 22.000000000000032,
+        "active": 47,
+        "sleeping": 83,
+        "debris": 3060,
+        "dust": 584,
+        "water": 0,
+        "score": 36630,
+        "tons": 1584,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 1,
+        "createdFragments": 5030
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 16,
+        "resting": 83,
+        "highestCenter": 6.697931788497503,
+        "hash": "3b5db3b80969e81baef4ff23f4bcbc9b16fbf58a0f058f48e1ca5e33a7ab0eb4"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246
+      ]
+    },
+    {
+      "stats": {
+        "time": 23.99999999999992,
+        "active": 33,
+        "sleeping": 99,
+        "debris": 3048,
+        "dust": 478,
+        "water": 0,
+        "score": 36630,
+        "tons": 1584,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 1,
+        "createdFragments": 5140
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258
+      ]
+    },
+    {
+      "stats": {
+        "time": 25.999999999999805,
+        "active": 39,
+        "sleeping": 99,
+        "debris": 3014,
+        "dust": 365,
+        "water": 0,
+        "score": 37740,
+        "tons": 1632,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 1,
+        "createdFragments": 5304
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 27.99999999999969,
+        "active": 36,
+        "sleeping": 102,
+        "debris": 2871,
+        "dust": 213,
+        "water": 0,
+        "score": 37740,
+        "tons": 1632,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5313
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 29.999999999999577,
+        "active": 36,
+        "sleeping": 102,
+        "debris": 2760,
+        "dust": 102,
+        "water": 0,
+        "score": 37740,
+        "tons": 1632,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5313
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 31.999999999999464,
+        "active": 36,
+        "sleeping": 102,
+        "debris": 2695,
+        "dust": 37,
+        "water": 0,
+        "score": 37740,
+        "tons": 1632,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5313
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 33.99999999999935,
+        "active": 35,
+        "sleeping": 103,
+        "debris": 2674,
+        "dust": 16,
+        "water": 0,
+        "score": 38110,
+        "tons": 1648,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5315
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 35.99999999999924,
+        "active": 33,
+        "sleeping": 105,
+        "debris": 2665,
+        "dust": 7,
+        "water": 0,
+        "score": 38110,
+        "tons": 1648,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5318
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 37.999999999999126,
+        "active": 33,
+        "sleeping": 105,
+        "debris": 2663,
+        "dust": 5,
+        "water": 0,
+        "score": 38110,
+        "tons": 1648,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5318
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    },
+    {
+      "stats": {
+        "time": 39.99999999999901,
+        "active": 32,
+        "sleeping": 106,
+        "debris": 2691,
+        "dust": 14,
+        "water": 0,
+        "score": 38850,
+        "tons": 1680,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 26,
+        "crushedCars": 7,
+        "snappedTrees": 2,
+        "createdFragments": 5346
+      },
+      "tower": {
+        "standing": 0,
+        "moving": 0,
+        "resting": 99,
+        "highestCenter": 6.4847484613425594,
+        "hash": "cc762002e3f6dbb0615472b72be335e857f5c07a59d1b1ffca95e10407379247"
+      },
+      "neighborFailures": [
+        241,
+        247,
+        253,
+        243,
+        259,
+        229,
+        255,
+        249,
+        265,
+        235,
+        261,
+        231,
+        237,
+        267,
+        248,
+        254,
+        260,
+        266,
+        240,
+        246,
+        252,
+        258,
+        264,
+        242,
+        236,
+        230,
+        234,
+        270
+      ]
+    }
+  ],
+  "connectedMovingSamples": 57087,
+  "maxConnectedTilt": 0.8661234992815801,
+  "firstFailureByFloor": [
+    0.08333333333333333,
+    0.966666666666668,
+    1.8499999999999983,
+    2.7333333333333285,
+    3.599999999999992,
+    4.4499999999999895,
+    5.2999999999999865,
+    6.133333333333317,
+    6.949999999999981,
+    7.766666666666644,
+    8.58333333333334
+  ],
+  "neighborContacts": [
+    {
+      "time": 4.34999999999999,
+      "kind": "neighbor-contact",
+      "source": 82,
+      "target": 248,
+      "power": 0.5991893573317064,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.29789788154501,
+        13.422257304535824,
+        -10.999820704251826
+      ],
+      "targetMemberPosition": [
+        28.8,
+        13.52,
+        -12
+      ]
+    },
+    {
+      "time": 5.466666666666653,
+      "kind": "neighbor-contact",
+      "source": 90,
+      "target": 247,
+      "power": 0.6998796641910067,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.29867807659306,
+        16.725605906689225,
+        -15.297144473471251
+      ],
+      "targetMemberPosition": [
+        28.8,
+        13.52,
+        -16.4
+      ]
+    },
+    {
+      "time": 5.716666666666652,
+      "kind": "neighbor-contact",
+      "source": 91,
+      "target": 241,
+      "power": 0.8727949013448162,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.29723592838431,
+        16.711654340859976,
+        -10.999725886571468
+      ],
+      "targetMemberPosition": [
+        28.8,
+        10.219999999999999,
+        -16.4
+      ]
+    },
+    {
+      "time": 6.949999999999981,
+      "kind": "neighbor-contact",
+      "source": 93,
+      "target": 229,
+      "power": 0.41768029975323895,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.702943109834541,
+        20.005119416415678,
+        -15.299545329769511
+      ],
+      "targetMemberPosition": [
+        28.8,
+        3.6199999999999997,
+        -16.4
+      ]
+    },
+    {
+      "time": 7.583333333333312,
+      "kind": "neighbor-contact",
+      "source": 112,
+      "target": 199,
+      "power": 0.7692825101842622,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.702167292095703,
+        26.616891885959237,
+        -10.999109911815085
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        21.32,
+        -14
+      ]
+    },
+    {
+      "time": 9.433333333333382,
+      "kind": "neighbor-contact",
+      "source": 119,
+      "target": 243,
+      "power": 1.4298891805204332,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.299414701945857,
+        26.67460921772984,
+        -6.701042617739781
+      ],
+      "targetMemberPosition": [
+        28.8,
+        10.219999999999999,
+        -7.6
+      ]
+    },
+    {
+      "time": 9.866666666666736,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 255,
+      "power": 1.2261514794742088,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.29901053828004,
+        29.960950999758843,
+        -6.70005878497598
+      ],
+      "targetMemberPosition": [
+        28.8,
+        16.82,
+        -7.6
+      ]
+    },
+    {
+      "time": 9.933333333333406,
+      "kind": "neighbor-contact",
+      "source": 129,
+      "target": 190,
+      "power": 1.230278636384268,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.703542049537973,
+        33.193503478913605,
+        -15.29998887606518
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        17.82,
+        -14
+      ]
+    },
+    {
+      "time": 9.950000000000074,
+      "kind": "neighbor-contact",
+      "source": 129,
+      "target": 199,
+      "power": 0.5933625430856566,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.703558998006713,
+        33.193214625397495,
+        -15.299990219286334
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        21.32,
+        -14
+      ]
+    },
+    {
+      "time": 10.016666666666744,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 249,
+      "power": 0.6906507728765495,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.2990618692532,
+        29.96203775384514,
+        -6.700213622981505
+      ],
+      "targetMemberPosition": [
+        28.8,
+        13.52,
+        -7.6
+      ]
+    },
+    {
+      "time": 10.066666666666746,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 255,
+      "power": 0.37693798413425045,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.299077039700542,
+        29.962371885079556,
+        -6.700262214818674
+      ],
+      "targetMemberPosition": [
+        28.8,
+        16.771578015926558,
+        -7.6
+      ]
+    },
+    {
+      "time": 10.133333333333416,
+      "kind": "neighbor-contact",
+      "source": 129,
+      "target": 190,
+      "power": 0.417960134945091,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.703746076591468,
+        33.1900693844984,
+        -15.299995614702448
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        17.782285120460955,
+        -14
+      ]
+    },
+    {
+      "time": 10.650000000000109,
+      "kind": "neighbor-contact",
+      "source": 126,
+      "target": 229,
+      "power": 1.710595569737288,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.29682542951322,
+        29.90055161977401,
+        -15.299222727831184
+      ],
+      "targetMemberPosition": [
+        28.8,
+        3.6199999999999997,
+        -16.4
+      ]
+    },
+    {
+      "time": 10.783333333333449,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 249,
+      "power": 0.4275631066211685,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.299223212616255,
+        29.96574969815337,
+        -6.700872985129267
+      ],
+      "targetMemberPosition": [
+        28.8,
+        13.349516154785192,
+        -7.6
+      ]
+    },
+    {
+      "time": 11.100000000000131,
+      "kind": "neighbor-contact",
+      "source": 120,
+      "target": 231,
+      "power": 0.41943359744951436,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.70491586708222,
+        29.872371722305402,
+        -15.299840734231458
+      ],
+      "targetMemberPosition": [
+        28.8,
+        3.6199999999999997,
+        -7.6
+      ]
+    },
+    {
+      "time": 11.633333333333491,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 237,
+      "power": 0.797476472619894,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.299289307672705,
+        29.966838521835903,
+        -6.701491211423691
+      ],
+      "targetMemberPosition": [
+        28.8,
+        6.92,
+        -7.6
+      ]
+    },
+    {
+      "time": 11.700000000000161,
+      "kind": "neighbor-contact",
+      "source": 139,
+      "target": 154,
+      "power": 0.35429943303566563,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.703192130768956,
+        36.49797975225961,
+        -10.999649800061814
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        3.82,
+        -14
+      ]
+    },
+    {
+      "time": 11.733333333333496,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 231,
+      "power": 0.4674082340299317,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.299291742787876,
+        29.966791135159628,
+        -6.7015580888032265
+      ],
+      "targetMemberPosition": [
+        28.8,
+        3.6199999999999997,
+        -7.6
+      ]
+    },
+    {
+      "time": 11.866666666666836,
+      "kind": "neighbor-contact",
+      "source": 138,
+      "target": 164,
+      "power": 1.8019734794902635,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.700192059295276,
+        36.59146651662698,
+        -15.298163441244942
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        7.32,
+        -9.8
+      ]
+    },
+    {
+      "time": 12.30000000000019,
+      "kind": "neighbor-contact",
+      "source": 128,
+      "target": 231,
+      "power": 0.47164705835535586,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        17.29928813206222,
+        29.96592459359768,
+        -6.701913986373739
+      ],
+      "targetMemberPosition": [
+        28.8,
+        3.563880614353985,
+        -7.6
+      ]
+    },
+    {
+      "time": 12.466666666666866,
+      "kind": "neighbor-contact",
+      "source": 129,
+      "target": 172,
+      "power": 0.7016010372225546,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.706205135184582,
+        33.15409889003599,
+        -15.299507889618146
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        10.82,
+        -14
+      ]
+    },
+    {
+      "time": 12.483333333333533,
+      "kind": "neighbor-contact",
+      "source": 129,
+      "target": 173,
+      "power": 0.3622455186112773,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        8.706223227619239,
+        33.15386303645386,
+        -15.29950372853732
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        10.82,
+        -9.8
+      ]
+    },
+    {
+      "time": 17.06666666666698,
+      "kind": "neighbor-contact",
+      "source": 89,
+      "target": 154,
+      "power": 1.213331796555076,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        13.081595396463781,
+        3.8509245638479768,
+        -6.937743081073644
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        3.82,
+        -14
+      ]
+    },
+    {
+      "time": 17.083333333333645,
+      "kind": "neighbor-contact",
+      "source": 89,
+      "target": 163,
+      "power": 0.574488697853089,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        13.082547969106988,
+        4.133360727838643,
+        -6.9724740267924
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        7.32,
+        -14
+      ]
+    },
+    {
+      "time": 17.200000000000305,
+      "kind": "neighbor-contact",
+      "source": 89,
+      "target": 155,
+      "power": 0.36137462863478287,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        13.095103728904459,
+        4.175447789739169,
+        -7.07858087191142
+      ],
+      "targetMemberPosition": [
+        -5.8,
+        3.82,
+        -9.8
+      ]
+    },
+    {
+      "time": 20.466666666666786,
+      "kind": "neighbor-contact",
+      "source": 134,
+      "target": 240,
+      "power": 1.6812127601563047,
+      "cause": "facade-contact",
+      "sourceMemberPosition": [
+        13.019077592009324,
+        12.016524218460697,
+        -6.731400724717589
+      ],
+      "targetMemberPosition": [
+        33.2,
+        6.92,
+        -7.6
+      ]
+    }
+  ],
+  "neighborFailures": [
+    {
+      "time": 7.849999999999977,
+      "kind": "support-failure",
+      "node": 241,
+      "floor": 2,
+      "building": 6
+    },
+    {
+      "time": 7.899999999999977,
+      "kind": "support-failure",
+      "node": 247,
+      "floor": 3,
+      "building": 6
+    },
+    {
+      "time": 9.150000000000034,
+      "kind": "support-failure",
+      "node": 253,
+      "floor": 4,
+      "building": 6
+    },
+    {
+      "time": 10.233333333333421,
+      "kind": "support-failure",
+      "node": 243,
+      "floor": 2,
+      "building": 6
+    },
+    {
+      "time": 10.400000000000096,
+      "kind": "support-failure",
+      "node": 259,
+      "floor": 5,
+      "building": 6
+    },
+    {
+      "time": 10.666666666666776,
+      "kind": "support-failure",
+      "node": 229,
+      "floor": 0,
+      "building": 6
+    },
+    {
+      "time": 10.666666666666776,
+      "kind": "support-failure",
+      "node": 255,
+      "floor": 4,
+      "building": 6
+    },
+    {
+      "time": 10.916666666666789,
+      "kind": "support-failure",
+      "node": 249,
+      "floor": 3,
+      "building": 6
+    },
+    {
+      "time": 11.650000000000158,
+      "kind": "support-failure",
+      "node": 265,
+      "floor": 6,
+      "building": 6
+    },
+    {
+      "time": 11.916666666666838,
+      "kind": "support-failure",
+      "node": 235,
+      "floor": 1,
+      "building": 6
+    },
+    {
+      "time": 11.916666666666838,
+      "kind": "support-failure",
+      "node": 261,
+      "floor": 5,
+      "building": 6
+    },
+    {
+      "time": 12.316666666666858,
+      "kind": "support-failure",
+      "node": 231,
+      "floor": 0,
+      "building": 6
+    },
+    {
+      "time": 13.10000000000023,
+      "kind": "support-failure",
+      "node": 237,
+      "floor": 1,
+      "building": 6
+    },
+    {
+      "time": 13.1666666666669,
+      "kind": "support-failure",
+      "node": 267,
+      "floor": 6,
+      "building": 6
+    },
+    {
+      "time": 15.533333333333685,
+      "kind": "support-failure",
+      "node": 248,
+      "floor": 3,
+      "building": 6
+    },
+    {
+      "time": 16.350000000000353,
+      "kind": "support-failure",
+      "node": 254,
+      "floor": 4,
+      "building": 6
+    },
+    {
+      "time": 17.166666666666973,
+      "kind": "support-failure",
+      "node": 260,
+      "floor": 5,
+      "building": 6
+    },
+    {
+      "time": 17.983333333333594,
+      "kind": "support-failure",
+      "node": 266,
+      "floor": 6,
+      "building": 6
+    },
+    {
+      "time": 21.15000000000008,
+      "kind": "support-failure",
+      "node": 240,
+      "floor": 1,
+      "building": 6
+    },
+    {
+      "time": 21.9666666666667,
+      "kind": "support-failure",
+      "node": 246,
+      "floor": 2,
+      "building": 6
+    },
+    {
+      "time": 22.78333333333332,
+      "kind": "support-failure",
+      "node": 252,
+      "floor": 3,
+      "building": 6
+    },
+    {
+      "time": 23.59999999999994,
+      "kind": "support-failure",
+      "node": 258,
+      "floor": 4,
+      "building": 6
+    },
+    {
+      "time": 24.41666666666656,
+      "kind": "support-failure",
+      "node": 264,
+      "floor": 5,
+      "building": 6
+    },
+    {
+      "time": 24.549999999999887,
+      "kind": "support-failure",
+      "node": 242,
+      "floor": 2,
+      "building": 6
+    },
+    {
+      "time": 24.833333333333204,
+      "kind": "support-failure",
+      "node": 236,
+      "floor": 1,
+      "building": 6
+    },
+    {
+      "time": 25.066666666666524,
+      "kind": "support-failure",
+      "node": 230,
+      "floor": 0,
+      "building": 6
+    },
+    {
+      "time": 25.08333333333319,
+      "kind": "support-failure",
+      "node": 234,
+      "floor": 0,
+      "building": 6
+    },
+    {
+      "time": 25.23333333333318,
+      "kind": "support-failure",
+      "node": 270,
+      "floor": 6,
+      "building": 6
+    }
+  ],
+  "settledTowerStableFrom30To40Seconds": true
+}

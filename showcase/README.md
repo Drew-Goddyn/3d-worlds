@@ -17,8 +17,15 @@ All three original demolition prompt attachments were compared byte for byte on 
 | Demolition Site | `gpt-5.5` / `xhigh` | Creation and refinement turns record this pair. The build went through a planning stage, implementation, requested polish, and a separate adversarial review. Initial commit: `be95634`; folder relocation: `aeeee89`. |
 | District 08 | `gpt-5.6-sol` / `ultra` | Creation and July follow-ups record this pair; committed as `67590c3`. A later August 17 turn used `xhigh` to package a ZIP, not to generate this committed build. The workflow named Terra/Luna roles, but the recovered helper execution contexts also identify `gpt-5.6-sol` / `ultra`; role names are not evidence that different models ran. |
 | Demolition District | `gpt-6-astra` / `ultra` | The implementation turn records this pair; committed as `f06437f`. Later `xhigh` turns handled remote/public-repository administration. |
+| [Skills Build Loop](../prompts/demolition-playground/builds/skills-build-loop/) | `gpt-6-astra` / `max` | All three implementation assignment starts and their recovered continuation contexts record this pair. The session began September 15, 2026. The source was frozen while uncommitted; `186001a2...` is a pre-implementation baseline, not a generation commit. [Minimal metadata extract](../prompts/demolition-playground/builds/skills-build-loop/publication/builder-session-settings.json). |
 
 The evidence source is the local Codex `turn_context` metadata correlated with user requests, working directories, and commits. Private task transcripts are not included in this public repository. The labels above describe the lead build model; they do not imply that every activity across the repository's lifetime used that configuration.
+
+## Skills-assisted workflow
+
+The Skills Build Loop had one clarification round accepting six interpretations and three implementation-and-review assignments. Grilling, Domain Modeling, Codebase Design, Build Loop, and Writing for Agents guided the separate ChatGPT thinking/review partner. A local coding-agent session implemented the result, with builder self-correction and reported independent reviews within assignments. It is not a one-shot entry. The assignment count does not measure model calls or total compute, and the result does not isolate the effect of an individual skill.
+
+This attempt and its final assessment were isolated from the other attempts. Shared collection metadata was inspected only after freeze to arrange this import. Its original prompt also matches the shared 6,308-byte prompt exactly. The six interpretations remain in its frozen build brief; they were not added to the shared prompt or attributed to other entries. [Provenance](../prompts/demolition-playground/builds/skills-build-loop/PROVENANCE.md) and [final review with evidence](../prompts/demolition-playground/builds/skills-build-loop/publication/evidence/reviewer/README.md). The exact ChatGPT reviewer model and effort remain unverified; the recovered settings identify the lead builder only.
 
 ## How to read the comparison
 
@@ -27,6 +34,8 @@ The creative brief matches exactly. The surrounding conditions do not: planning,
 Existing verification reports belong to their individual builds and environments. In particular, the first build's historical verification script includes an author-local output directory; it is retained as part of that artifact and is not advertised as a portable showcase-wide test command. The newer build's measured frame rates are local observations, not cross-model benchmark scores.
 
 ## Recorded comparison previews
+
+The existing release and films cover the original three entries. They do not include the Skills Build Loop.
 
 **[Watch the side-by-side preview](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4)** · **[Download the synchronized viewer](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip)** · [All release assets](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1)
 

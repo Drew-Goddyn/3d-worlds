@@ -1,0 +1,59 @@
+
+> demolition-playground@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ oriented slab and off-center tank bounds agree with independent Three geometry (145.746042ms)
+✔ a sleeping slab wakes when its actual supporting slab moves away (82.708583ms)
+✔ released upper columns cannot preserve an invisible support constraint (409.439083ms)
+✔ reversible history preserves Float64 bits, checkpoints, and branch recounts (97.163709ms)
+✔ a lateral slab-edge collision transfers damage to the neighboring structure (110.896709ms)
+✔ an upright tank cannot sleep on a roof sliver beyond its center of mass (251.7115ms)
+✔ a tank sleeps on either face of a flat grounded slab (379.986042ms)
+✔ recorded complete collapse stays asleep despite tilted supports with higher centers (10953.458292ms)
+✔ every shed piece belongs to a bounded spatial chunk, with room for the whole city (207.502875ms)
+✔ rotated carried geometry stays above physical ground through falling and sleeping (786.715459ms)
+✔ tank detaches, rotates, ruptures, survives as a body, and falls when its roof is lost (3253.779584ms)
+✔ tank motion, rupture and support loss restore exactly and replacement futures abandon later wreckage (456.330791ms)
+✔ surviving connections carry a displaced section before strain and floor impacts break it (776.853583ms)
+✔ facade damage retains supported columns; released columns collide with surviving floors (387.21725ms)
+✔ a tilted tall chunk tips under contact torque before it sleeps (236.919542ms)
+✔ constrained bay velocity agrees with displacement before contact response (123.626458ms)
+✔ a bay first released by a floor impact keeps its contact velocity until integration (80.462667ms)
+✔ 10% speed changes every presented moving pose (175.795125ms)
+✔ 10% holdSlow changes every presented moving pose (96.808292ms)
+✔ passive slow playback samples the recorded future without altering it (188.362125ms)
+✔ reverse and rebuild use duration regardless of same-time input density (244.523541ms)
+✔ fractional scrubbing and reverse sample the same trajectory; exact moments are exact (131.652208ms)
+✔ an interpolated intervention restores the preceding physical moment; rejection preserves both view and future (127.014792ms)
+✔ sampling never blends births, deaths, recycled identities or discrete scores (86.401375ms)
+✔ held crane rotation, cable and pumping are included in live slow presentation (405.686ms)
+✔ passive slow and reverse crane motion include ordered actions at the next moment (125.896458ms)
+✔ pristine district remains intact under gravity and gentle crane sway (269.934875ms)
+✔ a weak localized strike sheds facade material without destroying supports (232.9595ms)
+✔ same seed, different support placement produces distinct local failure (1065.480542ms)
+✔ manual charges fire at staged deadlines and ground support loss propagates floor by floor (1320.995291ms)
+✔ ball momentum changes damage through the actual action interface (961.302583ms)
+✔ neighbor collapse has a contact source and does not start merely from proximity (1605.544792ms)
+✔ water burst transfers momentum to debris and expires without deleting structural rubble (467.21675ms)
+✔ all numeric state restores exactly across mid-collapse, rubble, creation, reuse and pristine (581.901708ms)
+✔ scrubbing and passive playback preserve future and replay cannot award duplicate score (852.606459ms)
+✔ accepted actions branch from restored physical state; invalid input keeps the old future (645.590959ms)
+✔ slow motion advances simulation at one tenth rate; pause and scrub consume no history (236.711083ms)
+✔ 90 simulation seconds retain earliest and recent destruction for a full animated reset (4974.943208ms)
+✔ recorded crane actions replay at the original simulation-time rate (103.418875ms)
+✔ an input at the cable limit cannot erase the recorded future (132.102375ms)
+✔ spent charge slots are reusable for later demolition (420.021166ms)
+✔ branching at a same-time action preserves only events at that snapshot (76.922166ms)
+✔ the visible rooftop tank has a ball collider and ruptures on contact (72.968834ms)
+✔ shed architecture is assigned persistent physical groups that survive pool reuse (454.266792ms)
+✔ water impulses move physical groups carrying the shed visible architecture (228.259875ms)
+✔ settling retains debris group orientation (242.491917ms)
+✔ falling member mass changes the damage transferred to its support (148.167708ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15223.545292

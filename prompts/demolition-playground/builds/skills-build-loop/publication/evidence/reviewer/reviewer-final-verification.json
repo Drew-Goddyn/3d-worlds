@@ -1,0 +1,117 @@
+{
+  "assessment": "Freeze build 03 as the final comparison artifact after three build assignments; original maximum-ambition prompt remains only partially fulfilled.",
+  "artifact": {
+    "filename": "build-03.zip",
+    "bytes": 64303553,
+    "sha256": "0b5a4c310e89d70a6fc47c61fb846d0d0adb517aee25c028fc9734d8504f9e01",
+    "sourceManifestSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+    "runtimeSHA256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "sourceVerification": {
+    "manifestEntries": 52,
+    "allMatched": true,
+    "patchAgainstBuild02Applied": true,
+    "patchResultAllMatched": true,
+    "bothPriorArchiveHashesMatched": true
+  },
+  "independentReview": {
+    "environment": {
+      "os": "Linux",
+      "node": "v22.16.0"
+    },
+    "tests": {
+      "unmodifiedDependencyFreeTestFiles": {
+        "passed": 39,
+        "failed": 0
+      },
+      "relocatedOriginalContactHistoryCases": {
+        "passed": 7,
+        "failed": 0,
+        "changes": "Only imports and fixture paths relocated. Test bodies and assertions unchanged. Three-dependent OBB equivalence case omitted."
+      },
+      "staticCheck": "passed",
+      "fullNpmSuiteRerun": false,
+      "missingDependency": "Three.js; npm ci failed with EAI_AGAIN for registry.npmjs.org. The one original Three-backed OBB-equivalence case was not rerun."
+    },
+    "tankEndpoints": {
+      "method": "Independent Node replay through City.action and City.step; Python SciPy intrinsic XYZ rotation and point-in-oriented-box shell sampling at the endpoint. No use of application contact() for the intersection calculation. This checks the original 6305 samples, not all intermediate frames or all possible contacts.",
+      "results": [
+        {
+          "sequence": "build02-original-sequence",
+          "fixed_steps": 1144,
+          "shell_samples": 6305,
+          "endpoint_intersections": 268,
+          "intersecting_floors": [
+            {
+              "floor": 199,
+              "intersections": 268
+            }
+          ],
+          "tank_mode": 2.0,
+          "max_difference_from_captured_tank": null
+        },
+        {
+          "sequence": "build03-original-sequence",
+          "fixed_steps": 1144,
+          "shell_samples": 6305,
+          "endpoint_intersections": 0,
+          "intersecting_floors": [],
+          "tank_mode": 1.0,
+          "max_difference_from_captured_tank": null
+        },
+        {
+          "sequence": "build03-final-tank-recording",
+          "fixed_steps": 1569,
+          "shell_samples": 6305,
+          "endpoint_intersections": 0,
+          "intersecting_floors": [],
+          "tank_mode": 2.0,
+          "max_difference_from_captured_tank": 3.0730973321624333e-13
+        }
+      ]
+    },
+    "collapse": {
+      "towerFinalResting": 99,
+      "towerFinalMoving": 0,
+      "stableSeconds": [
+        30,
+        40
+      ],
+      "neighboringHotelBayFailures": 28
+    },
+    "temporal": {
+      "presentationChanges": 120,
+      "presentationComparisons": 120,
+      "physicalChanges": 12,
+      "testedSettings": [
+        "speed",
+        "holdSlow",
+        "heldRotate",
+        "passiveRotate",
+        "passiveBall"
+      ],
+      "rewindInHalfWallSecondSparse": 0.9999999999999964,
+      "rewindInHalfWallSecondDense": 0.9999999999999964
+    },
+    "media": {
+      "allTenStillsInspected": true,
+      "allThreeVideosDecoded": true,
+      "representativeFramesAcrossAllThreeRecordingsInspected": true,
+      "fullNormalSpeedWatch": false
+    },
+    "noLocalGpuBrowserRerun": true
+  },
+  "builderEvidenceNotIndependentlyRepeated": {
+    "completeSuitePassed": 47,
+    "tankContactAllIntervalSteps": [
+      5344,
+      1569
+    ],
+    "browserGPUPerformance": true,
+    "91SecondComparisonHistoryPayloadBytes": 463948380,
+    "sameScheduleReductionVsBuild02": 0.2665711210245756,
+    "browserVisibleInputsRestoration": true
+  },
+  "repositoryStateAttribution": "Builder reports changes uncommitted on main, baseline 186001a2f22b98f3c127a535f742e1eca1935343; nothing pushed, published or deployed. Local checkout and current remote head were not inspected in this review.",
+  "stoppingPoint": "Final review and freeze. No fourth build assignment."
+}

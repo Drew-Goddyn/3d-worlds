@@ -85,6 +85,69 @@
         "dependencyInstallationRequired": false
       },
       "verification": "prompts/demolition-playground/builds/gpt-6-astra-ultra/evidence/verification.json"
+    },
+    {
+      "id": "demolition-skills-build-loop",
+      "name": "Demolition Playground - Skills Build Loop (3 rounds)",
+      "promptId": "demolition-playground",
+      "directory": "prompts/demolition-playground/builds/skills-build-loop",
+      "leadModel": "gpt-6-astra",
+      "leadModelLabel": "GPT-6 Astra",
+      "reasoningEffort": "max",
+      "createdOn": "2026-09-15",
+      "createdOnMeaning": "Implementation session start date from this attempt's creation-session metadata.",
+      "creationCommit": null,
+      "sourceRepositoryBaseline": "186001a2f22b98f3c127a535f742e1eca1935343",
+      "provenanceStatus": "verified-from-creation-records",
+      "provenanceSource": "Lead builder settings for all three assignment starts and recorded continuations recovered from this attempt's own local Codex turn_context metadata. Publication turns are excluded and raw transcripts remain private. The original implementation was uncommitted; its source baseline is not a generation commit. Exact ChatGPT reviewer settings remain unverified.",
+      "creationSettingsEvidence": "prompts/demolition-playground/builds/skills-build-loop/publication/builder-session-settings.json",
+      "workflowNote": "One clarification round accepted six interpretations, followed by three implementation-and-review assignments. Grilling, Domain Modeling, Codebase Design, Build Loop, and Writing for Agents guided the separate ChatGPT thinking/review partner. A local coding-agent session implemented the build, with self-correction and reported independent reviews inside assignments. This is an iterative skills-assisted workflow artifact, not one-shot or a controlled measure of individual skill effects; assignment count does not measure model calls or total compute.",
+      "preview": "prompts/demolition-playground/previews/demolition-skills-build-loop.png",
+      "previewViewport": [
+        1440,
+        900
+      ],
+      "previewSource": "Unmodified captures/01-pristine-hero.png from frozen build-03.zip.",
+      "launch": {
+        "workingDirectory": ".",
+        "commands": [
+          "npm --prefix prompts/demolition-playground/builds/skills-build-loop ci",
+          "PORT=4176 npm --prefix prompts/demolition-playground/builds/skills-build-loop start"
+        ],
+        "url": "http://127.0.0.1:4176",
+        "node": ">=22",
+        "dependencyInstallationRequired": true,
+        "dependencyInstallationNetworkRequired": true,
+        "runtimeNetworkRequired": false
+      },
+      "frozenArtifact": {
+        "archiveSHA256": "0b5a4c310e89d70a6fc47c61fb846d0d0adb517aee25c028fc9734d8504f9e01",
+        "sourceManifestSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+        "runtimeSourceSHA256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4",
+        "sourceFiles": 52,
+        "manifest": "prompts/demolition-playground/builds/skills-build-loop/publication/SOURCE_SHA256SUMS.txt"
+      },
+      "promptVerification": "prompts/demolition-playground/builds/skills-build-loop/publication/prompt-verification.json",
+      "agreedInterpretations": "prompts/demolition-playground/builds/skills-build-loop/docs/BUILD_BRIEF.md",
+      "evidence": "prompts/demolition-playground/builds/skills-build-loop/publication/evidence/README.md",
+      "comparisonFilmsIncludeThisEntry": false,
+      "provenance": "prompts/demolition-playground/builds/skills-build-loop/PROVENANCE.md",
+      "provenanceData": "prompts/demolition-playground/builds/skills-build-loop/provenance.json",
+      "finalReview": "prompts/demolition-playground/builds/skills-build-loop/publication/evidence/reviewer/FINAL_REVIEW.md",
+      "reviewPartner": {
+        "product": "ChatGPT",
+        "model": "unverified",
+        "reasoningEffort": "unverified",
+        "skills": [
+          "Grilling",
+          "Domain Modeling",
+          "Codebase Design",
+          "Build Loop",
+          "Writing for Agents"
+        ],
+        "basis": "Role and selected skills supplied by the review conversation; exact reviewer creation settings were not independently substantiated."
+      },
+      "publicationVerification": "prompts/demolition-playground/builds/skills-build-loop/publication/evidence/publication/checks.json"
     }
   ]
 }

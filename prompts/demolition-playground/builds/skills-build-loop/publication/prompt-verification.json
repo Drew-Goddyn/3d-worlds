@@ -1,0 +1,7 @@
+{
+  "bytes": 6308,
+  "sha256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+  "noTrailingNewline": true,
+  "byteIdenticalToTargetSharedPrompt": true,
+  "extraction": "Original evaluation prompt section from the frozen BUILD_BRIEF.md, excluding the section-separator newline. No content normalization."
+}

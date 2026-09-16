@@ -14,6 +14,7 @@ prompts/
       gpt-5.5-xhigh/
       gpt-5.6-sol-ultra/
       gpt-6-astra-ultra/
+      skills-build-loop/
     previews/
 ```
 
@@ -28,10 +29,13 @@ A sunlit downtown district built to be destroyed—and rebuilt. Wrecking cranes,
 | [Demolition Site](#demolition-site) | GPT-5.5 | xhigh | July 7, 2026 | [Browse](prompts/demolition-playground/builds/gpt-5.5-xhigh/) |
 | [District 08](#district-08) | GPT-5.6 Sol | ultra | July 9, 2026 | [Browse](prompts/demolition-playground/builds/gpt-5.6-sol-ultra/) |
 | [Demolition District](#demolition-district) | GPT-6 Astra | ultra | September 4, 2026 | [Browse](prompts/demolition-playground/builds/gpt-6-astra-ultra/) |
+| [Demolition Playground - Skills Build Loop (3 rounds)](#skills-build-loop) | GPT-6 Astra | max | September 15, 2026 | [Browse](prompts/demolition-playground/builds/skills-build-loop/) |
 
 The three original prompt attachments have the same SHA-256 hash. Model and reasoning labels were recovered from the creation turns in local Codex records, rather than inferred from appearance or the task's latest settings. [Provenance and comparison notes](showcase/README.md) · [Machine-readable attempt catalog](showcase/attempts.json)
 
 These were iterative coding sessions with different follow-up instructions, tools, and agent workflows. They are a showcase of resulting artifacts, not a controlled model benchmark or a ranking.
+
+The existing comparison films cover the original three entries. They do not include the Skills Build Loop.
 
 **[Watch the side-by-side preview](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-comparison.mp4)** · **[Download the synchronized viewer](https://github.com/Drew-Goddyn/3d-worlds/releases/download/demolition-demo-v1/demolition-viewer.zip)** · [All release assets](https://github.com/Drew-Goddyn/3d-worlds/releases/tag/demolition-demo-v1)
 
@@ -93,6 +97,27 @@ Open **http://127.0.0.1:4173**. [Build documentation](prompts/demolition-playgro
 ```sh
 npm --prefix prompts/demolition-playground/builds/gpt-6-astra-ultra test
 ```
+
+### Skills Build Loop
+
+**Demolition Playground - Skills Build Loop (3 rounds)** · **GPT-6 Astra · max**
+
+[![Pristine view from the frozen Skills Build Loop capture](prompts/demolition-playground/previews/demolition-skills-build-loop.png)](prompts/demolition-playground/builds/skills-build-loop/)
+
+One clarification round accepted six interpretations, followed by three implementation-and-review assignments. Grilling, Domain Modeling, Codebase Design, Build Loop, and Writing for Agents guided a separate ChatGPT thinking/review partner; a local coding-agent session implemented the build. Self-correction and reported independent reviews happened within assignments. This is a bounded, iterative workflow result. Three assignments do not imply three model calls, fixed total compute, or an isolated measurement of an individual skill's effect.
+
+The original prompt is byte-identical to the shared brief. The six [agreed interpretations](prompts/demolition-playground/builds/skills-build-loop/docs/BUILD_BRIEF.md#agreed-interpretations) apply to this entry and remain separate. Model and effort were recovered from this attempt's creation records for all three assignments; the date is the implementation-session start date. [Provenance and creation settings](prompts/demolition-playground/builds/skills-build-loop/PROVENANCE.md).
+
+From the repository root, with **Node.js 22 or newer**:
+
+```sh
+npm --prefix prompts/demolition-playground/builds/skills-build-loop ci
+PORT=4176 npm --prefix prompts/demolition-playground/builds/skills-build-loop start
+```
+
+Open **http://127.0.0.1:4176**. Dependency installation needs npm packages; the running application loads its pinned Three.js dependency locally and needs no external scene assets or runtime network access.
+
+The 52 frozen source files are unchanged. This remains a stylized diorama with coarse contacts, grouped debris, partial material effects and whole-tower leaning, and growing history. The longest reported run is 91 simulation seconds. [Final review and measurement boundaries](prompts/demolition-playground/builds/skills-build-loop/publication/evidence/reviewer/README.md).
 
 ## Adding another attempt
 

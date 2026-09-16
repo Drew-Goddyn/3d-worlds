@@ -1,0 +1,154 @@
+{
+  "finalSourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "scope": "One fresh read-only reviewer with bounded follow-ups for introduced edge/support defects. No new build round or broad repeated suite.",
+  "reviewedRuntimeSHA256": [
+    "030a2a475bce751cdc5135aae7465f902d61427c84f933c2759a9eca155afcce",
+    "ec7c0b1dbab916f83dd18e58c1ddda03d7b3f3a53b2556aec3431953df6166e8",
+    "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  ],
+  "findings": [
+    {
+      "priority": "P2",
+      "issue": "Sideways slab-edge impacts bounced without damaging a neighboring structure.",
+      "origin": "Introduced in round3, reproduced against build02.",
+      "resolution": "Transfer inward impact/mass damage before the bounce. Independent focused regression passed."
+    },
+    {
+      "priority": "P2",
+      "issue": "An upright tank could sleep while almost all its mass overhung an outer roof edge.",
+      "origin": "Introduced in round3, reproduced against build02.",
+      "resolution": "Validate support footprint and generate tipping/lateral motion. Independent exact repro now reaches ground at[0.58255,2.87849,-14], rotationZ -0.68411 after10s, resting."
+    },
+    {
+      "priority": "P3",
+      "issue": "A physically settled tank stayed awake on the opposite face of an upside-down slab.",
+      "origin": "Introduced in round3, reproduced against build02.",
+      "resolution": "Choose the upward-facing slab face regardless of local orientation. Builder added upright/inverted face regression; all47 final tests pass. This last small fix was directly checked by the builder, not another independent review cycle."
+    }
+  ],
+  "finalSettlingFollowup": {
+    "sourceIdentity": {
+      "files": [
+        {
+          "path": "index.html",
+          "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+        },
+        {
+          "path": "package.json",
+          "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+        },
+        {
+          "path": "package-lock.json",
+          "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+        },
+        {
+          "path": "src/app.js",
+          "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+        },
+        {
+          "path": "src/architecture.js",
+          "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+        },
+        {
+          "path": "src/contact.js",
+          "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+        },
+        {
+          "path": "src/fractures.js",
+          "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+        },
+        {
+          "path": "src/presentation.js",
+          "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+        },
+        {
+          "path": "src/style.css",
+          "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+        },
+        {
+          "path": "src/view.js",
+          "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+        },
+        {
+          "path": "src/world.js",
+          "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+        },
+        {
+          "path": "scripts/server.mjs",
+          "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+        }
+      ],
+      "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+    },
+    "result": "Pass; no additional issue in the targeted support-graph change.",
+    "checks": [
+      "All 11 accepted fixture inputs exactly match the failed recording.",
+      "All 99 tower bays rest at 30 seconds; their complete rows remain unchanged through 40 seconds.",
+      "Removing support wakes dependent resting slabs.",
+      "A grounded three-slab chain remains asleep; moving its bottom support wakes both dependents.",
+      "A floating stack and mutually supporting pair both wake without a grounded root."
+    ],
+    "scope": "Two focused tests plus independent diagnostics; no broad repeated review and no reviewer edits."
+  },
+  "independentChecks": [
+    "120 resumed steps after warming caches, seeking back and branching matched a fresh empty-cache simulation exactly.",
+    "Float64 signed zero, subnormals, max finite values, forward/backward checkpoints and replacement future preserved.",
+    "Geometry bounds, released columns and slab support wake checks passed."
+  ],
+  "limits": [
+    "Reviewer did not repeat full suite or final browser measurements.",
+    "Reviewer did not watch final recordings. The final support-graph follow-up was limited to the changed support behavior and exact captured inputs."
+  ]
+}

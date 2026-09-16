@@ -1,0 +1,10 @@
+{
+  "manifest_sha256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+  "source_files": 52,
+  "mismatches": [],
+  "build02_zip_sha256": "7e506a337a54c6db2b358e7e16b910c8e751fdf3b3b5f7cebcf49449e4021a5b",
+  "build01_zip_sha256": "99d544f40651e148510bda17f884473c842f9a1e1a140885005a4fd1d8098957",
+  "diff_apply_returncode": 0,
+  "diff_apply_stderr": "",
+  "diff_result_mismatches": []
+}

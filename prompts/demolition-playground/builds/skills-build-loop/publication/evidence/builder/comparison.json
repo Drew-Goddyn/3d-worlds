@@ -1,0 +1,497 @@
+{
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/contact.js",
+        "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+  },
+  "rounds": [
+    {
+      "round": 1,
+      "sourceIdentity": {
+        "files": [
+          {
+            "path": "index.html",
+            "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+          },
+          {
+            "path": "package.json",
+            "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+          },
+          {
+            "path": "package-lock.json",
+            "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+          },
+          {
+            "path": "src/app.js",
+            "sha256": "a39de75d8503371b3ce835d25e024fe300aa9fdc0d8b8ca7a7717568f94fa1fe"
+          },
+          {
+            "path": "src/style.css",
+            "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+          },
+          {
+            "path": "src/view.js",
+            "sha256": "6860ffb246740c36a89ff7d8f51225b0bff4546093854588a644e4b994b9f37a"
+          },
+          {
+            "path": "src/world.js",
+            "sha256": "7727531b12bebbe237375986030e938de72191075c4048be8eecb2498eafea0a"
+          },
+          {
+            "path": "scripts/server.mjs",
+            "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+          }
+        ],
+        "sha256": "057a7764a39785a7d1c8b95a02ebbe2d7fd65d265444e1c8b39b17ea9725b8bf"
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Pro, Unspecified Version)",
+        "vendor": "Google Inc. (Apple)",
+        "viewport": [
+          1440,
+          900
+        ],
+        "devicePixelRatio": 1,
+        "pixelRatio": 1,
+        "quality": "high",
+        "three": "0.180.0",
+        "seed": 85173
+      },
+      "hardware": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M2 Pro",
+        "logicalCores": 10,
+        "totalMemoryGiB": 32
+      },
+      "historyBytes": 275006588,
+      "historyMiB": 262.26671981811523,
+      "records": 5483,
+      "endStats": {
+        "time": 90.99999999999612,
+        "active": 0,
+        "sleeping": 147,
+        "debris": 1915,
+        "dust": 0,
+        "water": 0,
+        "score": 41820,
+        "tons": 2496,
+        "chain": 2,
+        "waterImpulse": 1575.0235381526925,
+        "chainContacts": 8,
+        "crushedCars": 9,
+        "snappedTrees": 1,
+        "createdFragments": 5096,
+        "historyBytes": 275006588,
+        "frames": 5483,
+        "branch": 1,
+        "parts": 16559,
+        "drawCalls": 835,
+        "triangles": 239156
+      },
+      "frameSamples": [
+        {
+          "name": "pristine-high",
+          "count": 240,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000273,
+          "p99Ms": 16.800000000000182,
+          "maxMs": 20.90000000000009
+        },
+        {
+          "name": "three-building-collapse-high",
+          "count": 708,
+          "medianMs": 16.69999999999891,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.80000000000109,
+          "maxMs": 29.399999999999636
+        },
+        {
+          "name": "slow-motion-replay-high",
+          "count": 240,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.799999999999272,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 16.799999999999272
+        },
+        {
+          "name": "rewind-high",
+          "count": 182,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 25.899999999997817
+        },
+        {
+          "name": "recorded-collapse-low",
+          "count": 240,
+          "medianMs": 16.700000000000728,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 16.799999999999272
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "sourceIdentity": {
+        "files": [
+          {
+            "path": "index.html",
+            "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+          },
+          {
+            "path": "package.json",
+            "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+          },
+          {
+            "path": "package-lock.json",
+            "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+          },
+          {
+            "path": "src/app.js",
+            "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+          },
+          {
+            "path": "src/architecture.js",
+            "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+          },
+          {
+            "path": "src/fractures.js",
+            "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+          },
+          {
+            "path": "src/presentation.js",
+            "sha256": "4eb8a34c8306a51052e366fd1a3527ed1272f7490c952b363242217c4c880634"
+          },
+          {
+            "path": "src/style.css",
+            "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+          },
+          {
+            "path": "src/view.js",
+            "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+          },
+          {
+            "path": "src/world.js",
+            "sha256": "70970c3a80bbeebdd2307d7cbab7b090d20bcb0a2ed78e660aa028d3d76c5f3f"
+          },
+          {
+            "path": "scripts/server.mjs",
+            "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+          }
+        ],
+        "sha256": "f7039a24dbccd0b9ee6067b8a5d4e03daad88bb86cdaf3c09af17cacf554f73a"
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Pro, Unspecified Version)",
+        "vendor": "Google Inc. (Apple)",
+        "viewport": [
+          1440,
+          900
+        ],
+        "devicePixelRatio": 1,
+        "pixelRatio": 1,
+        "quality": "high",
+        "three": "0.180.0",
+        "seed": 85173
+      },
+      "hardware": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M2 Pro",
+        "logicalCores": 10,
+        "totalMemoryGiB": 32
+      },
+      "historyBytes": 632574464,
+      "historyMiB": 603.27001953125,
+      "records": 5483,
+      "endStats": {
+        "time": 90.99999999999612,
+        "active": 88,
+        "sleeping": 48,
+        "debris": 2738,
+        "dust": 0,
+        "water": 0,
+        "score": 15360,
+        "tons": 912,
+        "chain": 2,
+        "waterImpulse": 6220.524636716557,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 5073,
+        "historyBytes": 632574464,
+        "frames": 5483,
+        "branch": 1,
+        "parts": 21870,
+        "drawCalls": 844,
+        "triangles": 258044
+      },
+      "frameSamples": [
+        {
+          "name": "pristine-high",
+          "count": 240,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.799999999999727,
+          "p99Ms": 16.800000000000182,
+          "maxMs": 16.800000000000182
+        },
+        {
+          "name": "three-building-collapse-high",
+          "count": 659,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 25,
+          "p99Ms": 33.399999999999636,
+          "maxMs": 50
+        },
+        {
+          "name": "slow-motion-replay-high",
+          "count": 240,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 16.799999999999272
+        },
+        {
+          "name": "rewind-high",
+          "count": 181,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 16.799999999999272
+        },
+        {
+          "name": "recorded-collapse-low",
+          "count": 240,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.799999999999272,
+          "p99Ms": 16.799999999999272,
+          "maxMs": 16.799999999999272
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "sourceIdentity": {
+        "files": [
+          {
+            "path": "index.html",
+            "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+          },
+          {
+            "path": "package.json",
+            "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+          },
+          {
+            "path": "package-lock.json",
+            "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+          },
+          {
+            "path": "src/app.js",
+            "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+          },
+          {
+            "path": "src/architecture.js",
+            "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+          },
+          {
+            "path": "src/contact.js",
+            "sha256": "1ac621f97426705f388d4f094604dcedd6b5bfd437127d188e76ebd3d614ba34"
+          },
+          {
+            "path": "src/fractures.js",
+            "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+          },
+          {
+            "path": "src/presentation.js",
+            "sha256": "98ade80b0958127e1ca2dfc3fb405ff8ffdda085398df3fc0820433baae6f23a"
+          },
+          {
+            "path": "src/style.css",
+            "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+          },
+          {
+            "path": "src/view.js",
+            "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+          },
+          {
+            "path": "src/world.js",
+            "sha256": "7054b50f39ae5e2df8420679624d6d986284dc44c4ae1ef2f506afaae4f8da79"
+          },
+          {
+            "path": "scripts/server.mjs",
+            "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+          }
+        ],
+        "sha256": "1c7af145f00ccad9359d1c8d8f389fa021431de4b79f77137d09f727549eb2c4"
+      },
+      "environment": {
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Pro, Unspecified Version)",
+        "vendor": "Google Inc. (Apple)",
+        "viewport": [
+          1440,
+          900
+        ],
+        "devicePixelRatio": 1,
+        "pixelRatio": 1,
+        "quality": "high",
+        "three": "0.180.0",
+        "seed": 85173
+      },
+      "hardware": {
+        "platform": "darwin",
+        "arch": "arm64",
+        "cpu": "Apple M2 Pro",
+        "logicalCores": 10,
+        "totalMemoryGiB": 32
+      },
+      "historyBytes": 463948380,
+      "historyMiB": 442.4556541442871,
+      "records": 5483,
+      "endStats": {
+        "time": 90.99999999999612,
+        "active": 30,
+        "sleeping": 163,
+        "debris": 2990,
+        "dust": 386,
+        "water": 0,
+        "score": 53430,
+        "tons": 2608,
+        "chain": 2,
+        "waterImpulse": 3393.8542389671165,
+        "chainContacts": 21,
+        "crushedCars": 17,
+        "snappedTrees": 4,
+        "createdFragments": 7586,
+        "historyBytes": 463948380,
+        "frames": 5483,
+        "branch": 1,
+        "parts": 21870,
+        "drawCalls": 844,
+        "triangles": 258044
+      },
+      "frameSamples": [
+        {
+          "name": "pristine-high",
+          "count": 241,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000273,
+          "p99Ms": 16.800000000000068,
+          "maxMs": 16.800000000000182
+        },
+        {
+          "name": "three-building-collapse-high",
+          "count": 710,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.800000000000182,
+          "maxMs": 25
+        },
+        {
+          "name": "slow-motion-replay-high",
+          "count": 240,
+          "medianMs": 16.700000000000728,
+          "p95Ms": 16.799999999999272,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 16.80000000000291
+        },
+        {
+          "name": "rewind-high",
+          "count": 180,
+          "medianMs": 16.700000000000728,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 16.80000000000291
+        },
+        {
+          "name": "recorded-collapse-low",
+          "count": 240,
+          "medianMs": 16.700000000000728,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.80000000000291,
+          "maxMs": 16.80000000000291
+        }
+      ]
+    }
+  ],
+  "historyReductionVsBuild02": 0.2665711210245756,
+  "sameRetentionSchedule": "Bank6 foundations t0; tower6 outer foundations t4; parking6 foundations t65; tank196 t68; end t91. All5483 records retained. Same1440x900,DPR1,High,M2Pro/Metal/Chrome149. Physical results differ because contact/support changed.",
+  "caveats": [
+    "Build01 lacks the temporal/physical ownership repairs and is not an equivalent-fidelity target.",
+    "Node profiling measures elapsed method time with no rendering; it is not browser FPS or CPU sampling. Final profiling, browser measurement and recording were run sequentially.",
+    "Node and Chrome produce small floating-point water-flow/payload differences; exact restoration is asserted within each runtime, not cross-engine bit identity.",
+    "Frame samples are representative short windows, not a guarantee of sustained60fps for arbitrary long play."
+  ],
+  "nodeProfile": {
+    "before": {
+      "record": 1321.312009999987,
+      "ballStep": 178.552325000157,
+      "solveConnections": 2717.0826190000953,
+      "tankStep": 29.048998000042047,
+      "particleStep": 56884.18362399979,
+      "step": 60482.1897119997
+    },
+    "after": {
+      "record": 1638.8374860000622,
+      "ballStep": 183.57583300010083,
+      "solveConnections": 1677.2525049998949,
+      "tankStep": 147.51596099995368,
+      "particleStep": 15126.099331000067,
+      "step": 25634.874116999905
+    },
+    "beforeBytes": 632580756,
+    "afterBytes": 463944960
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "scope": "Publication metadata and documentation only. Frozen source, source archives, supplied packet, and historical reviewer evidence remain unchanged.",
+  "suppliedPacket": {
+    "name": "build-03-publication-provenance.zip",
+    "bytes": 65856,
+    "sha256": "e35a31907bcdd0adc0de86d9b5c74710c747eb77a553bbcfa6908c1b21c591ba",
+    "manifestSHA256": "462c943a737dcd20733a50f032666bebb59010522aaecc0c5a0c75ae5c41599d",
+    "allManifestEntriesVerified": true,
+    "manifest": "publication/packet/PACKET_SHA256SUMS.txt"
+  },
+  "pathConvention": "Public paths are relative to the imported build directory. Packet and nested archive paths refer to their original layouts.",
+  "packetFiles": [
+    {
+      "packetEntry": "FROZEN_PACKAGE.json",
+      "originalSHA256": "055e351f5fb0ec804a1e74919c3a8954f811272e13f99aadbcea3654b96d109d",
+      "publicPath": "publication/frozen-package.json",
+      "exportSHA256": "055e351f5fb0ec804a1e74919c3a8954f811272e13f99aadbcea3654b96d109d",
+      "transformation": "Filename only; historical content unchanged."
+    },
+    {
+      "packetEntry": "ORIGINAL_PROMPT.txt",
+      "originalSHA256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+      "publicPath": "../../PROMPT.md",
+      "exportSHA256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+      "transformation": "No content change; uses the existing byte-identical shared prompt."
+    },
+    {
+      "packetEntry": "PREPARATION.json",
+      "originalSHA256": "05ccfe769e8b6721c8526370264c4da928e34580db7594ad5e39a80e46362984",
+      "publicPath": "publication/packet/preparation.json",
+      "exportSHA256": "05ccfe769e8b6721c8526370264c4da928e34580db7594ad5e39a80e46362984",
+      "transformation": "Filename only; historical preparation record unchanged."
+    },
+    {
+      "packetEntry": "PROVENANCE.md",
+      "originalSHA256": "c4e5996219a3c4cd02280c461fcb81424e78888670a13f920412180dd675489e",
+      "publicPath": "PROVENANCE.md",
+      "exportSHA256": "715ac344b02f8db0b2830cc2b2d7d822eedf7c49daa1972db2bbc753e93b4b90",
+      "transformation": "Publication draft updated with recovered builder settings, separate reviewer uncertainty, collection launch/check attribution, working relative links, and explicit import-state semantics."
+    },
+    {
+      "packetEntry": "README.md",
+      "originalSHA256": "2f36f3f46c59a30bc32b8ce15614e55a83d7c05a6b86f8090a0b6923127d05da",
+      "publicPath": "publication/packet/README.md",
+      "exportSHA256": "2f36f3f46c59a30bc32b8ce15614e55a83d7c05a6b86f8090a0b6923127d05da",
+      "transformation": "None; explicitly labeled as the original packet README."
+    },
+    {
+      "packetEntry": "SOURCE_SHA256SUMS.txt",
+      "originalSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+      "publicPath": "publication/SOURCE_SHA256SUMS.txt",
+      "exportSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+      "transformation": "None; existing byte-identical frozen manifest."
+    },
+    {
+      "packetEntry": "evidence/final-review.md",
+      "originalSHA256": "1313579f0d89473cf3e8936d79220efef0124075c3f9486ec48a20ddb81218e8",
+      "publicPath": "publication/evidence/reviewer/FINAL_REVIEW.md",
+      "exportSHA256": "1313579f0d89473cf3e8936d79220efef0124075c3f9486ec48a20ddb81218e8",
+      "transformation": "Filename only; historical assessment unchanged. Original paths labeled in reviewer/README.md."
+    },
+    {
+      "packetEntry": "evidence/independent-review.zip",
+      "originalSHA256": "891dee741e089e5fe7fcaa816c7168a63b2b85d3b552cb4690a1a53dda48b83a",
+      "publicPath": null,
+      "exportSHA256": null,
+      "transformation": "Archive retained locally and unchanged; its useful files are exported individually below. No ZIP committed."
+    },
+    {
+      "packetEntry": "provenance.json",
+      "originalSHA256": "4de06ce08ded7415964eea878e47bee5ba4a3892163be0999e9010f295b878d2",
+      "publicPath": "provenance.json",
+      "exportSHA256": "78ea6892b0b5564ac01cce49b9b74cacfae631970af8dc535b8a147028cf8742",
+      "transformation": "Publication draft updated consistently with recovered builder settings, separate reviewer identity, collection verification, export paths, and non-self-referential commit/PR resolution."
+    }
+  ],
+  "independentReviewArchive": {
+    "originalSHA256": "891dee741e089e5fe7fcaa816c7168a63b2b85d3b552cb4690a1a53dda48b83a",
+    "exports": [
+      {
+        "archiveEntry": "build-03-final-review.md",
+        "originalSHA256": "1313579f0d89473cf3e8936d79220efef0124075c3f9486ec48a20ddb81218e8",
+        "publicPath": "publication/evidence/reviewer/FINAL_REVIEW.md",
+        "exportSHA256": "1313579f0d89473cf3e8936d79220efef0124075c3f9486ec48a20ddb81218e8",
+        "transformation": "Identical duplicate final review uses the same public copy; filename only changed."
+      },
+      {
+        "archiveEntry": "collapse-decode.txt",
+        "originalSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicPath": "publication/evidence/reviewer/collapse-decode.txt",
+        "exportSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "collapse-media.json",
+        "originalSHA256": "dc2ad9b3263334dcbde03d31b55ff548d90894486fa5479947a8f908481f1e81",
+        "publicPath": "publication/evidence/reviewer/collapse-media.json",
+        "exportSHA256": "dc2ad9b3263334dcbde03d31b55ff548d90894486fa5479947a8f908481f1e81",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-collapse-support.json",
+        "originalSHA256": "22b633443c04afd3290868243e53578d01eb300128bff8c72b6ce8776f723edb",
+        "publicPath": "publication/evidence/reviewer/reviewer-collapse-support.json",
+        "exportSHA256": "22b633443c04afd3290868243e53578d01eb300128bff8c72b6ce8776f723edb",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-contact-endpoints.json",
+        "originalSHA256": "83dcdbeb6a94897fe2b8dfb2ecea2785ddd99ac6250a715539ae460306aab238",
+        "publicPath": "publication/evidence/reviewer/reviewer-contact-endpoints.json",
+        "exportSHA256": "83dcdbeb6a94897fe2b8dfb2ecea2785ddd99ac6250a715539ae460306aab238",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-contact-endpoints.py",
+        "originalSHA256": "928af924bdd5c9a6a74b613d5bfc5c334fe6d2aa2d2903bb060e2fe3c4b1742b",
+        "publicPath": "publication/evidence/reviewer/reviewer-contact-endpoints.py",
+        "exportSHA256": "928af924bdd5c9a6a74b613d5bfc5c334fe6d2aa2d2903bb060e2fe3c4b1742b",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-contact-history-7.mjs",
+        "originalSHA256": "47b2644ecdb4aac3f0b07912677137a36a36c66baa35d767c541870c546086f5",
+        "publicPath": "publication/evidence/reviewer/reviewer-contact-history-7.mjs",
+        "exportSHA256": "47b2644ecdb4aac3f0b07912677137a36a36c66baa35d767c541870c546086f5",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-contact-history-7.txt",
+        "originalSHA256": "b92c4f33b4a167abc44aa24d519ec0170ee43480b2bca4f6153c9aadd5b8cc98",
+        "publicPath": "publication/evidence/reviewer/reviewer-contact-history-7.txt",
+        "exportSHA256": "b92c4f33b4a167abc44aa24d519ec0170ee43480b2bca4f6153c9aadd5b8cc98",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-final-verification.json",
+        "originalSHA256": "127549860e17697bd50dd33e521759a75311b22678a46bddb6827a2d67af7386",
+        "publicPath": "publication/evidence/reviewer/reviewer-final-verification.json",
+        "exportSHA256": "127549860e17697bd50dd33e521759a75311b22678a46bddb6827a2d67af7386",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-integrity.json",
+        "originalSHA256": "19cce6244433b26b8278275ebf7e3e67b7f4911a713b1c8875dafd6319c0b95c",
+        "publicPath": "publication/evidence/reviewer/reviewer-integrity.json",
+        "exportSHA256": "19cce6244433b26b8278275ebf7e3e67b7f4911a713b1c8875dafd6319c0b95c",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-replay.mjs",
+        "originalSHA256": "2787aa0830fc75fd4c89eaf55824960d613acf2bae44511c0331683a9a8a7da4",
+        "publicPath": "publication/evidence/reviewer/reviewer-replay.mjs",
+        "exportSHA256": "2787aa0830fc75fd4c89eaf55824960d613acf2bae44511c0331683a9a8a7da4",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-replayed-tank-states.json",
+        "originalSHA256": "c8e1bc6d744af8235125c8e273f6a58de913ff5774e978cfaa3387a11661f537",
+        "publicPath": "publication/evidence/reviewer/reviewer-replayed-tank-states.json",
+        "exportSHA256": "c8e1bc6d744af8235125c8e273f6a58de913ff5774e978cfaa3387a11661f537",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-static-check.txt",
+        "originalSHA256": "31347363fd769b9d36f7d71f61933c53d08a07f66f88a9c269975d4db7884104",
+        "publicPath": "publication/evidence/reviewer/reviewer-static-check.txt",
+        "exportSHA256": "31347363fd769b9d36f7d71f61933c53d08a07f66f88a9c269975d4db7884104",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-temporal-regressions.json",
+        "originalSHA256": "2e5073724476ba59cbebdf9c541b092842991acedce6be1513b9726a7a9b2dd0",
+        "publicPath": "publication/evidence/reviewer/reviewer-temporal-regressions.json",
+        "exportSHA256": "2e5073724476ba59cbebdf9c541b092842991acedce6be1513b9726a7a9b2dd0",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "reviewer-tests-39.txt",
+        "originalSHA256": "1b7aeeed779a0ec210903626f38439a60c46f9daa11bf85c6f5123d2d273f692",
+        "publicPath": "publication/evidence/reviewer/reviewer-tests-39.txt",
+        "exportSHA256": "1b7aeeed779a0ec210903626f38439a60c46f9daa11bf85c6f5123d2d273f692",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "tank-decode.txt",
+        "originalSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicPath": "publication/evidence/reviewer/tank-decode.txt",
+        "exportSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "tank-media.json",
+        "originalSHA256": "67757258384f8f5882c30872b810d3ebaa98a4e5f25290164584c566a575e721",
+        "publicPath": "publication/evidence/reviewer/tank-media.json",
+        "exportSHA256": "67757258384f8f5882c30872b810d3ebaa98a4e5f25290164584c566a575e721",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "temporal-decode.txt",
+        "originalSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "publicPath": "publication/evidence/reviewer/temporal-decode.txt",
+        "exportSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      },
+      {
+        "archiveEntry": "temporal-media.json",
+        "originalSHA256": "94b23ecc611b8052caf64a9ca646caa1ab4defa5b99e83404c179e1c3c79bf08",
+        "publicPath": "publication/evidence/reviewer/temporal-media.json",
+        "exportSHA256": "94b23ecc611b8052caf64a9ca646caa1ab4defa5b99e83404c179e1c3c79bf08",
+        "transformation": "None; byte-identical export. Embedded sandbox paths remain historical."
+      }
+    ]
+  },
+  "addedNavigation": [
+    "PROVENANCE.md",
+    "publication/evidence/README.md",
+    "publication/evidence/reviewer/README.md",
+    "collection README, prompt index, provenance index, and this entry in showcase/attempts.json"
+  ],
+  "historicalEvidencePolicy": "Original unknown-model and no-publication statements remain accurate historical records. Updated provenance is recorded alongside, not substituted into historical reports."
+}

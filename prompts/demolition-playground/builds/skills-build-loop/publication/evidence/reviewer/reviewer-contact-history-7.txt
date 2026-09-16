@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: a sleeping slab wakes when its actual supporting slab moves away
+ok 1 - a sleeping slab wakes when its actual supporting slab moves away
+  ---
+  duration_ms: 163.453758
+  type: 'test'
+  ...
+# Subtest: released upper columns cannot preserve an invisible support constraint
+ok 2 - released upper columns cannot preserve an invisible support constraint
+  ---
+  duration_ms: 661.160164
+  type: 'test'
+  ...
+# Subtest: reversible history preserves Float64 bits, checkpoints, and branch recounts
+ok 3 - reversible history preserves Float64 bits, checkpoints, and branch recounts
+  ---
+  duration_ms: 143.546779
+  type: 'test'
+  ...
+# Subtest: a lateral slab-edge collision transfers damage to the neighboring structure
+ok 4 - a lateral slab-edge collision transfers damage to the neighboring structure
+  ---
+  duration_ms: 135.58258
+  type: 'test'
+  ...
+# Subtest: an upright tank cannot sleep on a roof sliver beyond its center of mass
+ok 5 - an upright tank cannot sleep on a roof sliver beyond its center of mass
+  ---
+  duration_ms: 488.32208
+  type: 'test'
+  ...
+# Subtest: a tank sleeps on either face of a flat grounded slab
+ok 6 - a tank sleeps on either face of a flat grounded slab
+  ---
+  duration_ms: 477.859914
+  type: 'test'
+  ...
+# Subtest: recorded complete collapse stays asleep despite tilted supports with higher centers
+ok 7 - recorded complete collapse stays asleep despite tilted supports with higher centers
+  ---
+  duration_ms: 18415.223412
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20552.803567

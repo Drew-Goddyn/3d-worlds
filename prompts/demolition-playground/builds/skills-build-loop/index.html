@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#d3e4df">
+  <title>Demolition Playground</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="importmap">
+  {"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}
+  </script>
+  <script type="module" src="/src/app.js"></script>
+</head>
+<body>
+  <canvas id="city" aria-label="Interactive demolition district. Drag to orbit, right drag to pan, scroll to zoom." tabindex="0"></canvas>
+  <div id="score" aria-live="off"><div><strong id="tons">0</strong><span>t dropped</span></div><div class="mult"><strong id="chain">×1</strong><span>chain</span></div><p id="praise"></p></div>
+  <div class="top-tools"><span class="site-status"><i></i> SITE CLEAR</span><button id="view" title="Restore the overview camera; city is unchanged">↗ <span>Reset view</span></button><label class="quality">Detail <select id="quality" aria-label="Visual quality"><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></label></div>
+  <div id="target-cue" role="status"></div>
+  <div id="toast" role="status"></div>
+  <main class="console" aria-label="Playground controls">
+    <div class="tool-hint" id="ball-hint"><span>Drag the ball to swing</span><span class="keygroup"><button data-hold="a" aria-label="Rotate crane left">↶ <kbd>A</kbd></button><button data-hold="d" aria-label="Rotate crane right">↷ <kbd>D</kbd></button></span><span class="keygroup"><button data-hold="w" aria-label="Shorten cable">↑ <kbd>W</kbd></button><button data-hold="s" aria-label="Lengthen cable">↓ <kbd>S</kbd></button></span><span><kbd>↑ ↓ ← →</kbd> build momentum</span></div>
+    <div class="tool-hint" id="charge-hint" hidden><span>Click a gold joint · up to 6 charges</span><button id="detonate" class="detonate" disabled>● Detonate <span id="charge-count">0 / 6</span></button></div>
+    <div class="toolbar">
+      <div class="segment" aria-label="Tool"><button id="ball-tool" class="selected" aria-pressed="true">◉ Ball <kbd>B</kbd></button><button id="charge-tool" aria-pressed="false">✦ Charges <kbd>C</kbd></button></div>
+      <span class="separator"></span>
+      <button id="slow" aria-pressed="false" title="Toggle 10% speed. Hold Space for temporary slow motion.">◷ <span>Slow</span><small>10%</small></button>
+      <button id="rewind" class="rewind" aria-pressed="false" title="Reverse recorded history. Hold R to rewind.">◀◀ <span>Rewind</span><kbd>R</kbd></button>
+      <button id="action-cam" aria-pressed="false" title="Follow the current impact">⌖ <span>Action cam</span></button>
+      <span class="separator"></span>
+      <button id="reset-city" title="Rebuild by playing the entire recorded history backwards">↺ <span>Rebuild city</span></button>
+    </div>
+    <div class="timebar"><button id="play" aria-label="Pause simulation">Ⅱ</button><output id="playhead">0.0s</output><input id="timeline" type="range" min="0" max="0" value="0" step="1" aria-label="Recorded history playhead"><output id="duration">0.0s</output><span id="time-state">LIVE</span></div>
+  </main>
+  <div class="camera-hint">Drag to orbit · right drag to pan · scroll to zoom</div>
+  <div id="error" hidden role="alert"></div>
+</body>
+</html>

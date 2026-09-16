@@ -1,0 +1,356 @@
+{
+  "snapshot": "build-02",
+  "method": "Node method timings, including nested timings. Same 91-second input schedule. Instrumentation and no rendering: not a browser FPS result.",
+  "wallMs": 63200.993167,
+  "timings": {
+    "record": 1321.312009999987,
+    "ballStep": 178.552325000157,
+    "solveConnections": 2717.0826190000953,
+    "tankStep": 29.048998000042047,
+    "particleStep": 56884.18362399979,
+    "step": 60482.1897119997
+  },
+  "changed": {
+    "other": 46792,
+    "structure": 4299845,
+    "particle-position": 5821930,
+    "particle-velocity": 5701067,
+    "particle-rotation": 7167376,
+    "particle-angularVelocity": 3979014,
+    "particle-discrete": 197157,
+    "particle-age": 2827538
+  },
+  "historyBytes": 632580756,
+  "stats": {
+    "time": 90.99999999999612,
+    "active": 88,
+    "sleeping": 48,
+    "debris": 2738,
+    "dust": 0,
+    "water": 0,
+    "score": 15360,
+    "tons": 912,
+    "chain": 2,
+    "waterImpulse": 6224.147750566872,
+    "chainContacts": 25,
+    "crushedCars": 8,
+    "snappedTrees": 2,
+    "createdFragments": 5073
+  },
+  "samples": [
+    {
+      "time": 0.016666666666666666,
+      "awakeParticles": 0,
+      "sleepingParticles": 0,
+      "bytes": 27596,
+      "stats": {
+        "time": 0.016666666666666666,
+        "active": 0,
+        "sleeping": 0,
+        "debris": 0,
+        "dust": 0,
+        "water": 0,
+        "score": 0,
+        "tons": 0,
+        "chain": 0,
+        "waterImpulse": 0,
+        "chainContacts": 0,
+        "crushedCars": 0,
+        "snappedTrees": 0,
+        "createdFragments": 0
+      }
+    },
+    {
+      "time": 4.016666666666658,
+      "awakeParticles": 515,
+      "sleepingParticles": 239,
+      "bytes": 19839944,
+      "stats": {
+        "time": 4.016666666666658,
+        "active": 24,
+        "sleeping": 0,
+        "debris": 754,
+        "dust": 174,
+        "water": 0,
+        "score": 3240,
+        "tons": 264,
+        "chain": 0,
+        "waterImpulse": 0,
+        "chainContacts": 0,
+        "crushedCars": 3,
+        "snappedTrees": 0,
+        "createdFragments": 754
+      }
+    },
+    {
+      "time": 14.016666666666943,
+      "awakeParticles": 1526,
+      "sleepingParticles": 1543,
+      "bytes": 162123072,
+      "stats": {
+        "time": 14.016666666666943,
+        "active": 72,
+        "sleeping": 24,
+        "debris": 3069,
+        "dust": 263,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 14,
+        "crushedCars": 5,
+        "snappedTrees": 1,
+        "createdFragments": 3572
+      }
+    },
+    {
+      "time": 24.016666666666584,
+      "awakeParticles": 381,
+      "sleepingParticles": 2505,
+      "bytes": 282188688,
+      "stats": {
+        "time": 24.016666666666584,
+        "active": 87,
+        "sleeping": 24,
+        "debris": 2886,
+        "dust": 46,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4193
+      }
+    },
+    {
+      "time": 34.01666666666602,
+      "awakeParticles": 274,
+      "sleepingParticles": 2566,
+      "bytes": 327311288,
+      "stats": {
+        "time": 34.01666666666602,
+        "active": 87,
+        "sleeping": 24,
+        "debris": 2840,
+        "dust": 0,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4193
+      }
+    },
+    {
+      "time": 44.01666666666545,
+      "awakeParticles": 264,
+      "sleepingParticles": 2576,
+      "bytes": 368424640,
+      "stats": {
+        "time": 44.01666666666545,
+        "active": 87,
+        "sleeping": 24,
+        "debris": 2840,
+        "dust": 0,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4193
+      }
+    },
+    {
+      "time": 54.01666666666488,
+      "awakeParticles": 256,
+      "sleepingParticles": 2584,
+      "bytes": 408727936,
+      "stats": {
+        "time": 54.01666666666488,
+        "active": 87,
+        "sleeping": 24,
+        "debris": 2840,
+        "dust": 0,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4193
+      }
+    },
+    {
+      "time": 64.01666666666432,
+      "awakeParticles": 254,
+      "sleepingParticles": 2586,
+      "bytes": 448363488,
+      "stats": {
+        "time": 64.01666666666432,
+        "active": 87,
+        "sleeping": 24,
+        "debris": 2840,
+        "dust": 0,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4193
+      }
+    },
+    {
+      "time": 65.01666666666426,
+      "awakeParticles": 254,
+      "sleepingParticles": 2586,
+      "bytes": 451949648,
+      "stats": {
+        "time": 65.01666666666426,
+        "active": 87,
+        "sleeping": 24,
+        "debris": 2840,
+        "dust": 0,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4193
+      }
+    },
+    {
+      "time": 68.0166666666641,
+      "awakeParticles": 754,
+      "sleepingParticles": 2318,
+      "bytes": 475788388,
+      "stats": {
+        "time": 68.0166666666641,
+        "active": 111,
+        "sleeping": 24,
+        "debris": 3072,
+        "dust": 128,
+        "water": 0,
+        "score": 6480,
+        "tons": 528,
+        "chain": 2,
+        "waterImpulse": 0,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 4815
+      }
+    },
+    {
+      "time": 78.01666666666353,
+      "awakeParticles": 352,
+      "sleepingParticles": 2428,
+      "bytes": 576650100,
+      "stats": {
+        "time": 78.01666666666353,
+        "active": 88,
+        "sleeping": 48,
+        "debris": 2780,
+        "dust": 42,
+        "water": 0,
+        "score": 15360,
+        "tons": 912,
+        "chain": 2,
+        "waterImpulse": 6224.147750566872,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 5073
+      }
+    },
+    {
+      "time": 88.01666666666296,
+      "awakeParticles": 290,
+      "sleepingParticles": 2448,
+      "bytes": 620506168,
+      "stats": {
+        "time": 88.01666666666296,
+        "active": 88,
+        "sleeping": 48,
+        "debris": 2738,
+        "dust": 0,
+        "water": 0,
+        "score": 15360,
+        "tons": 912,
+        "chain": 2,
+        "waterImpulse": 6224.147750566872,
+        "chainContacts": 25,
+        "crushedCars": 8,
+        "snappedTrees": 2,
+        "createdFragments": 5073
+      }
+    }
+  ],
+  "sourceIdentity": {
+    "files": [
+      {
+        "path": "index.html",
+        "sha256": "319cdae579faa6cfc1cc0f0b5c50593c5b887dc9c1832a8f680b66c0326fb0a8"
+      },
+      {
+        "path": "package.json",
+        "sha256": "2a273cd37041cce605274dbf5a6d41cd97f65998c375d966ddb9a4dc32caf264"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "cc98f3d830c0e1f1850c006cd2c0a030db79920b679f21db45e0357fcb246738"
+      },
+      {
+        "path": "src/app.js",
+        "sha256": "284e35a538abf390d2232033879d7b8b445575dede8ba99a1e24800bb65b44a9"
+      },
+      {
+        "path": "src/architecture.js",
+        "sha256": "bc85767f00941947e4eb4faf2e45cd05d1cf57a8c5ba3522c6c7b4542916380a"
+      },
+      {
+        "path": "src/fractures.js",
+        "sha256": "83efec364ab99577cd28550b8a22e4e13f56464b6e5788ecf0b57de20abf7d08"
+      },
+      {
+        "path": "src/presentation.js",
+        "sha256": "4eb8a34c8306a51052e366fd1a3527ed1272f7490c952b363242217c4c880634"
+      },
+      {
+        "path": "src/style.css",
+        "sha256": "698cf5d8cd7ac584620df5605130c65cbc8cfbb5ff16149e9c5279124e7a0672"
+      },
+      {
+        "path": "src/view.js",
+        "sha256": "6d1adbc1e7990d28c74d2852f45d79f069bc4792b74c05ad820ca7e0e2363e1d"
+      },
+      {
+        "path": "src/world.js",
+        "sha256": "70970c3a80bbeebdd2307d7cbab7b090d20bcb0a2ed78e660aa028d3d76c5f3f"
+      },
+      {
+        "path": "scripts/server.mjs",
+        "sha256": "8d55344df4eaafba8ddf34a0da2e0e2789b30dfa7a19abde0605c57938b95d5a"
+      }
+    ],
+    "sha256": "f7039a24dbccd0b9ee6067b8a5d4e03daad88bb86cdaf3c09af17cacf554f73a"
+  },
+  "identityProvenance": "Immutable build-02 source imported by the profiler; all35 source hashes matched at round start."
+}

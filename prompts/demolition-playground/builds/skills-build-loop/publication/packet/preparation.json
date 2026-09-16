@@ -1,0 +1,10 @@
+{
+  "zipVerified": "0b5a4c310e89d70a6fc47c61fb846d0d0adb517aee25c028fc9734d8504f9e01",
+  "crcValid": true,
+  "sourceFilesVerified": 52,
+  "sourceManifestSHA256": "ba7b31d92c2fb163ddb564d989fb1668b5ef289b5026f80707adf16868d5ed7f",
+  "promptBytes": 6308,
+  "promptSHA256": "934156d73fa6451150d8c13da45465eee6621658e7d0e8af46a843826dd2f8a7",
+  "remoteWritesPerformed": false,
+  "applicationTestsRerunDuringPreparation": false
+}

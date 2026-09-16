@@ -1,0 +1,5 @@
+
+> demolition-playground@1.0.0 check
+> node scripts/check.mjs
+
+PASS: syntax; import map before module; one pinned Three.js version; named Three imports; no remote scene assets.
